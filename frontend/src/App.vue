@@ -1,29 +1,41 @@
-<script lang="ts">
-  import Header from "@/components/Header.vue";
-  import { useRoute } from 'vue-router'
-  import { ElConfigProvider } from 'element-plus'
-  import { computed } from 'vue'
-  import { RouterView } from 'vue-router'
+<script setup lang="ts">
+  import ThemeChanger from "@/components/ThemeChanger.vue"
+  import CardHeader from "@/components/CardHeader.vue"
+  import CardFooter from "@/components/CardFooter.vue"
 
-  const route = useRoute()
-  const showHeaderRoute = ['posts', 'archived', 'postDetail']
+  import { ref, onMounted } from "vue"
 
-  const isShowHeader = computed(() => showHeaderRoute.includes(route.name))
+  const isDarkMode = ref(false)
+
+  onMounted(() => {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      isDarkMode.value = true
+    } else {
+      isDarkMode.value = false
+    }
+  })
+
+  const toggleDarkMode = () => {
+    if (isDarkMode.value) {
+      localStorage.theme = 'light'
+      isDarkMode.value = false
+    } else {
+      localStorage.theme = 'dark'
+      isDarkMode.value = true
+    }
+  }
 </script>
 
 <template>
-  <el-config-provider :locale="enLocale">
-    <div id="teleport"></div>
-    <el-container>
-      <el-header v-show="isShowHeader">
-        <RouterView name="navigation" />
-      </el-header>
-      <el-main :class="{ pt0: !isShowHeader }">
-        <div class="flex-main" :class="{ pt60: isShowHeader }">
-          <RouterView class="grow-2 main-shadow"></RouterView>
-          <RouterView name="rightSide" class="grow-1"></RouterView>
-        </div>
-      </el-main>
-    </el-container>
-  </el-config-provider>
+  <div :class="isDarkMode ? 'dark' : ''">
+    <div
+        class="bg-blue-100 min-h-screen sm:p-10 p-5 flex flex-col justify-center dark:bg-[#0F172A] duration-500 transition-all ease-in-out">
+      <button @click="toggleDarkMode" class="animate-pulse">
+        <ThemeChanger :class="isDarkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
+      </button>
+      <CardHeader />
+      <RouterView />
+      <CardFooter />
+    </div>
+  </div>
 </template>

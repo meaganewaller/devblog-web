@@ -28,7 +28,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['list'], ['html', { outputFolder: 'e2e-test-results' }]],
+  reporter: [['list'], ['html', { outputFolder: 'e2e-mobile-test-results' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -37,33 +37,13 @@ const config: PlaywrightTestConfig = {
     baseURL: 'http://localhost:5173',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
+    trace: 'on-first-retry',
 
     /* Only on CI systems run the tests headless */
-    headless: !!process.env.CI
+    headless: true
   },
 
-  /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome']
-      }
-    },
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox']
-      }
-    },
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari']
-      }
-    },
-
     /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
@@ -77,7 +57,6 @@ const config: PlaywrightTestConfig = {
         ...devices['iPhone 12']
       }
     },
-
     /* Test against branded browsers. */
     {
       name: 'Microsoft Edge',
@@ -94,7 +73,7 @@ const config: PlaywrightTestConfig = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'e2e-artifacts/',
+  outputDir: 'e2e-mobile-artifacts/',
 
   /* Run your local dev server before starting the tests */
   webServer: {

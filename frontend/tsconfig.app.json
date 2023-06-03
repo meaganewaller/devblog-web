@@ -1,24 +1,13 @@
 {
-  "extends": "./tsconfig.common.json",
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],  
+  "exclude": ["src/**/__tests__/*"],  
   "compilerOptions": {
     "composite": true,
-    "sourceMap": false,
-    "allowSyntheticDefaultImports": true,
-    "useDefineForClassFields": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
+    "types": ["node"],        
     "paths": {
       "@/*": ["./src/*"]
     }
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.vue",
-    "src/*.vue",
-    "src/*.ts",
-    "./auto-imports.d.ts",
-    "tests/**/*.ts"
-  ],
-  "exclude": ["node_modules", "dist", "public"]
+  }
 }
