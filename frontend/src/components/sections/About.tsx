@@ -27,17 +27,17 @@ export default function About() {
       y={size.height / 12}
       zIndex="2"
       width={`${size.width * .55}px`}>
-      <div className="flex p-5 place-content-center flex-col">
+      <div className="flex p-5 place-content-center flex-col bg-purple-50 dark:bg-viking-800">
         <div className="flex place-content-center pb-4">
-          <HiSparkles size="3em" className="text-secondary-lighter" />
-          <HiSparkles size="3em" className="text-secondary-lighter" />
-          <HiSparkles size="3em" className="text-secondary-lighter" />
+          <HiSparkles size="3em" className="text-golden-500 dark:text-golden-300" />
+          <HiSparkles size="3em" className="text-golden-500 dark:text-golden-300" />
+          <HiSparkles size="3em" className="text-golden-500 dark:text-golden-300" />
         </div>
-        <p className="font-mono text-md text-pink-300 px-8 leading-relaxed py-2">
+        <p className="font-mono text-md text-pink-300 dark:text-maroon-100 px-8 leading-relaxed py-2">
           <span className="font-bold italic">I wrote my first line of HTML on Microsoft Notepad in 2004 </span>
           and fell head-over-heels for how magical it all felt. The problem I was solving in 2004? My Neopets shop page wasn&apos;t pretty enough. I was 12 years old.
         </p>
-        <p className="font-mono text-md text-pink-400 px-8 leading-relaxed py-2">
+        <p className="font-mono text-md text-pink-400 dark:text-maroon-200 px-8 leading-relaxed py-2">
           I spent a couple days working up the courage to convince my parents to put their credit card information into a form on a website and buy me a domain name. They did. And my first website was born. I learned everything—HTML/CSS, creating graphics in Paint Shop Pro and Animation Shop, and getting my website live—by reading posts written by kids my age. Soon I started writing my own posts sharing my knowledge, my pitfalls, my cool experiments.
         </p>
 

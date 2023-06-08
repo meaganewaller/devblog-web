@@ -6,6 +6,7 @@ import Contact from "@sections/Contact"
 import NavBar from "@sections/NavBar"
 import RecentPosts from "@sections/RecentPosts"
 import About from "@sections/About"
+import Layout from "@/components/layout/Layout"
 import { useWindowSize } from "@/hooks/useWindowSize"
 import { BsArrowRightShort } from 'react-icons/bs'
 import { GetStaticProps } from "next"
@@ -15,12 +16,11 @@ export default function Index({ posts }) {
   const size = useWindowSize()
 
   return (
-    <div className="h-screen">
-      <NavBar />
+    <Layout>
       <About />
       <RecentPosts posts={posts} />
       <Contact />
-    </div>
+    </Layout>
   )
 }
 

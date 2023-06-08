@@ -144,6 +144,9 @@ module.exports = {
         serif: ["Prata", ...defaultTheme.fontFamily.serif],
         extra: ["basiic"],
       },
+      backgroundSize: {
+        'bigButton': '200px'
+      },
       fontSize: {
         sm2: "0.69rem", // 15px label
         sm: "0.7rem",
@@ -197,15 +200,11 @@ module.exports = {
         }
       }),
       backgroundImage: {
-        stars: "url('../public/static/images/bg/celesestrellas.gif')",
-        comingSoon: "url('../public/static/images/seeyasoon.svg')",
-        desktopWallpaper: "url('../public/static/images/bg.jpg')",
-        desktopWallpaper2:
-          "url('../public/static/images/bg/fondo_purplestars.gif')",
-        postWallpaper: "url('../public/static/images/bg/post.gif')",
-        windowTitleBarButton: "linear-gradient(to bottom right, #9c9c9c, #fff)",
-        windowTitleBarButtonActive: "linear-gradient(to bottom right, #444, #aaa)",
-        windowTitleBar: "repeating-linear-gradient(#fff, #000 2px)",
+        clouds: "url('/static/images/bg/2f38b876.gif')",
+        nightsky: "url('/static/images/bg/nightsky.gif')",
+        butterflies: "url('/static/images/bg/8f823bfe.png')",
+        hearts: "url('/static/images/bg/ea1cde5b.jpg')",
+        purpleStars: "url('/static/images/bg/purple-stars.gif')",
       },
       keyframes: {
         bounce: {
