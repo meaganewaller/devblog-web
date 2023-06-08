@@ -44,7 +44,7 @@ export default function Contact() {
       width="500px"
       height="250px"
     >
-      <div className="flex p-5 h-full place-content-center flex-col bg-purple-50 dark:bg-viking-800">
+      <div className="flex p-5 h-full place-content-center flex-col bg-purple-50 dark:bg-purple-800">
         <div className="test">
           <button className="pixel">GitHub</button>
           <button className="pixel">Twitter</button>

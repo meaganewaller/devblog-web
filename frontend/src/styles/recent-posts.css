@@ -2,7 +2,7 @@
   display: inline-block;
   margin: 20px 0;
   position: relative;
-  @apply font-mono text-sm text-inherit;
+  @apply font-extra text-sm text-inherit;
   transition: 0.2s ease-in-out;
   z-index: 2;
 }

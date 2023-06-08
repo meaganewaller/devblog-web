@@ -2,6 +2,7 @@ import { convertToPostList } from "@/lib/utils/blog"
 import PostService from "@/services/PostService"
 import { GetStaticProps } from "next"
 import Image from 'next/image'
+import Link from "next/link"
 
 export default function Blog({ featuredPost, posts, tags}) {
   return (
@@ -10,7 +11,9 @@ export default function Blog({ featuredPost, posts, tags}) {
       <h1>Featured Post</h1>
       <span>{featuredPost.title}</span>
       {posts.map((post) => (
-      <span key={post.title}>{post.title}</span>
+        <Link key={post.title} href={`/blog/{post.to_param}`} className="decoration-wavy">
+          {post.title}
+        </Link>
       ))}
     </div>
   )

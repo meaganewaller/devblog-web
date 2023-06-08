@@ -5,9 +5,6 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   important: true,
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
   theme: {
     colors: {
       transparent: 'transparent',
@@ -136,7 +133,6 @@ module.exports = {
       "2xl": "1400px",
       "2xl-max": { max: "1320px" },
     },
-
     extend: {
       fontFamily: {
         sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
@@ -147,58 +143,6 @@ module.exports = {
       backgroundSize: {
         'bigButton': '200px'
       },
-      fontSize: {
-        sm2: "0.69rem", // 15px label
-        sm: "0.7rem",
-        base: "0.75rem", // 16px base
-        md: "1.0625rem", // 17px body
-        lg: "1.125rem", // 18px heading
-        xl: "1.25rem",
-        "2xl": "1.5rem",
-        "3xl": "1.85rem",
-        "4xl": "2.25rem",
-        "5xl": "2.65rem",
-      },
-      typography: (theme) => ({
-      DEFAULT: {
-          css: {
-            color: theme('colors.secondary.darkest'),
-            a: {
-              color: theme('colors.secondary'),
-              '&:hover': {
-                color: theme('colors.primary')
-              },
-              textDecorationColor: theme('colors.primary.light'),
-              textUnderlineOffset: '3px',
-              textDecorationStyle: 'decoration-solid',
-              code: { color: theme('colors.tertiary.light') }
-            },
-            blockquote: {
-              borderLeftColor: theme('colors.primary'),
-              backgroundColor: theme('colors.primary.lightest'),
-              color: theme('colors.primary.darkest'),
-            },
-            'h1,h2,h3,h4': {
-              color: theme('colors.tertiary')
-            },
-            hr: { borderColor: theme('colors.secondary.dark') },
-            strong: { color: theme('colors.secondary.lightest') },
-            thead: {
-              color: theme('colors.accentFirst.light'),
-              borderBottomColor: theme('colors.accentFirst.dark')
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme('colors.accentFirst.darker')
-              }
-            },
-            code: { color: theme('colors.accentThird.light') },
-            pre: {
-              backgroundColor: theme('colors.secondary.darkest')
-            }
-          }
-        }
-      }),
       backgroundImage: {
         clouds: "url('/static/images/bg/2f38b876.gif')",
         nightsky: "url('/static/images/bg/nightsky.gif')",

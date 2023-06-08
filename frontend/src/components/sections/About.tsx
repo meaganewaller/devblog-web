@@ -27,22 +27,22 @@ export default function About() {
       y={size.height / 12}
       zIndex="2"
       width={`${size.width * .55}px`}>
-      <div className="flex p-5 place-content-center flex-col bg-purple-50 dark:bg-viking-800">
+      <div className="flex p-5 place-content-center flex-col bg-purple-50 dark:bg-purple-800 font-extra">
         <div className="flex place-content-center pb-4">
           <HiSparkles size="3em" className="text-golden-500 dark:text-golden-300" />
           <HiSparkles size="3em" className="text-golden-500 dark:text-golden-300" />
           <HiSparkles size="3em" className="text-golden-500 dark:text-golden-300" />
         </div>
-        <p className="font-mono text-md text-pink-300 dark:text-maroon-100 px-8 leading-relaxed py-2">
+        <p className="text-md text-pink-300 dark:text-purple-100 px-8 leading-relaxed py-2">
           <span className="font-bold italic">I wrote my first line of HTML on Microsoft Notepad in 2004 </span>
           and fell head-over-heels for how magical it all felt. The problem I was solving in 2004? My Neopets shop page wasn&apos;t pretty enough. I was 12 years old.
         </p>
-        <p className="font-mono text-md text-pink-400 dark:text-maroon-200 px-8 leading-relaxed py-2">
+        <p className="text-md text-pink-400 dark:text-purple-200 px-8 leading-relaxed py-2">
           I spent a couple days working up the courage to convince my parents to put their credit card information into a form on a website and buy me a domain name. They did. And my first website was born. I learned everything—HTML/CSS, creating graphics in Paint Shop Pro and Animation Shop, and getting my website live—by reading posts written by kids my age. Soon I started writing my own posts sharing my knowledge, my pitfalls, my cool experiments.
         </p>
 
-        <div className="flex place-content-end group wavy">
-          <Link href="/about" className="text-pink-500">Read more <BsArrowRightShort size="1.5em" className="inline-block" /> </Link>
+        <div className="flex place-content-end">
+          <Link href="/about" className="text-base dark:text-purple-50 text-golden-500 hover:italic hover:text-golden-600 dark:hover:text-golden-200">Read more <BsArrowRightShort size="1.5em" className="inline-block" /> </Link>
         </div>
       </div>
     </Window>
