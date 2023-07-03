@@ -1,35 +1,37 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es5",
+    "lib": [ "dom", "dom.iterable", "esnext" ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "moduleResolution": "node",
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": [ "*" ],
-      "@ui/*": [ "components/ui/*" ],
-      "@sections/*": ["components/sections/*"]
-    },
+    "incremental": true,
+    "types": ["cypress", "node"],
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [ "src/*" ],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@lib/*": ["src/lib/*"],
+      "@ui/*": [ "src/components/ui/*" ],
+      "@public/*":  ["public/*"],
+      "@pages/*": ["src/pages/*"],
+      "@sections/*": ["src/components/sections/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -37,7 +39,5 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": [ "node_modules" ]
 }

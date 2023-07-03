@@ -1,20 +1,10 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { ReactNode } from "react"
-
-export interface MDXProps {
-  source: MDXRemoteSerializeResult<Record<string, unknown>>;
-  content: string;
+export type CodingStatsApiResponse = {
+  startDate: string
+  endDate: string
+  codingHours: number
 }
 
-export interface IconClassNameProps {
-  className?: string;
-}
-
-export interface ThemeProps {
-  theme: string;
-  changeTheme: () => void;
-}
-
-export interface ChildrenProps {
-  children: ReactNode;
+export type WakatimeStats = {
+  text: string
+  total_seconds: number
 }

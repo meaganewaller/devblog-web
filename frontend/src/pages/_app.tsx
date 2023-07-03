@@ -1,39 +1,39 @@
-import "@/styles/globals.css"
-import "@fontsource/prata"
-import "@fontsource/dm-sans"
-import "@fontsource/ibm-plex-mono"
+import "@/styles/fonts.css";
+import "@/styles/globals.css";
+import "@/styles/nprogress.css";
 
-import { ThemeProvider } from "next-themes"
-import Head from 'next/head'
-import React, { useEffect, useRef } from "react"
-import Script from "next/script"
+import SEO from "@/next-seo.config";
+import { ThemeProvider } from "next-themes";
+import NProgress from "nprogress";
+import { useRef } from "react";
+import { useScroll } from "react-use";
+import { DefaultSeo } from "next-seo";
+import { Analytics } from "@vercel/analytics/react";
+import useAppLoading from "@/hooks/useAppLoading";
 
+import ScrollToTop from "@ui/ScrollToTop";
 
-import type { AppProps } from "next/app"
+export default function App({ Component, pageProps }: AppProps) {
+  useAppLoading();
+  NProgress.configure({ showSpinner: false });
 
-const isDevelopment = process.env.NODE_ENV === 'development'
-const isSocket = process.env.SOCKET
-
-function usePrevious(value: string) {
-  let ref = useRef<string>();
-
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-
-  return ref.current;
-}
-
-export default function App({ Component, pageProps, router }: AppProps) {
-  let previousPathname = usePrevious(router.pathname);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { y: scrollY } = useScroll(scrollRef);
 
   return (
-    <ThemeProvider attribute="class" defaultLight='light'>
-      <Head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-      </Head>
-      <Component previousPathname={previousPathname} {...pageProps} />
-    </ThemeProvider>
+    <>
+      <DefaultSeo {...SEO} />
+      <ThemeProvider
+        defaultTheme="system"
+        attribute="class"
+      >
+        <div className="min-h-screen w-full bg-clouds bg-repeat dark:bg-nightsky bg-center rounded-sm overflow-hidden flex flex-col shadow-sm">
+          <Component {...pageProps} />
+          <ScrollToTop scrollRef={scrollRef} y={scrollY} />
+        </div>
+      </ThemeProvider>
+      <Analytics />
+      <div className="breakpoint-indicator fixed left-0 top-0 px-3 text-sm"></div>
+    </>
   );
-};
-
+}

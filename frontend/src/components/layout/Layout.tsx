@@ -1,11 +1,11 @@
 import * as React from 'react';
-import NavBar from '@sections/NavBar';
+import { Header } from './Header';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <NavBar />
-      <div id='skip-nav'>{children}</div>
+      <Header />
+      <div id='skip-nav' className="col-span-1 row-start-2 sm:col-start-2">{children}</div>
     </>
   )
 }
