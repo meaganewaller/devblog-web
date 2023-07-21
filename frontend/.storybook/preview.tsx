@@ -1,40 +1,85 @@
-import React, { useEffect } from "react";
-import type { Preview } from "@storybook/react";
-import "@/styles/fonts.css";
-import "@/styles/globals.css";
-import "@/styles/nprogress.css";
+import { useEffect } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import {
+  defaultDarkTheme,
+  defaultLightTheme,
+  HausThemeProvider,
+} from "../src/theme";
 
-const preview: Preview = {
-  globals: {
-    darkMode: false,
-  },
-  decorators: [
-    (Story, ctx) => {
-      useEffect(() => {
-        if (ctx.globals.darkMode) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }, [ctx]);
-
-      return (
-        <React.StrictMode>
-          <div className="text-primary-darkest-600 dark:text-accent-first-lighter-200">
-            <Story />
-          </div>
-        </React.StrictMode>
-      );
+export const parameters = {
+  options: {
+    storySort: {
+      order: ["Atoms", "Molecules", "Organisms", "Layouts", "*", "WIP"],
     },
-  ],
-  parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        date: /Date$/,
+  },
+  backgrounds: {
+    default: "Dark",
+    values: [
+      {
+        name: "Dark",
+        value: defaultDarkTheme.rootBgColor,
       },
+      {
+        name: "Light",
+        value: defaultLightTheme.rootBgColor,
+      },
+    ],
+  },
+};
+
+export const globalTypes = {
+  theme: {
+    name: "Theme",
+    description: "Global theme for components",
+    defaultValue: "Dark",
+    toolbar: {
+      title: "Theme",
+      icon: "circlehollow",
+      // Array of plain string values or MenuItem shape (see below)
+      items: ["Dark", "Light"],
     },
   },
 };
 
-export default preview;
+const handleBGReplace = (context) => ({
+  ...context,
+  globals: {
+    ...context.globals,
+    backgrounds: {
+      value: context?.globals?.theme === "Dark"
+        ? defaultDarkTheme.rootBgColor
+        : defaultLightTheme.rootBgColor,
+    },
+  },
+});
+
+const withThemeProvider = (Story, context) => {
+  const isDark = context.globals.theme === "Dark" ? true : false;
+  const updatedContext = handleBGReplace(context);
+  return (
+    <HausThemeProvider startDark={isDark}>
+      <Story {...updatedContext} />
+    </HausThemeProvider>
+  );
+};
+
+const WithFormProvider = (Story, context) => {
+  const methods = useForm({ mode: "onTouched" });
+  const { watch } = methods;
+
+  const values = watch();
+
+  useEffect(() => {
+    if (values) {
+      console.log("Form Values", values);
+    }
+  }, [values]);
+
+  return (
+    <FormProvider {...methods}>
+      <Story {...context} />
+    </FormProvider>
+  );
+};
+
+export const decorators = [withThemeProvider, WithFormProvider];

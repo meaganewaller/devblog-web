@@ -1,43 +1,56 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [ "dom", "dom.iterable", "esnext" ],
-    "allowJs": true,
-    "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "declaration": true,
+    "outDir": "./dist",
     "esModuleInterop": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "types": ["cypress", "node"],
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": "./",
-    "paths": {
-      "@/*": [ "src/*" ],
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@styles/*": ["src/styles/*"],
-      "@lib/*": ["src/lib/*"],
-      "@ui/*": [ "src/components/ui/*" ],
-      "@public/*":  ["public/*"],
-      "@pages/*": ["src/pages/*"],
-      "@sections/*": ["src/components/sections/*"]
-    }
+    "strictNullChecks": true
   },
+  "files": [],
   "include": [
     "next-env.d.ts",
+    ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "**/*.tsx"
   ],
-  "exclude": [ "node_modules" ]
+  "references": [
+    {
+      "path": "./tsconfig.lib.json",
+    },
+    {
+      "path": "./tsconfig.spec.josn",
+    },
+    {
+      "path": "./.storybook/tsconfig.json"
+    }
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
