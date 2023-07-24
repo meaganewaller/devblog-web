@@ -1,63 +1,91 @@
-import type { StorybookConfig } from "@storybook/nextjs";
-import type { Options } from "@storybook/nextjs";
+import { type StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
-  stories: [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
-    "",
-  ],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-a11y',
+    "@storybook/addon-styling",
+    'storybook-tailwind-dark-mode',
     {
-      name: "@storybook/addon-essentials",
+      name: "@storybook/addon-styling",
       options: {
-        actions: false,
+        postCss: true,
       },
     },
-    "storybook-addon-react-router-v6",
-    "storybook-addon-pseudo-states",
-    "@nrwl/react/plugins/storybook",
   ],
   framework: {
-    name: "@storybook/nextjs",
+    name: '@storybook/nextjs',
     options: {},
   },
-  core: { disableTelemetry: true },
-  webpackFinal: async (config, { configType }: Options) => {
-    return config;
+  docs: {
+    autodocs: "tag",
   },
 };
 
-module.exports = config;
-
-// export const rootMain: StorybookConfig = {
-//   stories: [],
+export default config;
+// import type { StorybookConfig } from "@storybook/nextjs";
+// import type { Options } from "@storybook/nextjs";
+//
+// const config: StorybookConfig = {
+//   stories: [
+//     "../src/**/*.stories.mdx",
+//     "../src/**/*.stories.@(js|jsx|ts|tsx)",
+//     "",
+//   ],
 //   addons: [
 //     {
-//       name: '@storybook/addon-essentials',
+//       name: "@storybook/addon-essentials",
 //       options: {
 //         actions: false,
 //       },
 //     },
+//     "storybook-addon-react-router-v6",
+//     "storybook-addon-pseudo-states",
+//     "@nrwl/react/plugins/storybook",
 //   ],
 //   framework: {
 //     name: "@storybook/nextjs",
 //     options: {},
-//   }
+//   },
+//   core: { disableTelemetry: true },
+//   webpackFinal: async (config, { configType }: Options) => {
+//     return config;
+//   },
 // };
 //
-// // const config: StorybookConfig = {
-// //   stories: ["../src/components/**/*.stories.@(js|jsx|ts|tsx)"],
+// module.exports = config;
+//
+// // export const rootMain: StorybookConfig = {
+// //   stories: [],
 // //   addons: [
-// //     "@storybook/addon-links",
-// //     "@storybook/addon-essentials",
-// //     "@storybook/addon-interactions",
-// //     "storybook-tailwind-dark-mode",
+// //     {
+// //       name: '@storybook/addon-essentials',
+// //       options: {
+// //         actions: false,
+// //       },
+// //     },
 // //   ],
 // //   framework: {
 // //     name: "@storybook/nextjs",
 // //     options: {},
-// //   },
+// //   }
 // // };
 // //
-// // export default config;
+// // // const config: StorybookConfig = {
+// // //   stories: ["../src/components/**/*.stories.@(js|jsx|ts|tsx)"],
+// // //   addons: [
+// // //     "@storybook/addon-links",
+// // //     "@storybook/addon-essentials",
+// // //     "@storybook/addon-interactions",
+// // //     "storybook-tailwind-dark-mode",
+// // //   ],
+// // //   framework: {
+// // //     name: "@storybook/nextjs",
+// // //     options: {},
+// // //   },
+// // // };
+// // //
+// // // export default config;

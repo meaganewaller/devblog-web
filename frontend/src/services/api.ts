@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 interface ContactFormProps {
   name: string;
   email: string;
@@ -7,12 +7,12 @@ interface ContactFormProps {
 }
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: 'http://localhost:5000/api/v1',
   timeout: 20000,
 });
 
 export async function postContactForm(form: ContactFormProps) {
-  const result = await apiClient.post("/contact", form);
+  const result = await apiClient.post('/contact', form);
   return result;
 }
 

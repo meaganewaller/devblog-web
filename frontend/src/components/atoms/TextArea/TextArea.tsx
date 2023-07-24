@@ -28,8 +28,7 @@ const TextArea = ({
         rows={5}
         placeholder={placeholder}
         className="block w-full resize-none rounded-md border border-gray-400 pl-7 pr-12 shadow-sm focus:border-gray-500 sm:text-sm"
-      >
-      </textarea>
+      ></textarea>
       {error && <p className="mt-2 text-sm text-pink-600">*{errorMessage}</p>}
     </div>
   );

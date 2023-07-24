@@ -1,14 +1,14 @@
-import { NextSeo } from "next-seo"
+import { NextSeo } from 'next-seo';
 
 type SeoProps = {
-  title?: string
-  description?: string
+  title?: string;
+  description?: string;
   article?: {
-    url: string
-    title: string
-    publishedTime: string
-  }
-}
+    url: string;
+    title: string;
+    publishedTime: string;
+  };
+};
 
 export default function Seo({ title, description, article }: SeoProps) {
   return article ? (
@@ -19,7 +19,7 @@ export default function Seo({ title, description, article }: SeoProps) {
         title: article.title,
         description: `Read more about "${article.title}" on Meagan's blog`,
         url: article.url,
-        type: "article",
+        type: 'article',
         images: [
           {
             url: `https://meaganwaller.com/api/og?title=${article.title}`,
@@ -30,7 +30,7 @@ export default function Seo({ title, description, article }: SeoProps) {
         ],
         article: {
           publishedTime: post.publishedTime,
-          authors: ["Meagan Waller"],
+          authors: ['Meagan Waller'],
         },
       }}
     />
@@ -51,5 +51,5 @@ export default function Seo({ title, description, article }: SeoProps) {
         ],
       }}
     />
-  )
+  );
 }

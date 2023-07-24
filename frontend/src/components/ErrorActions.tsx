@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 export default function ErrorActions() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function ErrorActions() {
       </button>
       <button
         className="btn btn-primary w-full duration-75"
-        onClick={() => router.push("/")}
+        onClick={() => router.push('/')}
       >
         Home
       </button>

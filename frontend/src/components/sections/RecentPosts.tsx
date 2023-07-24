@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import { cxm } from "@/lib/helpers/cxm";
-import { convertToPostList } from "@/lib/utils/blog";
-import DraggableWindow from "@/components/layout/DraggableWindow";
+import Link from 'next/link';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { cxm } from '@/lib/helpers/cxm';
+import { convertToPostList } from '@/lib/utils/blog';
+import DraggableWindow from '@/components/layout/DraggableWindow';
 
 export default function RecentPosts({ posts }) {
   const size = useWindowSize();

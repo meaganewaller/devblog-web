@@ -1,8 +1,11 @@
-import { Head, Html, Main, NextScript } from "next/document";
+import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html className="scroll-pt-16 overflow-auto overscroll-none h-full antialiased scroll-smooth" lang="en">
+    <Html
+      className="scroll-pt-16 overflow-auto overscroll-none h-full antialiased scroll-smooth"
+      lang="en"
+    >
       <Head>
         <link
           rel="apple-touch-icon"
@@ -23,6 +26,20 @@ export default function Document() {
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link
+          rel="preload"
+          href="/static/fonts/VeniceClassic.ttf"
+          as="font"
+          type="font/truetype"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/static/fonts/basiic.ttf"
+          as="font"
+          type="font/truetype"
+          crossOrigin="anonymous"
+        />
         <meta name="theme-color" content="#18181b" />
       </Head>
       <body className="flex h-full flex-col bg-white-500 dark:bg-accent-first-800 text-primary-800 dark:text-accent-first-100 bg-clouds dark:bg-nightsky">

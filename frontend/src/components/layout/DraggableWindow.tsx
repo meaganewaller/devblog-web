@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
-import Draggable from 'react-draggable'
-import { cxm } from '@/lib/helpers/cxm'
+import React, { useRef, useState } from 'react';
+import Draggable from 'react-draggable';
+import { cxm } from '@/lib/helpers/cxm';
 
 interface Props {
   active: boolean;
@@ -14,22 +14,39 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const DraggableWindow = ({ active, title, x, y, width, height, zIndex, classList, children }: Props) => {
-  const windowRef = useRef()
-  const randomId = Math.random().toString(36).replace(/\.|\d/g, "")
-  const [activeWindow, setActiveWindow] = useState(active)
+export const DraggableWindow = ({
+  active,
+  title,
+  x,
+  y,
+  width,
+  height,
+  zIndex,
+  classList,
+  children,
+}: Props) => {
+  const windowRef = useRef();
+  const randomId = Math.random().toString(36).replace(/\.|\d/g, '');
+  const [activeWindow, setActiveWindow] = useState(active);
 
   function sendElementToTop() {
-    const elementId = `window-${randomId}`
-    const element = document.getElementById(elementId)
-    element.classList.remove("window_inactive")
-    setActiveWindow(true)
-    const otherWindows = document.querySelectorAll(`[data-another-window]:not(#${elementId})`)
-    otherWindows.forEach((el) => {
-      el.classList.add("window_inactive")
-    })
-    const maxZIndex = Array.from(otherWindows).reduce((acc, elem: any) => Math.max(elem?.style.zIndex, acc), 0)
-    if (element) element.style.zIndex = `${maxZIndex + 1}`
+    const elementId = `window-${randomId}`;
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.classList.remove('window_inactive');
+      setActiveWindow(true);
+      const otherWindows = document.querySelectorAll(
+        `[data-another-window]:not(#${elementId})`
+      );
+      otherWindows.forEach((el) => {
+        el.classList.add('window_inactive');
+      });
+      const maxZIndex = Array.from(otherWindows).reduce(
+        (acc, elem: any) => Math.max(elem?.style.zIndex, acc),
+        0
+      );
+      element.style.zIndex = `${maxZIndex + 1}`
+    };
   }
 
   return (
@@ -42,7 +59,7 @@ export const DraggableWindow = ({ active, title, x, y, width, height, zIndex, cl
         key={`window-${randomId}`}
         id={`window-${randomId}`}
         className={cxm(
-          "absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c] cursor-move",
+          'absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c] cursor-move',
           { window_inactive: !active },
           { [classList]: classList }
         )}
@@ -70,7 +87,7 @@ export const DraggableWindow = ({ active, title, x, y, width, height, zIndex, cl
         <div className="col-start-1 col-end-4 row-start-3 row-end-4 cursor-[ns-resize]" />
       </div>
     </Draggable>
-  )
-}
+  );
+};
 
-export default DraggableWindow
+export default DraggableWindow;

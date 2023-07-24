@@ -2,7 +2,6 @@
 @import "@fontsource/dm-sans";
 @import "@fontsource/prata";
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import 'https://fonts.googleapis.com/css?family=VT323';
 @font-face {
   font-family: "Venice Classic";
   src: url('/static/fonts/VeniceClassic.ttf') format("truetype");
@@ -12,7 +11,7 @@
 
 @font-face {
   font-family: "basiic";
-  src: url('/fonts/basiic.ttf') format("truetype");
+  src: url('/static/fonts/basiic.ttf') format("truetype");
   font-weight: 400;
   font-style: normal;
 }

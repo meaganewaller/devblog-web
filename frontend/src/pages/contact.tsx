@@ -1,48 +1,44 @@
-import Layout from "@/components/layout/Layout";
-import Window from "@/components/layout/Window";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import React, { useState } from "react";
+import Layout from '@/components/layout/Layout';
+import Window from '@/components/layout/Window';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import React, { useState } from 'react';
 
 const fields = {
   name: {
-    type: "text",
-    valType: "string",
-    label: "Your name",
-    placeholder: "Your name e.g. Darlene Alderson",
+    type: 'text',
+    valType: 'string',
+    label: 'Your name',
+    placeholder: 'Your name e.g. Darlene Alderson',
     minLength: 2,
     maxLength: 128,
   },
   email: {
-    type: "email",
-    valType: "string",
-    label: "Your email:",
-    placeholder: "Your email e.g. dolores.haze@virtualrealty.com",
+    type: 'email',
+    valType: 'string',
+    label: 'Your email:',
+    placeholder: 'Your email e.g. dolores.haze@virtualrealty.com',
     minLength: 5,
     maxLength: 256,
   },
   subject: {
-    type: "text",
-    valType: "string",
-    label: "Message subject:",
-    placeholder: "Message subject e.g. General Inquiry",
+    type: 'text',
+    valType: 'string',
+    label: 'Message subject:',
+    placeholder: 'Message subject e.g. General Inquiry',
     minLength: 2,
     maxLength: 64,
   },
   message: {
-    type: "textarea",
-    valType: "string",
-    label: "Message:",
-    placeholder: "Your message",
+    type: 'textarea',
+    valType: 'string',
+    label: 'Message:',
+    placeholder: 'Your message',
     minLength: 1,
     maxLength: 256,
   },
 };
 
 const fieldKeys = Object.keys(fields);
-
-// export default function Contact() {
-//   const router = useRouter();
-//   const size = useWindowSize();
 
 const handleSubmit = async (e, pending, setPending, setMessage) => {
   e.preventDefault();
@@ -55,7 +51,7 @@ const handleSubmit = async (e, pending, setPending, setMessage) => {
   for (const key of fieldKeys) {
     let el = document.querySelector(`form #${key}`);
     els.push(el);
-    data[key] = (el.value || "").trim();
+    data[key] = (el.value || '').trim();
     incomplete |= data[key].length === 0;
   }
 
@@ -64,14 +60,14 @@ const handleSubmit = async (e, pending, setPending, setMessage) => {
   setMessage(null);
 
   els.forEach((el) => {
-    el.value = "";
+    el.value = '';
   });
 
   try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
+    const res = await fetch('/api/contact', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
@@ -80,16 +76,16 @@ const handleSubmit = async (e, pending, setPending, setMessage) => {
       const { message } = await res.json();
       setMessage(message);
     } else {
-      setMessage("Message sent!");
+      setMessage('Message sent!');
     }
   } catch (error) {
     console.error(error);
-    setMessage("Error occured sending message.");
+    setMessage('Error occured sending message.');
   }
   setPending(false);
 };
 
-export default () => {
+export default function Contact() {
   const [message, setMessage] = useState(null);
   const [pending, setPending] = useState(false);
   const size = useWindowSize();
@@ -97,8 +93,8 @@ export default () => {
   return (
     <Layout>
       <Window
-        title="Let&apos;s Connect"
-        x={size.width * .5 / 2}
+        title="Let's Connect"
+        x={(size.width * 0.5) / 2}
         y={size.height / 10}
         zIndex="1"
         width={`${size.width / 2}px`}
@@ -115,7 +111,7 @@ export default () => {
               {fieldKeys.map((key) => {
                 const field = fields[key];
                 return (
-                  <fieldset className="p-4 leading-5 break-words text-primary-500">
+                  <fieldset className="p-4 leading-5 break-words text-primary-500" key={field}>
                     <div className="overflow-auto break-words" key={key}>
                       <label
                         className="block w-full text-sm cursor-pointer font-mono uppercase"
@@ -124,16 +120,16 @@ export default () => {
                         {field.label}
                       </label>
                       {React.createElement(
-                        field.type === "textarea" ? "textarea" : "input",
+                        field.type === 'textarea' ? 'textarea' : 'input',
                         {
                           id: key,
                           type: field.type,
                           className:
-                            "overflow-visible py-3 px-2 m-0 w-full font-mono text-base bg-white rounded-none border border-solid appearance-none cursor-text border-neutral-900 focus:appearance-none",
+                            'overflow-visible py-3 px-2 m-0 w-full font-mono text-base bg-white rounded-none border border-solid appearance-none cursor-text border-neutral-900 focus:appearance-none',
                           minLength: field.minLength,
                           maxLength: field.maxLength,
                           placeholder: field.placeholder,
-                        },
+                        }
                       )}
                     </div>
                   </fieldset>
@@ -145,7 +141,7 @@ export default () => {
                   type="submit"
                   className="inline-flex overflow-visible relative justify-center items-center py-3 px-8 m-0 text-center border-3 border-primary-500 border-solid cursor-pointer select-none uppercase font-mono"
                 >
-                  {pending ? <div className="spinner" /> : "Send"}
+                  {pending ? <div className="spinner" /> : 'Send'}
                 </button>
               </div>
             </form>

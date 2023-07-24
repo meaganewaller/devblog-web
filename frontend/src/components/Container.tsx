@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 type ContainerProps = {
-  children?: ReactNode
-}
+  children?: ReactNode;
+};
 
 export default function Container({ children }: ContainerProps) {
   return (
@@ -11,5 +11,5 @@ export default function Container({ children }: ContainerProps) {
         {children}
       </div>
     </div>
-  )
+  );
 }

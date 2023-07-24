@@ -1,19 +1,28 @@
-import React from 'react'
-import { cxm } from '@/lib/helpers/cxm'
+import React from 'react';
+import { cxm } from '@/lib/helpers/cxm';
 
 interface Props {
-  title: string
-  x: number
-  y: number
-  width?: string
-  height?: string
-  zIndex?: string
-  classList?: string
-  children: React.ReactNode
+  title: string;
+  x: number;
+  y: number;
+  width?: string;
+  height?: string;
+  zIndex?: string;
+  classList?: string;
+  children: React.ReactNode;
 }
 
-const Window = ({ title, x, y, width, height, zIndex, classList, children }: Props) => {
-  const randomId = Math.random().toString(36).replace(/\.|\d/g, "");
+const Window = ({
+  title,
+  x,
+  y,
+  width,
+  height,
+  zIndex,
+  classList,
+  children,
+}: Props) => {
+  const randomId = Math.random().toString(36).replace(/\.|\d/g, '');
 
   return (
     <>
@@ -21,7 +30,7 @@ const Window = ({ title, x, y, width, height, zIndex, classList, children }: Pro
         key={`window-${randomId}`}
         id={`window-${randomId}`}
         className={cxm(
-          "absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c]",
+          'absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c]',
           { [classList]: classList }
         )}
         style={{
@@ -48,8 +57,7 @@ const Window = ({ title, x, y, width, height, zIndex, classList, children }: Pro
         <div className="col-start-1 col-end-4 row-start-3 row-end-4 cursor-[ns-resize]" />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Window
-
+export default Window;

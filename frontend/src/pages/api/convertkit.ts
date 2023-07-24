@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
 
   if (!email) {
@@ -32,4 +32,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() });
   }
-}
+};
+
+export default subscribe;

@@ -1,13 +1,19 @@
-"use client";
+'use client';
 
-import { SetStateAction, WritableAtom, useAtom } from "jotai";
-import { atomWithStorage } from "jotai/utils";
-import { useEffect } from "react";
+import { SetStateAction, WritableAtom, useAtom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
+import { useEffect } from 'react';
 
-const browser: boolean = typeof window !== "undefined";
-const themeAtom: WritableAtom<string, [SetStateAction<"dark" | "light">], void> = atomWithStorage(
-  "theme",
-  browser && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+const browser: boolean = typeof window !== 'undefined';
+const themeAtom: WritableAtom<
+  string,
+  [SetStateAction<'dark' | 'light'>],
+  void
+> = atomWithStorage(
+  'theme',
+  browser && matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
 );
 
 export function useTheme() {
@@ -17,7 +23,7 @@ export function useTheme() {
     const body = document.body;
 
     if (!browser) return;
-    body.classList.remove("light", "dark");
+    body.classList.remove('light', 'dark');
     body.classList.add(theme);
   }, [theme]);
 

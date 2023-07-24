@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils/tailwind";
-import menus from "@/data/pages";
+import pages from "@/data/pages";
 import dynamic from "next/dynamic";
 import { HiSparkles } from "react-icons/hi";
 import { MouseEvent, useRef, useState } from "react";
@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 type NavbarProps = {
   className?: string;
-}
+};
 
 const Confetti = dynamic(() => import("react-confetti"), { ssr: false });
 const SwitchThemeButton = dynamic(() => import("@ui/SwitchThemeButton"), {
@@ -52,7 +52,7 @@ export function Navbar({ className }: NavbarProps) {
             onClick={navClick}
           />
         </li>
-        {menus.map((item, index) => (
+        {pages.map((item, index) => (
           <li key={index} className="align-middle">
             <Link href={item.href} className="duration-75">
               {item.name}

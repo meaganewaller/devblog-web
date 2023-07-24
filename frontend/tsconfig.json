@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "strict": true,
     "declaration": true,
     "outDir": "./dist",
@@ -26,36 +27,37 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@ui/*": ["./src/components/ui/*"],
-      "@sections/*": ["./src/components/sections/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@ui/*": [
+        "./src/components/ui/*"
+      ],
+      "@sections/*": [
+        "./src/components/sections/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ]
     },
+    "strictNullChecks": true,
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "strictNullChecks": true
+    ]
   },
-  "files": [],
+  "types":[
+    "node"
+  ],
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.lib.json",
-    },
-    {
-      "path": "./tsconfig.spec.josn",
-    },
-    {
-      "path": "./.storybook/tsconfig.json"
-    }
   ],
   "exclude": [
     "node_modules"

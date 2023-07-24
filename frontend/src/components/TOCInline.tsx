@@ -38,20 +38,20 @@ const TOCInline = ({
     : new RegExp('^(' + exclude + ')$', 'i');
 
   const filteredToc = toc.filter(
-    heading =>
+    (heading) =>
       heading.depth >= fromHeading &&
       heading.depth <= toHeading &&
-      !re.test(heading.value),
+      !re.test(heading.value)
   );
 
   const tocList = (
     <ul>
-      {filteredToc.map(heading => (
+      {filteredToc.map((heading) => (
         <li
           key={heading.value}
           className={`${heading.depth >= indentDepth && 'ml-6'}`}
         >
-          <a className='!no-underline' href={heading.url}>
+          <a className="!no-underline" href={heading.url}>
             {heading.value}
           </a>
         </li>
@@ -60,7 +60,7 @@ const TOCInline = ({
   );
 
   const title: any = (
-    <span className='font-bold dark:text-white'>Table of Contents</span>
+    <span className="font-bold dark:text-white">Table of Contents</span>
   );
 
   const renderTOC = toc.length >= 1;
@@ -68,8 +68,8 @@ const TOCInline = ({
   return (
     <>
       {asDisclosure && renderTOC ? (
-        <Collapse className='!border-0 !pt-0' title={title}>
-          <div className='ml-4 !-mt-4'>{tocList}</div>
+        <Collapse className="!border-0 !pt-0" title={title}>
+          <div className="ml-4 !-mt-4">{tocList}</div>
         </Collapse>
       ) : (
         tocList

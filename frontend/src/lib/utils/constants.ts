@@ -1,10 +1,10 @@
-import { join } from "path"
+import { join } from 'path';
 
 export const DEFAULT_OG_URL =
-  "https://ik.imagekit.io/meaganwaller/blog/og-image/meaganwaller.png?ik-sdk-version=javascript-1.4.3&updatedAt=1678430627569";
+  'https://ik.imagekit.io/meaganwaller/blog/og-image/meaganwaller.png?ik-sdk-version=javascript-1.4.3&updatedAt=1678430627569';
 export const ABSOLUTE_OG_URL = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? "https://" + process.env.NEXT_PUBLIC_VERCEL_URL + "/api/og"
-  : "/api/og";
+  ? 'https://' + process.env.NEXT_PUBLIC_VERCEL_URL + '/api/og'
+  : '/api/og';
 
 // env
 export const VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL as string;
@@ -20,5 +20,5 @@ export const NEXTAUTH_URL = process.env.NEXTAUTH_URL as string;
 export const DATABASE_URL = process.env.DATABASE_URL as string;
 
 export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
+  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
 }

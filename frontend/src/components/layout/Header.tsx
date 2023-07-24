@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils/tailwind";
-import { Navbar } from "@components/Navbar";
+import { useEffect, useRef, useState } from 'react';
+import { cn } from '@/lib/utils/tailwind';
+import { Navbar } from '@components/Navbar';
 
 export function Header() {
   const [scrollTop, setScrollTop] = useState(0);
@@ -28,7 +28,7 @@ export function Header() {
           : 'bg-transparent',
         'flex flex-row items-center',
         'transition-[padding,background-color] duration-300 ease-in-out',
-        'text-slate-700 backdrop-blur dark:text-rose-50',
+        'text-slate-700 backdrop-blur dark:text-rose-50'
       )}
     >
       <Navbar />

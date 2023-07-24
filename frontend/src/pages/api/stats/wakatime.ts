@@ -1,17 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import type { NextRequest } from "next/server";
 
-export const config = { runtime: "experimental-edge" };
+export const config = { runtime: "edge" };
 
 export default async function handler(req: NextRequest) {
   const resp = await fetch(
     "https://wakatime.com/api/v1/users/current/stats/last_7_days",
     {
       headers: {
-        Authorization: `Basic ${btoa(process.env.NEXT_PUBLIC_WAKATIME_API_KEY as string)}`,
+        Authorization: `Basic ${btoa(
+          process.env.NEXT_PUBLIC_WAKATIME_API_KEY as string,
+        )
+          }`,
       },
-    }
+    },
   );
   const response = await resp.json();
 

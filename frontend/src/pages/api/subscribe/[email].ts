@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export default (req, res) => {
+subscribe = (req, res) => {
   const { email } = req.query;
   const api_key = process.env.CONVERTKIT_API_KEY;
   const form_id = process.env.CONVERTKIT_FORM_ID;
@@ -9,6 +9,8 @@ export default (req, res) => {
     api_key,
     email,
     tags,
-  })
-  res.sendStatus(200)
-}
+  });
+  res.sendStatus(200);
+};
+
+export default subscribe;

@@ -1,39 +1,39 @@
-"use client";
+'use client';
 
-import DraggableWindow from "@/components/layout/DraggableWindow";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import Button, { ButtonSize, ButtonVariant } from "@/components/atoms/Buttons";
+import DraggableWindow from '@/components/layout/DraggableWindow';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import Button, { ButtonSize, ButtonVariant } from '@/components/atoms/Buttons';
 
 export default function Contact() {
   const links = [
     {
-      name: "Email",
-      link: "mailto:meagan@meaganwaller.com",
+      name: 'Email',
+      link: 'mailto:meagan@meaganwaller.com',
     },
     {
-      name: "Twitter",
-      link: "https://twitter.com/meaganewaller",
+      name: 'Twitter',
+      link: 'https://twitter.com/meaganewaller',
     },
     {
-      name: "GitHub",
-      link: "https://github.com/meaganwaller",
+      name: 'GitHub',
+      link: 'https://github.com/meaganwaller',
     },
     {
-      name: "LinkedIn",
-      link: "https://www.linkedin.com/in/meaganwaller/",
+      name: 'LinkedIn',
+      link: 'https://www.linkedin.com/in/meaganwaller/',
     },
     {
-      name: "Polywork",
-      link: "https://www.polywork.com/meaganwaller",
+      name: 'Polywork',
+      link: 'https://www.polywork.com/meaganwaller',
     },
     {
-      name: "Dev.to",
-      link: "https://www.dev.to/meaganewaller",
+      name: 'Dev.to',
+      link: 'https://www.dev.to/meaganewaller',
     },
   ];
   const size = useWindowSize();
 
-  const open = (link: string) => () => window.open(link, "_blank");
+  const open = (link: string) => () => window.open(link, '_blank');
   return (
     <DraggableWindow
       title="let's connect"
@@ -49,7 +49,11 @@ export default function Contact() {
           <ul className="grid grid-flow-col grid-rows-2 gap-x-2 gap-y-4">
             {links.map((link, i) => (
               <li key={i}>
-                <Button size={ButtonSize.large} variant={ButtonVariant.secondary} onClick={open(link.link)}>
+                <Button
+                  size={ButtonSize.large}
+                  variant={ButtonVariant.secondary}
+                  onClick={open(link.link)}
+                >
                   {link.name}
                 </Button>
               </li>

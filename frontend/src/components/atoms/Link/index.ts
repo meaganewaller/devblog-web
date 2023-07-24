@@ -1,1 +1,1 @@
-export { default, LinkSize, LinkVariant } from "./Link";
+export { default, LinkSize, LinkVariant } from './Link';

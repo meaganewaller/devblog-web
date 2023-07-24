@@ -1,5 +1,5 @@
-import { useState, useEffect, RefObject } from "react"
-import { FiArrowUpCircle } from "React-icons/fi"
+import { useState, useEffect, RefObject } from 'react';
+import { FiArrowUpCircle } from 'React-icons/fi';
 
 type ScrollToTopProps = {
   scrollRef: RefObject<HTMLElement>;
@@ -12,7 +12,7 @@ export default function ScrollToTop({ scrollRef, y }: ScrollToTopProps) {
   function scrollToTop() {
     scrollRef.current?.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 
@@ -27,7 +27,7 @@ export default function ScrollToTop({ scrollRef, y }: ScrollToTopProps) {
   return (
     <div
       className={`fixed z-50 bottom-6 right-8 ${
-        visible ? "opacity-100" : "opacity-0"
+        visible ? 'opacity-100' : 'opacity-0'
       } transition-opacity`}
     >
       <button
