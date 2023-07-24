@@ -1,49 +1,31 @@
 import React from 'react'
 import Layout from '@/components/layout/Layout'
 import Window from '@/components/layout/Window'
+import NewsletterForm from '../components/NewsletterForm'
 import { useWindowSize } from '@/hooks/useWindowSize'
+import { useState } from 'react'
+import axios from 'axios'
 
 export default function Newsletter() {
+  const [email, setEmail] = useState('')
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const res = await axios.get(`/api/subscribe/${email}`)
+    console.log(res);
+  };
+
   const size = useWindowSize()
 
   return (
     <Layout>
-      <div className="flex w-11/12 mx-auto mt-20">
+      <div className="flex w-full mx-auto mt-20">
         <Window title="join the newsletter"
-          x={size.width / 20 + 310 }
+          x={size.width / 20 }
           y={size.height / 10 }
           zIndex="2"
-          width={`${size.width / 1.15 - 300}px`}
-          height="400px"
+          width={`${size.width / 1.1 }px`}
         >
-          <div className="flex place-content-center flex-col">
-            <div className="flex place-content-center pb-4">
-            </div>
-          </div>
-        </Window>
-
-        <Window
-          title="past issues"
-          x={size.width / 20}
-          y={size.height / 10}
-          zIndex="3"
-          width="300px"
-          height="400px"
-        >
-          <div className="flex p-5 place-content-center flex-col">
-            <div className="flex place-content-center pb-4">
-            </div>
-          </div>
-        </Window>
-
-        <Window
-          title="what readers are saying"
-          x={size.width / 20}
-          y={size.height / 10 + 410}
-          zIndex="3"
-          width={`${size.width / 1.14}px`}
-          height="300px"
-        >
+          <NewsletterForm />
           <div className="flex place-content-center flex-col h-full">
             <div className="flex place-content-center">
               <div className="inline-block px-3">
@@ -72,6 +54,7 @@ export default function Newsletter() {
               </div>
             </div>
           </div>
+
         </Window>
       </div>
     </Layout>

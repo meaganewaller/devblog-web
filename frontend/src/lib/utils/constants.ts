@@ -17,7 +17,7 @@ export const GOOGLE_SECRET = process.env.NEXT_PUBLIC_GOOGLE_SECRET as string;
 export const GOOGLE_ID = process.env.NEXT_PUBLIC_GOOGLE_ID as string;
 export const NEXTAUTH_SECRET = process.env.NEXTAUTH_SECRET as string;
 export const NEXTAUTH_URL = process.env.NEXTAUTH_URL as string;
-export const DABATASE_URL = process.env.DATABASE_URL as string;
+export const DATABASE_URL = process.env.DATABASE_URL as string;
 
 export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
