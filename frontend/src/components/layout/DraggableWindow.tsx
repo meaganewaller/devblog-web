@@ -25,7 +25,7 @@ export const DraggableWindow = ({
   classList,
   children,
 }: Props) => {
-  const windowRef = useRef();
+  const windowRef = useRef(null);
   const randomId = Math.random().toString(36).replace(/\.|\d/g, '');
   const [activeWindow, setActiveWindow] = useState(active);
 
@@ -61,7 +61,7 @@ export const DraggableWindow = ({
         className={cxm(
           'absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c] cursor-move',
           { window_inactive: !active },
-          { [classList]: classList }
+          { classList: classList }
         )}
         style={{
           top: y,
