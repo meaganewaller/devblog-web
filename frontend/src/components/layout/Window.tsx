@@ -7,7 +7,7 @@ interface Props {
   y: number;
   width?: string;
   height?: string;
-  zIndex?: string;
+  zIndex: string;
   classList?: string;
   children: React.ReactNode;
 }
@@ -18,7 +18,7 @@ const Window = ({
   y,
   width,
   height,
-  zIndex,
+  zIndex = "1",
   classList,
   children,
 }: Props) => {
@@ -38,7 +38,7 @@ const Window = ({
           left: x,
           width: width,
           height: height,
-          zIndex: zIndex,
+          zIndex: zIndex
         }}
       >
         <div className="col-start-2 col-end-3 row-start-1 row-end-2 flex items-center select-none mr-[1px] handle">

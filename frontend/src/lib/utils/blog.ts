@@ -2,7 +2,12 @@ import PostService from '@/services/PostService';
 
 export const convertToPostList = (tableData: any) => {
   let tags: string[] = [];
+  let categories: string[] = [];
   const posts = tableData.map((post: any) => {
+    if (!categories.includes(post.category)) {
+      const newList = [...categories, post.category];
+      categories = newList;
+    }
     return {
       title: post.title,
       tags: post.tags.map((tag: string) => {
@@ -12,6 +17,7 @@ export const convertToPostList = (tableData: any) => {
         }
         return { name: tag };
       }),
+      category: post.category,
       coverImage: 'https://via.placeholder.com/600x400.png',
       publishedDate: post.published_date,
       description: post.description,
@@ -19,5 +25,5 @@ export const convertToPostList = (tableData: any) => {
     };
   });
 
-  return { posts, tags };
+  return { posts, tags, categories };
 };

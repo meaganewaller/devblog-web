@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import RingsAndLinks from "@sections/RingsAndLinks";
-import Layout from "@/components/layout/Layout";
-import Stats from "@sections/Stats";
-import Window from "@/components/layout/Window";
+import RingsAndLinks from "@components/sections/RingsAndLinks";
+import Layout from "@components/layout/Layout";
+import Stats from "@components/sections/Stats";
+import Window from "@components/layout/Window";
 import { useWindowSize } from "@/hooks/useWindowSize";
 
 export default function About() {

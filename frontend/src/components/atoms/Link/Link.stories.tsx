@@ -24,8 +24,17 @@ const meta: Meta<typeof LinkComponent> = {
 
 type LinkStory = StoryObj<typeof LinkComponent>;
 
+
+interface LinkProps {
+  children: string;
+  size?: LinkSize;
+  variant?: LinkVariant;
+  href: string;
+  target?: string;
+}
+
 export const Accent: LinkStory = {
-  render: (args) => <LinkComponent {...args} />,
+  render: (args: LinkProps) => <LinkComponent {...args} />,
   args: {
     children: 'This is an accent link',
     size: LinkSize.default,
@@ -36,7 +45,7 @@ export const Accent: LinkStory = {
 };
 
 export const Primary: LinkStory = {
-  render: (args) => <LinkComponent {...args} />,
+  render: (args: LinkProps) => <LinkComponent {...args} />,
   args: {
     children: 'This is a primary link',
     size: LinkSize.default,
@@ -47,7 +56,7 @@ export const Primary: LinkStory = {
 };
 
 export const Underlined: LinkStory = {
-  render: (args) => <LinkComponent {...args} />,
+  render: (args: LinkProps) => <LinkComponent {...args} />,
   args: {
     children: 'This is an underlined link',
     size: LinkSize.default,
@@ -58,7 +67,7 @@ export const Underlined: LinkStory = {
 };
 
 export const Wavy: LinkStory = {
-  render: (args) => <LinkComponent {...args} />,
+  render: (args: LinkProps) => <LinkComponent {...args} />,
   args: {
     children: 'This is a wavy link',
     size: LinkSize.default,

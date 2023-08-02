@@ -24,24 +24,24 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "preserveSymlinks": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@ui/*": [
-        "./src/components/ui/*"
-      ],
-      "@sections/*": [
-        "./src/components/sections/*"
-      ],
-      "@lib/*": [
-        "./src/lib/*"
-      ]
+      "@atoms/*": ["components/atoms/*"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms/*": ["components/organisms/*"],
+      "@templates/*": ["components/templates/*"],
+      "@pages/*": ["components/pages/*"],
+      "@components/*": ["components/*"],
+      "@data/*": ["data/*"],
+      "@hooks/*": ["hooks/*"],
+      "@lib/*": ["lib/*"],
+      "@services/*": ["services/*"],
+      "@styles/*": ["styles/*"],
+      "@types/*": ["types/*"],
+      "@/*": ["*"],
     },
     "strictNullChecks": true,
     "plugins": [

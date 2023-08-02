@@ -25,11 +25,11 @@ export default function Seo({ title, description, article }: SeoProps) {
             url: `https://meaganwaller.com/api/og?title=${article.title}`,
             width: 1920,
             height: 1080,
-            alt: post.title,
+            alt: article.title,
           },
         ],
         article: {
-          publishedTime: post.publishedTime,
+          publishedTime: article.publishedTime,
           authors: ['Meagan Waller'],
         },
       }}

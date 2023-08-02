@@ -24,8 +24,14 @@ const meta: Meta<typeof Title> = {
 
 type TitleStory = StoryObj<typeof Title>;
 
+interface TitleProps {
+  children: string;
+  size?: TitleSize;
+  variant?: TitleVariant;
+}
+
 export const Primary: TitleStory = {
-  render: (args) => <Title {...args} />,
+  render: (args: TitleProps) => <Title {...args} />,
   args: {
     children: 'This is the example title.',
     size: TitleSize.default,
@@ -34,7 +40,7 @@ export const Primary: TitleStory = {
 };
 
 export const Secondary: TitleStory = {
-  render: (args) => <Title {...args} />,
+  render: (args: TitleProps) => <Title {...args} />,
   args: {
     children: 'This is the example title.',
     size: TitleSize.default,
@@ -43,7 +49,7 @@ export const Secondary: TitleStory = {
 };
 
 export const Accent: TitleStory = {
-  render: (args) => <Title {...args} />,
+  render: (args: TitleProps) => <Title {...args} />,
   args: {
     children: 'This is the example title.',
     size: TitleSize.default,

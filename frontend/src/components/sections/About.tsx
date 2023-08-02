@@ -1,5 +1,3 @@
-'use client';
-
 import LinkComponent, { LinkSize, LinkVariant } from '@/components/atoms/Link';
 import DraggableWindow from '@/components/layout/DraggableWindow';
 import { useWindowSize } from '@/hooks/useWindowSize';
@@ -15,7 +13,7 @@ import { HiSparkles } from 'react-icons/hi';
 //   { id: 6, name: "GitHub", route: "https://github.com/meaganewaller" },
 // ];
 
-export default function About() {
+const About = () => {
   const size = useWindowSize();
   return (
     size.width &&
@@ -65,7 +63,7 @@ export default function About() {
             variant={LinkVariant.underlined}
             size={LinkSize.small}
             href="/about"
-            // className="text-md text-accent-first-400 hover:italic hover:text-accent-third-600 dark:text-primary-100 dark:hover:text-accent-fourth-200"
+          // className="text-md text-accent-first-400 hover:italic hover:text-accent-third-600 dark:text-primary-100 dark:hover:text-accent-fourth-200"
           >
             Read more{' '}
             <BsArrowRightShort size="1.5em" className="inline-block" />
@@ -75,3 +73,4 @@ export default function About() {
     )
   );
 }
+export default About;

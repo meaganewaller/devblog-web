@@ -59,6 +59,11 @@ module.exports = {
         windowTitleBar: 'repeating-linear-gradient(#fff, #000 2px)',
       },
       keyframes: {
+        float: {
+          '0%': { boxShadow: '0 5px 15px 0px rgba(0, 0, 0, 0.6)', transform: 'translatey(0px)' },
+          '50%': { boxShadow: '0 25px 15px 0px rgba(0, 0, 0, 0.2)', transform: 'translatey(-8px)' },
+          '100%': { boxShadow: '0 5px 15px 0px rgba(0, 0, 0, 0.6)', transform: 'translatey(0px)' }
+        },
         bounce: {
           '0%, 100%': { top: '0', transform: 'translateY(-10%)' },
           '50%': { top: '-5px' },
@@ -89,6 +94,7 @@ module.exports = {
       animation: {
         bounce: 'bounce 2s infinite',
         glow: 'glow 1.2s linear forward',
+        float: 'float 2s ease-in-out infinite',
       },
       listStyleType: {
         flower: '"✿ "',
@@ -180,7 +186,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addComponents }) {
+    plugin(function({ addComponents }) {
       addComponents({
         '.btn': {
           position: 'relative',

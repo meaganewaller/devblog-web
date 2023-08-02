@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { cn } from '@lib/utils/tailwind';
+import { cn } from '@/lib/utils/tailwind';
 import Link from 'next/link';
 
 export enum LinkSize {

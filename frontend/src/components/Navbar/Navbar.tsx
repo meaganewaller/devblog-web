@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils/tailwind";
-import pages from "@/data/pages";
+import pages from "../../data/pages";
 import dynamic from "next/dynamic";
 import { HiSparkles } from "react-icons/hi";
 import { MouseEvent, useRef, useState } from "react";
@@ -12,7 +12,7 @@ type NavbarProps = {
 };
 
 const Confetti = dynamic(() => import("react-confetti"), { ssr: false });
-const SwitchThemeButton = dynamic(() => import("@ui/SwitchThemeButton"), {
+const SwitchThemeButton = dynamic(() => import("@components/ui/SwitchThemeButton"), {
   ssr: false,
 });
 

@@ -47,6 +47,70 @@
       @apply text-sm;
     }
 
+    .banner::before {
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+    .banner::after {
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+    }
+
+    .banner li:hover {
+      text-decoration: underline dotted black 1px;
+    }
+
+    .card {
+      @apply border-black p-[1em] rounded-[10px] border-2 border-solid;
+    }
+
+    .card h2,
+    .card h3 {
+      @apply text-black font-bold leading-[1.8rem] tracking-[1px] mb-2.5 px-0 py-[3px];
+    }
+    .card p {
+      @apply text-base leading-[1.2rem] mb-2.5;
+    }
+
+    .card ul {
+      @apply mb-2.5;
+    }
+
+    .card a {
+      @apply font-bold text-base block mb-[5px];
+    }
+
+    .card li {
+      @apply cursor-pointer;
+    }
+
+    .card li:hover a {
+      @apply underline-offset-4;
+      text-decoration: underline dashed currentColor 1px;
+    }
+
+    .card:nth-child(5n + 1) {
+      @apply text-tertiary-darkest-900 col-[1/3] row-[1/3] bg-tertiary-light-500 relative overflow-hidden before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    }
+
+    .card:nth-child(5n + 2) {
+      @apply col-[3/7] row-[1/4] text-accent-fourth-darkest-900 bg-accent-fourth-dark-100 relative overflow-hidden before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:pointer-events-none before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    }
+
+    .card:nth-child(5n + 3) {
+      @apply col-[1/3] row-[3/8] relative overflow-hidden bg-accent-first-light-300 text-accent-first-900 before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    }
+
+    .card:nth-child(5n + 4) {
+      @apply col-[3/7] row-[4/8] relative overflow-hidden text-accent-second-900 bg-accent-second-light-200 before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    }
+
+    .card:nth-child(5n + 5) {
+      @apply col-[1/7] row-[8/10] relative overflow-hidden bg-primary-lighter-200 text-primary-darker-900 before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    }
+
+    .card a {
+      @apply text-current hover:underline-offset-4;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       ::before,
@@ -87,6 +151,7 @@
   }
 
   @layer components {
+
     .icon-base {
       @apply h-6 w-6 text-primary-700 hover:scale-110 hover:pb-0.5 hover:text-accent-first-500 dark:text-primary-300 dark:hover:text-accent-first-500;
     }
@@ -162,6 +227,20 @@
       transform: rotateY(0deg);
     }
 
+    .banner::before {
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+    .banner::after {
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+    }
+
+    .banner input {
+      backcol: white;
+    }
+
+    .banner input::placeholder {
+      @apply text-[1.1rem] text-primary-lighter-300;
+    }
     /* input:focus-within ~ label, */
     /* input:not(:placeholder-shown) ~ label { */
     /*   @apply transform scale-75 -translate-y-6; */

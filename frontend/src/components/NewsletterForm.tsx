@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import siteMetadata from '@/data/siteMetadata';
 
-const NewsletterForm = ({ title = 'Subscribe to the Newsletter' }) => {
+const NewsletterForm = ({ title = 'Subscribe to the Newsletter', subtitle = "" }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
@@ -42,6 +42,7 @@ const NewsletterForm = ({ title = 'Subscribe to the Newsletter' }) => {
         <h1 className="justify-self-center self-center text-[1.375rem] text-primary-500">
           {title}
         </h1>
+        {subtitle && <p className="justify-self-center self-center text-sm text-primary-400"> {subtitle} </p>}
         <div className="grid grid-cols-[1fr_auto] gap-2">
           <div className="grid gap-2">
             <label className="text-sm text-primary-400" htmlFor="email-input">
@@ -86,10 +87,10 @@ const NewsletterForm = ({ title = 'Subscribe to the Newsletter' }) => {
 
 export default NewsletterForm;
 
-export const BlogNewsletterForm = ({ title }) => {
+export const BlogNewsletterForm = ({ title, subtitle }) => {
   <div className="flex items-center justify-center">
     <div className="bg-gray-100 p-6 dark:bg-gray-800 sm:px-14 sm:py-8">
-      <NewsletterForm title={title} />
+      <NewsletterForm title={title} subtitle={subtitle} />
     </div>
   </div>;
 };

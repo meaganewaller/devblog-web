@@ -9,7 +9,7 @@ interface Props {
   y: number;
   width?: string;
   height?: string;
-  zIndex?: string;
+  zIndex: string;
   classList?: string;
   children: React.ReactNode;
 }
@@ -21,7 +21,7 @@ export const DraggableWindow = ({
   y,
   width,
   height,
-  zIndex,
+  zIndex = "1",
   classList,
   children,
 }: Props) => {

@@ -2,7 +2,7 @@
 
 import DraggableWindow from '@/components/layout/DraggableWindow';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import Button, { ButtonSize, ButtonVariant } from '@/components/atoms/Buttons';
+import { Button } from "@atoms/Button";
 
 export default function Contact() {
   const links = [
@@ -50,8 +50,8 @@ export default function Contact() {
             {links.map((link, i) => (
               <li key={i}>
                 <Button
-                  size={ButtonSize.large}
-                  variant={ButtonVariant.secondary}
+                  size="regular"
+                  variant="secondary"
                   onClick={open(link.link)}
                 >
                   {link.name}

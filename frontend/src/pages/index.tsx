@@ -1,8 +1,8 @@
 import React from 'react';
-import Contact from '@sections/Contact';
-import RecentPosts from '@sections/RecentPosts';
-import About from '@sections/About';
-import Layout from '@/components/layout/Layout';
+import Contact from '@components/sections/Contact';
+import RecentPosts from '@components/sections/RecentPosts';
+import About from '@components/sections/About';
+import Layout from '@components/layout/Layout';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { GetStaticProps } from 'next';
 import PostService from '@/services/PostService';

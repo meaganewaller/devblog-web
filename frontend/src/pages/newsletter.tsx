@@ -26,7 +26,7 @@ export default function Newsletter() {
           zIndex="2"
           width={`${size.width / 1.1}px`}
         >
-          <NewsletterForm />
+          <NewsletterForm title={["A newsletter you'll ", <em>actually</em>, " open."]} subtitle="A monthly-ish newsletter with updates from the blog, my life, and things I find around the web." />
           <div className="flex place-content-center flex-col h-full">
             <div className="flex place-content-center">
               <div className="inline-block px-3">

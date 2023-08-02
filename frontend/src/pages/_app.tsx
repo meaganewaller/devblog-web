@@ -11,7 +11,7 @@ import { DefaultSeo } from 'next-seo';
 import { Analytics } from '@vercel/analytics/react';
 import useAppLoading from '@/hooks/useAppLoading';
 
-import ScrollToTop from '@ui/ScrollToTop';
+import ScrollToTop from '@components/ui/ScrollToTop';
 
 export default function App({ Component, pageProps }: AppProps) {
   useAppLoading();
