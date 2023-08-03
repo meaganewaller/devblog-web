@@ -3,15 +3,7 @@ import DraggableWindow from '@/components/layout/DraggableWindow';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { HiSparkles } from 'react-icons/hi';
-
-// const socialMedia = [
-//   { id: 1, name: "Email", route: "mailto:meagan@meaganwaller.com" },
-//   { id: 2, name: "Twitter", route: "https://twitter.com/meaganewaller" },
-//   { id: 3, name: "LinkedIn", route: "https://linkedin.com/in/meaganewaller" },
-//   { id: 4, name: "CodePen", route: "https://codepen.io/meaganewaller" },
-//   { id: 5, name: "Dev", route: "https://dev.to/meaganewaller" },
-//   { id: 6, name: "GitHub", route: "https://github.com/meaganewaller" },
-// ];
+import React from 'react';
 
 export function About() {
   const size = useWindowSize();
@@ -28,20 +20,11 @@ export function About() {
         width={`${size.width * 0.55}px`}
       >
         <div className="flex place-content-center p-8">
-          <HiSparkles
-            size="3em"
-            className="text-primary-500 dark:text-accent-first-300"
-          />
-          <HiSparkles
-            size="3em"
-            className="text-primary-500 dark:text-accent-first-300"
-          />
-          <HiSparkles
-            size="3em"
-            className="text-primary-500 dark:text-accent-first-300"
-          />
+          <HiSparkles size="3em" className="dark:text-white text-accent-first" />
+          <HiSparkles size="3em" className="dark:text-white text-accent-first" />
+          <HiSparkles size="3em" className="dark:text-white text-accent-first" />
         </div>
-        <p className="text-md px-8 py-2 leading-relaxed text-primary-400 dark:text-accent-first-100">
+        <p className="text-md px-8 py-2 leading-relaxed text-text">
           <span className="font-bold italic">
             I wrote my first line of HTML on Microsoft Notepad in 2004{' '}
           </span>
@@ -49,7 +32,7 @@ export function About() {
           was solving in 2004? My Neopets shop page wasn&apos;t pretty enough. I
           was 12 years old.
         </p>
-        <p className="text-md px-8 py-2 leading-relaxed text-primary-500 dark:text-accent-first-200">
+        <p className="text-md px-8 py-2 leading-relaxed text-text">
           I spent a couple days working up the courage to convince my parents to
           put their credit card information into form on a website and buy me a
           domain name. They did. And my first website was born. I learned
@@ -64,7 +47,6 @@ export function About() {
             variant={LinkVariant.underlined}
             size={LinkSize.small}
             href="/about"
-          // className="text-md text-accent-first-400 hover:italic hover:text-accent-third-600 dark:text-primary-100 dark:hover:text-accent-fourth-200"
           >
             Read more{' '}
             <BsArrowRightShort size="1.5em" className="inline-block" />

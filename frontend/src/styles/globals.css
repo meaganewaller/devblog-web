@@ -9,6 +9,113 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: 255 217 215;
+    --color-primary-two: 252 157 151;
+    --color-primary-three: 232 109 102;
+    --color-primary-four: 169 61 55;
+    --color-secondary: 161 202 241;
+    --color-secondary-two: 106 165 220;
+    --color-secondary-three: 25 112 194;
+    --color-secondary-four: 23 47 69;
+    --color-tertiary: 237 214 255;
+    --color-tertiary-two: 198 160 227;
+    --color-tertiary-three: 153 103 191;
+    --color-tertiary-four: 118 50 171;
+    --color-accent-first: 175 238 238;
+    --color-accent-first-two: 143 205 205;
+    --color-accent-first-three: 111 171 171;
+    --color-accent-first-four: 79 137 137;
+
+    --color-accent-second: 192 192 192;
+    --color-accent-second-two: 172 172 172;
+    --color-accent-second-three: 152 152 152;
+    --color-accent-second-four: 132 132 132;
+
+    --color-accent-third: 216 191 216;
+    --color-accent-third-two: 184 151 184;
+    --color-accent-third-three: 152 111 152;
+    --color-accent-third-four: 120 71 120;
+    --color-neutral: 229 228 226;
+    --color-neutral-two: 210 208 206;
+    --color-neutral-three: 191 188 186;
+    --color-neutral-four: 172 168 166;
+
+    --color-neutral-dark: 47 79 79;
+    --color-neutral-dark-two: 38 64 64;
+    --color-neutral-dark-three: 29 49 49;
+    --color-neutral-dark-four: 20 34 34;
+    --color-text: 0 0 0;
+    /* --webring-devblog-bg: url('https://i.imgur.com/3gRnS0T.gif'); */
+    /* --webring-devblog-border: 3px dashed; */
+    /* --webring-devblog-color: (var(--color-prim-500)); */
+    /* --webring-devblog-linkcolor: rgb(var(--color-pink-700)); */
+    /* --webring-devblog-title: rgb(var(--color-pink-500)); */
+    /* --webring-devblog-fontfamily: 'basiic'; */
+    /* --webring-devblog-titlesize: 1.25rem; */
+    /* --webring-devblog-borderradius: 10px; */
+    /* --webring-devblog-bgcolor: rgb(var(--color-prim-300)); */
+    /* --webring-devblog-width: 350px; */
+    /* --webring-devblog-height: 92px; */
+    /* --webring-devblog-textsize: .875rem; */
+    /* --webring-devblog-textfamily: 'basiic'; */
+    /* --webring-devblog-padding: 2px; */
+    /* --webring-devblog-h1margin: 2px; */
+    /* --webring-devblog-textmargin: 0; */
+    --index-window-bg: #c0c0c0;
+    --index-window-inactive: #dedede;
+    --index-window-border: #000;
+    --index-window-border-inactive: #525252;
+    --index-shadow-light: #fff;
+    --index-shadow-dark: #9c9c9c;
+    --index-title-light: #737373;
+    --index-title-dark: #737373;
+    --index-title-color: #000;
+    --index-title-color-inactive: #737373;
+  }
+
+  :root[class~="dark"] {
+    --color-primary: 100 216 203;
+    --color-primary-two: 56 186 166;
+    --color-primary-three: 32 108 96;
+    --color-primary-four: 24 78 74;
+    --color-secondary: 251 174 210;
+    --color-secondary-two: 221 137 210;
+    --color-secondary-three: 190 97 151;
+    --color-secondary-four: 160 56 122;
+    --color-tertiary: 255 216 176;
+    --color-tertiary-two: 230 181 131;
+    --color-tertiary-three: 205 188 112;
+    --color-tertiary-three: 226 161 64;
+    --color-accent-first: 171 205 239;
+    --color-accent-first-two: 133 171 205;
+    --color-accent-first-three: 96 137 171;
+    --color-accent-first-four: 58 103 137;
+    --color-accent-second: 245 255 250;
+    --color-accent-second-two: 220 238 233;
+    --color-accent-second-three: 195 221 217;
+    --color-accent-second-four: 169 204 201;
+    --color-accent-third: 216 191 216;
+    --color-accent-third-two: 184 151 184;
+    --color-accent-third-three: 152 111 152;
+    --color-accent-third-four: 120 71 120;
+    --color-neutral: 70 70 70;
+    --color-neutral-two: 59 59 59;
+    --color-neutral-three: 47 47 47;
+    --color-neutral-four: 35 35 35;
+    --color-neutral-dark: 229 228 226;
+    --color-neutral-dark-two: 210 208 206;
+    --color-neutral-dark-three: 191 188 186;
+    --color-neutral-dark-four: 172 168 166;
+    --color-text: 255 255 255;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
   * {
     @apply transition-[background-color] duration-300 ease-in-out;
   }
@@ -31,20 +138,236 @@
   ::-webkit-scrollbar-button {
     @apply hidden;
   }
-  h1 {
-    @apply text-2xl;
+
+  html {
+    @apply min-h-[100vh];
   }
-  h2 {
-    @apply text-xl;
+
+  body {
+    @apply antialiased font-sans font-normal m-0 text-base min-h-[100vh];
   }
-  h3 {
-    @apply text-lg;
+
+  .js .loading::before,
+  .js .loading::after {
+    @apply content-[""] fixed z-[1000];
   }
-  h4 {
-    @apply text-base;
+
+  .js .loading::before {
+    @apply bg-primary top-0 left-0 w-full h-full;
   }
-  h5 {
-    @apply text-sm;
+
+  .js .loading::after {
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    border-radius: 50%;
+    opacity: 0.4;
+    background: var(--color-accent-first);
+    animation: loaderAnim 0.7s linear infinite alternate forwards;
+  }
+
+  @keyframes loaderAnim {
+    to {
+      opacity: 1;
+      transform: scale3d(0.5, 0.5, 1);
+    }
+  }
+
+  a {
+    @apply decoration-wavy text-secondary-four text-base;
+  }
+
+  a:hover {
+    @apply text-secondary-three;
+    transition: 0.2s ease-in-out;
+    outline: none;
+  }
+
+  a:focus {
+    transition: 0.2s ease-in-out;
+  }
+
+  a:focus,
+  button:focus {
+    /* Provide a fallback style for browsers that don't support :focus-visible */
+    outline: none;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    /* Draw a very noticeable focus style for keyboard-focus on browsers that do support :focus-visible */
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  a:focus-visible {
+    background: none;
+  }
+
+  .menubar {
+    @apply text-neutral-dark-two z-10;
+    box-shadow: inset 1px 1px 0 var(--index-shadow-light), inset -1px -1px 0 var(--index-shadow-dark);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    backdrop-filter: blur(4px);
+  }
+
+  .menubar ul {
+    @apply flex list-none m-0 p-0 pt-[1px] z-10;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.35));
+  }
+
+  .menubar li {
+    @apply relative z-10;
+  }
+
+  .menubar .divider {
+    @apply border-t-[1px] border-primary my-[0.25em] mx-0;
+  }
+
+  .menubar ul ul {
+    @apply bg-tertiary flex-col left-0 absolute text-tertiary-four z-10;
+    border-radius: 0 0 0.25em 0.25em;
+    padding: 0.25em 0;
+    top: -1000em;
+    white-space: nowrap;
+  }
+
+  .menubar ul ul ul {
+    @apply z-10;
+    border-radius: 0.25em;
+  }
+
+  .menubar a {
+    @apply z-10;
+    color: inherit;
+    cursor: default;
+    display: block;
+    font-size: 14px;
+    padding: 0.25em 0.75em;
+    text-decoration: none;
+  }
+
+  .menubar [disabled],
+  .menubar [tabindex="-1"] {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  .menubar [data-key] {
+    display: flex;
+  }
+
+  .menubar [data-key]::after {
+    content: attr(data-key);
+    display: inline-block;
+    font-size: inherit;
+    margin-left: auto;
+    padding-left: 1em;
+  }
+
+  .menubar a:hover,
+  .menubar a:focus,
+  .menubar li:hover > a,
+  .menubar li:focus-within > a {
+    @apply bg-tertiary-two italic z-[101];
+    outline: 0 none;
+  }
+
+  .menubar [tabindex="-1"]:hover {
+    @apply z-10;
+    background: transparent;
+    color: inherit;
+  }
+
+  .menubar a:hover + ul,
+  .menubar a:focus + ul,
+  .menubar li:hover > ul,
+  .menubar ul:focus-within {
+    @apply z-10;
+    top: 100%;
+  }
+
+  .menubar ul ul a:hover + ul,
+  .menubar ul ul a:focus + ul,
+  .menubar ul ul li:hover > ul,
+  .menubar ul ul ul:focus-within {
+    left: 100%;
+    top: -0.25em;
+    z-index: 100;
+  }
+
+  .menubar svg {
+    display: inline-block;
+  }
+
+  .menubar svg path {
+    fill: currentcolor;
+  }
+
+  @keyframes nav {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0px);
+      opacity: 100;
+    }
+  }
+
+  .switch-theme-nav {
+    animation-name: nav;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+  }
+
+  .animated-wave {
+    @apply inline-block relative my-5 mx-0 z-2;
+    transition: 0.2s ease-in-out;
+    color: inherit;
+  }
+
+  .wavy a:before,
+  .animated-wave:before {
+    @apply w-[90%] absolute content-[''] h-20 left-0 -bottom-12 -z-1;
+    transform: scaleX(0);
+    transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
+    transform-origin: right;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+    0px 50%/80px 80px repeat-x;
+  }
+
+  .wavy a {
+    @apply font-extra text-sm animated-wave;
+  }
+
+  .animated-wave:hover,
+  .wavy a:hover {
+    @apply text-primary-four;
+  }
+
+  .wavy a:hover:before {
+    transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: left;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+    0px 50%/80px 80px repeat-x;
+    -webkit-animation: waving 3s linear infinite;
+    animation: waving 3s linear infinite;
+    transform: scaleX(1);
+  }
+  @-webkit-keyframes waving {
+    to {
+      background-position: 80px 50%, 160px 50%;
+    }
+  }
+  @keyframes waving {
+    to {
+      background-position: 80px 50%, 160px 50%;
+    }
   }
 
   .wrapper {
@@ -61,14 +384,6 @@
     grid-column: 1 / 4;
   }
 
-  .article-ring-state {
-    @apply transition-all hover:ring ring-primary-500 dark:ring-secondary-200 hover:ring-offset-4 hover:ring-offset-white-500;
-  }
-
-  .hr {
-    @apply my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl;
-  }
-
   .banner::before {
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   }
@@ -81,7 +396,7 @@
   }
 
   .card {
-    @apply row-[span_1] bg-white-500 p-6 rounded-md border-solid border-black;
+    @apply row-[span_1] bg-neutral p-6 rounded-md border-solid border-black;
   }
 
   .card h2,
@@ -110,23 +425,23 @@
   }
 
   .card:nth-child(5n + 1) {
-    @apply text-tertiary-darkest-900 col-[1/3] row-[1/3] bg-tertiary-light-500 relative overflow-hidden before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    @apply text-tertiary col-[1/3] row-[1/3] bg-tertiary/50 relative overflow-hidden before:content-[""] before:absolute before:w-full before:h-full before:border-l-white before:border-t-white before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
   }
 
   .card:nth-child(5n + 2) {
-    @apply col-[3/7] row-[1/4] text-accent-fourth-darkest-900 bg-accent-fourth-dark-100 relative overflow-hidden before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:pointer-events-none before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    @apply col-[3/7] row-[1/4] text-accent-third bg-accent-second relative overflow-hidden before:content-[""] before:absolute before:w-full before:h-full before:border-l-white before:border-t-white before:pointer-events-none before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
   }
 
   .card:nth-child(5n + 3) {
-    @apply col-[1/3] row-[3/8] relative overflow-hidden bg-accent-first-light-300 text-accent-first-900 before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    @apply col-[1/3] row-[3/8] relative overflow-hidden bg-accent-first text-accent-first before:content-[""] before:absolute before:w-full before:h-full before:border-l-white before:border-t-white before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
   }
 
   .card:nth-child(5n + 4) {
-    @apply col-[3/7] row-[4/8] relative overflow-hidden text-accent-second-900 bg-accent-second-light-200 before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    @apply col-[3/7] row-[4/8] relative overflow-hidden text-accent-second bg-accent-second before:content-[""] before:absolute before:w-full before:h-full before:border-l-white before:border-t-white before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
   }
 
   .card:nth-child(5n + 5) {
-    @apply col-[1/7] row-[8/10] relative overflow-hidden bg-primary-lighter-200 text-primary-darker-900 before:content-[""] before:absolute before:w-full before:h-full before:border-l-white-500 before:border-t-white-500 before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
+    @apply col-[1/7] row-[8/10] relative overflow-hidden bg-primary text-primary before:content-[""] before:absolute before:w-full before:h-full before:border-l-white before:border-t-white before:rounded-[10px] before:border-l-2 before:border-t-2 before:border-solid before:left-px before:top-px;
   }
 
   .card a {
@@ -170,7 +485,7 @@
 @layer components {
 
   .icon-base {
-    @apply h-6 w-6 text-primary-700 hover:scale-110 hover:pb-0.5 hover:text-accent-first-500 dark:text-primary-300 dark:hover:text-accent-first-500;
+    @apply h-6 w-6 text-primary hover:scale-110 hover:pb-0.5 hover:text-accent-first;
   }
 
   .swap {
@@ -242,303 +557,5 @@
   .swap-flip.swap-active .swap-on,
   .swap-flip input:indeterminate ~ .swap-indeterminate {
     transform: rotateY(0deg);
-  }
-
-  .banner::before {
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  }
-  .banner::after {
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
-  }
-
-  .banner input {
-    backcol: white;
-  }
-
-  .banner input::placeholder {
-    @apply text-[1.1rem] text-primary-lighter-300;
-  }
-}
-
-:root {
-  /* --webring-devblog-bg: url('https://i.imgur.com/3gRnS0T.gif'); */
-  /* --webring-devblog-border: 3px dashed; */
-  /* --webring-devblog-color: (var(--color-prim-500)); */
-  /* --webring-devblog-linkcolor: rgb(var(--color-pink-700)); */
-  /* --webring-devblog-title: rgb(var(--color-pink-500)); */
-  /* --webring-devblog-fontfamily: 'basiic'; */
-  /* --webring-devblog-titlesize: 1.25rem; */
-  /* --webring-devblog-borderradius: 10px; */
-  /* --webring-devblog-bgcolor: rgb(var(--color-prim-300)); */
-  /* --webring-devblog-width: 350px; */
-  /* --webring-devblog-height: 92px; */
-  /* --webring-devblog-textsize: .875rem; */
-  /* --webring-devblog-textfamily: 'basiic'; */
-  /* --webring-devblog-padding: 2px; */
-  /* --webring-devblog-h1margin: 2px; */
-  /* --webring-devblog-textmargin: 0; */
-  --index-window-bg: #c0c0c0;
-  --index-window-inactive: #dedede;
-  --index-window-border: #000;
-  --index-window-border-inactive: #525252;
-  --index-shadow-light: #fff;
-  --index-shadow-dark: #9c9c9c;
-  --index-title-light: #737373;
-  --index-title-dark: #737373;
-  --index-title-color: #000;
-  --index-title-color-inactive: #737373;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --index-shadow-light: "#eedae1";
-    --index-shadow-dark: "#894c60";
-  }
-}
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-html {
-  @apply min-h-[100vh];
-}
-
-body {
-  @apply antialiased font-sans font-normal bg-primary-lightest-100 dark:bg-primary-darkest-500 m-0 text-base dark:text-primary-lightest-500 text-primary-darker-500 min-h-[100vh];
-  --color-text: #111;
-  --color-number: #999;
-  --color-bg: #fff;
-  --color-link: #1352d1;
-  --color-link-hover: #111;
-}
-
-.js .loading::before,
-.js .loading::after {
-  @apply content-[""] fixed z-[1000];
-}
-
-.js .loading::before {
-  @apply bg-primary-500 top-0 left-0 w-full h-full;
-}
-
-.js .loading::after {
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  margin: -30px 0 0 -30px;
-  border-radius: 50%;
-  opacity: 0.4;
-  background: var(--color-link);
-  animation: loaderAnim 0.7s linear infinite alternate forwards;
-}
-
-@keyframes loaderAnim {
-  to {
-    opacity: 1;
-    transform: scale3d(0.5, 0.5, 1);
-  }
-}
-
-a {
-  @apply decoration-wavy text-primary-400 dark:text-accent-first-200;
-}
-
-a:hover {
-  @apply text-primary-600 dark:text-accent-first-400 outline-none;
-  transition: 0.2s ease-in-out;
-}
-
-a:focus {
-  @apply: outline-none;
-}
-
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
-a:focus,
-button:focus {
-  /* Provide a fallback style for browsers that don't support :focus-visible */
-  outline: none;
-}
-
-a:focus:not(:focus-visible),
-button:focus:not(:focus-visible) {
-  /* Remove the focus indicator on mouse-focus for browsers that do support :focus-visible */
-}
-
-a:focus-visible,
-button:focus-visible {
-  /* Draw a very noticeable focus style for keyboard-focus on browsers that do support :focus-visible */
-  outline: 2px solid #443ffc;
-  outline-offset: 3px;
-}
-
-a:focus-visible {
-  background: none;
-}
-
-.menubar {
-  @apply text-primary-darker-500 dark:text-accent-first-300 z-10;
-  box-shadow: inset 1px 1px 0 var(--index-shadow-light), inset -1px -1px 0 var(--index-shadow-dark);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  backdrop-filter: blur(4px);
-}
-
-.menubar ul {
-  @apply flex list-none m-0 p-0 pt-[1px] z-10;
-  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.35));
-}
-
-.menubar li {
-  @apply relative z-10;
-}
-
-.menubar .divider {
-  @apply border-t-[1px] border-primary-dark-500 my-[0.25em] mx-0;
-}
-
-.menubar ul ul {
-  @apply bg-primary-lightest-500 dark:bg-accent-first-darker-600 flex-col left-0 absolute text-primary-darkest-800 dark:text-accent-first-lightest-300 z-10;
-  border-radius: 0 0 0.25em 0.25em;
-  padding: 0.25em 0;
-  top: -1000em;
-  white-space: nowrap;
-}
-
-.menubar ul ul ul {
-  @apply z-10;
-  border-radius: 0.25em;
-}
-
-.menubar a {
-  @apply z-10;
-  color: inherit;
-  cursor: default;
-  display: block;
-  font-size: 14px;
-  padding: 0.25em 0.75em;
-  text-decoration: none;
-}
-
-.menubar [disabled],
-.menubar [tabindex="-1"] {
-  cursor: not-allowed;
-  opacity: 0.4;
-}
-
-.menubar [data-key] {
-  display: flex;
-}
-
-.menubar [data-key]::after {
-  content: attr(data-key);
-  display: inline-block;
-  font-size: inherit;
-  margin-left: auto;
-  padding-left: 1em;
-}
-
-.menubar a:hover,
-.menubar a:focus,
-.menubar li:hover > a,
-.menubar li:focus-within > a {
-  @apply dark:bg-accent-first-dark-300 bg-primary-500 dark:text-accent-first-800 text-primary-lightest-100 z-[101];
-  outline: 0 none;
-}
-
-.menubar [tabindex="-1"]:hover {
-  @apply z-10;
-  background: transparent;
-  color: inherit;
-}
-
-.menubar a:hover + ul,
-.menubar a:focus + ul,
-.menubar li:hover > ul,
-.menubar ul:focus-within {
-  @apply z-10;
-  top: 100%;
-}
-
-.menubar ul ul a:hover + ul,
-.menubar ul ul a:focus + ul,
-.menubar ul ul li:hover > ul,
-.menubar ul ul ul:focus-within {
-  left: 100%;
-  top: -0.25em;
-  z-index: 100;
-}
-
-.menubar svg {
-  display: inline-block;
-}
-
-.menubar svg path {
-  fill: currentcolor;
-}
-
-@keyframes nav {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0px);
-    opacity: 100;
-  }
-}
-
-.switch-theme-nav {
-  animation-name: nav;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
-}
-
-.animated-wave {
-  @apply inline-block relative my-5 mx-0 z-2;
-  transition: 0.2s ease-in-out;
-  color: inherit;
-}
-
-.wavy a:before,
-.animated-wave:before {
-  @apply w-[90%] absolute content-[''] h-20 left-0 -bottom-12 -z-1;
-  transform: scaleX(0);
-  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
-  transform-origin: right;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
-  0px 50%/80px 80px repeat-x;
-}
-
-.wavy a {
-  @apply font-extra text-sm animated-wave;
-}
-
-.animated-wave:hover,
-.wavy a:hover {
-  @apply text-accent-fourth-500;
-}
-
-.wavy a:hover:before {
-  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-origin: left;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
-  0px 50%/80px 80px repeat-x;
-  -webkit-animation: waving 3s linear infinite;
-  animation: waving 3s linear infinite;
-  transform: scaleX(1);
-}
-@-webkit-keyframes waving {
-  to {
-    background-position: 80px 50%, 160px 50%;
-  }
-}
-@keyframes waving {
-  to {
-    background-position: 80px 50%, 160px 50%;
   }
 }

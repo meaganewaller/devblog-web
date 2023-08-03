@@ -1,7 +1,7 @@
 /** @type { import('tailwindcss').Config} */
 import { fontFamily as _fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
-import Colorkraken from 'colorkraken';
+// import Colorkraken from 'colorkraken';
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}', './stories/**/*.{js,ts,jsx,tsx}'],
@@ -32,10 +32,41 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         inherit: 'inherit',
-        ...Colorkraken,
+        current: 'currentColor',
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-two": "rgb(var(--color-primary-two) / <alpha-value>)",
+        "primary-three": "rgb(var(--color-primary-three) / <alpha-value>)",
+        "primary-four": "rgb(var(--color-primary-four) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+        "secondary-two": "rgb(var(--color-secondary-two) / <alpha-value>)",
+        "secondary-three": "rgb(var(--color-secondary-three) / <alpha-value>)",
+        "secondary-four": "rgb(var(--color-secondary-four) / <alpha-value>)",
+        tertiary: "rgb(var(--color-tertiary) / <alpha-value>)",
+        "tertiary-two": "rgb(var(--color-tertiary-two) / <alpha-value>)",
+        "tertiary-three": "rgb(var(--color-tertiary-three) / <alpha-value>)",
+        "tertiary-four": "rgb(var(--color-tertiary-four) / <alpha-value>)",
+        'accent-first': "rgb(var(--color-accent-first) / <alpha-value>)",
+        'accent-first-two': "rgb(var(--color-accent-first-two) / <alpha-value>)",
+        'accent-first-three': "rgb(var(--color-accent-first-three) / <alpha-value>)",
+        'accent-first-four': "rgb(var(--color-accent-first-four) / <alpha-value>)",
+        'accent-second': "rgb(var(--color-accent-second) / <alpha-value>)",
+        'accent-second-two': "rgb(var(--color-accent-second-two) / <alpha-value>)",
+        'accent-second-three': "rgb(var(--color-accent-second-three) / <alpha-value>)",
+        'accent-second-four': "rgb(var(--color-accent-second-four) / <alpha-value>)",
+        'accent-third': "rgb(var(--color-accent-third) / <alpha-value>)",
+        'accent-third-two': "rgb(var(--color-accent-third-two) / <alpha-value>)",
+        'accent-third-three': "rgb(var(--color-accent-third-three) / <alpha-value>)",
+        'accent-third-four': "rgb(var(--color-accent-third-four) / <alpha-value>)",
+        neutral: "rgb(var(--color-neutral) / <alpha-value>)",
+        'neutral-two': "rgb(var(--color-neutral-two) / <alpha-value>)",
+        'neutral-three': "rgb(var(--color-neutral-three) / <alpha-value>)",
+        'neutral-four': "rgb(var(--color-neutral-four) / <alpha-value>)",
+        'neutral-dark': "rgb(var(--color-neutral-dark) / <alpha-value>)",
+        'neutral-dark-two': "rgb(var(--color-neutral-dark-two) / <alpha-value>)",
+        'neutral-dark-three': "rgb(var(--color-neutral-dark-three) / <alpha-value>)",
+        'neutral-dark-four': "rgb(var(--color-neutral-dark-four) / <alpha-value>)",
+        text: "rgb(var(--color-text) / <alpha-value>)",
       },
-      textColors: Colorkraken,
-      backgroundColors: Colorkraken,
       fontFamily: {
         sans: ['DM Sans', ..._fontFamily.sans],
         mono: ['IBM Plex Mono', ..._fontFamily.mono],

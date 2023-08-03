@@ -3,7 +3,7 @@
 }
 
 #nprogress .bar {
-  @apply bg-secondary-500 dark:bg-accent-first-lighter-300;
+  @apply bg-secondary;
   position: fixed;
   z-index: 1031;
   top: 0;
@@ -13,7 +13,7 @@
 }
 
 #nprogress .peg {
-  @apply shadow-sm shadow-primary-100 dark:shadow-primary-800;
+  @apply shadow-sm shadow-primary;
   display: block;
   position: absolute;
   right: 0;
@@ -35,7 +35,7 @@
 }
 
 #nprogress .spinner-icon {
-  @apply border-t-primary-200 dark:border-t-primary-400 border-l-primary-200 dark:border-l-primary-400;
+  @apply border-t-primary border-l-primary;
 
   width: 18px;
   height: 18px;
