@@ -2,7 +2,7 @@
 
 import DraggableWindow from '@/components/layout/DraggableWindow';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { Button } from "@atoms/Button";
+import Link from 'next/link';
 
 export default function Contact() {
   const links = [
@@ -32,8 +32,6 @@ export default function Contact() {
     },
   ];
   const size = useWindowSize();
-
-  const open = (link: string) => () => window.open(link, '_blank');
   return (
     <DraggableWindow
       title="let's connect"
@@ -49,13 +47,10 @@ export default function Contact() {
           <ul className="grid grid-flow-col grid-rows-2 gap-x-2 gap-y-4">
             {links.map((link, i) => (
               <li key={i}>
-                <Button
-                  size="regular"
-                  variant="secondary"
-                  onClick={open(link.link)}
+                <Link href={link.link}
                 >
                   {link.name}
-                </Button>
+                </Link>
               </li>
             ))}
           </ul>

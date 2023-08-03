@@ -13,8 +13,9 @@ import { HiSparkles } from 'react-icons/hi';
 //   { id: 6, name: "GitHub", route: "https://github.com/meaganewaller" },
 // ];
 
-const About = () => {
+export function About() {
   const size = useWindowSize();
+  if (!size || !size.width || !size.height) return (<></>);
   return (
     size.width &&
     size.height && (
@@ -73,4 +74,3 @@ const About = () => {
     )
   );
 }
-export default About;

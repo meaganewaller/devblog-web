@@ -1,5 +1,3 @@
-import PostService from '@/services/PostService';
-
 export const convertToPostList = (tableData: any) => {
   let tags: string[] = [];
   let categories: string[] = [];
@@ -20,7 +18,7 @@ export const convertToPostList = (tableData: any) => {
       category: post.category,
       coverImage: 'https://via.placeholder.com/600x400.png',
       publishedDate: post.published_date,
-      description: post.description,
+      summary: post.description,
       isPublic: post.published_date !== null,
     };
   });

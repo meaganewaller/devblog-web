@@ -16,7 +16,7 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com/in/meaganewaller',
   locale: 'en-US',
   analytics: {
-    plausibleDataDomain: '',
+    plausibleDataDomain: 'meaganwaller.com',
     simpleAnalytics: false,
     umamiWebsiteId: '',
     googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID,

@@ -2,12 +2,16 @@
 
 import Link from 'next/link';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { cxm } from '@/lib/helpers/cxm';
-import { convertToPostList } from '@/lib/utils/blog';
 import DraggableWindow from '@/components/layout/DraggableWindow';
+import type { Article } from '@/types';
 
-export default function RecentPosts({ posts }) {
+interface Props {
+  posts: Article[];
+}
+
+export default function RecentPosts({ posts }: Props) {
   const size = useWindowSize();
+  if (!size.width) return null;
   return (
     <DraggableWindow
       title="recent blog posts"
@@ -19,17 +23,17 @@ export default function RecentPosts({ posts }) {
     >
       <div className="flex max-w-3xl flex-col">
         <ul className="py-2 px-6">
-          {posts.map((post: Blog) => (
-            <li key={post.to_param} className="px-2 wavy w-full">
+          {posts.map((post: Article) => (
+            <li key={post.slug} className="px-2 wavy w-full">
               <Link
-                href={`/blog/${post.to_param}`}
+                href={`/blog/${post.slug}`}
                 className="block outline-none"
               >
                 <h2 className="text-primary-400 dark:text-accent-first-300 lowercase font-extra hover:italic active:italic antialiased subpixel-antialiased break-normal">
                   {post.title}
                 </h2>
                 <span className="italic font-extra lowercase text-primary-500 dark:text-accent-first-lighter-100">
-                  {post.published_date}
+                  {post.publishedDate}
                 </span>
               </Link>
             </li>

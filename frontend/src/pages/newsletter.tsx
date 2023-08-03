@@ -16,8 +16,12 @@ export default function Newsletter() {
 
   const size = useWindowSize();
 
+  if (!size) return (<></>);
+  if (!size.width) return (<></>);
+  if (!size.height) return (<></>);
+
   return (
-    <Layout>
+    <Layout hideFooter={true}>
       <div className="flex w-full mx-auto mt-20">
         <Window
           title="join the newsletter"

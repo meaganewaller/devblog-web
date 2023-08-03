@@ -91,7 +91,7 @@ export default function Contact() {
   const size = useWindowSize();
 
   return (
-    <Layout>
+    <Layout hideFooter={true}>
       <Window
         title="Let's Connect"
         x={(size.width * 0.5) / 2}

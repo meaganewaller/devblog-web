@@ -58,7 +58,7 @@ export default function CV() {
   }
   const size = useWindowSize();
   return (
-    <Layout>
+    <Layout hideFooter={true}>
       <div className="flex w-11/12 mx-auto mt-20">
         <Window
           title="work history"
