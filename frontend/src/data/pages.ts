@@ -9,7 +9,7 @@ const pages: PageItem[] = [
     name: 'Site',
     href: '#',
     children: [
-      { name: 'Join the Newsletter', href: '/newsletter' },
+      { name: 'Join the Newsletter', href: '#newsletter' },
       { name: 'Colophon', href: '/colophon' },
     ],
   },

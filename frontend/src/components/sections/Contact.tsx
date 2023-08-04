@@ -2,7 +2,8 @@
 
 import DraggableWindow from '@/components/layout/DraggableWindow';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import Link from 'next/link';
+import Button from '@/components/atoms/Buttons/Button';
+import { ButtonSize, ButtonVariant } from "@/components/atoms/Buttons/Button";
 
 export default function Contact() {
   const links = [
@@ -47,10 +48,9 @@ export default function Contact() {
           <ul className="grid grid-flow-col grid-rows-2 gap-x-2 gap-y-4">
             {links.map((link, i) => (
               <li key={i}>
-                <Link href={link.link}
-                >
+                <Button size={ButtonSize.default} variant={ButtonVariant.accent}>
                   {link.name}
-                </Link>
+                </Button>
               </li>
             ))}
           </ul>

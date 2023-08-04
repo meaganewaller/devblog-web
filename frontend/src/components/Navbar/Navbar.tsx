@@ -3,9 +3,11 @@ import { cn } from "@/lib/utils/tailwind";
 import pages from "../../data/pages";
 import dynamic from "next/dynamic";
 import { HiSparkles } from "react-icons/hi";
-import { MouseEvent, useRef, useState } from "react";
+import { MouseEvent, useRef, useState, createContext } from "react";
 import { useWindowSize } from "react-use";
 import { useRouter } from "next/router";
+import Modal from "@/components/Modal";
+import NewsletterForm from "@/components/NewsletterForm";
 
 type NavbarProps = {
   className?: string;
@@ -23,12 +25,12 @@ export function Navbar({ className }: NavbarProps) {
   const [confetti, setConfetti] = useState(false);
   const [mousePosX, setMousePosX] = useState(0);
   const [mousePosY, setMousePosY] = useState(0);
+  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
   function navClick(event: MouseEvent) {
     if (window.scrollY <= 90 && router.route == "/") {
       setMousePosX(event.clientX);
       setMousePosY(event.clientY);
-
       setConfetti(true);
       setTimeout(() => setConfetti(false), 100);
     } else {
@@ -39,10 +41,17 @@ export function Navbar({ className }: NavbarProps) {
   return (
     <nav
       className={cn(
-        "bg-primary-200 dark:bg-accent-first-darker-900 h-[32px] menubar border-b border-b-solid border-b-primary-300 dark:border-b-accent-first-800 rounded-t-[10px] py-0 px-[0.5em] w-full",
+        "bg-secondary-three dark:bg-primary-four h-[32px] menubar border-b border-b-solid border-b-secondary-three dark:border-b-primary-four rounded-t-[10px] py-0 px-[0.5em] w-full",
         className,
       )}
     >
+      {showNewsletterModal && (
+        <Modal onClose={() => setShowNewsletterModal(false)}>
+          <div className="flex w-full mx-auto">
+          <NewsletterForm title={["A newsletter you'll ", <em>actually</em>, " open."]} subtitle="A monthly-ish newsletter with updates from the blog, my life, and things I find around the web." />
+          </div>
+        </Modal>
+      )}
       <ul className="flex flex-row list-none m-0 p-0">
         <li key="icon">
           <HiSparkles
@@ -61,9 +70,13 @@ export function Navbar({ className }: NavbarProps) {
               <ul className="z-[2]">
                 {item.children.map((child, index) => (
                   <li key={`child-${index}`}>
-                    <Link href={child.href} className="duration-75">
-                      {child.name}
-                    </Link>
+                    {child.href === "#newsletter" ? (
+                      <button className="duration-75" onClick={() => setShowNewsletterModal(true)}>{child.name}</button>
+                    ) : (
+                      <Link href={child.href} className="duration-75">
+                        {child.name}
+                      </Link>
+                    )}
                     {child.children && (
                       <ul>
                         {child.children.map((grandchild, index) => (

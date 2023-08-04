@@ -79,7 +79,7 @@ export const DraggableWindow = ({
           <button className="relative block w-[11px] h-[11px] p-0 border border-solid border-[#000] shadow-[inset_1px_1px_0_#fff_-1px_-1px_0_#9c9c9c_inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c] active:shadow-[1px_1px_0_#fff_-1px_-1px_0_#9c9c9c] bg-windowTitleBarButton active:bg-windowTitleBarButtonActive after:content-[''] after:absolute after:top-0 after:left-0 after:w-[5px] after:h-[5px] after:border-bottom after:border-solid after:border-accent-third-four after:border-right" />
           <button className="relative block w-[11px] h-[11px] p-0 border border-solid border-[#000] shadow-[inset_1px_1px_0_#fff_-1px_-1px_0_#9c9c9c_inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c] active:shadow-[1px_1px_0_#fff_-1px_-1px_0_#9c9c9c] bg-windowTitleBarButton active:bg-windowTitleBarButtonActive ml-[5px] after:content-[''] after:absolute after:top-[3px] after:left-0 after:right-0 after:h-[1px] after:border-top after:border-solid after:border-accent-third-four after:border-bottom" />
         </div>
-        <div className="col-start-2 col-end-3 row-start-2 row-end-3 bg-white dark:bg-secondary h-full border border-solid border-accent-third-four shadow-[1px_1px_0_#fff_-1px_-1px_0_#9c9c9c] overflow-x-hidden overflow-y-auto">
+        <div className="col-start-2 col-end-3 row-start-2 row-end-3 bg-white dark:bg-primary-four h-full border border-solid border-accent-third-four shadow-[1px_1px_0_#fff_-1px_-1px_0_#9c9c9c] overflow-x-hidden overflow-y-auto">
           {children}
         </div>
         <div className="col-start-1 col-end-2 row-start-1 row-end-4 cursor-[ew-resize]" />

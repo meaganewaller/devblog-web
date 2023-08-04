@@ -144,7 +144,7 @@
   }
 
   body {
-    @apply antialiased font-sans font-normal m-0 text-base min-h-[100vh];
+    @apply antialiased font-sans font-normal m-0 text-base min-h-[100vh] bg-clouds dark:bg-nightsky shadow-[inset_0_0_0_2000px] shadow-secondary/50 dark:shadow-primary-four/40;
   }
 
   .js .loading::before,
@@ -206,8 +206,28 @@
     background: none;
   }
 
+  .modal-wrapper {
+    @apply max-w-2xl max-h-screen;
+  }
+
+  .modal {
+    @apply z-[1000] w-full h-full p-[15px] rounded-sm text-text bg-secondary-two border-2 border-solid border-secondary-three;
+  }
+
+  .modal-overlay {
+    @apply bg-secondary/80 z-[1000] absolute top-0 left-0 w-full h-full flex justify-center items-center;
+  }
+
+  .modal-body {
+    @apply pt-[10px];
+  }
+
+  .modal-header {
+    @apply flex justify-end text-2xl;
+  }
+
   .menubar {
-    @apply text-neutral-dark-two z-10;
+    @apply text-neutral-dark-two/90 text-white/90 z-10;
     box-shadow: inset 1px 1px 0 var(--index-shadow-light), inset -1px -1px 0 var(--index-shadow-dark);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -228,7 +248,7 @@
   }
 
   .menubar ul ul {
-    @apply bg-tertiary flex-col left-0 absolute text-tertiary-four z-10;
+    @apply bg-secondary dark:bg-primary-two flex-col left-0 absolute text-white z-10;
     border-radius: 0 0 0.25em 0.25em;
     padding: 0.25em 0;
     top: -1000em;
@@ -240,6 +260,7 @@
     border-radius: 0.25em;
   }
 
+  .menubar button,
   .menubar a {
     @apply z-10;
     color: inherit;
@@ -268,11 +289,13 @@
     padding-left: 1em;
   }
 
+  .menubar button:hover,
+  .menubar button:focus,
   .menubar a:hover,
   .menubar a:focus,
   .menubar li:hover > a,
   .menubar li:focus-within > a {
-    @apply bg-tertiary-two italic z-[101];
+    @apply bg-white/50 italic z-[101];
     outline: 0 none;
   }
 

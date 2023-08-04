@@ -28,7 +28,7 @@ export default function Blog(props: { posts: Article[], featuredPost: Article, t
             ))}
       </ul>
       </div>
-      <div className={`banner h-[35px] w-[1030px] bg-secondary-100 border-t-2 border-x-2 border-solid border-secondary-400 relative grid grid-cols-[70px_1fr_150px] items-center px-[2em] py-0 border-2 before:content-[""] before:absolute before:block before:w-5 before:h-5 before:bg-secondary-400 before:-z-1 before:-left-0.5 before:-top-5 after:content-[""] after:absolute afer:block after:w-5 after:h-5 after:bg-secondary-400 after:-z-1 after:-right-0.5 after:-top-5`}>
+      <div className={`banner h-[35px] w-[1030px] bg-white border-t-2 border-x-2 border-solid border-secondary-400 relative grid grid-cols-[70px_1fr_150px] items-center px-[2em] py-0 border-2 before:content-[""] before:absolute before:block before:w-5 before:h-5 before:bg-secondary-400 before:-z-1 before:-left-0.5 before:-top-5 after:content-[""] after:absolute afer:block after:w-5 after:h-5 after:bg-secondary-400 after:-z-1 after:-right-0.5 after:-top-5`}>
       <h4 className="uppercase text-[0.85rem] text-black">tags:</h4>
       <ul className={`w-full grid grid-cols-[repeat(${props.tags.length},max-content)] gap-x-[1em]`}>
       {props.tags.map((tag: string, i: number) => (
