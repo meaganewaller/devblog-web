@@ -3,11 +3,12 @@ import { cn } from "@/lib/utils/tailwind";
 import pages from "../../data/pages";
 import dynamic from "next/dynamic";
 import { HiSparkles } from "react-icons/hi";
-import { MouseEvent, useRef, useState, createContext } from "react";
+import { useEffect, MouseEvent, useRef, useState } from "react";
 import { useWindowSize } from "react-use";
 import { useRouter } from "next/router";
 import Modal from "@/components/Modal";
 import NewsletterForm from "@/components/NewsletterForm";
+import CategoryService from "@/services/CategoryService";
 
 type NavbarProps = {
   className?: string;
@@ -26,6 +27,21 @@ export function Navbar({ className }: NavbarProps) {
   const [mousePosX, setMousePosX] = useState(0);
   const [mousePosY, setMousePosY] = useState(0);
   const [showNewsletterModal, setShowNewsletterModal] = useState(false);
+  const [categories, setCategories] = useState(null)
+
+  useEffect(() => {
+    CategoryService.getAll()
+    .then((data) => {
+      setCategories(data.map((category) => {
+        return {
+          title: category.title,
+          description: category.description,
+          slug: category.slug,
+          postsCount: category.postsCount
+        }
+      }))
+    })
+  }, [])
 
   function navClick(event: MouseEvent) {
     if (window.scrollY <= 90 && router.route == "/") {
@@ -57,18 +73,18 @@ export function Navbar({ className }: NavbarProps) {
           <HiSparkles
             size="20"
             aria-label="Home page"
-            className="h-[20px] mr-[8px]"
+            className="h-[32px] mr-[8px]"
             onClick={navClick}
           />
         </li>
-        {pages.map((item, index) => (
+        {pages.map((item, index: number) => (
           <li key={index} className="align-middle">
             <Link href={item.href} className="duration-75">
               {item.name}
             </Link>
             {item.children && (
               <ul className="z-[2]">
-                {item.children.map((child, index) => (
+                {item.children.map((child, index: number) => (
                   <li key={`child-${index}`}>
                     {child.href === "#newsletter" ? (
                       <button className="duration-75" onClick={() => setShowNewsletterModal(true)}>{child.name}</button>
@@ -77,7 +93,21 @@ export function Navbar({ className }: NavbarProps) {
                         {child.name}
                       </Link>
                     )}
-                    {child.children && (
+                    {child.children && categories && child.name === "Categories" && (
+                        <ul>
+                        {categories.map((category, index: number) => (
+                          <li key={`grandchild-${index}`}>
+                            <Link
+                              href={`/blog/categories/${category.slug}`}
+                              className="duration-75"
+                            >
+                              {category.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {child.children && child.name !== "Categories" && (
                       <ul>
                         {child.children.map((grandchild, index) => (
                           <li key={`grandchild-${index}`}>
@@ -97,7 +127,7 @@ export function Navbar({ className }: NavbarProps) {
             )}
           </li>
         ))}
-        <li key="switch-theme" className="ml-auto mr-2 p-1">
+        <li key="switch-theme" className="ml-auto">
           <SwitchThemeButton />
         </li>
       </ul>

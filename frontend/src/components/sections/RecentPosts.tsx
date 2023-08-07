@@ -29,11 +29,11 @@ export default function RecentPosts({ posts }: Props) {
                 href={`/blog/${post.slug}`}
                 className="block outline-none"
               >
-                <h2 className="text-primary-400 dark:text-accent-first-300 lowercase font-extra hover:italic active:italic antialiased subpixel-antialiased break-normal">
+                <h2 className="text-purple-one lowercase font-extra hover:italic active:italic antialiased subpixel-antialiased break-normal">
                   {post.title}
                 </h2>
-                <span className="italic font-extra lowercase text-primary-500 dark:text-accent-first-lighter-100">
-                  {post.publishedDate}
+                <span className="text-xs font-extra lowercase text-pink-three">
+                  {post.published_date}
                 </span>
               </Link>
             </li>

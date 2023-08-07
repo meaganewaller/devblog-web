@@ -24,11 +24,11 @@ const BUTTON_SIZE_STYLES: Record<ButtonSize, string> = {
 
 const BUTTON_VARIANT_STYLES: Record<ButtonVariant, string> = {
   [ButtonVariant.primary]:
-    "bg-primary-two text-white hover:bg-primary-three after:bg-primary",
+    "bg-pink-two text-white hover:bg-primary-three after:bg-primary",
   [ButtonVariant.secondary]:
-    "bg-secondary-two text-white hover:bg-secondary-three after:bg-secondary",
+    "bg-green-two text-white hover:bg-secondary-three after:bg-secondary",
   [ButtonVariant.accent]:
-    "bg-accent-first-two text-white hover:bg-accent-first-three after:bg-accent-first",
+    "bg-pink-three text-white hover:bg-pink-two after:bg-pink-eight",
 };
 
 const BUTTON_DISABLED_VARIANT_STYLES: Record<ButtonVariant, string> = {

@@ -25,9 +25,9 @@ const HomeLayout: NextPage<Props> = ({ children, hideNavbar = false, hideFooter 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col h-screen justify-between">
+      <div>
         {!hideNavbar && <Navbar />}
-        <main className="mb-auto mt-20 md:mt-28 pb-10">
+        <main className="h-full">
           {children}
         </main>
         {!hideFooter && <Footer />}

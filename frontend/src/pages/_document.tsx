@@ -14,8 +14,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Script src="cards.js" strategy="lazyOnload" />
-
           <div id="modal-root"></div>
         </body>
       </Html>

@@ -21,7 +21,7 @@ export default function SwitchThemeButton() {
   return (
     <>
       <button
-        className={`rounded-sm swap swap-rotate transition-all ${
+        className={`rounded-sm bg-transparent swap swap-rotate transition-all hover:opacity-80 ${
           currentTheme === 'dark' ? 'swap-active' : null
         } transition-none`}
         onClick={changeTheme}
@@ -29,8 +29,8 @@ export default function SwitchThemeButton() {
           currentTheme === 'dark' ? 'light' : 'dark'
         } mode`}
       >
-        <BsFillSunFill className="swap-on h-5 w-5" size={15} />
-        <BsFillMoonFill className="swap-off h-5 w-5" size={15} />
+        <BsFillSunFill className="swap-on" size={14} />
+        <BsFillMoonFill className="swap-off" size={14} />
       </button>
     </>
   );
