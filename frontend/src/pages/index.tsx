@@ -12,7 +12,11 @@ type Props = {
   posts: Article[]
 }
 
-const HomePage = ({ posts }: Props) => {
+type HomePageType = NextPage<Props> & {
+  getLayout: (page: JSX.Element) => JSX.Element
+}
+
+const HomePage: HomePageType = ({ posts }: Props) => {
   return (
     <>
       <Head>
@@ -28,8 +32,7 @@ const HomePage = ({ posts }: Props) => {
     </>
     )
 }
-
-HomePage.getLayout = function getLayout(page: NextPage) {
+HomePage.getLayout = function getLayout(page: JSX.Element) {
   return (
     <Layout hideNavbar={false} hideFooter={true}>
       {page}
@@ -38,7 +41,7 @@ HomePage.getLayout = function getLayout(page: NextPage) {
 }
 
 export const getStaticProps = async () => {
-  const data = await PostService.getAll();
+  const data = await PostService.getAll()
   return {
     props: {
       posts: data.slice(0, 4)
@@ -47,4 +50,4 @@ export const getStaticProps = async () => {
   }
 }
 
-export default HomePage;
+export default HomePage

@@ -36,6 +36,7 @@ export function Navbar({ className }: NavbarProps) {
         return {
           title: category.title,
           description: category.description,
+          id: category.id,
           slug: category.slug,
           postsCount: category.postsCount
         }
@@ -57,17 +58,15 @@ export function Navbar({ className }: NavbarProps) {
   return (
     <nav
       className={cn(
-        "bg-secondary-three dark:bg-primary-four h-[32px] menubar border-b border-b-solid border-b-secondary-three dark:border-b-primary-four rounded-t-[10px] py-0 px-[0.5em] w-full",
+        "bg-secondary-300 h-[32px] menubar border-b border-b-solid border-b-secondary-400 rounded-t-[10px] py-0 px-[0.5em] w-full",
         className,
       )}
     >
-      {showNewsletterModal && (
-        <Modal onClose={() => setShowNewsletterModal(false)}>
-          <div className="flex w-full mx-auto">
+      <Modal isOpen={showNewsletterModal} setIsOpen={setShowNewsletterModal}>
+        <div className="flex w-full mx-auto">
           <NewsletterForm title={["A newsletter you'll ", <em>actually</em>, " open."]} subtitle="A monthly-ish newsletter with updates from the blog, my life, and things I find around the web." />
-          </div>
-        </Modal>
-      )}
+        </div>
+      </Modal>
       <ul className="flex flex-row list-none m-0 p-0">
         <li key="icon">
           <HiSparkles

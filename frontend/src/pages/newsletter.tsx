@@ -11,7 +11,6 @@ export default function Newsletter() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.get(`/api/subscribe/${email}`);
-    console.log(res);
   };
 
   const size = useWindowSize();

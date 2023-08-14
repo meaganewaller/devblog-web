@@ -23,11 +23,11 @@ const LINK_SIZE_STYLES: Record<LinkSize, string> = {
 
 const LINK_VARIANT_STYLES: Record<LinkVariant, string> = {
   [LinkVariant.accent]:
-    'text-accent-first-500 dark:text-accent-second-light-00 hover:text-accent-first-800 dark:hover:text-accent-second-lighter-100',
+    'text- dark:text-accent-second-light-00 hover:text-accent-first-800 dark:hover:text-accent-second-lighter-100',
   [LinkVariant.primary]:
     'text-primary-400 dark:text-accent-first-200 hover:text-primary-600 dark:hover:text-accent-first-400',
   [LinkVariant.underlined]:
-    'text-secondary-700 dark:text-accent-second-200 hover:text-secondary-900 dark:hover:text-accent-second-400',
+    'text-blue-six hover:text-blue-four hover:underline duration-75 hover:transition-all',
   [LinkVariant.wavy]: 'animated-wave',
 };
 

@@ -14,7 +14,7 @@ export default function RecentPosts({ posts }: Props) {
   if (!size.width) return null;
   return (
     <DraggableWindow
-      title="recent blog posts"
+      title="recent-posts.txt"
       x={size.width / 35}
       y={200}
       width={`${size.width / 2 < 520 ? size.width / 2 : 520}px`}
@@ -29,10 +29,10 @@ export default function RecentPosts({ posts }: Props) {
                 href={`/blog/${post.slug}`}
                 className="block outline-none"
               >
-                <h2 className="text-purple-one lowercase font-extra hover:italic active:italic antialiased subpixel-antialiased break-normal">
+                <h2 className="text-primary-400 lowercase font-extra hover:italic active:italic antialiased subpixel-antialiased break-normal">
                   {post.title}
                 </h2>
-                <span className="text-xs font-extra lowercase text-pink-three">
+                <span className="text-xs tracking-wide font-extra lowercase text-info-500 font-bold">
                   {post.published_date}
                 </span>
               </Link>

@@ -35,7 +35,7 @@ export default function Contact() {
   const size = useWindowSize();
   return (
     <DraggableWindow
-      title="let's connect"
+      title="lets-connect.txt"
       active={false}
       x={size.width ? size.width / 2 : 0}
       y={size.height ? size.height / 1.65 : 0}

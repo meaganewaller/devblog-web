@@ -26,7 +26,7 @@ const BlogPost: NextPage<{ post: Article }> = ({ post }) => {
         <div className="relative bg-white box-border-w-[90%] shadow-[3px_3px_(rgb(var(--color-primary)))] rounded-[25px_25px] border-[3px] border-solid border-neutral-dark">
           <div className="flex justify-between items-center box-border w-full text-primary-four px-5 py-2.5 rounded-[22px_22px_0_0] border-b-[3px] border-b-neutral-dark border-solid bg-primary">
             <div className="text-base tracking-wider font-extra">
-              <prefix className="text-[13px] font-bold uppercase align-middle">[{post.category}]</prefix>
+              <prefix className="text-[13px] font-bold uppercase align-middle">[{post.category.title}]</prefix>
               {post.title}
               <span className="block text-[11px] tracking-wider leading-snug pr-0 py-0">{post.published_date}</span>
             </div>

@@ -11,7 +11,7 @@ type Props = {
   hideFooter?: boolean
 }
 
-const HomeLayout: NextPage<Props> = ({ children, hideNavbar = false, hideFooter = false }: Props) => {
+const HomeLayout: NextPage<Props> = ({ children, hideNavbar = false, hideFooter = true }: Props) => {
   return (
     <>
       <Head>
@@ -25,9 +25,9 @@ const HomeLayout: NextPage<Props> = ({ children, hideNavbar = false, hideFooter 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
+      <div className="apply h-full w-full bg-[center_center] shadow-[inset_1px_1px_0px_rgba(255,255,255,0.2),inset_-1px_-1px_0px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col rounded-lg bg-clouds dark:bg-nightsky">
         {!hideNavbar && <Navbar />}
-        <main className="h-full">
+        <main className="min-h-screen border-none bg-transparent">
           {children}
         </main>
         {!hideFooter && <Footer />}

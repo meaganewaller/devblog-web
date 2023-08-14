@@ -1,14 +1,12 @@
 export const convertToCategoryList = (tableData: any) => {
   const categories = tableData.map((category: any) => {
     return {
+      id: category.id,
       title: category.title,
       description: category.description,
-      postsCount: category.posts_count || 0,
       slug: category.slug,
     }
   })
-
-  console.log("categories", categories);
 
   return { categories };
 }
@@ -16,6 +14,7 @@ export const convertToCategoryList = (tableData: any) => {
 export const convertToPostList = (tableData: any) => {
   let tags: string[] = [];
   const posts = tableData.map((post: any) => {
+    debugger
     return {
       title: post.title,
       tags: post.tags.map((tag: string) => {
