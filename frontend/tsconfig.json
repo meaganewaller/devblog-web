@@ -1,65 +1,44 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "strict": true,
-    "declaration": true,
-    "outDir": "./dist",
-    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
     "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "preserveSymlinks": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./src",
-    "paths": {
-      "@atoms/*": ["components/atoms/*"],
-      "@molecules/*": ["components/molecules/*"],
-      "@organisms/*": ["components/organisms/*"],
-      "@templates/*": ["components/templates/*"],
-      "@pages/*": ["components/pages/*"],
-      "@components/*": ["components/*"],
-      "@data/*": ["data/*"],
-      "@hooks/*": ["hooks/*"],
-      "@lib/*": ["lib/*"],
-      "@services/*": ["services/*"],
-      "@styles/*": ["styles/*"],
-      "@types/*": ["types/*"],
-      "@/*": ["*"],
-    },
+    "noImplicitAny": true,
     "strictNullChecks": true,
+    "removeComments": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/stitches": ["stitches.config.ts"],
+      "@/*": ["./src/*"],
+      "react": ["./node_modules/@types/react"]
+    },
+    "incremental": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
-  "types":[
-    "node"
-  ],
+  "exclude": [".idea", "node_modules", "old-src"],
   "include": [
     "next-env.d.ts",
-    ".next/types/**/*.ts",
+    "global.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
+    "**/*.tsx",
+    "./.contentlayer/generated",
+    "next.config.js",
+    ".next/types/**/*.ts"
   ]
 }

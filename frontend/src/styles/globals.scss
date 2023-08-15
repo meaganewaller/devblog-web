@@ -1,0 +1,26 @@
+@import 'tailwindcss/base';
+@import './reset.scss';
+@import './custom-reset.scss';
+
+@tailwind components;
+@tailwind utilities;
+
+@import './colors.scss';
+@import './core.scss';
+@import './typography.scss';
+@import './article.scss';
+
+html.inverted,
+html.light-inverted,
+html.dark-inverted {
+  &,
+  & * {
+    @apply pointer-events-none select-none saturate-[30] invert-[1.5];
+
+    &::before {
+      z-index: 9999;
+      content: '–';
+    }
+  }
+}
+
