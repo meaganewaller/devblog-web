@@ -1,75 +1,102 @@
-import type { PostFrontMatter } from '@/utils/blogs';
-import { tw } from '@/utils/tw';
-import { PostPublishedLabel } from './post-published-label';
-import { PostReadTimeLabel } from './post-read-time-label';
-import { PostTag } from './post-tag';
+'use client';
 
-import Link from 'next/link';
-import { createElement } from 'react';
-import { P, match } from 'ts-pattern';
+import Icon from '@mdi/react';
+import type { Route } from 'next';
+import { useMemo, type CssPropertiess, type PropsWithChildren } from 'react';
 
-type PostCardProps = PostFrontMatter & {
-  className?: string;
-  headingLevel?: 'h2' | 'h3' | 'h4';
-  clickableTags?: boolean;
+import { calendarOutline, mdiClockOutline } from '@/components/icons';
+import { useHasMounted } from '@/hooks/use-has-mounted';
+import { useTheme } from '@/providers/theme-provider';
+import { getReadableColor, hexToRgb } from '@/utils/color';
+import { formatDate } from '@/utils/date';
+import { getUrlDomain } from '@/utils/domain';
+
+type Blog = {
+  title: string;
+  slug: string;
 }
 
-const headingProps = { className: 'mt-1 mb-4' };
+import {
+  PostCard,
+  PostCardHero,
+  PostCardContent,
+  PostTitle,
+  PostDescription,
+  PostStatsContainer,
+} from './card.styles';
+
+interface PostCardProps {
+  post: Blog;
+}
 
 export const Card = (props: PostCardProps) => {
-  const heading = match([props.headingLevel, headingProps])
-    .with(['h2', P.select()], (headingProps) =>
-      createElement('h2', headingProps, <Link href={`/blog/${props.slug}`}>{props.title}</Link>),
-    )
-    .with(['h3', P.select()], (headingProps) =>
-      createElement('h2', headingProps, <Link href={`/blog/${props.slug}`}>{props.title}</Link>),
-    )
-    .with(['h4', P.select()], (headingProps) =>
-      createElement('h2', headingProps, <Link href={`/blog/${props.slug}`}>{props.title}</Link>),
-    )
-    .with([P.nullish, P.select()], (headingProps) =>
-      createElement('h3', headingProps, <Link href={`/blog/${props.slug}`}>{props.title}</Link>),
-    )
-    .exhaustive()
+  const hasMounted = useHasMounted();
+  const { isDark } = useTheme();
 
-  const tags = match([props.tags, props.clickableTags])
-    .with([P.array(), P.nullish], ([tags]) => (
-      <div className='flex items-center space-x-1'>
-        {tags.map((tag) => (
-          <PostTag key={`tag-${tag}-${props.slug}`} tag={tag} />
-        ))}
-      </div>
-    ))
-    .with([P.array(), P.shape(true)], ([tags]) => (
-      <div className='flex items-center space-x-1'>
-        {tags.map((tag) => (
-          <PostTag key={`tag-${tag}-${props.slug}`} tag={tag} />
-        ))}
-      </div>
-    ))
-    .with([P.array(), P.shape(false)], ([tags, clickable]) => (
-      <div className='flex items-center space-x-1'>
-        {tags.map((tag) => (
-          <PostTag clickable={clickable} key={`tag-${tag}-${props.slug}`} tag={tag} />
-        ))}
-      </div>
-    ))
-    .otherwise(() => null)
+  const { post } = props;
+  const { link, slug, readingTime } = post;
+  const rightLink = link && link.length > 0 ? link : `/blog/${slug}`;
+  const domain = getUrlDomain(rightLink);
+
+  const textColor = useMemo<string | null>(() => {
+    if (!hasMounted) return null;
+    return hexToRgb(getReadableColor(post.color, isDark), undefined, true);
+  }, [isDark, post.color, hasMounted]);
+
+  const a11yDate = formatDate(post.date);
+  const readableDate = formatDate(post.date, { year: undefined });
 
   return (
-    <div className={tw('py-4 first-of-type:pt-0 last-of-type:pb-0', props.className)}>
-      <div className='flex flex-col xs:flex-row xs:items-center space-y-1 xs:space-y-0'>
-        <PostPublishedLabel publishedAt={props.publishedAt} />
-        <span className='mx-1 hidden xs:block'>•</span>
-        <PostReadTimeLabel
-          tooltipId={`home-post-${props.slug}-read-time`}
-          est_read={props.est_read}
-        />
-      </div>
-
-      {heading}
-
-      {tags}
-    </div>
-  )
-}
+    <PostCard
+      title={`Blog post: ${pot?.title}`}
+    href={rightLink as Route}
+    style={
+        {
+          '--post-color':
+          hexToRgb(post.color, 1, true) || 'var(--color-accent-dark)',
+          '--post-text-color': textColor || 'var(--color-accent-dark)',
+        } as CSSProperties
+      }
+    >
+      <PostCardHero
+        src={post.hero || ''}
+        alt={`Hero image for blog post "${post.title}"`}
+        width={post?.heroMeta?.size?.width || 144}
+        height={post?.heroMeta?.size?.height || 72}
+        placeholder={'blur'}
+        blurDataURL={post?.heroMetaa?.blur64}
+      />
+      <PostCardContent>
+        <PostTitle>{post.title}</PostTitle>
+        <PostDescription>{post.description}</PostDescription>
+        {domain ? (
+        <span className={'text-3xs text-tertiary-txt'}>
+        Published on <span className={'underline'}>{domain}</span>
+        </span>
+        ): null}
+        <PostStatsContainer>
+          {Boolean(readableDate) && (
+            <Stat
+              title={`This blog post was published on ${a11yDate}`}
+              aria-label={`This blog was published on ${a11yDate}`}
+              $sm
+            >
+              <Icon path={calendarOutline} size={0.5} />
+              <span>{readableDate}</span>
+            </Stat>
+          )}
+          {Boolean(readingTime?.minutes) && (
+          <Stat
+              title={`It takes ${readingTime?.minutes} minutes to read this blog post`}
+            aria-label={`It takes ${readingTime?.minutes} minutes to read this blog post`}
+            $sm
+              >
+              <Icon path={mdiClockOutline} size={0.5} />
+              <span>{reeadingTime?.text}</span>
+            </Stat>
+          )}
+        </PostStatsContainer>
+      </PostCardContent>
+    </PostCard>
+  );
+};

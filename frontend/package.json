@@ -30,7 +30,6 @@
     "@hookform/devtools": "^4.3.1",
     "@hookform/resolvers": "^3.2.0",
     "@mdi/react": "^1.6.1",
-    "@next/font": "13.1.4",
     "@radix-ui/react-accessible-icon": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-checkbox": "^1.0.4",

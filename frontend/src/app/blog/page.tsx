@@ -1,79 +1,43 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
-import { fetchAPI } from '@/utils/fetch-api';
 
-import Loader from '@/components/Loader';
-import BlogPosts from '@/components/views/blog';
-import PageHeader from '@/components/PageHeader';
+import { Suspense } from 'react';
+import { Section } from '@/components/core/section';
+import React, { useEffect, useState } from 'react';
+import { getStaticMetadata } from '@/utils/metadata';
+import { buildOgImageUrl } from '@/utils/og';
+import { BlogPosts } from '@/components/views/blog/posts';
 
-interface Meta {
-  pagination: {
-    start: number;
-    limit: number;
-    total: number;
-  };
-}
+import Loading from '../loading';
+import Header from './header';
 
-export default function Profile() {
-  const [meta, setMeta] = useState<Meta | undefined>();
-  const [data, setData ] = useState<any>([]);
-  const [isLoading, setLoading] = useState(true);
-
-  const fetchData = useCallback(async (start: number, limit: number) => {
-    setLoading(true);
-    try {
-      const path = `/posts`;
-      const urlParamsObject = {
-        sort: { createdAt: 'desc' },
-        pagination: {
-          start: start,
-          limit: limit,
-        },
-      };
-      const responseData = await fetchAPI(path, urlParamsObject);
-
-      if (start === 0) {
-        setData(responseData.data);
-      } else {
-        setData((prevData: any[] ) => [...prevData, ...responseData.data]);
-      }
-
-      setMeta(responseData.meta);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
+const BlogList = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetchPosts();
   }, []);
 
-  function loadMorePosts(): void {
-    const nextPosts = meta!.pagination.start = meta!.pagination.limit;
-    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/v1/posts.json');
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
   }
 
-  useEffect(() => {
-    fetchData(0, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
-  }, [fetchData]);
+  return <BlogPosts posts={posts} />
+}
 
-  if (isLoading) return <Loader />;
-
+function Blog() {
   return (
-    <div>
-      <PageHeader heading="The Web Log" text="A collection of my thoughts and writings." />
-      <BlogPosts data={data}>
-        {meta!.pagination.start + meta!.pagination.limit <
-          meta!.pagination.total && (
-          <div className="flex justify-center">
-            <button
-              type="button"
-              className="px-6 py-3 text-sm rounded-lg hover:underline dark:bg-gray-900 dark:text-gray-400"
-              onClick={loadMorePosts}
-            >
-              Load more posts...
-            </button>
-          </div>
-        )}
-      </Blog>
-    </div>
+    <Section id={'blog'}>
+      <Header />
+      <Suspense fallback={<Loading />}>
+        <BlogList />
+      </Suspense>
+    </Section>
   );
 }
+
+export default Blog;
