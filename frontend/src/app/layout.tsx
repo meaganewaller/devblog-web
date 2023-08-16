@@ -48,9 +48,11 @@ export default function RootLayout(props: PropsWithChildren) {
       </head>
       <body className={'tablet-sm:overflow-y-auto'}>
         <Providers>
-          <Toolbar />
-          <Main>{props.children}</Main>
-          <BackToTop />
+        <div className="apply h-full w-full bg-[center_center] shadow-[inset_1px_1px_0px_rgba(255,255,255,0.2),inset_-1px_-1px_0px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col rounded-lg bg-clouds dark:bg-nightsky">
+        <Toolbar />
+        <Main>{props.children}</Main>
+        <BackToTop />
+        </div>
         </Providers>
       </body>
     </html>

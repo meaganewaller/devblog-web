@@ -4,6 +4,7 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { type PropsWithChildren } from 'react';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
 
+import PlausibleProvider from 'next-plausible';
 import { ThemeProvider } from './theme-provider';
 
 const themes =
@@ -18,9 +19,11 @@ export function Providers(props: PropsWithChildren) {
       defaultTheme={'system'}
       value={themes}
     >
-      <ThemeProvider>
-        <BalancerProvider>{props.children}</BalancerProvider>
-      </ThemeProvider>
+    <PlausibleProvider domain="meaganwaller.com">
+    <ThemeProvider>
+    <BalancerProvider>{props.children}</BalancerProvider>
+    </ThemeProvider>
+    </PlausibleProvider>
     </NextThemeProvider>
   );
 }
