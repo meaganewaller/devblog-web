@@ -1,0 +1,36 @@
+.toolbar {
+  box-shadow: inset 1px 1px 0 var(--index-shadow-light),
+    inset -1px -1px 0 var(--index-shadow-dark);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  backdrop-filter: blur(4px);
+
+  ul {
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.35));
+  }
+
+  button:hover,
+  button:focus,
+  a:hover,
+  a:focus,
+  li:hover > a,
+  li:focus-within > a {
+    outline: 0 none;
+  }
+
+  a:hover + ul,
+  a:focus + ul,
+  li:hover > ul,
+  ul:focus-within {
+    top: 100%;
+  }
+
+  ul ul a:hover + ul,
+  ul ul a:focus + ul,
+  ul ul li:hover > ul,
+  ul ul ul:focus-within {
+    left: 100%;
+    top: -0.25em;
+    z-index: 100;
+  }
+}

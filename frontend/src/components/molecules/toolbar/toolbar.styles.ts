@@ -47,6 +47,7 @@ export const Header = tw.header`
 export const Nav = tw.nav<{ $elevated?: boolean }>`
   [--spaceDivider:1.25]
   z-[3]
+  toolbar
   relative
   grid
   items-start

@@ -3,6 +3,7 @@ import tw from 'tailwind-styled-components';
 export const LinkItem = tw.li`block self-start w-full tablet-sm:w-[unset] tablet-sm:self-center`;
 
 export const ToolbarLinksContainer = tw.ul`
+@import './toolbar.scss';
   h-full
   max-h-[2.625rem]
   flex
@@ -20,12 +21,25 @@ export const ToolbarLinksContainer = tw.ul`
   tablet-sm:justify-start
   tablet-sm:[grid-column:3/4]
   tablet-sm:max-h-[2.625rem]
-  
+
   [[data-expanded="true"]_&]:max-h-[2.625rem]
   [[data-expanded="true"]_&]:tablet-sm:max-h-[2.625rem]
 `;
 
+export const ChildToolbarLinksContainer = tw.ul`
+  flex-col
+  left-0
+  absolute
+  z-[10]
+  rounded-b
+  py-[0.25em]
+  px-0
+  -top-[1000em]
+  whitespace-nowrap
+`;
+
 export const PagesLinksContainer = tw(ToolbarLinksContainer)`
+  toolbar
   max-h-0
   opacity-0
   [grid-row:2]
@@ -46,7 +60,6 @@ export const PagesLinksContainer = tw(ToolbarLinksContainer)`
   tablet-sm:flex
   tablet-sm:visible
   tablet-sm:pointer-events-auto
-  tablet-sm:justify-end
   tablet-sm:ml-0
   tablet-sm:gap-[calc(var(--floatingMargin,0)/var(--spaceDivider,1))]
 

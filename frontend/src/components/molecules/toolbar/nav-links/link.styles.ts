@@ -10,8 +10,8 @@ export const ToolbarLink = tw(Link)`
   items-center
   justify-start
   align-middle
-  font-manrope
-  font-bold
+  font-mono
+  font-light
   text-2xs
   text-secondary-txt
   rounded-6
