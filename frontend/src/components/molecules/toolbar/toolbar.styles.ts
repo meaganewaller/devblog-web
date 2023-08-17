@@ -14,10 +14,15 @@ export const Header = tw.header`
   duration-[0.25s]
   transform
   -translate-x-1/2
+  desktop:pt-0
   pt-[var(--floatingMargin)]
+  rounded-t-[10px]
+  border-b
+  border-b-solid
+  border-accent-dark/[0.12]
+  px-[0.5em]
 
   w-full
-  max-w-[666px]
   tablet-sm:h-[calc(var(--baseActualHeight)_+_4px)]
   [&[data-expanded="true"]]:h-[calc(100%-var(--floatingMargin))]
   [&[data-expanded="true"]]:tablet-sm:h-[calc(var(--baseActualHeight)_+_4px)]
@@ -46,12 +51,7 @@ export const Nav = tw.nav<{ $elevated?: boolean }>`
   grid
   items-start
   h-full
-  bg-toolbar
   backdrop-blur-[10px]
-  backdrop-saturate-150
-  rounded-10
-  border
-  border-accent-dark/[0.12]
   ${(p) =>
     p.$elevated
       ? '[box-shadow:0_0_6px_1px_rgba(var(--color-accent-dark)/0.16)]'
@@ -63,9 +63,6 @@ export const Nav = tw.nav<{ $elevated?: boolean }>`
   gap-[calc(calc(var(--floatingMargin)/var(--spaceDivider))*1.5)]
   grid-rows-1
   [grid-template-columns:auto_1fr]
-
-  hover:border-accent-dark/[0.24]
-  hover:[box-shadow:0_0_8px_2px_rgba(var(--color-accent-dark)/0.16)]
 
   tablet-sm:[--spaceDivider:1.5]
   tablet-sm:[grid-template-columns:auto_1fr_auto]

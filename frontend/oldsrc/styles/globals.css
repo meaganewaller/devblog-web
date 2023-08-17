@@ -455,7 +455,8 @@
 
   .menubar {
     @apply text-secondary-800/90 z-10;
-    box-shadow: inset 1px 1px 0 var(--index-shadow-light), inset -1px -1px 0 var(--index-shadow-dark);
+    box-shadow: inset 1px 1px 0 var(--index-shadow-light),
+                inset -1px -1px 0 var(--index-shadow-dark);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     backdrop-filter: blur(4px);

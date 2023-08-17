@@ -14,7 +14,7 @@ interface ToolbarLinkItem {
 
 const toolbarLinksList: Array<ToolbarLinkItem> = [
   {
-    title: 'About',
+    title: 'Meagan',
     href: '/about',
     className: 'from-gradient-blue to-gradient-green',
   },

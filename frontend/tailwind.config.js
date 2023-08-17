@@ -35,6 +35,16 @@ module.exports = {
     fontSize,
     screens: breakpoints,
     extend: {
+      backgroundImage: {
+        clouds: "url('/static/images/bg/2f38b876.gif')",
+        nightsky: "url('/static/images/bg/nightsky.gif')",
+        butterflies: "url('/static/images/bg/8f823bfe.png')",
+        hearts: "url('/static/images/bg/ea1cde5b.jpg')",
+        purpleStars: "url('/static/images/bg/purple-stars.gif')",
+        windowTitleBarButton: "linear-gradient(to bottom right, #9c9c9c, #fff)",
+        windowTitleBarButtonActive: "linear-gradient(to bottom right, #444, #aaa)",
+        windowTitleBar: "repeating-linear-gradient(#fff, #000 2px)",
+      },
       typography: ({theme}: PluginAPI) => ({
         DEFAULT: {
           css: {
@@ -83,6 +93,32 @@ module.exports = {
       },
       transitionTimingFunction: { eio: 'ease-in-out', DEFAULT: 'ease-in-out' },
       keyframes: {
+        bounce: {
+          "0%, 100%": { top: "0", transform: "translateY(-10%)" },
+          "50%": { top: "-5px" },
+        },
+        glow: {
+          "0%": {
+            transform: "scale(1.01)",
+            opacity: "0.1",
+          },
+          "25%": {
+            transform: "scale(1.03)",
+            opacity: "0.3",
+          },
+          "50%": {
+            transform: "scale(1.05)",
+            opacity: "0.5",
+          },
+          "75%": {
+            transform: "scale(1.07)",
+            opacity: "0.7",
+          },
+          "100%": {
+            transform: "scale(1.09)",
+            opacity: "1",
+          },
+        },
         'page-transition': {
           '0%': { transform: 'scale(0.975)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
@@ -102,6 +138,11 @@ module.exports = {
         'page-transition': 'page-transition 300ms ease-in-out backwards',
         scroll: 'scroll 15s linear infinite',
         wave: 'wave 2.5s infinite',
+        bounce: "bounce 2s infinite",
+        glow: "glow 1.2s linear forward",
+      },
+      listStyleType: {
+        flower: '"✿ "',
       },
     },
   },
