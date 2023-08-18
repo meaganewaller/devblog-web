@@ -1,13 +1,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { LayoutGroup, motion } from 'framer-motion';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { useMouse } from 'react-use';
 import dynamic from 'next/dynamic';
 
 import { HiSparkles } from 'react-icons/hi';
-import { LogoAnimoji } from '@/components/core/logo-animoji';
 import { mdiMenu, mdiPlus } from '@/components/icons';
 import { useHasMounted } from '@/hooks/use-has-mounted';
 import { useWindowSize } from '@/hooks/use-window-size';
@@ -15,7 +13,6 @@ import { useWindowSize } from '@/hooks/use-window-size';
 import { ThemeToggle, MobileMenuToggle, MobileMenuIcon } from './buttons';
 import {
   HomeLink,
-  HomeLinkSpan,
   ToolbarLinksContainer,
   ToolbarNavLinks,
 } from './nav-links';
@@ -23,9 +20,9 @@ import { Header, Nav } from './toolbar.styles';
 
 const Confetti = dynamic(() => import('react-confetti'));
 
-const scrollThreshold = 40; //px
+const scrollThreshold = 40;
 export function Toolbar() {
-  const pathname = usePathname() || "/";;
+  const pathname = usePathname() || "/";
   const navRef = useRef(null);
   const { width, height } = useWindowSize();
   const { docX, docY } = useMouse(navRef);
@@ -81,6 +78,26 @@ export function Toolbar() {
           onClick={triggerConfetti}
         >
           <HiSparkles size="20" className='h-[32px] mr-[8px]' />
+          {pathname === "/" && (
+          <Confetti
+            style={{ zIndex: "100", position: "fixed" }}
+            numberOfPieces={confetti ? 200 : 0}
+            initialVelocityY={-50}
+            initialVelocityX={-150}
+            ref={navRef}
+            gravity={0.05}
+            width={width}
+            height={height}
+            confettiSource={{
+              x: docX,
+              y: docY,
+              w: 0,
+              h: 0,
+            }}
+            recycle={confetti}
+            tweenDuration={10}
+          />
+      )}
         </HomeLink>
         <ToolbarNavLinks pathname={pathname} />
         <ToolbarLinksContainer className={'self-start tablet-md:self-center'}>
@@ -101,26 +118,7 @@ export function Toolbar() {
           </li>
         </ToolbarLinksContainer>
       </Nav>
-      {pathname === "/" && (
-        <Confetti
-          style={{ zIndex: "10", position: "fixed" }}
-          numberOfPieces={confetti ? 200 : 0}
-          initialVelocityY={50}
-          initialVelocityX={-50}
-          ref={navRef}
-          gravity={0.05}
-          width={width}
-          height={height}
-          confettiSource={{
-            x: docX,
-            y: docY,
-            w: 0,
-            h: 0,
-          }}
-          recycle={confetti}
-          tweenDuration={10}
-        />
-      )}
+
     </Header>
   );
 };
