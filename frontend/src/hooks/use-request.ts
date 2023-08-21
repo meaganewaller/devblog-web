@@ -1,3 +1,4 @@
+'use client';
 import useSWR from 'swr';
 import type { MutatorCallback, SWRConfiguration } from 'swr';
 

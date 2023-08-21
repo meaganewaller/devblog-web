@@ -527,6 +527,12 @@
     outline: 0 none;
   }
 
+  .menubar li.logo-container:hover > a,
+  .menubar li.logo-container:focus-within > a {
+    background: transparent;
+    outline: 0 none;
+  }
+
   .menubar [tabindex="-1"]:hover {
     @apply z-10;
     background: transparent;

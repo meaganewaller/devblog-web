@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
-const million = require('million/compiler');
-
 const appHeaders = require('./config/next/headers');
 const redirects = require('./config/next/redirects');
 
@@ -55,11 +53,6 @@ const defaultNextConfig = {
   },
 };
 
-const millionConfig = {
-  auto: { rsc: true },
-};
-
-module.exports = million.next(
+module.exports = {
   defaultNextConfig,
-  millionConfig,
-);
+};

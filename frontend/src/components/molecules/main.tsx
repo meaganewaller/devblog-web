@@ -5,7 +5,6 @@ export const Main = tw.main`
   flex-col
   flex-1
   z-0
-  pt-[calc(var(--totalToolbarHeight)_+_var(--verticalContentPadding)_+_0.25rem)]
   pb-[var(--verticalContentPadding)]
   gap-64
   w-full

@@ -66,7 +66,6 @@
     "lodash": "^4.17.21",
     "loglevel": "^1.8.1",
     "lucide-react": "^0.257.0",
-    "million": "^2.5.13",
     "next": "^13.4.16",
     "next-auth": "^4.23.0",
     "next-plausible": "^3.10.1",

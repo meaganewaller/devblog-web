@@ -1,7 +1,7 @@
 :root {
   --size-scrollbar-width: 8px;
-  --totalToolbarHeight: 64px;
-  --scrollMargin: calc(var(--totalToolbarHeight) + 0.5rem); // 8px
+  --totalToolbarHeight: 32px;
+  --scrollMargin: calc(var(--totalToolbarHeight) + 1rem); // 8px
   --verticalContentPadding: 1.5rem;
 }
 
