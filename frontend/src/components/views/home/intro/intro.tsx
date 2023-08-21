@@ -42,10 +42,10 @@ export const Intro = () => {
         <IntroParagraph>
           Passionate and creative full-stack software engineer from{' '}
           <Link
-            title={'Colombia on Google Maps'}
+            title={'Jacksonville on Google Maps'}
             href={'https://www.google.com/maps/place/Colombia/@4,-72z/'}
           >
-            Colombia 🇨🇴
+            Jacksonville, FL
           </Link>
         </IntroParagraph>
         <div className={'flex items-center gap-16 flex-wrap'}>
@@ -67,8 +67,8 @@ export const Intro = () => {
       </TextsContainer>
       <PhotoContainer>
         <Photo
-          src={'/static/images/jahir/jahir.jpg'}
-          alt={"Jahir's Photo"}
+          src={'/static/images/avatar/meaganwaller.jpeg'}
+          alt={"Meagan's Photo"}
           size={168}
           priority
         />

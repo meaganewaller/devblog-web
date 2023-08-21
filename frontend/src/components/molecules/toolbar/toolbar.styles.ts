@@ -31,7 +31,7 @@ export const Content = tw.div`
 `;
 
 export const ContainerMobile = tw.div`
-fixed left-0 top-0 z-30 min-h-screen w-full overflow-hidden bg-primary/80 lg:hidden pt-[4rem]
+fixed left-0 top-0 z-30 min-h-screen w-full bg-primary/80 lg:hidden pt-[4rem]
 `;
 
 export const NavMobile = tw.nav`

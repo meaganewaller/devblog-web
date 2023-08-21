@@ -22,7 +22,7 @@ const NotFound = () => {
         Go back home
       </ButtonLink>
       <img
-        src={'/static/images/site/404.gif'}
+        src={'/static/images/ui/computer.webp'}
         alt={'John Travolta gif'}
         loading={'lazy'}
         decoding={'async'}

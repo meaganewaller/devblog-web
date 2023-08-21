@@ -7,7 +7,7 @@ export const LogoAnimoji = () => (
     <StyledLogo />
     <StyledImg
       src={animojiImage}
-      alt={'Animoji representation of Jahir'}
+      alt={'Animoji representation of Meagan'}
       size={40}
     />
   </Container>

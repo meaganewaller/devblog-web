@@ -2,7 +2,7 @@
 const path = require('path');
 
 const appHeaders = require('./config/next/headers');
-const redirects = require('./config/next/redirects');
+// const redirects = require('./config/next/redirects');
 
 /**
  * @type {import('next').NextConfig}
@@ -31,7 +31,6 @@ const defaultNextConfig = {
       { hostname: 'images.unsplash.com' },
       { hostname: 'i.scdn.co' },
       { hostname: 'spotify.com' },
-      { hostname: 'jahir.dev' },
       { hostname: 'unavatar.io' },
       { hostname: 'source.boringavatars.com' },
       { hostname: 'lh3.googleusercontent.com' },
@@ -48,11 +47,9 @@ const defaultNextConfig = {
   async headers() {
     return appHeaders;
   },
-  async redirects() {
-    return redirects;
-  },
+  // async redirects() {
+  //   return redirects;
+  // },
 };
 
-module.exports = {
-  defaultNextConfig,
-};
+module.exports = defaultNextConfig;

@@ -29,27 +29,27 @@ export const SocialLinks = (props: SocialLinksProps) => {
   return (
     <SocialLinksContainer aria-label={'Social links'}>
       <SocialLinkItem>
-        <GitHubLink title={'GitHub'} href={'https://github.com/jahirfiquitiva'}>
+        <GitHubLink title={'GitHub'} href={'https://github.com/meagnewaller'}>
           <Icon path={gitHubOutline} size={iconSize} />
         </GitHubLink>
       </SocialLinkItem>
       <SocialLinkItem>
         <LinkedInLink
           title={'LinkedIn'}
-          href={'https://linkedin.com/in/jahirfiquitiva'}
+          href={'https://linkedin.com/in/meaganewaller'}
         >
           <Icon path={linkedInOutline} size={iconSize} />
         </LinkedInLink>
       </SocialLinkItem>
       <SocialLinkItem>
-        <BlueskyLink title={'Bluesky'} href={'https://bsky.jahir.dev'}>
+        <BlueskyLink title={'Bluesky'} href={'https://bsky.meaganwaller.com'}>
           <Icon path={bluesky} size={iconSize} />
         </BlueskyLink>
       </SocialLinkItem>
       <SocialLinkItem>
         <TwitterLink
           title={'Twitter'}
-          href={'https://twitter.com/jahirfiquitiva'}
+          href={'https://twitter.com/meaganewaller'}
         >
           <Icon path={twitterOutline} size={iconSize} />
         </TwitterLink>
@@ -57,7 +57,7 @@ export const SocialLinks = (props: SocialLinksProps) => {
       <SocialLinkItem>
         <InstagramLink
           title={'Instagram'}
-          href={'https://instagram.com/jahirfiquitiva'}
+          href={'https://instagram.com/neonbudlightsign'}
         >
           <Icon path={mdiInstagram} size={iconSize} />
         </InstagramLink>

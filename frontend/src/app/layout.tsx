@@ -42,7 +42,7 @@ export default function RootLayout(props: PropsWithChildren) {
   return (
     <html
       lang={'en'}
-      className={`${inter.variable} ${manrope.variable}`}
+      className={`${inter.variable} ${manrope.variable} debug-screens`}
       suppressHydrationWarning
     >
       <head>
@@ -50,7 +50,7 @@ export default function RootLayout(props: PropsWithChildren) {
       </head>
       <body>
         <Providers>
-          <div className="apply h-full w-full bg-[center_center] shadow-[inset_1px_1px_0px_rgba(255,255,255,0.2),inset_-1px_-1px_0px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col rounded-lg bg-clouds dark:bg-nightsky">
+          <div className="apply h-full w-full bg-[center_center] shadow-[inset_1px_1px_0px_rgba(255,255,255,0.2),inset_-1px_-1px_0px_rgba(0,0,0,0.2)] overflow-auto flex flex-col rounded-lg bg-clouds dark:bg-nightsky">
             <MenuProvider>
               <Navbar />
             </MenuProvider>

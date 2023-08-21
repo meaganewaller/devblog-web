@@ -152,7 +152,7 @@ module.exports = {
   corePlugins: {
     float: false,
   },
-  plugins: [typography, hocus],
+  plugins: [typography, hocus, require('tailwindcss-debug-screens')],
   safelist: [
     {
       pattern: /(from|to)-gradient-(brand|blue|green|yellow|orange|red|purple)/,

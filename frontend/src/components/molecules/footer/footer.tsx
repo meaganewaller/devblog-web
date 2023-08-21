@@ -63,7 +63,7 @@ const metaLinks: Array<FooterLinkProps> = [
   },
   {
     title: 'Source',
-    href: 'https://github.com/jahirfiquitiva/jahir.dev',
+    href: 'https://github.com/meaganewaller/meaganwaller.com',
     className: 'from-gradient-brand to-gradient-blue',
     underlineColor: 'brand',
     a11yTitle: 'View source code on GitHub',
@@ -89,7 +89,7 @@ export const Footer = () => {
           className={'hocus:decoration-gradient-brand group/link group/animoji'}
         >
           <LogoAnimoji />
-          <BrandLinkSpan>Jahir Fiquitiva</BrandLinkSpan>
+          <BrandLinkSpan>Meagan Waller</BrandLinkSpan>
         </BrandLink>
         <SocialLinks withBackToTop />
       </InnerFooter>

@@ -10,7 +10,7 @@ export const Main = tw.main`
   w-full
   max-w-[666px]
   mx-auto
-  tablet-sm:pt-[calc(var(--totalToolbarHeight)_+_var(--verticalContentPadding)_+_0.75rem)]
+  pt-[calc(var(--totalToolbarHeight)_+_var(--verticalContentPadding)_+_0.75rem)]
   motion-safe:animate-page-transition
   motion-safe:[animation-delay:150ms]
 `

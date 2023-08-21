@@ -6,6 +6,8 @@ export default function Home() {
   return (
     <>
       <Intro />
+      <Skills />
+      <Projects />
     </>
   )
 }

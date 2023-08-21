@@ -7,5 +7,4 @@ const buildRedirect = (source, destination, permanent = true) => {
 };
 
 module.exports = [
-  /* Blog posts redirections */
 ];

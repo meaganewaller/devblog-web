@@ -12,7 +12,6 @@ export const Meta = () => {
 
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossOrigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
       <link rel={'shortcut icon'} href={'/static/images/brand/favicon32.png'} />
@@ -48,7 +47,7 @@ export const Meta = () => {
         rel={'alternate'}
         href={'/feed.xml'}
         type={'application/rss+xml'}
-        title={'Jahir Fiquitiva (RSS)'}
+        title={'Meagan Waller (RSS)'}
       />
 
       {colorMetaTags.map((tag) => (

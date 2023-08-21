@@ -4,13 +4,13 @@ const ContentSecurityPolicy = `
   worker-src 'self' blob:;
   script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
   child-src *.google.com *.unsplash.com *.scdn.co *.apple.com *.meaganwaller.com unavatar.now.sh *.unavatar.io cdn.discordapp.com *.cdninstagram.com;
-  style-src 'self' 'unsafe-inline' *.googleapis.com;
+  style-src 'self' 'unsafe-inline' *.googleapis.com cdnjs.cloudflare.com;
   img-src *.cdninstagram.com *.gstatic.com * blob: data:;
   object-src 'none';
   base-uri 'none';
   media-src 'self' *.cdninstagram.com;
   connect-src *;
-  font-src 'self' *.gstatic.com data:;
+  font-src 'self' *.gstatic.com *.googleapis.com data:;
 `;
 
 const securityHeaders = [
