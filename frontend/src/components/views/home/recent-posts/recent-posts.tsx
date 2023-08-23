@@ -5,10 +5,8 @@ import { Window } from '@/components/core/window';
 import { useWindowSize } from '@/hooks/use-window-size';
 import { PostService } from "@/lib/api";
 
-export async function RecentPosts() {
+export async function RecentPosts({ posts }) {
   const size = useWindowSize();
-  const data = await PostService.getAll()
-  const posts = data.slice(0, 4)
   if (!size.width) return null;
 
   return (
