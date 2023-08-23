@@ -17,7 +17,7 @@ export function Intro() {
     <HiSparkles size="3em" className="text-accent" />
     <HiSparkles size="3em" className="text-accent" />
     </div>
-    <p className="text-md px-8 py-2 leading-relaxed text-primary-txt">
+    <p className="text-md px-8 py-2 leading-relaxed text-primary-txt font-extra">
       <span className="font-bold italic">
       I wrote my first line of HTML on Microsoft Notepad in 2004{' '}
       </span>
@@ -26,7 +26,7 @@ export function Intro() {
           was 12 years old.
 
       </p>
-      <p className="text-md px-8 py-2 leading-relaxed text-secondary-400">
+      <p className="text-md px-8 py-2 leading-relaxed text-secondary-400 font-extra">
       I spent a couple days working up the courage to convince my parents to
       put their credit card information into form on a website and buy me a
       domain name. They did. And my first website was born. I learned
@@ -35,7 +35,7 @@ export function Intro() {
       age. Soon I started writing my own posts sharing my knowledge, my
       pitfalls, cool experiments.
       </p>
-      <div className="flex place-content-end px-8 pb-5">
+      <div className="flex place-content-end px-8 pb-5 font-venice text-lg">
       <Link href="/meagan">Read more{' '}
   <BsArrowRightShort size="1.5em" className="inline-block" />
     </Link>

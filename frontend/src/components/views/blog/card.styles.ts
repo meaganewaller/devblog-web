@@ -48,7 +48,7 @@ export const PostCardContent = tw.div`
 export const PostTitle = tw.p`
   text-xs
   font-bold
-  font-manrope
+  font-retro
   text-primary-txt
   transition
   group-hocus/post:underline

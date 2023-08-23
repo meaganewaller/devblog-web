@@ -1,14 +1,19 @@
+/** @type { import('tailwindcss').Config} */
 import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 import type { PluginAPI } from 'tailwindcss/types/config'
 import hocus from 'tailwindcss-hocus'
+import plugin from 'tailwindcss/plugin';
+
 
 import { colors } from './config/tailwind/colors'
 import { fontSizes as fontSize } from './config/tailwind/font-sizes'
 import { spaces as spacing } from './config/tailwind/spacing'
 
-const sansFontFamily = ['var(--font-inter)', 'Inter', ...fontFamily.sans]
+const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
+const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
+const serifFontFamily = ['var(--font-serif)', 'Prata', ...fontFamily.serif]
 
 const breakpoints = {
   default: '0px',
@@ -51,7 +56,7 @@ module.exports = {
             color: theme('colors.secondary-txt'),
             a: {
               color: theme('colors.accent'),
-              textDecoration: 'none',
+              textDecoration: 'wavy',
               '&:hover,&:focus': {
                 color: theme('colors.accent-dark/1'),
               },
@@ -68,8 +73,11 @@ module.exports = {
       }),
       fontFamily: {
         sans: sansFontFamily,
-        manrope: ['var(--font-manrope)', 'Manrope', ...sansFontFamily],
-        mono: ['monospace', ...fontFamily.mono],
+        mono: monoFontFamily,
+        serif: serifFontFamily,
+        extra: ['basiic', ...fontFamily.sans],
+        retro: ['VT323', ...fontFamily.mono],
+        venice: ['Venice Classic', ...fontFamily.mono],
       },
       fontWeight: {
         normal: '450',
@@ -152,7 +160,53 @@ module.exports = {
   corePlugins: {
     float: false,
   },
-  plugins: [typography, hocus, require('tailwindcss-debug-screens')],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value: string) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          position: 'relative',
+          textTransform: 'uppercase',
+          border: 'none',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          borderRadius: '24px',
+          paddingLeft: '5px',
+          paddingRight: '5px',
+          boxSizing: 'border-box',
+          cursor: 'pointer',
+          fontFamily: "'Press Start 2P', cursive",
+          outline: 'none',
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            left: '0',
+            zIndex: '-1',
+          },
+          '&:active': {
+            top: '10px',
+            '&::after': {
+              top: '2px',
+            },
+          },
+        },
+      });
+    }),
+    typography,
+    hocus,
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('tailwindcss-debug-screens')
+  ],
   safelist: [
     {
       pattern: /(from|to)-gradient-(brand|blue|green|yellow|orange|red|purple)/,

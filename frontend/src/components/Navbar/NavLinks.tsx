@@ -123,4 +123,7 @@ export const NavLink = styled(Link)`
   &:hover::before {
     width: 100%;
   }
+  &:hover {
+    text-decoration-line: none;
+  }
 `;

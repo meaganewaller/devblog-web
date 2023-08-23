@@ -1,39 +1,40 @@
 'use client';
 
 import { Window } from '@/components/core/window';
-import { HiSparkles } from 'react-icons/hi';
 import { useWindowSize } from '@/hooks/use-window-size';
 
 export function Connections() {
   const links = [
-    {
-      name: 'Email',
-      link: 'mailto:meagan@meaganwaller.com',
-    },
-    {
-      name: 'Twitter',
+  {
+name: 'Email',
+        link: 'mailto:meagan@meaganwaller.com',
+  },
+  {
+name: 'Twitter',
       link: 'https://twitter.com/meaganewaller',
-    },
-    {
-      name: 'GitHub',
+  },
+  {
+name: 'GitHub',
       link: 'https://github.com/meaganwaller',
-    },
-    {
-      name: 'LinkedIn',
+  },
+  {
+name: 'LinkedIn',
       link: 'https://www.linkedin.com/in/meaganwaller/',
-    },
-    {
-      name: 'Polywork',
+  },
+  {
+name: 'Polywork',
       link: 'https://www.polywork.com/meaganwaller',
-    },
-    {
-      name: 'Dev.to',
+  },
+  {
+name: 'Dev.to',
       link: 'https://www.dev.to/meaganewaller',
-    },
+  },
   ]
-  const size = useWindowSize();
+    const size = useWindowSize();
   return (
-  <Window title="lets-connect.txt" active={false}
+      <Window
+      title="lets-connect.txt"
+      active={false}
       x={size.width ? size.width / 2 : 0}
       y={size.height ? size.height / 1.65 : 0}
       zIndex="1"
@@ -41,20 +42,23 @@ export function Connections() {
       height="250px"
       id="connections-window"
       >
-      <div className="flex h-full flex-col place-content-center p-5">
-      <div className="z-[5]">
-      <ul className="grid grid-flow-col grid-rows-2 gap-x-2 gap-y-4">
-      {links.map((link, i) => (
-            <li key={i}>
-            <button>
-            {link.name}
+        <div className="grid grid-cols-3 justify-items-center p-5">
+          {links.map((link, i) => (
+            <div className="inline-block justify-center">
+            <button key={i} className="button">
+              <div className="top" />
+              <div className="bottom" />
+              <div className="left" />
+              <div className="right" />
+              <div className="bottom shadow" />
+              <div className="right shadow" />
+              <div className="top light" />
+              <div className="left light" />
+              {link.name}
             </button>
-            </li>
-            ))}
-      </ul>
+            </div>
+        ))}
       </div>
-      </div>
-      </Window>
-
+    </Window>
   )
 }

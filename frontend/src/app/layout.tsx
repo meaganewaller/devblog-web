@@ -1,6 +1,5 @@
 import '@/styles/globals.scss';
 
-import { Inter, Manrope } from 'next/font/google';
 import { type PropsWithChildren } from 'react';
 
 import { BackToTop } from '@/components/molecules/back-to-top';
@@ -12,19 +11,6 @@ import Navbar from "@/components/Navbar";
 import { getStaticMetadata } from '@/utils/metadata';
 
 import { Meta } from './meta';
-
-const inter = Inter({
-  subsets: ['latin'],
-  preload: true,
-  variable: '--font-inter',
-  display: 'fallback',
-});
-
-const manrope = Manrope({
-  subsets: ['latin'],
-  variable: '--font-manrope',
-  display: 'fallback',
-});
 
 export const metadata = {
   ...getStaticMetadata({
@@ -42,7 +28,7 @@ export default function RootLayout(props: PropsWithChildren) {
   return (
     <html
       lang={'en'}
-      className={`${inter.variable} ${manrope.variable} debug-screens`}
+      className={`font-sans debug-screens`}
       suppressHydrationWarning
     >
       <head>

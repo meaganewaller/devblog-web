@@ -7,12 +7,10 @@ const apiClient = axios.create({
 
 const PostService = {
   getAll: async (category?: typeof String) => {
-    if (category) {
-      const response = await apiClient.get('/posts.json')
-      return response.data;
+    if (!category) {
+      return await apiClient.get('/posts.json')
     } else {
-      const response = await apiClient.get(`/posts.json?category=${category}`);
-      return response.data;
+      return await apiClient.get(`/posts.json?category=${category}`);
     }
   },
 

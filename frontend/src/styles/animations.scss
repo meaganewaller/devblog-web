@@ -1,0 +1,65 @@
+@keyframes nav {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 100;
+  }
+}
+
+.switch-theme-nav {
+  animation-name: nav;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+}
+
+.animated-wave {
+  @apply inline-block relative my-[5px] mx-0 z-[2];
+  transition: 0.2s ease-in-out;
+  color: inherit;
+}
+
+.wavy a:before,
+.animated-wave:before {
+  @apply w-[90%] absolute content-[''] h-20 left-0 -bottom-12 -z-[1];
+  transform: scaleX(0);
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
+  transform-origin: right;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+    0px 50%/80px 80px repeat-x;
+}
+
+.wavy a {
+  @apply animated-wave;
+}
+
+.animated-wave:hover,
+.wavy a:hover {
+  outline: none;
+  color: var(--color-secondary-txt);
+}
+
+.wavy a:hover:before {
+  outline: none;
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: left;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+    0px 50%/80px 80px repeat-x;
+  -webkit-animation: waving 3s linear infinite;
+  animation: waving 3s linear infinite;
+  transform: scaleX(1);
+}
+@-webkit-keyframes waving {
+  to {
+    background-position: 80px 50%, 160px 50%;
+  }
+}
+@keyframes waving {
+  to {
+    background-position: 80px 50%, 160px 50%;
+  }
+}
+

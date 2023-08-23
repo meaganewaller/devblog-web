@@ -10,5 +10,5 @@ export const StyledLink = tw(NextLink)`
   hocus:text-accent-dark
   hocus:underline
   hocus:underline-offset-2
-  hocus:decoration-2
+  hocus:decoration-wavy
 `;

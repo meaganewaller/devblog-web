@@ -1,0 +1,11 @@
+button.button {
+  @apply w-[120px] h-[45px] relative shadow-[inset_-2px_2px_1px_1px_#FFD989,inset_-2px_-2px_1px_1px_#9E4D20,inset_2px_0px_1px_1px_#F28133] border-0 active:top-[0.5em] after:content-[''] after:absolute after:left-[-2%] after:w-[104%] after:h-full after:z-[-1] after:top-0 before:content-[''] before:absolute before:top-[-5%] before:w-full before:h-[110%] before:z-[-2] before:left-0 bg-accent font-extra;
+
+  &::after {
+    background: #000;
+  }
+
+  &::before {
+    background: #000;
+  }
+}

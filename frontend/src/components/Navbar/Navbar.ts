@@ -9,10 +9,18 @@ const StyledHeader = styled.header`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   backdrop-filter: blur(4px);
+
+  > ul > li > a:hover {
+    text-decoration-line: none;
+  }
+
+  > ul > li > ul > li > a:hover {
+    text-decoration-line: none;
+  }
 `;
 
 export const Header = tw(StyledHeader)`
-  z-[3] w-full bg-toolbar flex border-b border-b-solid border-b-primary-txt justify-between tablet-sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent
+  z-[3] w-full bg-toolbar flex border-b border-b-solid border-b-primary-txt justify-between tablet-sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
 `;
 
 export const Nav = tw(motion.nav)`
@@ -20,7 +28,7 @@ export const Nav = tw(motion.nav)`
 `;
 
 export const NavItem = tw(motion.li)`
-  text-on-accent mb-[1.25em] text-xl
+  text-on-accent mb-[1.25em] text-xl font-mono
 `;
 
 const StyledDesktopNav = styled(motion.ul)`
@@ -36,7 +44,7 @@ export const NestedDesktopNav = tw(DesktopNav)`
 `;
 
 export const DesktopNavItem = tw(motion.li)`
-  relative z-10 overflow-visible
+  relative z-10 overflow-visible font-mono
 `;
 
 export const Logo = tw(HiSparkles)`

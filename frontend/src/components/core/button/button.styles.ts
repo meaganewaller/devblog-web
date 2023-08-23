@@ -11,7 +11,7 @@ export const StyledButton = tw.button<{ $outlined?: boolean }>`
   px-12
   gap-6
   font-bold
-  font-manrope
+  font-retro
   tracking-wide
   transition
   truncate
