@@ -1,10 +1,14 @@
 'use client';
+
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Header, Nav, NavItem, DesktopNav, NestedDesktopNav, DesktopNavItem, Logo, SvgBox } from './Navbar'
+import { Modal } from "@/components/Modal";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
   const iconVariants = {
     opened: {
       rotate: 135,
@@ -40,17 +44,22 @@ function Navbar() {
 
   return (
     <>
+    <Modal isOpen={showNewsletterModal} setIsOpen={setShowNewsletterModal}>
+      <div className="flex w-full mx-auto">
+        <NewsletterForm title={["A newsletter you'll ", <em>actually</em>, " open."]} subtitle="A monthly-ish newsletter with updates from the blog, my life, and things I find around the web." />
+      </div>
+    </Modal>
+
       <Header>
         <Link href="/">
           <Logo size="20" />
         </Link>
         <DesktopNav variants={menuVariants}>
-          <DesktopNavItem className="align-middle"><Link href="/">Home</Link></DesktopNavItem>
           <DesktopNavItem className="align-middle">
           Site
           <NestedDesktopNav>
           <DesktopNavItem><Link href="/start">Start here</Link></DesktopNavItem>
-          <DesktopNavItem><Link href="/newsletter">Join the Newsletter</Link></DesktopNavItem>
+          <DesktopNavItem><button onClick={() => setShowNewsletterModal(true)}>Join the Newsletter</button></DesktopNavItem>
           <DesktopNavItem><Link href="/colophon">Colophon</Link></DesktopNavItem>
           </NestedDesktopNav>
           </DesktopNavItem>
@@ -107,88 +116,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-  // interface NavContainerProps {
-  //   $active: boolean;
-  // }
-  //
-  // const StyledNavbarContainer = styled.nav`
-  //   box-shadow: inset 1px 1px 0 var(--index-shadow-light),
-  //     inset -1px -1px 0 var(--index-shadow-dark);
-  //   border-top-left-radius: 8px;
-  //   border-top-right-radius: 8px;
-  //   backdrop-filter: blur(4px);
-  // `;
-  //
-  // const NavbarContainer = tw(StyledNavbarContainer)`
-  //   w-full bg-toolbar flex border-b border-b-solid border-b-primary-txt justify-between rounded-t-[10px] items-center px-2.5 py-0 tablet-sm:px-10 tablet-sm:py-0 h-[32px]
-  // `;
-  //
-  // const LogoNav = tw.div`
-  //   flex items-center justify-evenly
-  // `;
-  //
-  // const LogoContainer = tw.div`
-  //   flex items-center justify-center
-  // `;
-  //
-  // const Logo = tw(HiSparkles)`
-  //   w-[25px] h-[25px] text-on-accent cursor-pointer hover:text-gradient-yellow
-  // `;
-  //
-  // const NavContainer = tw.ul<NavContainerProps>`
-  //   flex w-full h-[350px] absolute top-[80px] -left-[100%] opacity-0 transition-all duration-[0.5s] ease-[ease] flex-col gap-[0px] tablet-sm:grid tablet-sm:grid-cols-[repeat(5,auto)] tablet-sm:gap-[50px] list-none tablet-sm:pl-[25px]
-  //   ${(p) => (p.$active ? "opacity-100 content-center pl-0 left-0 bg-[#9899d1] transition-all duration-[0.5s] ease-[ease]" : "")}
-  // `;
-  //
-  // const NavOption = tw.li`
-  //   hover:text-[#ffffff] transition duration-300 ease-in-out cursor-pointer
-  // `;
-  //
-  // const MobileMenuContainer = tw.div`
-  //   block tablet-sm:hidden cursor-pointer hover:text-gradient-yellow text-on-accent
-  // `;
-  //
-  // const Navbar = () => {
-  //   const [click, setClick] = useState(false);
-  //   const handleClick = () => setClick(!click);
-  //   const closeMobileMenu = () => setClick(false);
-  //   return (
-  //     <NavbarContainer>
-  //       <LogoNav>
-  //         <LogoContainer className="logo-container">
-  //           <Link href="/">
-  //             <Logo size="20" aria-label="Home page" />
-  //           </Link>
-  //         </LogoContainer>
-  //         <NavContainer $active={click}>
-  //           <NavOption className="option" onClick={closeMobileMenu}>
-  //             <Link href="/site">Site</Link>
-  //           </NavOption>
-  //           <NavOption className="option" onClick={closeMobileMenu}>
-  //             <Link href="/meagan">Meagan</Link>
-  //           </NavOption>
-  //           <NavOption className="option" onClick={closeMobileMenu}>
-  //             <Link href="/blog">Blog</Link>
-  //           </NavOption>
-  //           <NavOption className="option" onClick={closeMobileMenu}>
-  //             <Link href="/projects">Projects</Link>
-  //           </NavOption>
-  //           <NavOption className="option" onClick={closeMobileMenu}>
-  //             <Link href="/workspace">Workspace</Link>
-  //           </NavOption>
-  //         </NavContainer>
-  //         <MobileMenuContainer className="mobile-menu" onClick={handleClick}>
-  //           {click ? (
-  //           <RiCloseLine className="menu-icon" size="20" />
-  //           ) : (
-  //           <RiMenuLine className="menu-icon" size="20" />
-  //           )}
-  //         </MobileMenuContainer>
-  //       </LogoNav>
-  //     </NavbarContainer>
-  //   )
-  // }
-
