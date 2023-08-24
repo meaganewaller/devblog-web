@@ -171,36 +171,6 @@ module.exports = {
         { values: theme('textShadow') }
       )
     }),
-    plugin(function({ addComponents }) {
-      addComponents({
-        '.btn': {
-          position: 'relative',
-          textTransform: 'uppercase',
-          border: 'none',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          borderRadius: '24px',
-          paddingLeft: '5px',
-          paddingRight: '5px',
-          boxSizing: 'border-box',
-          cursor: 'pointer',
-          fontFamily: "'Press Start 2P', cursive",
-          outline: 'none',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            left: '0',
-            zIndex: '-1',
-          },
-          '&:active': {
-            top: '10px',
-            '&::after': {
-              top: '2px',
-            },
-          },
-        },
-      });
-    }),
     typography,
     hocus,
     require('@tailwindcss/aspect-ratio'),

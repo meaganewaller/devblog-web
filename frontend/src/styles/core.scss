@@ -174,3 +174,16 @@
       transition-delay: -1ms !important;
     }
   }
+
+  .stats-box {
+    span {
+      @apply uppercase tracking-[0.25em] font-extra;
+    }
+    .progress {
+      @apply flex w-full border-[color:var(--color-accent)] mb-[1em] border-2 border-solid;
+
+      div {
+        @apply bg-[color:var(--color-accent)] transition-[0.3s] duration-[ease-in] px-0 py-[1em];
+      }
+    }
+  }

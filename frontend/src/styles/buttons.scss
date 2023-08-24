@@ -1,11 +1,23 @@
-button.button {
-  @apply w-[120px] h-[45px] relative shadow-[inset_-2px_2px_1px_1px_#FFD989,inset_-2px_-2px_1px_1px_#9E4D20,inset_2px_0px_1px_1px_#F28133] border-0 active:top-[0.5em] after:content-[''] after:absolute after:left-[-2%] after:w-[104%] after:h-full after:z-[-1] after:top-0 before:content-[''] before:absolute before:top-[-5%] before:w-full before:h-[110%] before:z-[-2] before:left-0 bg-accent font-extra;
-
+.button {
+  @apply relative bg-accent text-on-accent font-[bolder] text-center no-underline inline-block text-md cursor-pointer shadow-[0px_6px_0px_rgba(var(--color-accent-dark))] mt-[15%] px-[20px] py-[17px] hover:bg-[var(--color-shadow-purple)] hover:shadow-[0px_6px_0px_var(--color-toolbar)] font-extra hover:no-underline;
+  text-transform: uppercase;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: 'Press Start 2P', cursive;
+  outline: none;
   &::after {
-    background: #000;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: -1;
   }
-
-  &::before {
-    background: #000;
+  &:active {
+    top: 10px;
+    &::after {
+      top: 2px;
+    }
   }
 }

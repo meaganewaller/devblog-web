@@ -2,37 +2,38 @@
 
 import { Window } from '@/components/core/window';
 import { useWindowSize } from '@/hooks/use-window-size';
+import Link from 'next/link';
 
 export function Connections() {
   const links = [
-  {
-name: 'Email',
-        link: 'mailto:meagan@meaganwaller.com',
-  },
-  {
-name: 'Twitter',
+    {
+      name: 'Email',
+      link: 'mailto:meagan@meaganwaller.com',
+    },
+    {
+      name: 'Twitter',
       link: 'https://twitter.com/meaganewaller',
-  },
-  {
-name: 'GitHub',
-      link: 'https://github.com/meaganwaller',
-  },
-  {
-name: 'LinkedIn',
+    },
+    {
+      name: 'GitHub',
+      link: 'https://github.com/meaganewaller',
+    },
+    {
+      name: 'LinkedIn',
       link: 'https://www.linkedin.com/in/meaganwaller/',
-  },
-  {
-name: 'Polywork',
+    },
+    {
+      name: 'Polywork',
       link: 'https://www.polywork.com/meaganwaller',
-  },
-  {
-name: 'Dev.to',
+    },
+    {
+      name: 'Dev.to',
       link: 'https://www.dev.to/meaganewaller',
-  },
+    },
   ]
-    const size = useWindowSize();
+  const size = useWindowSize();
   return (
-      <Window
+    <Window
       title="lets-connect.txt"
       active={false}
       x={size.width ? size.width / 2 : 0}
@@ -44,20 +45,15 @@ name: 'Dev.to',
       >
         <div className="grid grid-cols-3 justify-items-center p-5">
           {links.map((link, i) => (
-            <div className="inline-block justify-center">
-            <button key={i} className="button">
-              <div className="top" />
-              <div className="bottom" />
-              <div className="left" />
-              <div className="right" />
-              <div className="bottom shadow" />
-              <div className="right shadow" />
-              <div className="top light" />
-              <div className="left light" />
+            <Link 
+              key={i} 
+              className="button"
+              href={link.link}
+              target="_blank"
+            >
               {link.name}
-            </button>
-            </div>
-        ))}
+            </Link>
+          ))}
       </div>
     </Window>
   )
