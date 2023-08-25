@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Header, Nav, NavItem, DesktopNav, NestedDesktopNav, DesktopNavItem, Logo, SvgBox } from './Navbar'
-import { Modal } from "@/components/Modal";
+import { Modal } from "@/components/Modal/Modal";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
 function Navbar() {

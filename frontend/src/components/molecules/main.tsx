@@ -8,7 +8,7 @@ export const Main = tw.main`
   pb-[var(--verticalContentPadding)]
   gap-64
   w-full
-  max-w-[960px]
+  max-w-[1500px]
   mx-auto
   pt-[calc(var(--totalToolbarHeight)_+_var(--verticalContentPadding)_+_0.75rem)]
   motion-safe:animate-page-transition
