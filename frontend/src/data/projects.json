@@ -8,7 +8,18 @@
     "link": "https://github.com/meaganewaller",
     "color": "#4D8AF0",
     "darkColor": "#3B6EA8",
-    "stack": [ "React", "Redux", "Node", "Express", "PostgreSQL", "Sequelize", "Socket.io", "Passport", "AWS S3", "Heroku" ],
+    "stack": [
+      "React",
+      "Redux",
+      "Node",
+      "Express",
+      "PostgreSQL",
+      "Sequelize",
+      "Socket.io",
+      "Passport",
+      "AWS S3",
+      "Heroku"
+    ],
     "repo": "Project",
     "iconMeta": {
       "size": {
@@ -27,7 +38,18 @@
     "link": "https://github.com/meaganewaller",
     "color": "#4D8AF0",
     "darkColor": "#3B6EA8",
-    "stack": [ "React", "Redux", "Node", "Express", "PostgreSQL", "Sequelize", "Socket.io", "Passport", "AWS S3", "Heroku" ],
+    "stack": [
+      "React",
+      "Redux",
+      "Node",
+      "Express",
+      "PostgreSQL",
+      "Sequelize",
+      "Socket.io",
+      "Passport",
+      "AWS S3",
+      "Heroku"
+    ],
     "repo": "Project",
     "iconMeta": {
       "size": {

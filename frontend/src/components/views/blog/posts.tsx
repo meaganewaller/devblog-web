@@ -1,27 +1,32 @@
-import { Card } from "@/components/views/blog";
+import { Card } from '@/components/views/blog'
 
 type Blog = {
-  title: string;
-  slug: string;
+  title: string
+  slug: string
 }
 
 interface BlogPostsProps {
   posts: Array<{
-    year: number;
-    posts: Array<Blog>;
+    year: number
+    posts: Array<Blog>
   }>
 }
 
 export const BlogPosts = (props: BlogPostsProps) => {
-  const { posts } = props;
+  const { posts } = props
   return (
-    <ul className={'list-none flex flex-col gap-16'}>
+    <ul className={'flex list-none flex-col gap-16'}>
       {posts.map((post, index) => {
         return (
-          <li key={post.slug || `${post.title.toLowerCase().split(' ').join('-')}-${index}`}>
+          <li
+            key={
+              post.slug ||
+              `${post.title.toLowerCase().split(' ').join('-')}-${index}`
+            }
+          >
             <Card post={post} />
           </li>
-        );
+        )
       })}
     </ul>
   )

@@ -1,65 +1,64 @@
-  .modal-backdrop {
-    @apply bg-accent bg-opacity-60 h-screen z-[1001] w-full grid place-items-center fixed;
-  }
+.modal-backdrop {
+  @apply fixed z-[1001] grid h-screen w-full place-items-center bg-accent bg-opacity-60;
+}
 
+.modal-container {
+  @apply relative flex max-w-2xl flex-col items-center bg-accent p-10 shadow-2xl shadow-accent;
+  border-radius: 25px;
+}
+
+.modal-container h1 {
+  @apply font-venice text-primary-txt;
+  font-size: 2.5rem;
+}
+
+.modal-container p {
+  @apply mt-6 font-extra text-primary-txt;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.close div {
+  @apply bg-accent-dark;
+  position: absolute;
+  height: 1.5rem;
+  width: 3px;
+  border-radius: 10px;
+  right: 50%;
+  left: 50%;
+}
+
+.close div:first-child {
+  transform: rotate(45deg);
+}
+
+.close div:last-child {
+  transform: rotate(-45deg);
+}
+
+.button {
+  padding: 10px 15px;
+  background: rgb(255, 136, 0);
+  border-radius: 100px;
+  color: ghostwhite;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
   .modal-container {
-    @apply max-w-2xl bg-accent shadow-2xl shadow-accent flex flex-col items-center p-10 relative;
-    border-radius: 25px;
+    width: 100%;
   }
-
-  .modal-container h1 {
-    @apply font-venice text-primary-txt;
-    font-size: 2.5rem;
-  }
-
-  .modal-container p {
-    @apply mt-6 text-primary-txt font-extra;
-    font-size: 1.25rem;
-    line-height: 2rem;
-  }
-
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-  }
-
-  .close div {
-    @apply bg-accent-dark;
-    position: absolute;
-    height: 1.5rem;
-    width: 3px;
-    border-radius: 10px;
-    right: 50%;
-    left: 50%;
-  }
-
-  .close div:first-child {
-    transform: rotate(45deg);
-  }
-
-  .close div:last-child {
-    transform: rotate(-45deg);
-  }
-
-  .button {
-    padding: 10px 15px;
-    background: rgb(255, 136, 0);
-    border-radius: 100px;
-    color: ghostwhite;
-    font-weight: 600;
-    letter-spacing: 3px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-
-  @media screen and (max-width: 768px) {
-    .modal-container {
-      width: 100%;
-    }
-  }
-
+}

@@ -8,4 +8,4 @@ export const fontSizes = {
   xs: '1rem', // body, p
   '2xs': '0.921875rem', // small
   '3xs': '0.84375rem', // (?)
-};
+}

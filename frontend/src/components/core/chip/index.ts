@@ -1,1 +1,1 @@
-export * from './chip.styles';
+export * from './chip.styles'

@@ -1,10 +1,10 @@
-import Icon from '@mdi/react';
-import { cx } from 'classix';
-import tw from 'tailwind-styled-components';
+import Icon from '@mdi/react'
+import { cx } from 'classix'
+import tw from 'twin.macro'
 
-import { Heading } from '@/components/core/heading';
-import { ButtonLink } from '@/components/core/link';
-import { mdiRss } from '@/components/icons';
+import { Heading } from '@/components/core/heading'
+import { ButtonLink } from '@/components/core/link'
+import { mdiRss } from '@/components/icons'
 
 const BlogHeader = tw.div`
   w-full
@@ -15,7 +15,7 @@ const BlogHeader = tw.div`
   tablet-sm:flex-row
   tablet-sm:items-center
   tablet-sm:justify-between
-`;
+`
 
 const Header = () => {
   return (
@@ -24,19 +24,19 @@ const Header = () => {
         Blog
       </Heading>
       <ButtonLink
-      title={'RSS feed'}
-      href={'/feed.xml'}
-      openInNewTab
-      className={cx(
-        'bg-[#f26522] dark:bg-[#f37438]',
-        'hocus:bg-[#da5b1f] dark:hocus:bg-[#f26522]',
-      )}
+        title={'RSS feed'}
+        href={'/feed.xml'}
+        openInNewTab
+        className={cx(
+          'bg-[#f26522] dark:bg-[#f37438]',
+          'hocus:bg-[#da5b1f] dark:hocus:bg-[#f26522]',
+        )}
       >
         <Icon path={mdiRss} size={0.9} />
         <span>RSS feed</span>
       </ButtonLink>
     </BlogHeader>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

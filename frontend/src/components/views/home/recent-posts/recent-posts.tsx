@@ -1,65 +1,67 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { Window } from '@/components/core/window';
-import { useWindowSize } from '@/hooks/use-window-size';
+import Link from 'next/link'
+
+import { useWindowSize } from '@/hooks/use-window-size'
+
+import { Window } from '@/components/core/window'
 
 interface Category {
-  id: string;
-  name: string;
-  description: string;
-  slug: string;
+  id: string
+  name: string
+  description: string
+  slug: string
 }
 
 type Props = {
-  posts: Post[];
+  posts: Post[]
 }
 
 interface Post {
-  id: string;
-  title: string;
-  category: Category;
-  content: string;
-  description: string;
-  cover_image: string;
-  tags: string[];
-  published_date: string;
-  to_param: string;
+  id: string
+  title: string
+  category: Category
+  content: string
+  description: string
+  cover_image: string
+  tags: string[]
+  published_date: string
+  to_param: string
 }
 
-export function RecentPosts({posts}: Props) {
-  const size = useWindowSize();
-  if (!size.width) return null;
+export function RecentPosts({ posts }: Props) {
+  const size = useWindowSize()
+  if (!size.width) return null
 
   return (
-  <Window
-  id="recent-posts-window"
-  title="recent-posts.txt"
-  x={size.width / 35}
-  y={200}
+    <Window
+      id='recent-posts-window'
+      title='recent-posts.txt'
+      x={size.width / 35}
+      y={200}
       width={`${size.width / 2 < 520 ? size.width / 2 : 520}px`}
-      zIndex="3"
+      zIndex='3'
       active={true}
-      >
-      <div className="flex max-w-3xl flex-col">
-        <ul className="py-2 px-6">
-        {posts.map((post: Post, index: number) => (
-          <li key={index} className="px-2 wavy w-full">
-          <Link
-          href={`/blog/${post.to_param}`}
-          className="block outline-none no-underline hover:no-underline"
-          >
-          <h2 className="text-primary-400 lowercase font-extra hover:italic active:italic antialiased subpixel-antialiased break-normal">
-          {post.title}
-          </h2>
-          <span className="text-xs tracking-wide font-extra lowercase text-info-500 font-bold">
-          {post.published_date}
-          </span>
-          </Link>
-          </li>
+    >
+      <div className='flex max-w-3xl flex-col'>
+        <ul className='px-6 py-2'>
+          {posts.map((post: Post, index: number) => (
+            <li key={index} className='wavy w-full px-2'>
+              <Link
+                href={`/blog/${post.to_param}`}
+                className='block no-underline outline-none hover:no-underline'
+              >
+                <h2 className='break-normal font-extra lowercase text-primary-txt hover:italic active:italic'>
+                  {post.title}
+                </h2>
+                <span className='text-info-500 font-extra text-xs font-bold lowercase tracking-wide'>
+                  {post.published_date}
+                </span>
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
-      </Window>
+    </Window>
   )
 }

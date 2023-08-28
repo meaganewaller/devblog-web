@@ -1,4 +1,4 @@
-import { type ReadTimeResults } from 'reading-time';
+import { type ReadTimeResults } from 'reading-time'
 export type PostTag = string
 export type PostFrontMatter = {
   slug: string

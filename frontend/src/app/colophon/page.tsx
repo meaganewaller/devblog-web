@@ -1,47 +1,46 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import tw from 'tailwind-styled-components';
-import styled from 'styled-components';
+'use client'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import tw, { styled } from 'twin.macro'
 
 const resources = [
   {
-    role: "Backend Framework",
-    name: "Ruby on Rails",
-    url: "https://rubyonrails.org",
+    role: 'Backend Framework',
+    name: 'Ruby on Rails',
+    url: 'https://rubyonrails.org',
   },
   {
-    role: "Frontend Framework",
-    name: "Next.js",
-    url: "https://nextjs.org",
+    role: 'Frontend Framework',
+    name: 'Next.js',
+    url: 'https://nextjs.org',
   },
   {
-    role: "Styling",
-    name: "TailwindCSS",
-    url: "https://tailwindcss.com",
+    role: 'Styling',
+    name: 'TailwindCSS',
+    url: 'https://tailwindcss.com',
   },
   {
-    role: "Content Management",
-    name: "Notion API",
-    url: "https://developers.notion.com/",
+    role: 'Content Management',
+    name: 'Notion API',
+    url: 'https://developers.notion.com/',
   },
   {
-    role: "Database",
-    name: "Postgres",
-    url: "https://postgresql.org/",
+    role: 'Database',
+    name: 'Postgres',
+    url: 'https://postgresql.org/',
   },
   {
-    role: "Newsletter",
-    name: "Convertkit",
-    url: "https://convertkit.com/",
+    role: 'Newsletter',
+    name: 'Convertkit',
+    url: 'https://convertkit.com/',
   },
   {
-    role: "Deployment",
-    name: "Vercel",
-    url: "https://vercel.com/",
+    role: 'Deployment',
+    name: 'Vercel',
+    url: 'https://vercel.com/',
   },
-];
+]
 
 const StyledContainer = styled.div`
   display: flex;
@@ -61,11 +60,11 @@ const StyledContainer = styled.div`
   padding-right: 3%;
   box-shadow: inset 0 0 10px #000;
   z-index: 10;
-`;
+`
 
 const Container = tw(StyledContainer)`
   desktop:flex-row
-`;
+`
 
 const StyledBox = styled.div`
   display: flex;
@@ -77,13 +76,13 @@ const StyledBox = styled.div`
   text-align: center;
   transform: translateX(50%);
   font-family: 'Press Start 2P', cursive, serif;
-  font-size: .5rem;
+  font-size: 0.5rem;
   margin: 2rem;
-`;
+`
 
 const Box = tw(StyledBox)`
-  desktop:w-[15rem] desktop:h-[15rem] desktop:translate-x-[15%] desktop:text-[.75rem];
-`;
+  desktop:w-[15rem] desktop:h-[15rem] desktop:translate-x-[15%] desktop:text-md
+`
 
 const StyledColophonImage = styled(Image)`
   display: flex;
@@ -94,35 +93,55 @@ const StyledColophonImage = styled(Image)`
 
 const ColophonImage = tw(StyledColophonImage)`
   desktop:w-full desktop:h-full
-`;
+`
 
-const ColophonTitle = styled.div`
-`;
+const ColophonTitle = styled.div``
 
-const ColophonText = styled.div`
-`;
+const ColophonText = styled.div``
 
 export default function Colophon() {
   return (
-      <section>
+    <section>
       <h1>A Peek Behind the (Digital) Curtain</h1>
-      <p>Greetings, fellow travelers of the digital expanse! Prepare to be both impressed and mildly bemused as we pull back the virtual curtains and introduce you to the backstage shenanigans that power this realm. Behold, the Colophon--where thee magic happens!</p>
-      <h2>Framework Enchantments</h2>
-      <p>This cyberwonderland wouldn't exist without a concontion of the following:</p>
+      <p>
+        Welcome, fellow wanderers of the digital wilderness. You've stumbled
+        upon a vault of secrets, a backstage tour of this online haven. What's a
+        colophon, you ask? Well, it's a fancy way of saying, "Hey, here's how
+        this site came to be."
+      </p>
+      <h2>The Craftsmanship Behind the Pixels</h2>
+      <p>
+        Crafted and nurtured by none other than yours truly. I've painstakingly
+        (lol) designed and assembled this digital realm with tons of open-source
+        magic. Want to dive into the nitty-gritty? Feel free to explore the{' '}
+        <Link href='https://github.com/meaganewaller/devblog' target='_blank'>
+          GitHub repository.
+        </Link>{' '}
+        Frankly, it's a case of crafting a sledgehammer to tap nails, but
+        playing with whatever the new web technology is at the time is half the
+        fun. This cyberwonderland wouldn't exist without a concontion of the
+        following:
+      </p>
+      <h3>Frontend</h3>
       <ul>
-      <li><strong>Ruby on Rails Backend</strong>: The wizard behind the scences, orchestrating our backend ballet.</li>
-      <li><strong>Next.js Framework</strong>: The elusive maestro conducting the orchestra of our frontend enigma.</li>
-      <li><strong>TypeScript</strong>: The chosen dialect of our digital séance – words for the modern wizard.</li>
-      <li><strong>TailwindCSS</strong>: The spellbinding attire for our virtual masquerade.</li>
+        <li>
+          <strong>Ruby on Rails</strong>: The wizard behind the scences,
+          orchestrating our backend ballet.
+        </li>
+        <li>
+          <strong>Next.js</strong>: This is the magic that handles the heavy
+          lifting, conjuring server-side rendering, image loading, and routing.
+        </li>
+        <li>
+          <strong>TailwindCSS</strong>: The paintbrush that brings our aesthetic
+          to life.
+        </li>
+        <li>
+          <strong>NotionAPI</strong>: The content management system that allows
+          me to write in Notion and publish to my site.
+        </li>
       </ul>
-      <h2>Concoting the Aesthetic</h2>
-      <p>The tapestry of our realm is carefully woven with pixels and code. The following are the tools of our trade:</p>
-      <ul>
-      <li><strong>Pixel Piazza Palette</strong>: A nod to the pixelated chaos that shapes our digital canvas.</li>
-      <li><strong>Typefaces with Character</strong>: </li>
-      </ul>
-
-
-      </section>
+      https://garrettdimon.com/colophon
+    </section>
   )
 }

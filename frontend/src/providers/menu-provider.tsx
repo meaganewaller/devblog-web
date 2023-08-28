@@ -1,18 +1,13 @@
-'use client';
+'use client'
 
-import { useToggle } from "@/hooks/useToggle";
-import {
-  type PropsWithChildren,
-  createContext,
-  useContext,
-  useMemo,
-  useEffect,
-} from 'react';
+import { createContext, type PropsWithChildren, useContext } from 'react'
+
+import { useToggle } from '@/hooks/useToggle'
 
 interface MenuContextValue {
-  isMenuOpen: boolean;
-  toggleMenu?: () => void;
-  closeMenu?: () => void;
+  isMenuOpen: boolean
+  toggleMenu?: () => void
+  closeMenu?: () => void
 }
 
 const defaultContextState: MenuContextValue = {
@@ -21,12 +16,11 @@ const defaultContextState: MenuContextValue = {
   closeMenu: () => {},
 }
 
-export const MenuContext =
-  createContext<MenuContextValue>(defaultContextState);
+export const MenuContext = createContext<MenuContextValue>(defaultContextState)
 
 export const MenuProvider = (props: PropsWithChildren) => {
-  const { isToggled, setToggle, toggle } = useToggle(false);
-  const closeMenu = () => setToggle(false);
+  const { isToggled, setToggle, toggle } = useToggle(false)
+  const closeMenu = () => setToggle(false)
 
   return (
     <MenuContext.Provider
@@ -38,10 +32,9 @@ export const MenuProvider = (props: PropsWithChildren) => {
     >
       {props.children}
     </MenuContext.Provider>
-  );
+  )
 }
 
 export const useMenuContext = () => {
-  return useContext(MenuContext);
-};
-
+  return useContext(MenuContext)
+}

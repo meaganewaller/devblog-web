@@ -1,24 +1,190 @@
-'use client';
+'use client'
+import Image from 'next/image'
+import tw from 'twin.macro'
 
-import { useWindowSize } from '@/hooks/use-window-size';
-import { Window } from '@/components/core/window';
+const ImageContainer = tw(Image)`
+  mx-4 hover:scale-150
+`
+
+const Marquee = tw.div`
+  flex flex-row whitespace-nowrap py-12 w-full h-full
+`
+
+const FirstMarquee = tw(Marquee)`
+  animate-marquee
+`
+
+const SecondMarquee = tw(Marquee)`
+  absolute top-0 animate-marquee2
+`
 
 export function Buttons() {
-  const size = useWindowSize();
-  if (!size.width) return null;
   return (
-      <Window
-      title="buttons.txt"
-      x={size.width / 20}
-      y={size.height / 10}
-      width="300px"
-      height="400px"
-      zIndex="2"
-      active={false}
-      id="buttons-window"
-      >
-      </Window>
+    <div className='relative mt-[2rem] flex overflow-x-hidden motion-reduce:overflow-x-auto motion-reduce:before:hidden motion-reduce:after:hidden before:absolute before:left-0 before:z-10 before:h-full before:w-[15vw] before:bg-gradient-to-r before:from-gradient-purple before:to-transparent after:absolute after:right-0 after:h-full after:w-[15vw] after:bg-gradient-to-r after:from-transparent after:to-gradient-purple'>
+      <FirstMarquee>
+        <ImageContainer
+          src='/static/images/buttons/meaganwaller.gif'
+          alt='meaganwaller.com animated graphic'
+          priority={true}
+          width='150'
+          height='20'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/acab.gif'
+          priority={true}
+          alt='ACAB'
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/bookmark.gif'
+          priority={true}
+          alt='Bookmark this Page GIF'
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/bestviewed.gif'
+          alt='This Page Best Viewed on a Computer'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/madewithmac.gif'
+          alt='This website was made with a Mac'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/online.gif'
+          alt='Forever Online Animated GIF'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/trustme.gif'
+          alt="Trust Me, I'm Good With Computer"
+          priority={true}
+          width='129'
+          height='38'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/antiNFT.gif'
+          alt='This is an Anti-NFT'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/oldweb.png'
+          alt='I love old web'
+          priority={true}
+          width='99'
+          height='55'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/sucks.gif'
+          alt='This website SUCKS!'
+          priority={true}
+          width='76'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+      </FirstMarquee>
+      <SecondMarquee>
+        <ImageContainer
+          src='/static/images/buttons/meaganwaller.gif'
+          alt='meaganwaller.com animated graphic'
+          priority={true}
+          width='150'
+          height='20'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/acab.gif'
+          priority={true}
+          alt='ACAB'
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/bookmark.gif'
+          priority={true}
+          alt='Bookmark this Page GIF'
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/bestviewed.gif'
+          alt='This Page Best Viewed on a Computer'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/madewithmac.gif'
+          alt='This website was made with a Mac'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/online.gif'
+          alt='Forever Online Animated GIF'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/trustme.gif'
+          alt="Trust Me, I'm Good With Computer"
+          priority={true}
+          width='129'
+          height='38'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/antiNFT.gif'
+          alt='This is an Anti-NFT'
+          priority={true}
+          width='88'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/oldweb.png'
+          alt='I love old web'
+          priority={true}
+          width='99'
+          height='55'
+          className='inline-block hover:scale-150'
+        />
+        <ImageContainer
+          src='/static/images/buttons/sucks.gif'
+          alt='This website SUCKS!'
+          priority={true}
+          width='76'
+          height='31'
+          className='inline-block hover:scale-150'
+        />
+      </SecondMarquee>
+    </div>
   )
 }
-
-

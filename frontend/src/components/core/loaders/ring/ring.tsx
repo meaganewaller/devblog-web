@@ -1,19 +1,19 @@
-import { cx } from 'classix';
-import type { CSSProperties } from 'react';
+import { cx } from 'classix'
+import type { CSSProperties } from 'react'
 
-import styles from './ring.module.scss';
+import styles from './ring.module.scss'
 
 interface RingProps {
-  size: number;
-  color: CSSProperties['color'];
-  lineWeight: number;
-  speed: number;
-  className?: string;
-  style?: CSSProperties;
+  size: number
+  color: CSSProperties['color']
+  lineWeight: number
+  speed: number
+  className?: string
+  style?: CSSProperties
 }
 
 export const Ring = (props: RingProps) => {
-  const { size = 80, color = 'black', lineWeight = 5, speed = 1.75 } = props;
+  const { size = 80, color = 'black', lineWeight = 5, speed = 1.75 } = props
   return (
     <svg
       height={size}
@@ -31,5 +31,5 @@ export const Ring = (props: RingProps) => {
     >
       <circle cx={'50'} cy={'50'} r={'20'} strokeWidth={lineWeight} />
     </svg>
-  );
-};
+  )
+}

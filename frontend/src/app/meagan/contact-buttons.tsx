@@ -1,29 +1,29 @@
-import Icon from '@mdi/react';
-import { cx } from 'classix';
+import Icon from '@mdi/react'
+import { cx } from 'classix'
 
-import { ButtonLink } from '@/components/core/link';
-import { mdiEmail, telegram, twitterOutline } from '@/components/icons';
+import { ButtonLink } from '@/components/core/link'
+import { mdiEmail, telegram, twitterOutline } from '@/components/icons'
 
 const emailButtonClasses = cx(
   'hocus:bg-[rgba(211_60_48/0.08)]',
   'hocus:border-[rgba(211_60_48/1)]',
   'dark:hocus:bg-[rgba(236_86_73/0.16)]',
   'dark:hocus:border-[rgba(236_86_73/1)]',
-);
+)
 
 const twitterButtonClasses = cx(
   'hocus:bg-[rgba(26_145_218/0.08)]',
   'hocus:border-[rgba(26_145_218/1)]',
   'dark:hocus:bg-[rgba(29_161_242/0.16)]',
   'dark:hocus:border-[rgba(29_161_242/1)]',
-);
+)
 
 const telegramButtonClasses = cx(
   'hocus:bg-[rgba(0_122_184/0.08)]',
   'hocus:border-[rgba(0_122_184/1)]',
   'dark:hocus:bg-[rgba(51_160_214/0.16)]',
   'dark:hocus:border-[rgba(51_160_214/1)]',
-);
+)
 
 export default function ContactButtons() {
   return (
@@ -56,5 +56,5 @@ export default function ContactButtons() {
         <span>Telegram</span>
       </ButtonLink>
     </div>
-  );
+  )
 }

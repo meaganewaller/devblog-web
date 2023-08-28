@@ -1,29 +1,20 @@
-'use client';
+'use client'
 
-import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import { type PropsWithChildren } from 'react';
-import { Provider as BalancerProvider } from 'react-wrap-balancer';
+import { ThemeProvider as NextThemeProvider } from 'next-themes'
+import GlobalStateProvider from '@/providers/GlobalStateProvider'
+// import FramerMotionProvider from '@/providers/FramerMotionProvider'
+import PlausibleProvider from "next-plausible"
 
-import PlausibleProvider from 'next-plausible';
-import { ThemeProvider } from './theme-provider';
+import type { PropsWithChildren } from 'react'
 
-const themes =
-  process.env.IS_TEMPLATE === 'true'
-    ? { light: 'light-inverted', dark: 'dark-inverted' }
-    : { light: 'light', dark: 'dark' };
-
-export function Providers(props: PropsWithChildren) {
+export function Providers({ children = null }: PropsWithChildren) {
   return (
-    <NextThemeProvider
-      attribute={'class'}
-      defaultTheme={'system'}
-      value={themes}
-    >
-    <PlausibleProvider domain="meaganwaller.com">
-    <ThemeProvider>
-    <BalancerProvider>{props.children}</BalancerProvider>
-    </ThemeProvider>
-    </PlausibleProvider>
-    </NextThemeProvider>
-  );
+      <NextThemeProvider attribute="class" defaultTheme={"system"}>
+        <PlausibleProvider domain="meaganwaller.com">
+          <GlobalStateProvider>
+            {children}
+          </GlobalStateProvider>
+        </PlausibleProvider>
+      </NextThemeProvider>
+  )
 }

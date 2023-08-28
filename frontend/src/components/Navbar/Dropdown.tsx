@@ -1,11 +1,13 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
+'use client'
+import Link from 'next/link'
+import React from 'react'
 const Dropdown = ({ name, dropdownItems }) => {
   return (
-  <div className="dropdown dropdown-hover">
-      <label tabIndex={0} className="">{name}</label>
-      <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <div className='dropdown dropdown-hover'>
+      <label tabIndex={0} className=''>
+        {name}
+      </label>
+      <ul className='dropdown-content menu bg-base-100 rounded-box w-52 z-[1] p-2 shadow'>
         {dropdownItems.map((item, index) => (
           <li key={index}>
             <Link href={item.url}>{item.name}</Link>
@@ -16,4 +18,4 @@ const Dropdown = ({ name, dropdownItems }) => {
   )
 }
 
-export default Dropdown;
+export default Dropdown

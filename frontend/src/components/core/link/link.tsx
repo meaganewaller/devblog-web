@@ -1,24 +1,24 @@
-import NextLink from 'next/link';
-import type { ComponentProps } from 'react';
+import NextLink from 'next/link'
+import type { ComponentProps } from 'react'
 
-import { StyledLink } from './link.styles';
+import { StyledLink } from './link.styles'
 
 const isLocalLink = (href?: string) =>
-  href && (href.startsWith('/') || href.startsWith('#'));
+  href && (href.startsWith('/') || href.startsWith('#'))
 
 interface LinkProps extends ComponentProps<typeof NextLink> {
-  title: string;
-  openInNewTab?: boolean;
+  title: string
+  openInNewTab?: boolean
 }
 
 export const Link = (props: LinkProps) => {
-  const { href, ...otherProps } = props;
+  const { href, ...otherProps } = props
   const {
     openInNewTab = !isLocalLink(
       typeof href !== 'string' ? href.toString() : href,
     ),
     ...rest
-  } = otherProps;
+  } = otherProps
 
   return (
     <StyledLink
@@ -31,5 +31,5 @@ export const Link = (props: LinkProps) => {
           }
         : {})}
     />
-  );
-};
+  )
+}

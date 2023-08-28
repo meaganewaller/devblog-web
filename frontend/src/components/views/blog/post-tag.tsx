@@ -1,11 +1,10 @@
-import type { PostTag as TypePostTag } from '@/utils/blogs'
-import { getPostTag } from '@/utils/blogs'
-
-import { tw } from '@/utils/tw'
-
 import Link from 'next/link'
 import { TbAlertCircle } from 'react-icons/tb'
-import { P, match } from 'ts-pattern'
+import { match, P } from 'ts-pattern'
+
+import type { PostTag as TypePostTag } from '@/utils/blogs'
+import { getPostTag } from '@/utils/blogs'
+import { tw } from '@/utils/tw'
 
 type Props = {
   tag: TypePostTag

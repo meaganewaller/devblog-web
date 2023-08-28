@@ -1,7 +1,10 @@
-import {Container} from "@/components/ListItem/styles";
-import {HTMLAttributes} from "react";
+import { HTMLAttributes } from 'react'
 
-type ListItemProps = HTMLAttributes<HTMLLIElement> &  {
-    children: React.ReactNode
+import { Container } from '@/components/ListItem/styles'
+
+type ListItemProps = HTMLAttributes<HTMLLIElement> & {
+  children: React.ReactNode
 }
-export const ListItem = ({ children , ...rest }: ListItemProps) => (<Container {...rest}>{children}</Container>)
+export const ListItem = ({ children, ...rest }: ListItemProps) => (
+  <Container {...rest}>{children}</Container>
+)

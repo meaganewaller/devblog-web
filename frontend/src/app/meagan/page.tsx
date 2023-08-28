@@ -1,105 +1,89 @@
-'use client';
-import React from 'react';
-import styled from 'styled-components';
+'use client'
 
-const Section = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+import tw, { styled } from 'twin.macro'
 
-  @media(min-width: 700px) {
-    grid-template-columns: 1fr 1fr;
+import { Bio, Buttons, QuickInfo } from '@/components/views/meagan'
+
+const StyledSection = styled.div`
+  &:before,
+  &:after {
+    content: '';
+    height: 15px;
+    display: block;
+    width: 100%;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -moz-radial-gradient(var(--color-background), var(--color-background) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0));
+    background-image: -webkit-radial-gradient(var(--color-background), var(--color-background) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0));
+    background-image: radial-gradient(var(--color-background), var(--color-background) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0));
+    background-size: 15px 15px;
+    background-size: 15px 15px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    position: absolute;
   }
 
-  @media(min-width: 1000px) {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+  &:before {
+    left: 0;
+    top: -7px;
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
-`;
 
-const Box = styled.div`
-  background-color: rgba(255, 123, 222, 0.76);
-  text-align: center;
-  align-items: center;
-  padding: 0.5em;
-  margin: 0.5em;
+  &:after {
+    bottom: -7px;
+    left: 0;
+  }
 `
 
-const Broken = styled.div`
-background-color: rgb(0, 217, 255);
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 0.5em;
-margin: 0.5em;
-grid-row: 3 / span 1;
-
-@media(min-width: 700px) {
-  grid-column: 1/2;
-  grid-row: 2/3;
+const InnerSection = styled.div`
+&:before {
+  left: -7px;
+  top: 0;
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-@media(min-width: 1000px) {
-  grid-column: 3/4;
-  grid-row: 1 / -1;
-}
-`;
-
-const Infinite = styled.div`
-background-color: yellow;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 0.5em;
-margin: 0.5em;
-grid-row: 6 / span 1;
-
-@media(min-width: 700px) {
-  grid-column: 2/3;
-  grid-row: 3/4;
+&:after {
+  right: -7px;
+  top: 0;
 }
 
-@media(min-width: 1000px) {
-  grid-column: 4/6;
-  grid-row: 2/4;
+&:before,
+&:after {
+  position: absolute;
+  content: '';
+  height: 100%;
+  display: block;
+  width: 15px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(var(--color-background), var(--color-background) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0));
+  background-image: -webkit-radial-gradient(var(--color-background), var(--color-background) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0));
+  background-image: radial-gradient(var(--color-background), var(--color-background) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0));
+  background-size: 15px 15px;
+  background-repeat: repeat-y;
 }
-`;
+`
 
-const Paragraph = styled.p`
-`;
+const Section = tw(StyledSection)`
+  w-[95%] max-w-[1300px] p-[50px] mx-auto font-extra my-[4em] bg-background relative
+`
 
-export default function AboutMeaganPage() {
+const MeaganPage = () => {
   return (
-  <Section>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Box>
-  <Paragraph>THE FUTURE FEELS LIKE HOME</Paragraph>
-  </Box>
-  <Broken>
-  <Paragraph>THE FUTURE IS BROKEN</Paragraph>
-  </Broken>
-  <Infinite>
-  <Paragraph>THE CLOUD IS INFINITY</Paragraph>
-  </Infinite>
-  </Section>
+    <Section>
+      <InnerSection>
+        <QuickInfo />
+        <Buttons />
+        <Bio />
+      </InnerSection>
+    </Section>
   )
 }
+
+export default MeaganPage

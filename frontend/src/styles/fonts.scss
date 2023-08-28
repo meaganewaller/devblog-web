@@ -1,23 +1,22 @@
 :root {
-  --font-mono: "IBM Plex Mono";
-  --font-sans: "DM Sans";
-  --font-serif: "Prata";
+  --font-mono: 'IBM Plex Mono';
+  --font-sans: 'DM Sans';
+  --font-serif: 'Prata';
 }
-@import "@fontsource/ibm-plex-mono";
-@import "@fontsource/dm-sans";
-@import "@fontsource/prata";
+@import '@fontsource/ibm-plex-mono';
+@import '@fontsource/dm-sans';
+@import '@fontsource/prata';
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @font-face {
-  font-family: "Venice Classic";
-  src: url('/static/fonts/VeniceClassic.ttf') format("truetype");
+  font-family: 'Venice Classic';
+  src: url('/static/fonts/VeniceClassic.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "basiic";
-  src: url('/static/fonts/basiic.ttf') format("truetype");
+  font-family: 'basiic';
+  src: url('/static/fonts/basiic.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
-

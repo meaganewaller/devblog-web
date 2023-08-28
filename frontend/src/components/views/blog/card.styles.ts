@@ -1,7 +1,7 @@
-import tw from 'tailwind-styled-components';
+import tw from 'twin.macro'
 
-import { Img } from '@/components/core/img';
-import { Link } from '@/components/core/link';
+import { Img } from '@/components/core/img'
+import { Link } from '@/components/core/link'
 
 export const PostCard = tw(Link)`
   flex
@@ -27,7 +27,7 @@ export const PostCard = tw(Link)`
   hocus:no-underline
   hocus:text-primary-txt
   dark:hocus:bg-[rgba(var(--post-color)/0.14)]
-`;
+`
 
 export const PostCardHero = tw(Img)`
   aspect-[2/1]
@@ -37,13 +37,13 @@ export const PostCardHero = tw(Img)`
   tablet-sm:min-h-full
   tablet-sm:aspect-[5/3]
   tablet-sm:max-w-[160px]
-`;
+`
 
 export const PostCardContent = tw.div`
   flex flex-col
   gap-4 flex-1
   tablet-sm:self-center
-`;
+`
 
 export const PostTitle = tw.p`
   text-xs
@@ -53,7 +53,7 @@ export const PostTitle = tw.p`
   transition
   group-hocus/post:underline
   group-hocus/post:text-[rgba(var(--post-text-color))]
-`;
+`
 
 export const PostDescription = tw.p`
   text-2xs
@@ -61,7 +61,7 @@ export const PostDescription = tw.p`
   overflow-ellipsis
   line-clamp-1
   mobile-lg:line-clamp-2
-`;
+`
 
 export const PostStatsContainer = tw.div`
   flex
@@ -73,4 +73,4 @@ export const PostStatsContainer = tw.div`
   text-[0.75rem]
   flex-wrap
   tablet-sm:gap-x-12
-`;
+`

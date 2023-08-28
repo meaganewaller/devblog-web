@@ -1,4 +1,4 @@
-import tw from 'tailwind-styled-components';
+import tw from 'twin.macro'
 
 export const Chip = tw.span`
   flex
@@ -23,11 +23,11 @@ export const Chip = tw.span`
   dark:hocus:bg-divider
   hocus:transform
   hocus:scale-[1.015]
-`;
+`
 
 export const ChipGroup = tw.ul`
   flex
   flex-wrap
   py-16
   gap-10
-`;
+`

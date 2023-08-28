@@ -1,22 +1,22 @@
-import { NavProps } from "@/types/header";
+import { NavProps } from '@/types/header'
 
 export const navConfig: NavProps = {
   items: [
     {
-      title: "Home",
-      link: "/"
+      title: 'Home',
+      link: '/',
     },
     {
-      title: "Blog",
-      link: "/blog"
+      title: 'Blog',
+      link: '/blog',
     },
     {
-      title: "About",
-      link: "/about"
+      title: 'About',
+      link: '/about',
     },
     {
-      title: "Contact",
-      link: "/contact"
-    }
-  ]
+      title: 'Contact',
+      link: '/contact',
+    },
+  ],
 }

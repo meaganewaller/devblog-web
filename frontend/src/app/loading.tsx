@@ -1,10 +1,10 @@
-import { Ring } from '@/components/core/loaders';
+import { Ring } from '@/components/core/loaders'
 
 const Loading = () => {
   return (
     <div
       className={
-        'flex flex-col w-full flex-1 items-center justify-center bg-transparent'
+        'flex w-full flex-1 flex-col items-center justify-center bg-transparent'
       }
     >
       <Ring
@@ -14,7 +14,7 @@ const Loading = () => {
         color={'var(--color-accent, #88a4e6)'}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

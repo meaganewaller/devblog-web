@@ -1,42 +1,42 @@
-'use client';
+'use client'
 
-import { useTheme as useNextTheme } from 'next-themes';
+import { useTheme as useNextTheme } from 'next-themes'
 import {
-  type PropsWithChildren,
   createContext,
+  type PropsWithChildren,
   useContext,
-  useMemo,
   useEffect,
-} from 'react';
+  useMemo,
+} from 'react'
 
-import { colorMetaTags } from '@/utils/metadata';
+import { colorMetaTags } from '@/utils/metadata'
 
 interface ThemeContextValue {
-  isDark: boolean;
-  toggleTheme?: () => void;
+  isDark: boolean
+  toggleTheme?: () => void
 }
 
 const defaultContextState: ThemeContextValue = {
   isDark: false,
-};
+}
 
 export const ThemeContext =
-  createContext<ThemeContextValue>(defaultContextState);
+  createContext<ThemeContextValue>(defaultContextState)
 
 export const ThemeProvider = (props: PropsWithChildren) => {
-  const { theme, resolvedTheme, setTheme } = useNextTheme();
+  const { theme, resolvedTheme, setTheme } = useNextTheme()
 
   const actualTheme = useMemo(
     () => resolvedTheme || theme,
     [resolvedTheme, theme],
-  );
+  )
 
   const themeContextValue: ThemeContextValue = {
     isDark: actualTheme === 'dark',
     toggleTheme: () => {
-      setTheme(actualTheme === 'dark' ? 'light' : 'dark');
+      setTheme(actualTheme === 'dark' ? 'light' : 'dark')
     },
-  };
+  }
 
   useEffect(() => {
     colorMetaTags.forEach((tag) => {
@@ -45,17 +45,17 @@ export const ThemeProvider = (props: PropsWithChildren) => {
         ?.setAttribute(
           'content',
           actualTheme === 'dark' ? '#080f1e' : '#ffffff',
-        );
-    });
-  }, [actualTheme]);
+        )
+    })
+  }, [actualTheme])
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
       {props.children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}
 
 export const useTheme = (): ThemeContextValue => {
-  return useContext(ThemeContext) || defaultContextState;
-};
+  return useContext(ThemeContext) || defaultContextState
+}

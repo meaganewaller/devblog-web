@@ -1,21 +1,17 @@
-import { motion } from 'framer-motion';
-import tw from 'tailwind-styled-components';
+import { motion } from 'framer-motion'
+import tw from 'twin.macro'
 
 const DropdownMenu = tw(motion.ul)`
   z-10 absolute hidden bg-[#ffffff] border rounded-lg py-2 px-4 shadow-md
-`;
-
-const DropdownItem = tw.li`
-  mb-2
-`;
+`
 
 interface DropdownMenuProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({ children }) => {
   return (
-  <DropdownMenu
+    <DropdownMenu
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
@@ -26,4 +22,4 @@ const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({ children }) => {
   )
 }
 
-export default DropdownMenuComponent;
+export default DropdownMenuComponent

@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   media-src 'self' *.cdninstagram.com;
   connect-src *;
   font-src 'self' *.gstatic.com *.googleapis.com data:;
-`;
+`
 
 const securityHeaders = [
   {
@@ -42,7 +42,7 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
-];
+]
 
 module.exports = [
   {
@@ -58,4 +58,4 @@ module.exports = [
       },
     ],
   },
-];
+]

@@ -1,4 +1,4 @@
-@import "./fonts.scss";
+@import './fonts.scss';
 @import 'tailwindcss/base';
 @import './reset.scss';
 @import './custom-reset.scss';
@@ -20,7 +20,7 @@ html.light-inverted,
 html.dark-inverted {
   &,
   & * {
-    @apply pointer-events-none select-none saturate-[30] invert-[1.5];
+    @apply pointer-events-none select-none invert-[1.5] saturate-[30];
 
     &::before {
       z-index: 9999;

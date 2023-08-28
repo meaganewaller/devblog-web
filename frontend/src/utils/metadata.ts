@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+
 import { buildOgImageUrl } from './og'
 
 type MetaImageStyle = 'summary_large_image' | 'summary'
@@ -7,20 +8,22 @@ const defaultLogoImage =
   'https://meaganwaller.com/static/images/logo/logo-512.png'
 
 export const getStaticMetadata = (data: {
-  title: string;
-  description: string;
-  keywords?: string | Array<string> | null;
-  exactUrl?: string;
-  image?: string;
-  metaImageStyle?: MetaImageStyle;
+  title: string
+  description: string
+  keywords?: string | Array<string> | null
+  exactUrl?: string
+  image?: string
+  metaImageStyle?: MetaImageStyle
 }): Metadata => {
-  const { title, description, keywords, exactUrl, image, metaImageStyle } =
-  data;
+  const { title, description, keywords, exactUrl, image, metaImageStyle } = data
 
   const actualDefaultImage =
-    metaImageStyle === 'summary' ? defaultLogoImage : buildOgImageUrl();
-  const actualImage = image || actualDefaultImage;
-  const actualMetaImageStyle = actualImage === defaultLogoImage ? 'summary' : metaImageStyle || 'summary_large_image';
+    metaImageStyle === 'summary' ? defaultLogoImage : buildOgImageUrl()
+  const actualImage = image || actualDefaultImage
+  const actualMetaImageStyle =
+    actualImage === defaultLogoImage
+      ? 'summary'
+      : metaImageStyle || 'summary_large_image'
 
   return {
     title,
@@ -42,18 +45,18 @@ export const getStaticMetadata = (data: {
       images: [{ url: actualImage }],
       card: actualMetaImageStyle,
       creator: '@meaganewaller',
-      site: '@meaganewaller'
+      site: '@meaganewaller',
     },
     verification: {
       google: process.env.GOOGLE_SITE_VERIFICATION,
     },
-    metadataBase: new URL('https://meaganwaller.com')
-  };
-};
+    metadataBase: new URL('https://meaganwaller.com'),
+  }
+}
 
 export const colorMetaTags = [
   'theme-color',
   'msapplication-TileColor',
   'msapplication-navbutton-color',
   'apple-mobile-web-app-status-bar-style',
-];
+]

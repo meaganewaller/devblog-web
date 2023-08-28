@@ -1,45 +1,22 @@
-/* eslint-disable @next/next/no-img-element */
-import { cx } from 'classix';
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
-import { Heading } from '@/components/core/heading';
-import { ButtonLink } from '@/components/core/link';
-import { Section } from '@/components/core/section';
-import { getStaticMetadata } from '@/utils/metadata';
-import { buildOgImageUrl } from '@/utils/og';
+export const metadata: Metadata = {
+  title: '404',
+}
 
 const NotFound = () => {
   return (
-    <Section id={'error'} className={'w-full h-full'}>
-      <Heading shadow={'red'} from={'orange'} to={'red'} className={'mb-16'}>
-        Woops! ~ Page not found
-      </Heading>
-      <p>
-        Unfortunately, the page you&apos;re looking for doesn&apos;t exist or
-        has been moved.
-      </p>
-      <p>Please double check the URL for typos. Otherwise,</p>
-      <ButtonLink href={'/'} title={'Home page'} className={'mt-32'}>
-        Go back home
-      </ButtonLink>
-      <img
-        src={'/static/images/ui/computer.webp'}
-        alt={'John Travolta gif'}
-        loading={'lazy'}
-        decoding={'async'}
-        className={cx(
-          'drop-shadow-[0_0_2px_#fff] mt-auto mx-auto w-full max-w-[425px]',
-          'mb-[calc(var(--verticalContentPadding)*-1)]',
-        )}
-      />
-    </Section>
-  );
-};
+    <div className='mt-52 mb-40 flex flex-col items-center justify-center gap-12'>
+      <h1 className='text-6xl text-center font-bold'>404 Not Found</h1>
+      <Link
+        href='/'
+        className='rounded-lg border border-accent px-3 py-2 transition-colors duration-150 hover:bg-accent-dark'
+      >
+        Go to homepage
+      </Link>
+    </div>
+  )
+}
 
-export default NotFound;
-
-export const metadata = getStaticMetadata({
-  title: 'Page not found',
-  description: "The page you're looking for doesn't exist or has been moved.",
-  keywords: ['404', 'not found', 'page not found'],
-  image: buildOgImageUrl('404'),
-});
+export default NotFound

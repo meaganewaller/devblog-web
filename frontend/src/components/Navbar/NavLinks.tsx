@@ -1,7 +1,8 @@
-'use client';
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+'use client'
+import Link from 'next/link'
+import React from 'react'
+import styled from 'styled-components'
+
 import { useMenuContext } from '@/providers/menu-provider'
 
 const links = [
@@ -11,17 +12,13 @@ const links = [
     children: [
       {
         name: 'About',
-        path: '/site'
+        path: '/site',
       },
       {
         name: 'Join the Newsletter',
-        path: '/newsletter'
+        path: '/newsletter',
       },
-      {
-        name: 'Colophon',
-        path: '/colopon'
-      }
-    ]
+    ],
   },
   {
     name: 'Meagan',
@@ -29,13 +26,13 @@ const links = [
     children: [
       {
         name: 'About me',
-        path: '/meagan'
+        path: '/meagan',
       },
       {
-        name: 'Let\'s chat',
-        path: '/chat'
-      }
-    ]
+        name: "Let's chat",
+        path: '/chat',
+      },
+    ],
   },
   {
     name: 'Blog',
@@ -43,28 +40,26 @@ const links = [
     children: [
       {
         name: 'Categories',
-        path: '#'
-      }
-    ]
+        path: '#',
+      },
+    ],
   },
   {
     name: 'Projects',
-    path: '/projects'
+    path: '/projects',
   },
   {
     name: 'Workspace',
-    path: '/workspace'
+    path: '/workspace',
   },
 ]
 
 function NavLinks() {
-  const { closeMenu } = useMenuContext();
+  const { closeMenu } = useMenuContext()
   return (
-    <NavLinksWrapper className="nav-links">
+    <NavLinksWrapper className='nav-links'>
       {links.map((item, index) => (
-        <li key={index}>
-          {item.name}
-        </li>
+        <li key={index}>{item.name}</li>
       ))}
     </NavLinksWrapper>
   )
@@ -101,7 +96,7 @@ const NavLinksWrapper = styled.ul`
       margin: 0 !important;
     }
   }
-`;
+`
 
 export const NavLink = styled(Link)`
   position: relative;
@@ -110,7 +105,7 @@ export const NavLink = styled(Link)`
   text-transform: capitalize;
   color: var(--text);
   &::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 0;
@@ -126,4 +121,4 @@ export const NavLink = styled(Link)`
   &:hover {
     text-decoration-line: none;
   }
-`;
+`

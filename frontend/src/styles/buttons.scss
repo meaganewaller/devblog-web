@@ -1,5 +1,5 @@
 .button {
-  @apply relative bg-accent text-on-accent font-[bolder] text-center no-underline inline-block text-md cursor-pointer shadow-[0px_6px_0px_rgba(var(--color-accent-dark))] mt-[15%] px-[20px] py-[17px] hover:bg-[var(--color-shadow-purple)] hover:shadow-[0px_6px_0px_var(--color-toolbar)] font-extra hover:no-underline;
+  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px] py-[17px] text-center font-[bolder] font-extra text-md text-on-accent no-underline shadow-[0px_6px_0px_rgba(var(--color-accent-dark))] hover:bg-[var(--color-shadow-purple)] hover:no-underline hover:shadow-[0px_6px_0px_var(--color-toolbar)];
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
@@ -9,7 +9,7 @@
   font-family: 'Press Start 2P', cursive;
   outline: none;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     z-index: -1;

@@ -1,9 +1,9 @@
-import { cx } from 'classix';
-import type { ElementType, ComponentProps } from 'react';
-import Balancer from 'react-wrap-balancer';
-import tw from 'tailwind-styled-components';
+import { cx } from 'classix'
+import type { ComponentProps, ElementType } from 'react'
+import Balancer from 'react-wrap-balancer'
+import tw from 'twin.macro'
 
-import type { RainbowColor } from '@/types/gradient';
+import type { RainbowColor } from '@/types/gradient'
 
 const StyledHeading = tw.h1`
   inline-block
@@ -19,15 +19,15 @@ const StyledHeading = tw.h1`
 `
 
 interface HeadingProps {
-  $as?: ElementType;
-  balancerRatio?: number;
-  shadow?: RainbowColor;
-  from?: RainbowColor;
-  to?: RainbowColor;
+  $as?: ElementType
+  balancerRatio?: number
+  shadow?: RainbowColor
+  from?: RainbowColor
+  to?: RainbowColor
 }
 
 export const Heading = (
-props: ComponentProps<typeof StyledHeading> & HeadingProps,
+  props: ComponentProps<typeof StyledHeading> & HeadingProps,
 ) => {
   const {
     $as: asElement,
@@ -37,7 +37,7 @@ props: ComponentProps<typeof StyledHeading> & HeadingProps,
     from,
     to,
     ...rest
-  } = props;
+  } = props
   return (
     <StyledHeading
       {...rest}
@@ -46,15 +46,15 @@ props: ComponentProps<typeof StyledHeading> & HeadingProps,
         rest.className,
         from ? `dark:from-gradient-${from}` : null,
         to ? `dark:to-gradient-${to}` : null,
-    )}
-    style={{
-      ...rest.style,
-      ...(shadow
-      ? { '--text-shadow-color': `var(--color-shadow-${shadow})` }
-      : {}),
-    }}
+      )}
+      style={{
+        ...rest.style,
+        ...(shadow
+          ? { '--text-shadow-color': `var(--color-shadow-${shadow})` }
+          : {}),
+      }}
     >
-    <Balancer ratio={balancerRatio}>{children}</Balancer>
+      <Balancer ratio={balancerRatio}>{children}</Balancer>
     </StyledHeading>
-  );
-};
+  )
+}

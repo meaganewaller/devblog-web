@@ -1,7 +1,7 @@
-import { tw } from '@/utils/tw'
-
-import type { ITooltip} from 'react-tooltip';
+import type { ITooltip } from 'react-tooltip'
 import { Tooltip } from 'react-tooltip'
+
+import { tw } from '@/utils/tw'
 
 type OmittedBaseProps = Omit<ITooltip, 'content'>
 
@@ -30,7 +30,7 @@ export const CustomTooltip = (props: CustomTooltipProps) => {
     <Tooltip
       {...props}
       className={tw(
-        'max-w-xs !opacity-100 bg-base-600 dark:bg-base-800 z-[9999999]',
+        'bg-base-600 dark:bg-base-800 z-[9999999] max-w-xs !opacity-100',
         props.className,
       )}
     />

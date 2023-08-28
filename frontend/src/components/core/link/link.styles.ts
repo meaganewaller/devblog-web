@@ -1,5 +1,5 @@
-import NextLink from 'next/link';
-import tw from 'tailwind-styled-components';
+import NextLink from 'next/link'
+import tw from 'twin.macro'
 
 export const StyledLink = tw(NextLink)`
   inline-block
@@ -11,4 +11,4 @@ export const StyledLink = tw(NextLink)`
   hocus:underline
   hocus:underline-offset-2
   hocus:decoration-wavy
-`;
+`

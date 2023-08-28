@@ -1,8 +1,8 @@
-export * from "./useLocalStorage";
-export * from "./useScroll";
-export * from "./useScrollFreeze";
-export * from "./useToggle";
-export * from "./useMedia";
+export * from './useLocalStorage'
+export * from './useMedia'
+export * from './useScroll'
+export * from './useScrollFreeze'
+export * from './useToggle'
 // import { useState } from "react";
 //
 // export const useToggle = (initialState) => {
