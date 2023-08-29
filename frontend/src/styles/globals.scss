@@ -28,3 +28,47 @@ html.dark-inverted {
     }
   }
 }
+
+.blog-header {
+  text-shadow:      0 0 0 var(--color-gradient-brand),
+                    0 0 0 var(--color-gradient-brand),
+                    0 0 0 var(--color-gradient-brand),
+                  0 0 1px var(--color-gradient-brand),
+                  0 0 1px var(--color-gradient-brand),
+                  0 0 1px var(--color-gradient-brand),
+               1px 0 20px var(--color-gradient-brand),
+               1px 0 20px var(--color-gradient-brand),
+               1px 0 20px var(--color-gradient-brand),
+               1px 0 10px var(--color-gradient-brand),
+               1px 0 10px var(--color-gradient-brand),
+               1px 0 50px var(--color-gradient-brand),
+               1px 0 50px var(--color-gradient-brand)
+}
+
+.blog-header:hover {
+  text-shadow: 0 0 0 var(--color-gradient-purple),
+               0 0 0 var(--color-gradient-purple),
+               0 0 0 var(--color-gradient-brand),
+               0 0 1px var(--color-gradient-purple),
+               0 0 1px var(--color-gradient-purple),
+               0 0 1px var(--color-gradient-purple),
+               1px 0 20px var(--color-gradient-purple),
+               1px 0 20px var(--color-gradient-purple),
+               1px 0 20px var(--color-gradient-purple),
+               1px 0 10px var(--color-gradient-purple),
+               1px 0 10px var(--color-gradient-purple),
+               1px 0 50px var(--color-gradient-purple),
+               1px 0 50px var(--color-gradient-purple)
+}
+
+.banner::before {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+.banner::after {
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.banner li:hover {
+  text-decoration: underline dotted black 1px;
+}
+

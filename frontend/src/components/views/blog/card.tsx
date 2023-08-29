@@ -1,104 +1,49 @@
 'use client'
-
-import Icon from '@mdi/react'
-import type { Route } from 'next'
-import { useMemo } from 'react'
-
-import { useHasMounted } from '@/hooks/use-has-mounted'
-
-import { calendarOutline, mdiClockOutline } from '@/components/icons'
-
-import { useTheme } from '@/providers/theme-provider'
-import { getReadableColor, hexToRgb } from '@/utils/color'
-import { formatDate } from '@/utils/date'
-import { getUrlDomain } from '@/utils/domain'
+import React from 'react'
+import Image from 'next/image'
 
 type Blog = {
   title: string
   slug: string
+  tags: string[]
+  coverImage: string
+  description: string
+  publishedDate?: any
+  lastUpdatedDate?: any
+  metaKeywords?: string
+  metaDescription?: string
 }
 
-import {
-  PostCard,
-  PostCardContent,
-  PostCardHero,
-  PostDescription,
-  PostStatsContainer,
-  PostTitle,
-} from './card.styles'
-
-interface PostCardProps {
-  post: Blog
+type Props = Blog & {
+  post: Blog,
+  category: {
+    title: string
+    slug: string
+  }
 }
 
-export const Card = (props: PostCardProps) => {
-  const hasMounted = useHasMounted()
-  const { isDark } = useTheme()
-
-  const { post } = props
-  const { link, slug, readingTime } = post
-  const rightLink = link && link.length > 0 ? link : `/blog/${slug}`
-  const domain = getUrlDomain(rightLink)
-
-  const textColor = useMemo<string | null>(() => {
-    if (!hasMounted) return null
-    return hexToRgb(getReadableColor(post.color, isDark), undefined, true)
-  }, [isDark, post.color, hasMounted])
-
-  const a11yDate = formatDate(post.date)
-  const readableDate = formatDate(post.date, { year: undefined })
-
+export const BlogCard = ({ post, category }: Props) => {
   return (
-    <PostCard
-      title={`Blog post: ${pot?.title}`}
-      href={rightLink as Route}
-      style={
-        {
-          '--post-color':
-            hexToRgb(post.color, 1, true) || 'var(--color-accent-dark)',
-          '--post-text-color': textColor || 'var(--color-accent-dark)',
-        } as CSSProperties
-      }
-    >
-      <PostCardHero
-        src={post.hero || ''}
-        alt={`Hero image for blog post "${post.title}"`}
-        width={post?.heroMeta?.size?.width || 144}
-        height={post?.heroMeta?.size?.height || 72}
-        placeholder={'blur'}
-        blurDataURL={post?.heroMetaa?.blur64}
-      />
-      <PostCardContent>
-        <PostTitle>{post.title}</PostTitle>
-        <PostDescription>{post.description}</PostDescription>
-        {domain ? (
-          <span className={'text-3xs text-tertiary-txt'}>
-            Published on <span className={'underline'}>{domain}</span>
-          </span>
-        ) : null}
-        <PostStatsContainer>
-          {Boolean(readableDate) && (
-            <Stat
-              title={`This blog post was published on ${a11yDate}`}
-              aria-label={`This blog was published on ${a11yDate}`}
-              $sm
-            >
-              <Icon path={calendarOutline} size={0.5} />
-              <span>{readableDate}</span>
-            </Stat>
-          )}
-          {Boolean(readingTime?.minutes) && (
-            <Stat
-              title={`It takes ${readingTime?.minutes} minutes to read this blog post`}
-              aria-label={`It takes ${readingTime?.minutes} minutes to read this blog post`}
-              $sm
-            >
-              <Icon path={mdiClockOutline} size={0.5} />
-              <span>{reeadingTime?.text}</span>
-            </Stat>
-          )}
-        </PostStatsContainer>
-      </PostCardContent>
-    </PostCard>
+      <button className="mb-2 mt-2 card bg-tertiary-50 border inline-block w-full w-[150px] ml-0 mt-0 relative transition-[0.3s] border-solid border-secondary-600 hover:border hover:shadow-[0.5rem_0.5rem] hover:shadow-primary-200 hover:transition-[0.3s] hover:border-solid hover:border-primary-300" onClick={() => window.location.href = `/blog/${post.slug}`}>
+      <div className="w-auto h-[150px] overflow-hidden">
+        <Image src={post.coverImage} alt={post.title} width={600} height={400} className="max-w-full h-auto rounded-tl-md rounded-tr-md" />
+      </div>
+      <h3 className="text-neutral-dark font-bold leading-tight tracking-[1px] mb-2.5 p-2 text-lg">
+        {post.title}
+      </h3>
+      <div className="card-content p-2 mb-10">
+        <p className="text-base text-start leading-normal mb-2.5 text-text break-words">
+          {post.description}
+        </p>
+      </div>
+      <div data-category={category} className="text-xs font-bold absolute text-center z-[2] px-[0.7rem] py-[0.4rem] right-0 bottom-0">
+        {category.title}
+      </div>
+      <div className="card-footer">
+        <div className="card-footer-item">
+        </div>
+      </div>
+    </button>
   )
 }
+

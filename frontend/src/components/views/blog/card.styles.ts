@@ -14,7 +14,6 @@ export const PostCard = tw(Link)`
   transition
   overflow-hidden
   transform
-  group/post
   tablet-sm:p-12
   tablet-sm:-mx-12
   tablet-sm:flex-row
