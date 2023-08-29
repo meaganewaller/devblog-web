@@ -3,7 +3,6 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
 export async function POST(request: NextRequest) {
-  console.log("Request", request)
   try {
     const { name, email, subject, message } = (await request.json())
 

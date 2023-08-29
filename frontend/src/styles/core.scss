@@ -175,17 +175,17 @@ body article {
   scroll-margin-top: var(--scrollMargin);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::after,
-  *::before {
-    animation-duration: 1ms !important;
-    animation-delay: -1ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 1ms !important;
-    transition-delay: -1ms !important;
-  }
-}
+// @media (prefers-reduced-motion: reduce) {
+//   *,
+//   *::after,
+//   *::before {
+//     animation-duration: 1ms !important;
+//     animation-delay: -1ms !important;
+//     animation-iteration-count: 1 !important;
+//     transition-duration: 1ms !important;
+//     transition-delay: -1ms !important;
+//   }
+// }
 
 .stats-box {
   span {

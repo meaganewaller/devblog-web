@@ -122,7 +122,6 @@ const handleSubmit = async (e, pending, setPending, setMessage) => {
 
   for (const key of fieldKeys) {
     let el = document.querySelector(`form #${key}`)
-    console.log("el", el.value)
     els.push(el)
     data[key] = (el.value || "").trim()
     incomplete |= data[key].length === 0
@@ -137,8 +136,6 @@ const handleSubmit = async (e, pending, setPending, setMessage) => {
   // els.forEach((el) => {
   //   // el.value = ""
   // })
-
-  console.log("data", data)
 
   try {
     const res = await fetch("/api/contact", {
@@ -174,6 +171,35 @@ const ChatPage = () => {
             <h2 className="text-accent-dark text-3xl w-full text-center font-light font-venice">
               Send a message
             </h2>
+            <div className="p-[2em] pt-[1.25em]">
+              <p className="text-primary-txt text-justify font-light font-extra">
+                Hey there!{" "}
+                I'm thrilled that you want to get in touch. Whether you have questions, ideas, or just want to say hi, I'd love to hear from you.
+              </p>
+              <h3 className="mt-[1.5em]">Have a Question?</h3>
+              <p className="text-primary-txt text-justify font-light font-extra">
+                If you're curious about anything--from my journey in the tech world to the latest blog post--feel free to ask. No question is too big or small, and I'll do my best to (eventually) provide an insightful answer.
+              </p>
+              <h3 className="mt-[1.5em]">Share Your Ideas</h3>
+              <p className="text-primary-txt text-justify font-light font-extra">
+                Got an idea for a blog post topic? Or maybe a suggestion on how I can make your reading experience even better? I'm all ear! Your input helps shape the content I prioritize and create.
+              </p>
+              <h3 className="mt-[1.5em]">Let's Connect</h3>
+              <p className="text-primary-txt text-justify font-light font-extra">
+                I'm not just a software developer; I'm also a puzzle lover, reality TV aficionado, and more. Share your interests and hobbies, and let's find common ground.
+              </p>
+              <h3 className="mt-[1.5em]">Get Involved</h3>
+              <p className="text-primary-txt text-justify font-light font-extra">
+                Want to collaborate, guest post, or share your own journey? I'm always excited to connect with fellow bloggers, tech enthusiasts, and curious minds.
+              </p>
+              <h3 className="mt-[1.5em]">Stay Social</h3>
+              <p className="text-primary-txt text-justify font-light font-extra">
+                Connect on social media for the latest updates, behind-the-scenes peeks, and some of my favorite memes. Let's keep the convo going!
+              </p>
+              <p className="text-primary-txt text-justify font-light font-extra mb-[2em]">
+                Fill out the form below, and I'll get back to you as soon as I can. Remember, this is a judgment-free zone, so don't hesitate to reach out.
+              </p>
+              <hr className="border-solid border-accent mb-[1.5em]" />
             <form
               className="w-full leading-5 break-words text-primary-txt"
               onSubmit={(e) =>
@@ -220,6 +246,7 @@ const ChatPage = () => {
                 </button>
               </div>
             </form>
+            </div>
           </div>
         </div>
       </InnerSection>

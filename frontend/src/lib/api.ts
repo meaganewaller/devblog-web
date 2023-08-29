@@ -5,6 +5,19 @@ const apiClient = axios.create({
   timeout: 20000,
 })
 
+const CategoryService = {
+  getAll: async () => {
+    const response = await apiClient.get('/categories.json?published_only=true')
+    console.log(response.data)
+    return response.data
+  },
+
+  getById: async (id: typeof String) => {
+    const response = await apiClient.get(`/categories/${id}.json`)
+    return response.data
+  },
+}
+
 const PostService = {
   getAll: async (category?: typeof String) => {
     if (!category) {
@@ -22,4 +35,4 @@ const PostService = {
   },
 }
 
-export { apiClient, PostService }
+export { apiClient, PostService, CategoryService }
