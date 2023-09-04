@@ -1,9 +1,10 @@
 .modal-backdrop {
-  @apply fixed z-[1001] grid h-screen w-full place-items-center bg-accent bg-opacity-60;
+  @apply fixed z-[1001] grid h-screen w-full place-items-center bg-clouds dark:bg-nightsky;
+  backdrop-filter: blur(5px);
 }
 
 .modal-container {
-  @apply relative flex max-w-2xl flex-col items-center bg-accent p-10 shadow-2xl shadow-accent;
+  @apply relative flex max-w-2xl flex-col items-center p-10 shadow-2xl shadow-accent bg-background;
   border-radius: 25px;
 }
 

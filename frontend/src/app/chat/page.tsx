@@ -166,8 +166,8 @@ const ChatPage = () => {
   return (
     <Section>
       <InnerSection>
-        <div className="p-10">
-          <div className="border-solid border border-accent mx-auto my-0 relative w-full">
+        <div className="p-2">
+          <div className="mx-auto my-0 relative w-full">
             <h2 className="text-accent-dark text-3xl w-full text-center font-light font-venice">
               Send a message
             </h2>
@@ -210,7 +210,7 @@ const ChatPage = () => {
                 const field = fields[key]
                 return (
                   <fieldset
-                    className="p-12 leading-5 break-words text-primary-txt"
+                    className="p-4 leading-5 break-words text-primary-txt"
                     key={key}
                   >
                     <div className="overflow-auto break-words" key={key}>

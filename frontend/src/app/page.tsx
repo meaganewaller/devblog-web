@@ -7,15 +7,15 @@ import { Intro } from '@/components/views/home/intro'
 import { RecentPosts } from '@/components/views/home/recent-posts'
 
 const Page = async () => {
-  const posts = await PostService.getAll()
+  const posts = await PostService.getRecent()
 
   return (
     <>
-      <Intro />
-      <Connections />
       <Suspense>
         <RecentPosts posts={posts.slice(0, 5)} />
       </Suspense>
+      <Intro />
+      <Connections />
     </>
   )
 }

@@ -32,7 +32,7 @@ function Navbar() {
 
   const menuVariants = {
     opened: {
-      top: 0,
+      top: '32px',
       transition: {
         when: 'beforeChildren',
         staggerChildren: 0.05,
@@ -102,6 +102,9 @@ function Navbar() {
           </DesktopNavItem>
           <DesktopNavItem className='align-middle'>
             <Link href='/workspace'>Workspace</Link>
+          </DesktopNavItem>
+          <DesktopNavItem className="align-middle">
+            <Link href="/guestbook">Guestbook</Link>
           </DesktopNavItem>
         </DesktopNav>
         <ThemeToggle />
@@ -180,6 +183,13 @@ function Navbar() {
             whileHover={{ scale: 1.1 }}
           >
             <Link href='/workspace'>Workspace</Link>
+          </NavItem>
+          <NavItem
+            onClick={() => setIsOpen(!isOpen)}
+            variants={linkVariants}
+            whileHover={{ scale: 1.1 }}
+          >
+            <Link href="/guestbook">Guestbook</Link>
           </NavItem>
           <NavItem
             onClick={() => setIsOpen(!isOpen)}

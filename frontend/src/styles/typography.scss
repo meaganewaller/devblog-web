@@ -1,7 +1,7 @@
 html,
 body {
   @apply font-sans text-xs font-normal text-secondary-txt;
-  @apply leading-normal mobile-lg:leading-relaxed;
+  @apply leading-normal lg:leading-relaxed;
 }
 
 @media (min-width: 425px) {

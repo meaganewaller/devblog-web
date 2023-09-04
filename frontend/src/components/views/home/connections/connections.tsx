@@ -38,7 +38,7 @@ export function Connections() {
     <Window
       title='lets-connect.txt'
       active={false}
-      x={size.width ? size.width / 2 : 0}
+      x={size.width ? size.width / 10 : 0}
       y={size.height ? size.height / 1.65 : 0}
       zIndex='1'
       width='500px'

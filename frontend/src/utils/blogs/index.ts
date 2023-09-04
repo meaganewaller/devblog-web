@@ -5,7 +5,7 @@ export const convertToCategoryList = (tableData: any) => {
       title: category.title,
       description: category.description,
       slug: category.slug,
-      coverImage: "https://placekitten.com/800/600",
+      coverImage: category.cover_image
     }
   })
 
@@ -16,7 +16,26 @@ export const convertToPostList = (tableData: any) => {
   let tags: string[] = []
   const posts = tableData.map((post: any) => {
     return {
-      title: post.title,
+      category: {
+        id: post.category.id,
+        slug: post.category.slug,
+        title: post.category.title,
+        notionId: post.category.notion_id
+      },
+      content: post.content,
+      coverImage: "https://placekitten.com/800/600",
+      description: post.description,
+      id: post.id,
+      language: post.language,
+      lastEdited: post.last_edited,
+      metaDescription: post.meta_description,
+      metaKeywords: post.meta_keywords,
+      notionId: post.notion_id,
+      isPublic: post.published_date !== null,
+      published: post.published,
+      publishedDate: post.published_date,
+      slug: post.slug,
+      status: post.status,
       tags: post.tags.map((tag: string) => {
         if (!tags.includes(tag)) {
           const newList = [...tags, tag]
@@ -24,14 +43,7 @@ export const convertToPostList = (tableData: any) => {
         }
         return { name: tag }
       }),
-      category: post.category,
-      coverImage: post.cover_image,
-      publishedDate: post.published_date,
-      description: post.description,
-      slug: post.to_param,
-      isPublic: post.published_date !== null,
-      metaKeywords: post.meta_keywords,
-      metaDescription: post.meta_description,
+      title: post.title
     }
   })
 

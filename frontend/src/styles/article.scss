@@ -106,7 +106,7 @@ article.mdx-article {
 
 [data-rehype-pretty-code-fragment] .word--highlighted,
 [data-rehype-pretty-code-fragment] [data-highlighted-chars] {
-  @apply rounded-4 bg-accent-dark/[0.056] px-8 py-4 dark:bg-accent-dark/[0.096];
+  @apply rounded-sm bg-accent-dark/[0.056] px-8 py-4 dark:bg-accent-dark/[0.096];
 }
 
 [data-rehype-pretty-code-fragment] [data-line-numbers] > .line,

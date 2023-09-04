@@ -3,14 +3,14 @@ import tw from 'twin.macro'
 import { Img } from '@/components/core/img'
 import { Section } from '@/components/core/section'
 
-export const IntroSection = tw(Section)`
-  grid
-  grid-cols-1
-  gap-y-16
-  tablet-sm:grid-cols-[minmax(0,1fr)_auto]
-  tablet-sm:grid-rows-1
-  tablet-sm:gap-x-28
-`
+// export const IntroSection = tw(Section)`
+//   grid
+//   grid-cols-1
+//   gap-y-16
+//   tablet-sm:grid-cols-[minmax(0,1fr)_auto]
+//   tablet-sm:grid-rows-1
+//   tablet-sm:gap-x-28
+// `
 
 export const TextsContainer = tw.div`
   flex
@@ -27,7 +27,7 @@ export const TitlesContainer = tw.div`
 export const IntroParagraph = tw.p`
   my-12
   max-w-[325px]
-  mobile-lg:max-w-[410px]
+  tablet:max-w-[410px]
 `
 
 export const PhotoContainer = tw.div`

@@ -1,6 +1,7 @@
 'use client'
 
 import tw, { styled } from 'twin.macro'
+import { Heading } from '@/components/core/heading'
 
 import { Bio, Buttons, QuickInfo } from '@/components/views/meagan'
 

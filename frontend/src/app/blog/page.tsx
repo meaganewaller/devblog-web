@@ -1,70 +1,182 @@
+'use client'
+
+import React, { Suspense, useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-import { BlogCard } from "@/components/views/blog"
+
+import { Heading } from "@/components/core/heading"
 
 import { CategoryService, PostService } from '@/lib/api'
 import { convertToPostList, convertToCategoryList } from '@/utils/blogs'
+import { Post } from "@/types"
 
-interface Category {
-  title: string
-  description: string
-  postsCount: number
-  slug: string
-}
+import { motion } from "framer-motion"
+import tw from "twin.macro"
 
-const Blog = async () => {
-  const categoriesData = await CategoryService.getAll()
-  const postsData = await PostService.getAll()
+const BlogIndexContainer = tw.div`
+`
 
-  const { categories } = convertToCategoryList(categoriesData)
-  let { posts, tags } = convertToPostList(postsData)
+// bg-background grid grid-cols-[repeat(6,1fr)] auto-rows-auto gap-2
+const PostContainer = tw(motion.div)`
+  auto-rows-auto
+  bg-background
+  border-2
+  border-accent
+  border-t-0
+  gap-2
+  grid
+  grid-cols-5
+  lg:grid-cols-3
+  md:grid-cols-3
+  xl:grid-cols-4
+  p-10
+  rounded-b-md
+  sm:p-2
+  xs:p-2
+  sm:grid-cols-2
+  xs:grid-cols-1
+  w-full
+  mx-auto
+  max-w-[96%]
+  md:max-w-[95%]
+`
 
-  tags = tags.sort(() => .5 - Math.random()).slice(0, 5)
+// row-[span_1] rounded-md border-solid border-[var(--color-soft-green)]
+const PostCard = tw(Link)`
+`
 
+const PostImage = tw(Image)`
+  max-w-full
+  object-contain
+  rounded-t-md
+`
+
+const PostTitle = tw.h3`
+  font-venice
+  leading-tight
+  mb-2.5
+  p-2
+  text-lg
+  tracking-[1px]
+`
+
+function Blog() {
+  const [posts, setPosts] = useState([])
+  const [sampledTags, setSampledTags] = useState<string[]>([])
+  const [categories, setCategories] = useState([])
+
+  const onSearch = async (searchData: string) => {
+    const data = await fetch(`/api/posts?q=${searchData}`)
+    const postsData = await data.json()
+    setPosts(postsData.results)
+  }
+
+  useEffect(() => {
+    PostService.getAll().then((data: any) => {
+      setPosts(convertToPostList(data).posts)
+      setSampledTags(convertToPostList(data).tags.sort(() => .5 - Math.random()).slice(0, 4))
+    })
+    CategoryService.getAll().then((data: any) => {
+      setCategories(convertToCategoryList(data).categories)
+    })
+  }, [])
+              {/* <div key={post.slug}
+className="mb-2 mt-2 card border inline-block w-full
+w-[150px] ml-0 mt-0 relative transition-[0.3s]
+hover:border hover:shadow-[0.5rem_0.5rem] hover:shadow-[var(--color-teal)]
+hover:transition-[0.3s] hover:border-solid hover:border-[var(--color-deep-green)]
+font-extra"> */}
   return (
-    <div className="w-[90%] mx-auto p-2 bg-background my-5 border-2 border-solid border-accent mt-[4rem]">
-      <div className="w-full flex justify-between items-center flex-col tablet-lg:flex-row">
-        <h1 className="blog-header p-0 m-0 text-3xl text-center break-words font-venice text-on-accent mb-10">
-          The Web Log
-        </h1>
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(150px, 1fr))] tablet-lg:grid-cols-[repeat(5,max-content)] tablet-md:grid-cols-[repeat(3,max-content)] tablet-sm:grid-cols-[repeat(4,max-content)] desktop:grid-cols-[repeat(6,max-content)] gap-x-2">
-          {categories.map((category: Category) => (
-            <li
-              key={category.title}
-              className="col-auto border border-black bg-tertiary-200 overflow-hidden rounded-[10px] border-solid hover:bg-tertiary-300 mb-2"
+    <BlogIndexContainer>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Heading title={`The Web Log`} categories={categories} tags={sampledTags} onSearch={onSearch} />
+        <PostContainer>
+          {posts.map((post: Post) => (
+            <PostCard
+              href={`/blog/${post.slug}`}
+              key={post.slug}
             >
-              <Link
-                href={`/blog/categories/${category.slug}`}
-                className="block text-center border-l-white border-t-white font-bold text-black text-[0.8rem] uppercase px-3 py-0.5 rounded-[10px] border-l-2 border-t-2 border-solid"
+              <div
+                className="mb-2 mt-0 w-full relative p-5 transition-[0.3s] hover:transition-[0.3s] hover:border-solid hover:border-[var(--color-deep-green)] card border font-extra hover:border hover:shadow-[0.25rem_0.25rem] hover:shadow-[var(--color-teal)]"
               >
-                {category.title}
-              </Link>
-            </li>
+                <div
+                  data-category={post.category.title}
+                  className="rounded-br-lg rounded-tl-lg text-3xs font-extra font-bold absolute text-right z-[2] px-2 py-1 right-0 bottom-0 max-w-2/3"
+                >
+                  <Link href={`/blog/category/${post.category.slug}`}>
+                    {post.category.title}
+                  </Link>
+                </div>
+                <div className="mt-2 md:mt-0">
+                  <div className="xs:hidden sm:hidden w-auto overflow-hidden">
+                    <PostImage
+                      src={post.coverImage}
+                      alt={post.title}
+                      width={600}
+                      height={400}
+                    />
+                  </div>
+                  <PostTitle
+                    // className="font-venice text-left text-lg tablet:text-2xl tablet:text-center tablet:mx-auto tablet:w-full break-words leading-none"
+                  >
+                    {post.title}
+                  </PostTitle>
+                  <div className="mt-2 mb-10">
+                    <p className="line-clamp-6 leading-normal mb-5 w-full">
+                      {post.description}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div></div>
+                </div>
+              </div>
+            </PostCard>
           ))}
-        </ul>
-      </div>
-      <div className={`banner h-[35px] max-w-[1230px] w-full bg-accent mx-auto border-t-2 border-x-2 border-solid border-accent relative grid grid-cols-[70px_1fr_150px] items-center px-[2em] py-0 border-2 before:content-[""] before:absolute before:block before:w-[1.25rem] before:h-[1.25rem] before:bg-accent-dark before:-z-1 before:-left-[0.5rem] before:-top-[1.25rem] after:content-[""] after:absolute afer:block after:w-[1.25rem] after:h-[1.25rem] after:bg-accent-dark after:-z-1 after:-right-[0.5rem] after:-top-[1.25rem]`}>
-        <h4 className="uppercase text-[0.85rem] text-black">tags:</h4>
-        <ul className={`font-extra w-full grid grid-cols-[repeat(5,max-content)] gap-x-[1em] list-none`}>
-          {tags.map((tag: string) => (
-            <li key={tag} className="text-[0.9rem] font-normal text-black pb-[0.5px] hover:cursor-pointer hover:underline-offset-[3px]">
-              {tag}
-            </li>
-          ))}
-        </ul>
-        <div className="grid grid-cols-[120px_1fr] gap-x-[5px] items-center">
-          <input type="text" placeholder="search..." className="border border-black h-[23px] px-2 py-[3px] rounded-lg border-solid" />
-          <button className="w-[30px] h-[22px] text-[0.85rem] uppercase border border-black bg-tertiary-300 relative overflow-hidden cursor-pointer text-black grid place-items-center rounded-lg border-solid before:content-[''] before:absolute before:w-full before:h-full before:border-l-white before:border-t-white before:rounded-lg before:border-l before:border-solid before:border-t before:left-px before:top-px hover:bg-white/50">go</button>
-        </div>
-      </div>
-      <div className="w-full bg-primary-50 mb-[2em] p-[1em]">
-        <div className="columns-[6_200px] gap-x-4">
-          {posts.map((post: any) => (
-            <BlogCard key={post.slug} post={post} category={post.category} />
-          ))}
-        </div>
-      </div>
-    </div>
+        </PostContainer>
+        {/* <div className="mx-auto max-w-[97%] min-h-screen bg-background mb-[2em] p-[1em] border-2 border-solid border-accent border-t-0 pt-[3em] rounded-b-lg"> */}
+        {/*   <div className="columns-[6_200px] gap-x-4"> */}
+        {/*     {posts.map((post: Post) => ( */}
+        {/*       <div key={post.slug} className="mb-2 mt-2 card border inline-block w-full w-[150px] ml-0 mt-0 relative transition-[0.3s] hover:border hover:shadow-[0.5rem_0.5rem] hover:shadow-[var(--color-teal)] hover:transition-[0.3s] hover:border-solid hover:border-[var(--color-deep-green)] font-extra"> */}
+        {/*         <Link */}
+        {/*           href={`/blog/${post.slug}`} */}
+        {/*           className="w-auto h-[150px] overflow-hidden" */}
+        {/*         > */}
+        {/*           <Image */}
+        {/*             src={post.coverImage} */}
+        {/*             alt={post.title} */}
+        {/*             width={600} */}
+        {/*             height={400} */}
+        {/*             className="max-w-full h-auto rounded-tl-md rounded-tr-md" */}
+        {/*           /> */}
+        {/*         </Link> */}
+        {/*         <Link href={`/blog/${post.slug}`}> */}
+        {/*           <h3 className="font-bold font-venice font-light leading-tight tracking-[1px] mb-2.5 px-2 text-left text-lg"> */}
+        {/*             {post.title} */}
+        {/*           </h3> */}
+        {/*         </Link> */}
+        {/*         <div className="card-content p-2 mb-10 break-words overflow-auto"> */}
+        {/*           <p className="text-base text-start leading-normal text-center mb-2.5"> */}
+        {/*             {post.description} */}
+        {/*           </p> */}
+        {/*         </div> */}
+        {/*         <div */}
+        {/*           data-category={post.category.title} */}
+        {/*           className="text-3xs font-extra font-bold absolute text-right z-[2] px-[0.25rem] py-[0.25rem] right-0 bottom-0" */}
+        {/*         > */}
+        {/*           <Link href={`/blog/category/${post.category.slug}`}> */}
+        {/*             {post.category.title} */}
+        {/*           </Link> */}
+        {/*         </div> */}
+        {/*         <div className="card-footer"> */}
+        {/*           <div className="card-footer-item"></div> */}
+        {/*         </div> */}
+        {/*       </div> */}
+        {/*     ))} */}
+        {/*   </div> */}
+        {/* </div> */}
+      </Suspense>
+    </BlogIndexContainer>
   )
 }
 

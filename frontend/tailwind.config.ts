@@ -8,33 +8,77 @@ import hocus from 'tailwindcss-hocus'
 
 import { colors } from './config/tailwind/colors'
 import { fontSizes as fontSize } from './config/tailwind/font-sizes'
-import { spaces as spacing } from './config/tailwind/spacing'
 
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
 const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
 const serifFontFamily = ['var(--font-serif)', 'Prata', ...fontFamily.serif]
 
 const breakpoints = {
-  default: '0px',
-  'mobile-sm': '320px',
-  'mobile-md': '375px',
-  'mobile-lg': '425px',
-  'tablet-sm': '596px',
-  'tablet-md': '768px',
-  'tablet-lg': '792px',
-  desktop: '960px',
+  xs: { max: '575px' },
+  sm: { min: '576px', max: '897px' },
+  md: { min: '898px', max: '1199px' },
+  lg: { min: '1159px' },
+  xl: { min: '1200px' },
+  '2xl': { min: '1359px' },
+  // mobile: { max: '640px', min: '320px' },
+  // tablet: { max: '1024px', min: '641px' },
+  // laptop: { max: '1280px', min: '1025px' },
+  // desktop: { max: '1920px', min: '1281px' },
+  // fourk: { max: '2560px', min: '1921px' },
 }
 
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  mode: 'jit',
+  important: true,
   theme: {
-    spacing: { ...spacing, '0': '0rem' },
-    borderRadius: { ...spacing, none: '0rem', half: '50%', full: '9999px' },
+    // spacing: { ...spacing, '0': '0rem' },
+    // borderRadius: { ...spacing, none: '0rem', half: '50%', full: '9999px' },
     colors,
     fontSize,
     screens: breakpoints,
     extend: {
+      opacity: {
+        7: '.07',
+        8: '.08',
+        9: '.09',
+        12: '.12',
+        15: '.15',
+        35: '.35',
+        65: '.65',
+        85: '.85',
+        98: '.98',
+      },
+      borderWidth: {
+        3: '3px',
+      },
+      outlineWidth: {
+        3: '3px',
+      },
+      gridTemplateRows: {
+        window: '21px auto 4px',
+      },
+      gridTemplateColumns: {
+        window: '4px auto 4px',
+      },
+      zIndex: {
+        1: '1',
+        2: '2',
+        3: '3',
+        5: '5',
+        15: '15',
+      },
+      spacing: {
+        0.5: '2px',
+        1.5: '0.375rem',
+        1.6: '0.4375rem',
+        2.1: '0.5625rem',
+        2.5: '10px',
+        3.2: '0.8125rem',
+        4.5: '1.125rem',
+        11: '2.75rem', // 44px (once)
+      },
       animation: {
         'page-transition': 'page-transition 300ms ease-in-out backwards',
         scroll: 'scroll 15s linear infinite',
@@ -85,7 +129,7 @@ module.exports = {
         venice: ['Venice Classic', ...fontFamily.mono],
       },
       fontWeight: {
-        normal: '450',
+        normal: '400'
       },
       lineHeight: {
         relaxed: '1.75',

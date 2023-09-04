@@ -31,7 +31,7 @@ export const PostCard = tw(Link)`
 export const PostCardHero = tw(Img)`
   aspect-[2/1]
   h-auto
-  rounded-4
+  rounded-lg
   tablet-sm:mt-2
   tablet-sm:min-h-full
   tablet-sm:aspect-[5/3]
@@ -59,7 +59,7 @@ export const PostDescription = tw.p`
   text-secondary-txt
   overflow-ellipsis
   line-clamp-1
-  mobile-lg:line-clamp-2
+  tablet:line-clamp-2
 `
 
 export const PostStatsContainer = tw.div`

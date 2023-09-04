@@ -75,11 +75,11 @@ const Section = tw(StyledSection)`
 `
 
 const SectionParagraph = tw.p`
-  my-20 bg-background w-full text-justify font-extra
+  my-5 bg-background w-full text-justify font-extra
 `
 
 const SectionTitle = tw.h2`
-  w-full text-center bg-background my-20 text-xl font-venice font-light text-accent
+  w-full text-center bg-background my-5 text-xl font-venice font-light text-accent
 `
 
 const SectionList = tw.ul`
@@ -87,7 +87,7 @@ const SectionList = tw.ul`
 `
 
 const LinkButton = tw(Link)`
-text-accent decoration-wavy
+  text-accent decoration-wavy hover:decoration-accent hover:underline hover:cursor-pointer hover:underline-offset-[3px]
 `
 
 export default function StartPage() {

@@ -27,16 +27,20 @@
 
 html,
 body {
-  @apply flex h-full min-h-screen w-full flex-col overflow-auto bg-clouds bg-[center_center] antialiased shadow-[inset_1px_1px_0px_rgba(255,255,255,0.2),inset_-1px_-1px_0px_rgba(0,0,0,0.2)] dark:bg-nightsky;
-  background-color: var(--color-background);
+  @apply overflow-x-hidden;
+  // @apply flex h-full min-h-screen w-full flex-col overflow-auto bg-clouds bg-[center_center] antialiased shadow-[inset_1px_1px_0px_rgba(255,255,255,0.2),inset_-1px_-1px_0px_rgba(0,0,0,0.2)] dark:bg-nightsky;
   scroll-behavior: smooth;
   accent-color: var(--color-accent);
   border-radius: 0.25rem;
 }
 
-body {
-  @apply overflow-x-hidden;
-}
+  html {
+    @apply min-h-[100vh];
+  }
+
+  body {
+    @apply box-border antialiased font-sans font-normal m-0 text-md min-h-[100vh] bg-clouds dark:bg-nightsky;
+  }
 
 a {
   @apply cursor-pointer decoration-wavy;
@@ -46,7 +50,6 @@ a {
   }
 
   &:hover {
-    @apply underline;
     transition: 0.2s ease-in-out;
     outline: none;
   }

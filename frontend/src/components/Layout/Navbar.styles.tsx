@@ -12,11 +12,11 @@ const StyledHeader = styled.header`
 `
 
 export const Header = tw(StyledHeader)`
-  z-[3] w-full bg-toolbar flex border-b border-solid border-b-primary-txt justify-between tablet-sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
+  z-[3] w-full bg-toolbar flex border-b border-solid border-b-primary-txt justify-between md:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
 `
 
 export const Nav = tw(motion.nav)`
-  h-[100vh] overflow-y-auto w-[100vw] bg-accent z-[2] flex items-center justify-evenly fixed top-0 flex-col
+  h-[100vh] overflow-y-auto w-[100vw] bg-accent z-[10] flex items-center justify-evenly fixed top-0 flex-col
 `
 
 export const NavItem = tw(motion.li)`
@@ -28,7 +28,7 @@ const StyledDesktopNav = styled(motion.ul)`
 `
 
 export const DesktopNav = tw(StyledDesktopNav)`
-  hidden tablet-sm:flex flex-row place-self-start list-none m-0 p-0 pt-[1px] z-10 overflow-visible
+  xs:hidden sm:hidden flex flex-row place-self-start list-none m-0 p-0 pt-[1px] z-10 overflow-visible
 `
 
 export const NestedDesktopNav = tw(DesktopNav)`
@@ -44,5 +44,5 @@ export const Logo = tw(HiSparkles)`
 `
 
 export const SvgBox = tw(motion.div)`
-  tablet-sm:hidden
+  hidden xs:block sm:block
 `

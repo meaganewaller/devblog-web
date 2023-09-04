@@ -11,13 +11,9 @@ const ThemeToggle = () => {
     <div className="flex justify-end">
   <button
     onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
-    className='justify-center p-2 rounded-full bg-accent text-on-accent'
+    className='justify-center p-1 rounded-full bg-accent text-on-accent'
       >
-    {currentTheme === 'dark' ? (
-        <HiSun size={20} />
-      ) : (
-        <HiMoon size={20} />
-      )}
+    {currentTheme === 'dark' ? ( <HiSun size={15} />) : ( <HiMoon size={15} />)}
     </button>
     </div>
   )

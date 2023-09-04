@@ -93,7 +93,7 @@ const RootLayout = (props: RootLayoutProps) => {
   return (
     <html suppressHydrationWarning lang='en-US'>
       <head />
-      <body>
+      <body className="debug-screens">
         <Providers>
           <GlobalStyles />
           <Navbar />
