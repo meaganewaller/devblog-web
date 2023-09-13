@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useWindowSize } from '@/hooks/use-window-size'
 
 import { Window } from '@/components/core/window'
-import { formatDate } from '@/utils'
 
 interface Category {
   id: string
@@ -45,9 +44,9 @@ export function RecentPosts({ posts }: Props) {
       active={true}
     >
       <div className='flex max-w-3xl flex-col'>
-        <ul className='px-6 py-2'>
-          {posts.map((post: Post, index: number) => (
-            <li key={index} className='wavy w-full px-2'>
+        <ul className='px-6 py-12'>
+          {posts.map((post: Post) => (
+            <li key={post.slug} className='wavy w-full px-2 py-1'>
               <Link
                 href={`/blog/${post.slug}`}
                 className='block no-underline outline-none hover:no-underline'
@@ -55,9 +54,6 @@ export function RecentPosts({ posts }: Props) {
                 <h2 className='break-normal font-extra lowercase text-primary-txt hover:italic active:italic'>
                   {post.title}
                 </h2>
-                <span className='text-info-500 font-extra text-xs font-bold lowercase tracking-wide'>
-                  {formatDate(post.published_date)}
-                </span>
               </Link>
             </li>
           ))}

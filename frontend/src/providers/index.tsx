@@ -1,22 +1,36 @@
 'use client'
 
+import { FC } from 'react'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
+import { ToastContainer } from 'react-toastify'
 import GlobalStateProvider from '@/providers/GlobalStateProvider'
-// import FramerMotionProvider from '@/providers/FramerMotionProvider'
-import PlausibleProvider from "next-plausible"
-import { Analytics } from "@vercel/analytics/react"
+import PlausibleProvider from 'next-plausible'
+import { Analytics } from '@vercel/analytics/react'
+import { NextSeo } from 'next-seo'
+import { ReactQueryProvider } from "@/providers/react-query-provider"
 
-import type { PropsWithChildren } from 'react'
+interface Props {
+  children?: React.ReactNode
+}
 
-export function Providers({ children = null }: PropsWithChildren) {
+export const Providers: FC<Props> = ({ children }) => {
   return (
-    <NextThemeProvider attribute="class" defaultTheme={"system"}>
-      <PlausibleProvider domain="meaganwaller.com">
-        <GlobalStateProvider>
-          {children}
-          <Analytics />
-        </GlobalStateProvider>
-      </PlausibleProvider>
-    </NextThemeProvider>
+    <>
+      <ReactQueryProvider>
+        <NextSeo
+          title={'Meagan Waller'}
+          description={'Meagan Waller is a software engineer and web developer based in northeast Florida'}
+        />
+        <NextThemeProvider attribute='class' defaultTheme={'system'} enableSystem>
+          <PlausibleProvider domain='meaganwaller.com'>
+            <GlobalStateProvider>
+              {children}
+            </GlobalStateProvider>
+            <ToastContainer />
+            <Analytics />
+          </PlausibleProvider>
+        </NextThemeProvider>
+      </ReactQueryProvider>
+    </>
   )
 }

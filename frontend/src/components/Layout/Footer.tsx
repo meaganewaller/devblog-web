@@ -1,22 +1,131 @@
 import Link from 'next/link'
+import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
+import { BiLogoMastodon } from 'react-icons/bi'
+import { MdAlternateEmail } from 'react-icons/md'
 
-export default function Footer() {
+const navigation = {
+  social: [
+    {
+      name: 'Github',
+      href: 'https://github.com/meaganewaller',
+      icon: AiFillGithub
+    },
+    {
+      name: 'Mastodon',
+      href: 'https://mastodon.social/@meaganewaller',
+      icon: BiLogoMastodon,
+    },
+    {
+      name: 'Twitter',
+      href: 'https://twitter.com/meaganewaller',
+      icon: AiOutlineTwitter,
+    },
+    {
+      name: 'Email',
+      href: 'mailto:3Tg9z@example.com',
+      icon: MdAlternateEmail,
+    }
+  ]
+}
+
+export const Footer = () => {
   return (
-    <footer className='px-4 py-10'>
-      <hr className='border-zinc-300 dark:border-zinc-700 h-1 border-t border-dashed py-4' />
+    <footer className="pt-4 bg-background" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">Footer</h2>
 
-      <div className='sm:flex-row sm:items-center flex flex-col justify-between gap-4'>
-        <Link
-          href='https://github.com/destroymayor'
-          className='dark:text-zinc-400 dark:hover:text-zinc-100 flex items-center gap-2 text-sm transition duration-300 ease-in-out'
-        >
-          <span>
-            Meagan Waller
-            <span className='text-zinc-400 dark:text-zinc-500'>,</span>
-          </span>
-          <span className='text-xl'>©</span>
-          <span>{new Date().getFullYear()}</span>
-        </Link>
+      <div className="relative z-10 bg-[#78ab5e]">
+        <div className="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
+          <div className="md:flex md:items-center md:justify-between">
+            <div>
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold leading-6 text-gray-900">Subscribe to new posts</h3>
+                <p className="text-sm leading-6 text-gray-800">Twice a month on average. Seriously, that's it.</p>
+              </div>
+              <form
+                className="mt-6 sm:flex sm:max-w-md lg:mt-0"
+                action="https://sendy.minafi.com/subscribe"
+                method="POST"
+                acceptCharset="utf-8"
+              >
+                <input type="hidden" name="list" value="892UVTIMgB51H8qkY76305YU2A" />
+                <input type="hidden" name="subform" value="yes" />
+                <div className="hidden">
+                  <label htmlFor="hp">
+                    HP <input type="text" name="hp" id="hp" />
+                  </label>
+                </div>
+                <label htmlFor="email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autoComplete="email"
+                  required
+                  className="w-full min-w-0 appearance-none rounded-md border-transparent bg-[#9fca75] px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-base leading-7 text-gray-900 placeholder-[#274928] shadow-sm  sm:w-56 sm:text-sm sm:leading-6"
+                  placeholder="Enter your email"
+                />
+                <div className="mt-4 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
+                  <button
+                    type="submit"
+                    className="flex w-full items-center justify-center rounded-md bg-[#f3ce84] py-1.5 px-3 text-base font-semibold leading-7 text-yellow-800 shadow-sm hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 sm:text-sm sm:leading-6"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+
+              <a
+                className="mt-8 flex w-full items-center justify-center rounded-md bg-[#f3ce84] py-1.5 px-3 text-base font-semibold leading-7 text-yellow-800 shadow-sm hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 sm:text-sm sm:leading-6 space-x-4"
+                href="https://feeds.feedburner.com/adamfortuna"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>Subscribe to RSS</span>
+              </a>
+            </div>
+            <div className="text-right text-xl font-semibold flex flex-row md:flex-col mt-4 md:mt-0 justify-center md:justify-end space-x-4 md:space-x-0">
+              <Link
+                href="/about"
+                className="flex-shrink border-2 border-transparent rounded-lg hover:text-green-900 hover:border-green-900 p-1"
+              >
+                About
+              </Link>
+              <Link
+                href="/projects"
+                className="flex-shrink border-2 border-transparent rounded-lg hover:text-green-900 hover:border-green-900 p-1"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/blog"
+                className="flex-shrink border-2 border-transparent rounded-lg hover:text-green-900 hover:border-green-900 p-1"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/now"
+                className="flex-shrink border-2 border-transparent rounded-lg hover:text-green-900 hover:border-green-900 p-1"
+              >
+                Now
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-gray-900 pt-8 md:flex md:items-center md:justify-between">
+            <div className="flex space-x-6 md:order-2 justify-center md:justify-end">
+              {navigation.social.map((item) => (
+                <a key={item.name} href={item.href} className="text-green-50 hover:text-green-200">
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6  fill-gray-900 hover:fill-green-800" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <p className="mt-8 text-xs leading-5 md:order-1 md:mt-0 text-center md:text-left">
+              &copy; 2001-{new Date().getFullYear()} Adam Fortuna
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   )

@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
@@ -12,7 +13,6 @@ import clsx from 'clsx'
 interface PageHeaderProps {
   title: string
   categories?: Category[]
-  tags?: string[]
   onSearch?: (searchData: string) => void
 }
 
@@ -31,7 +31,6 @@ const HeadingWrapper = tw(motion.div)`
   py-4
   rounded-t-lg
   max-w-[96%]
-  md:max-w-[95%]
   w-full
   xs:flex-col
   sm:flex-col
@@ -99,24 +98,16 @@ const CategoryNavItemLink = tw(Link)`
   px-3
   py-0.5
   rounded-[10px]
-  text-3xs
+  text-xs
   text-center
   uppercase
 `
 
-const TagItem = tw(motion.li)`
-  text-3xs text-accent hover:underline-offset-[3px] hover:underline hover:cursor-pointer
-`
-
-export function Heading({ title, categories, tags, onSearch }: PageHeaderProps) {
+export function Heading({ title, categories, onSearch }: PageHeaderProps) {
   const resource = usePathname().split("/")[1]
 
   const generateCategoryUrl = (categorySlug: string) => {
     return `${resource}/categories/${categorySlug}`
-  }
-
-  const generateTagUrl = (tag: string) => {
-    return `${resource}/tags/${tag}`
   }
 
   return (
@@ -127,7 +118,6 @@ export function Heading({ title, categories, tags, onSearch }: PageHeaderProps) 
         </HeadingTitle>
         {categories && (
           <CategoryNav>
-          {/* <ul className="w-[90%] lg:w-1/2 mx-auto grid grid-cols-[repeat(auto-fit,minmax(100px, 1fr))] xl:grid-cols-[repeat(5,max-content)] lg:grid-cols-[repeat(4,max-content)] md:grid-cols-[repeat(4,max-content)] 2xl:grid-cols-[repeat(6,max-content)] gap-x-2"> */}
             {categories.map((category: Category) => (
               <CategoryNavItem key={category.slug}>
                 <CategoryNavItemLink href={generateCategoryUrl(category.slug)}>
@@ -139,23 +129,13 @@ export function Heading({ title, categories, tags, onSearch }: PageHeaderProps) 
         )}
       </HeadingWrapper>
       <TagsWrapper className="banner">
-        {tags && (
-          <>
-            <h4 className="leading-relaxed font-extra uppercase text-[0.85rem] text-accent-dark bg-on-accent text-center rounded-lg mr-2">tags:</h4>
-            <ul className={`font-extra w-full grid grid-cols-[repeat(5,max-content)] gap-x-[1em] list-none`}>
-              {tags.map((tag: string) => (
-                <TagItem key={tag}>
-                  <Link href={generateTagUrl(tag.toLowerCase().replace(/\s/g, "-"))}>
-                    {tag}
-                  </Link>
-                </TagItem>
-              ))}
-            </ul>
-            <div className="grid grid-cols-[120px_1fr] gap-x-[5px] items-center">
+        <>
+          {onSearch !== undefined && (
+            <div className="w-full">
               <SearchInput onSearch={onSearch} />
             </div>
-          </>
-         )}
+          )}
+        </>
       </TagsWrapper>
     </>
   )

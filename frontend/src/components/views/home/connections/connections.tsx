@@ -34,18 +34,27 @@ export function Connections() {
     },
   ]
   const size = useWindowSize()
+
+  if (!size.width || !size.height) return null
+  const windowWidth = (width: number) => {
+    if (width <= 897) {
+      return 300
+    }
+    return 650
+  }
+     {/* <div className='md:p-5 p-2 grid md:grid-cols-3 justify-items-center mb-12'> */}
   return (
     <Window
       title='lets-connect.txt'
       active={false}
-      x={size.width ? size.width / 10 : 0}
-      y={size.height ? size.height / 1.65 : 0}
+      x={size.width / 10 }
+      y={size.height / 1.65 }
       zIndex='1'
-      width='500px'
-      height='250px'
+      width={`${windowWidth(size.width)}px`}
       id='connections-window'
     >
-      <div className='p-5 grid grid-cols-3 justify-items-center'>
+
+      <div className="p-2 grid xs:grid-cols-1 sm:grid-cols-1 mb-12 grid-cols-3">
         {links.map((link, i) => (
           <Link key={i} className='button' href={link.link} target='_blank'>
             {link.name}

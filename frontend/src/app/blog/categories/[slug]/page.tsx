@@ -64,13 +64,13 @@ function CategoryPosts({ params }) {
     count: 0,
     coverImage: "",
     description: "",
+    href: "",
     id: "",
     notionId: "",
     slug: "",
     title: "",
   })
   const [posts, setPosts] = useState([])
-  const [sampledTags, setSampledTags] = useState<string[]>([])
 
   const onSearch = async (searchData: string) => {
     const data = await fetch(`/api/posts?q=${searchData}`)
@@ -92,8 +92,7 @@ function CategoryPosts({ params }) {
 
     async function fetchCategories() {
       const data = await CategoryService.getAll()
-      const filtered = data.filter((category: Category) => category.slug !== params.slug)
-      setCategories(convertToCategoryList(filtered).categories)
+      setCategories(convertToCategoryList(data).categories)
     }
 
     fetchCategory()
@@ -105,7 +104,7 @@ function CategoryPosts({ params }) {
   return (
     <CategorySlugContainer>
       <Suspense fallback={<div>Loading...</div>}>
-        <Heading title={category.title} tags={sampledTags} categories={categories} onSearch={onSearch} />
+        <Heading title={category.title} categories={categories} onSearch={onSearch} />
         <CategoryContainer>
           {posts.map((post: Post) => (
             <PostCard
@@ -117,7 +116,7 @@ function CategoryPosts({ params }) {
               >
                 <div
                   data-category={post.category.title}
-                  className="rounded-br-lg rounded-tl-lg text-3xs font-extra font-bold absolute text-right z-[2] px-2 py-1 right-0 bottom-0 max-w-2/3"
+                  className="rounded-br-lg rounded-tl-lg text-xs font-extra font-bold absolute text-right z-[2] px-2 py-1 right-0 bottom-0 max-w-2/3"
                 >
                   <Link href={`/blog/category/${post.category.slug}`}>
                     {post.category.title}
@@ -178,7 +177,7 @@ function CategoryPosts({ params }) {
         {/*         </div> */}
         {/*         <div */}
         {/*           data-category={post.category.title} */}
-        {/*           className="text-3xs font-extra font-bold absolute text-right z-[2] px-[0.25rem] py-[0.25rem] right-0 bottom-0" */}
+        {/*           className="text-xs font-extra font-bold absolute text-right z-[2] px-[0.25rem] py-[0.25rem] right-0 bottom-0" */}
         {/*         > */}
         {/*           <Link href={`/blog/category/${post.category.slug}`}> */}
         {/*             {post.category.title} */}

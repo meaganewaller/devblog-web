@@ -51,7 +51,7 @@ const WorkspacesPage = async () => {
                 </p>
               </div>
               <div
-                className="text-3xs font-extra font-bold absolute text-right z-[2] px-[0.25rem] py-[0.25rem] right-0 bottom-0"
+                className="text-xs font-extra font-bold absolute text-right z-[2] px-[0.25rem] py-[0.25rem] right-0 bottom-0"
               >
               </div>
               <div className="card-footer">

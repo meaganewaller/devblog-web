@@ -11,15 +11,14 @@ import { fontSizes as fontSize } from './config/tailwind/font-sizes'
 
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
 const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
-const serifFontFamily = ['var(--font-serif)', 'Prata', ...fontFamily.serif]
 
 const breakpoints = {
-  xs: { max: '575px' },
-  sm: { min: '576px', max: '897px' },
-  md: { min: '898px', max: '1199px' },
-  lg: { min: '1159px' },
-  xl: { min: '1200px' },
-  '2xl': { min: '1359px' },
+  // xs: { max: '575px' },
+  // sm: { min: '576px', max: '897px' },
+  // md: { min: '898px', max: '1199px' },
+  // lg: { min: '1159px' },
+  // xl: { min: '1200px' },
+  // '2xl': { min: '1359px' },
   // mobile: { max: '640px', min: '320px' },
   // tablet: { max: '1024px', min: '641px' },
   // laptop: { max: '1280px', min: '1025px' },
@@ -36,9 +35,12 @@ module.exports = {
     // spacing: { ...spacing, '0': '0rem' },
     // borderRadius: { ...spacing, none: '0rem', half: '50%', full: '9999px' },
     colors,
-    fontSize,
-    screens: breakpoints,
+    // fontSize,
+//    screens: breakpoints,
     extend: {
+      fontSize: {
+        md: '1rem',
+      },
       opacity: {
         7: '.07',
         8: '.08',
@@ -123,13 +125,13 @@ module.exports = {
       fontFamily: {
         sans: sansFontFamily,
         mono: monoFontFamily,
-        serif: serifFontFamily,
+        serif: monoFontFamily,
         extra: ['basiic', ...fontFamily.sans],
         retro: ['VT323', ...fontFamily.mono],
         venice: ['Venice Classic', ...fontFamily.mono],
       },
       fontWeight: {
-        normal: '400'
+        normal: '400',
       },
       lineHeight: {
         relaxed: '1.75',
@@ -225,20 +227,4 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('tailwindcss-debug-screens'),
   ],
-  // safelist: [
-  //   {
-  //     pattern: /(from|to)-gradient-(brand|blue|green|yellow|orange|red|purple)/,
-  //     variants: [
-  //       "dark",
-  //       "hocus",
-  //       "group-hocus/link",
-  //       '[[aria-current="page"]_&]',
-  //     ],
-  //   },
-  //   {
-  //     pattern:
-  //       /decoration-gradient-(brand|blue|green|yellow|orange|red|purple)/,
-  //     variants: ["hocus"],
-  //   },
-  // ],
 } satisfies Config

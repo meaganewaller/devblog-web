@@ -1,14 +1,16 @@
 export const fontSizes = {
-  '6xl': '5rem',
-  '5xl': '4rem',
-  '4xl': '3rem',
-  '3xl': '2rem', // h1
-  '2xl': '1.75rem', // h2
-  xl: '1.5rem', // h3
-  lg: '1.375rem', // h4
-  md: '1.25rem', // h5
-  sm: '1.125rem', // h6
-  xs: '1rem', // body, p
-  '2xs': '0.921875rem', // small
-  '3xs': '0.84375rem', // (?)
+  xs: ['0.8125rem', { lineHeight: '1.5rem' }],
+  sm: ['0.875rem', { lineHeight: '1.5rem' }],
+  base: ['1rem', { lineHeight: '1.75rem' }],
+  md: ['1.125rem', { lineHeight: '1.75rem' }],
+  lg: ['1.25rem', { lineHeight: '1.75rem' }],
+  xl: ['1.5rem', { lineHeight: '1.75rem' }],
+  '2xl': ['1.75rem', { lineHeight: '2rem' }],
+  '3xl': ['2rem', { lineHeight: '2.25rem' }],
+  '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+  '5xl': ['3rem', { lineHeight: '1' }],
+  '6xl': ['3.75rem', { lineHeight: '1' }],
+  '7xl': ['4.5rem', { lineHeight: '1' }],
+  '8xl': ['6rem', { lineHeight: '1' }],
+  '9xl': ['8rem', { lineHeight: '1' }],
 }

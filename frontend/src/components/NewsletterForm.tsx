@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 
 export function NewsletterForm({
-  title = 'Subscribe to the Newsletter',
+  title = ['Subscribe to the Newsletter'],
   subtitle = '',
 }) {
   const inputEl = useRef<HTMLInputElement>(null)
@@ -92,9 +92,9 @@ export function NewsletterForm({
   )
 }
 
-export function BlogNewsletterForm({ title, subtitle }: { title: string, subtitle: string }) {
+export function BlogNewsletterForm({ title, subtitle }: { title: string[], subtitle: string }) {
   <div className='flex items-center justify-center'>
-    <div className='bg-background sm:px-14 sm:py-8 p-6'>
+    <div className='bg-background px-14 py-8'>
       <NewsletterForm title={title} subtitle={subtitle} />
     </div>
   </div>

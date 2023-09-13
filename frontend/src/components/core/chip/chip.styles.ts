@@ -6,7 +6,7 @@ export const Chip = tw.span`
   justify-center
   py-[0.4375rem]
   px-[0.6875rem]
-  text-3xs
+  text-xs
   rounded-full
   border
   border-divider

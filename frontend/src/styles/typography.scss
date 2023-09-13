@@ -1,7 +1,6 @@
 html,
 body {
-  @apply font-sans text-xs font-normal text-secondary-txt;
-  @apply leading-normal lg:leading-relaxed;
+  @apply font-sans text-md font-normal text-secondary-txt leading-normal leading-relaxed;
 }
 
 @media (min-width: 425px) {
@@ -17,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply inline-block font-serif font-bold text-primary-txt;
+  @apply inline-block font-mono font-bold text-primary-txt;
   p {
     font-weight: inherit;
   }
@@ -65,7 +64,7 @@ p {
 }
 
 small {
-  @apply text-2xs;
+  @apply text-sm;
 }
 
 button {

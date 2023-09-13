@@ -61,9 +61,13 @@ html.dark-inverted {
               1px 0 50px var(--color-robins-egg-blue)
 }
 
+.banner {
+  z-index: 10;
+}
+
 .banner::before,
 .banner::after {
-  @apply bg-accent;
+  @apply bg-accent dark:bg-[var(--color-bubblegum)];
   content: "";
   position: absolute;
   display: block;
@@ -106,7 +110,7 @@ html.dark-inverted {
   @apply bg-[var(--color-orchid)] text-[var(--color-royal-purple)] hover:bg-[var(--color-royal-purple)] hover:text-[var(--color-orchid)];
 }
 
-[data-category="Career & Professional Development"] {
+[data-category="Professional Development"] {
   @apply bg-[var(--color-sunflower-yellow)] text-[var(--color-vanilla)] hover:bg-[var(--color-vanilla)] hover:text-[var(--color-sunflower-yellow)]
 }
 

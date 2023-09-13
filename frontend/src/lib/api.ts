@@ -17,18 +17,42 @@ const CategoryService = {
   },
 }
 
+const TagService = {
+  getAll: async () => {
+    const response = await apiClient.get('/tags')
+    return response.data
+  }
+}
+
 const PostService = {
-  getAll: async (category?: typeof String) => {
-    if (!category) {
-      const response = await apiClient.get('/posts')
-      return response.data
-    } else {
-      const response = await apiClient.get(`/posts?category=${category}`)
-      return response.data
+  getAll: async ({
+    count,
+    offset = 0,
+    sortBy = sortByDateDesc,
+    filterBy = (p: Post) => a,
+  }: {
+      count: number
+      offset?: number
+      filterBy?: any
+      sortBy?: any
+  }) => {
+    const results = await apiClient.get('/posts')
+
+    const allPosts = results.map((notionPosts: NotionPost[]) =>
+      notionPosts.map((post: NotionPost) => parsePost(post))
+    )
+
+    const flatPosts = flatten(allPosts).filter(filterBy).sort(sortBy)
+    const posts = [...flatPosts.slice(offset, offset + count)]
+
+    return {
+      postsCount: flatPosts.length,
+      posts,
+      totalPages: Math.ceil(flatPosts.length / count)
     }
   },
 
-  getById: async (id: typeof String) => {
+  getById: async (id: String) => {
     const response = await apiClient.get(`/posts/${id}`)
     return response.data
   },
@@ -63,4 +87,4 @@ const GuestbookService = {
   },
 }
 
-export { apiClient, GuestbookService, PostService, CategoryService, ProjectService }
+export { apiClient, GuestbookService, PostService, CategoryService, ProjectService, TagService }

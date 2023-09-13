@@ -99,78 +99,73 @@
 
 html.dark,
 html.dark-inverted {
-  /* Dark Mode Colors */
-  --peachy-pink: #823739;
-  --lavender: #8787A3;
-  --soft-green: #5B8577;
-  --chocolate-brown: #5A2E0A;
-  --pale-pink: #704656;
-  --creamy-white: #1C1C1C;
-  --sky-blue: #2B3943;
-  --sunshine-yellow: #7C754E;
-  --minty-green: #355A4E;
-  --bubblegum-purple: #6D6D91;
-  --tropical-orange: #7C563E;
+  /* Main Colors */
+  --color-peachy-pink: #FF6B81; /* Adjusted for dark mode */
+  --color-lavender: #A6A6D5; /* Adjusted for dark mode */
+  --color-soft-green: #4A8B77; /* Adjusted for dark mode */
+  --color-chocolate-brown: #543F29; /* Adjusted for dark mode */
+  --color-pale-pink: #F096B4; /* Adjusted for dark mode */
+  --color-creamy-white: #E5E5CC; /* Adjusted for dark mode */
+  --color-sky-blue: #7AAEDC; /* Adjusted for dark mode */
+  --color-sunshine-yellow: #FFD777; /* Adjusted for dark mode */
+  --color-minty-green: #9BE7A4; /* Adjusted for dark mode */
+  --color-bubblegum-purple: #A8A8FF; /* Adjusted for dark mode */
+  --color-tropical-orange: #FFA74D; /* Adjusted for dark mode */
 
-  /* Dark Mode Shades */
-  --light-peach: #6F303B;
-  --soft-rose: #72313C;
-  --blush: #75323D;
-  --deep-pink: #78333E;
+  /* Shades */
+  --color-light-peach: #FFA2B1; /* Adjusted for dark mode */
+  --color-soft-rose: #FF7281; /* Adjusted for dark mode */
+  --color-blush: #FF596C; /* Adjusted for dark mode */
+  --color-deep-pink: #FF3546; /* Adjusted for dark mode */
+  --color-light-lavender: #DADADA; /* Adjusted for dark mode */
+  --color-pastel-purple: #B4B4FF; /* Adjusted for dark mode */
+  --color-orchid: #8787FF; /* Adjusted for dark mode */
+  --color-royal-purple: #5959FF; /* Adjusted for dark mode */
+  --color-mint-green: #6FAA91; /* Adjusted for dark mode */
+  --color-pale-aqua: #5CA38B; /* Adjusted for dark mode */
+  --color-teal: #38896B; /* Adjusted for dark mode */
+  --color-deep-green: #236256; /* Adjusted for dark mode */
+  --color-light-brown: #705028; /* Adjusted for dark mode */
+  --color-caramel: #8C5C3A; /* Adjusted for dark mode */
+  --color-rustic-brown: #6A3615; /* Adjusted for dark mode */
+  --color-espresso: #2D1807; /* Adjusted for dark mode */
+  --color-baby-pink: #FFBACF; /* Adjusted for dark mode */
+  --color-cotton-candy: #FF8EAB; /* Adjusted for dark mode */
+  --color-bubblegum: #FF7084; /* Adjusted for dark mode */
+  --color-raspberry-pink: #FF485F; /* Adjusted for dark mode */
+  --color-off-white: #ECE2C3; /* Adjusted for dark mode */
+  --color-ivory: #FFFFEE; /* Adjusted for dark mode */
+  --color-pearl-white: #ECE9DC; /* Adjusted for dark mode */
+  --color-vanilla: #E8E1B2; /* Adjusted for dark mode */
+  --color-light-sky-blue: #7AAEDC; /* Adjusted for dark mode */
+  --color-soft-blue: #5DABE4; /* Adjusted for dark mode */
+  --color-robins-egg-blue: #4297D8; /* Adjusted for dark mode */
+  --color-deep-sky-blue: #0E78B8; /* Adjusted for dark mode */
+  --color-light-yellow: #FFD777; /* Adjusted for dark mode */
+  --color-lemon-yellow: #FFE84A; /* Adjusted for dark mode */
+  --color-goldenrod: #FFD018; /* Adjusted for dark mode */
+  --color-sunflower-yellow: #FFBB00; /* Adjusted for dark mode */
+  --color-light-mint: #9BE7A4; /* Adjusted for dark mode */
+  --color-fresh-green: #6BCA83; /* Adjusted for dark mode */
+  --color-spring-green: #44A954; /* Adjusted for dark mode */
+  --color-vibrant-green: #238835; /* Adjusted for dark mode */
+  --color-lilac: #A8A8FF; /* Adjusted for dark mode */
+  --color-purple: #7D7DFF; /* Adjusted for dark mode */
+  --color-deep-purple: #50218B; /* Adjusted for dark mode */
+  --color-electric-purple: #3A006B; /* Adjusted for dark mode */
+  --color-light-orange: #FFA74D; /* Adjusted for dark mode */
+  --color-peach: #FF8B3F; /* Adjusted for dark mode */
+  --color-tangerine: #FF6A1C; /* Adjusted for dark mode */
+  --color-coral-orange: #FF4A02; /* Adjusted for dark mode */
 
-  --light-lavender: #7A3A46;
-  --pastel-purple: #7C424F;
-  --orchid: #7E4A57;
-  --royal-purple: #80425E;
-
-  --mint-green: #4D6762;
-  --pale-aqua: #4E6B66;
-  --teal: #506F6B;
-  --deep-green: #52736F;
-
-  --light-brown: #593B2E;
-  --caramel: #5B3D31;
-  --rustic-brown: #5E3F34;
-  --espresso: #604137;
-
-  --baby-pink: #704C55;
-  --cotton-candy: #725055;
-  --bubblegum: #745456;
-  --raspberry-pink: #765857;
-
-  --off-white: #1E1E1E;
-  --ivory: #202020;
-  --pearl-white: #222222;
-  --vanilla: #242424;
-
-  --light-sky-blue: #2C3943;
-  --soft-blue: #2E404B;
-  --robins-egg-blue: #304752;
-  --deep-sky-blue: #325E5B;
-
-  --light-yellow: #6F6C48;
-  --lemon-yellow: #716F4B;
-  --goldenrod: #737D4E;
-  --sunflower-yellow: #757151;
-
-  --light-mint: #4A6C61;
-  --fresh-green: #4C7166;
-  --spring-green: #4E766B;
-  --vibrant-green: #507A70;
-
-  --lilac: #7A7A8E;
-  --lavender: #7C7C90;
-  --deep-purple: #7E7E92;
-  --electric-purple: #808094;
-
-  --light-orange: #7C5A44;
-  --peach: #7E5C47;
-  --tangerine: #805E4A;
-  --coral-orange: #82604D;
 
   --color-inverse: 235 240 251;
-  --color-background: #0c121e;
-  --color-toolbar: rgba(18 27 44 / 0.65);
+  --color-background: var(--color-lavender);
+  --color-toolbar: var(--color-royal-purple);
+  --color-divider: rgba(var(--color-inverse) / 0.12);
+  // --color-background: #7B325B;
+  // --color-card: #AF4782;
+  // --color-toolbar: var(--color-royal-purple);
 
   --color-primary-txt: #fff;
   --color-secondary-txt: rgba(var(--color-inverse) / 0.85);

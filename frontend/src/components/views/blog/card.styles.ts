@@ -55,7 +55,7 @@ export const PostTitle = tw.p`
 `
 
 export const PostDescription = tw.p`
-  text-2xs
+  text-sm
   text-secondary-txt
   overflow-ellipsis
   line-clamp-1

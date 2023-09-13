@@ -31,36 +31,47 @@ export interface Category {
   id: string
   slug: string
   title: string
-  description: string
+  description?: string
   coverImage: string
   count?: number
   notionId: string
+  href: string
 }
 
 export interface Post {
+  allowComments?: boolean
+  category: Category
+  content: string
+  coverImage: string
+  description: string
+  href: string
   id: string
+  isPublic: boolean
   language?: string
   lastEdited: string
-  slug: string
-  title: string
-  description: string
-  coverImage: string
-  readingTime?: number
-  allowComments?: boolean
-  commentCount: number
-  content: string
-  status: string
-  tags: Tag[]
   metaDescription: string
   metaKeywords: string[]
-  category: Category
-  publishedDate: string
-  isPublic: boolean
   notionId: string
+  published: boolean
+  publishedDate: string
+  readingTime?: number
+  slug: string
+  status: string
+  tags: Tag[]
+  title: string
 }
 
 export interface Tag {
   name: string
+}
+
+export interface Resource {
+  slug: string
+  href: string
+  description?: string
+  title: string
+  coverImage?: string
+  category?: Category
 }
 
 export interface Webmention {

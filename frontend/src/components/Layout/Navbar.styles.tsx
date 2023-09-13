@@ -11,8 +11,11 @@ const StyledHeader = styled.header`
   backdrop-filter: blur(4px);
 `
 
+// export const Header = tw(StyledHeader)`
+//   z-[3] w-full bg-toolbar flex border-b border-solid border-b-primary-txt rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
+// `
 export const Header = tw(StyledHeader)`
-  z-[3] w-full bg-toolbar flex border-b border-solid border-b-primary-txt justify-between md:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
+  fixed z-[3] bg-toolbar flex border-b border-solid border-b-inverse rounded-t-md text-on-accent justify-between lg:justify-start px-6 h-[32px] w-full items-center
 `
 
 export const Nav = tw(motion.nav)`
@@ -28,9 +31,8 @@ const StyledDesktopNav = styled(motion.ul)`
 `
 
 export const DesktopNav = tw(StyledDesktopNav)`
-  xs:hidden sm:hidden flex flex-row place-self-start list-none m-0 p-0 pt-[1px] z-10 overflow-visible
+  hidden lg:flex flex-row z-10 items-center h-full overflow-visible
 `
-
 export const NestedDesktopNav = tw(DesktopNav)`
   bg-toolbar bg-opacity-95 flex-col left-0 absolute text-on-accent z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap -top-[1000em]
 `
@@ -40,9 +42,9 @@ export const DesktopNavItem = tw(motion.li)`
 `
 
 export const Logo = tw(HiSparkles)`
-  text-on-accent text-xl hover:text-gradient-yellow
+  text-on-accent text-xl hover:text-gradient-yellow h-[32px]
 `
 
 export const SvgBox = tw(motion.div)`
-  hidden xs:block sm:block
+  flex items-center justify-center h-full lg:hidden
 `
