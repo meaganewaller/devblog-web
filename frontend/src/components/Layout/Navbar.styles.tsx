@@ -11,9 +11,6 @@ const StyledHeader = styled.header`
   backdrop-filter: blur(4px);
 `
 
-// export const Header = tw(StyledHeader)`
-//   z-[3] w-full bg-toolbar flex border-b border-solid border-b-primary-txt rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
-// `
 export const Header = tw(StyledHeader)`
   fixed z-[3] bg-toolbar flex border-b border-solid border-b-inverse rounded-t-md text-on-accent justify-between lg:justify-start px-6 h-[32px] w-full items-center
 `
