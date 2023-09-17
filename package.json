@@ -5,13 +5,13 @@
   "private": true,
   "description": "frontend for meaganwaller.com",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "format": "prettier -w .",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier -w .",
-    "type-check": "tsc --noEmit"
+    "start": "next start",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
   },
   "babelMacros": {
     "twin": {
@@ -138,6 +138,8 @@
     "eslint-config-next": "^13.4.19",
     "eslint-webpack-plugin": "^4.0.1",
     "graphql-tag": "^2.12.6",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "nprogress": "^0.2.0",
     "postcss": "8.4.23",
     "postcss-loader": "^7.3.3",
