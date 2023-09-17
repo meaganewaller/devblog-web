@@ -6,6 +6,8 @@ import { useWindowSize } from '@/hooks/use-window-size'
 
 import { Window } from '@/components/core/window'
 
+import { ConnectionsContainer } from './connections.styles'
+
 export function Connections() {
   const links = [
     {
@@ -42,25 +44,28 @@ export function Connections() {
     }
     return 650
   }
-     {/* <div className='md:p-5 p-2 grid md:grid-cols-3 justify-items-center mb-12'> */}
   return (
     <Window
       title='lets-connect.txt'
       active={false}
-      x={size.width / 10 }
-      y={size.height / 1.65 }
+      x={size.width / 10}
+      y={size.height / 1.65}
       zIndex='1'
       width={`${windowWidth(size.width)}px`}
       id='connections-window'
     >
-
-      <div className="p-2 grid xs:grid-cols-1 sm:grid-cols-1 mb-12 grid-cols-3">
-        {links.map((link, i) => (
-          <Link key={i} className='button' href={link.link} target='_blank'>
+      <ConnectionsContainer>
+        {links.map((link) => (
+          <Link
+            key={link.name}
+            className='button'
+            href={link.link}
+            target='_blank'
+          >
             {link.name}
           </Link>
         ))}
-      </div>
+      </ConnectionsContainer>
     </Window>
   )
 }

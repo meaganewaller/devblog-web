@@ -6,6 +6,8 @@ import { useWindowSize } from '@/hooks/use-window-size'
 
 import { Window } from '@/components/core/window'
 
+import { PostItem, PostList, PostListContainer } from './recent-posts.styles'
+
 interface Category {
   id: string
   name: string
@@ -43,22 +45,22 @@ export function RecentPosts({ posts }: Props) {
       zIndex='3'
       active={true}
     >
-      <div className='flex max-w-3xl flex-col'>
-        <ul className='px-6 py-12'>
+      <PostListContainer>
+        <PostList>
           {posts.map((post: Post) => (
-            <li key={post.slug} className='wavy w-full px-2 py-1'>
+            <PostItem key={post.slug} className='wavy'>
               <Link
                 href={`/blog/${post.slug}`}
-                className='block no-underline outline-none hover:no-underline'
+                className='no-underline outline-none hover:no-underline'
               >
-                <h2 className='break-normal font-extra lowercase text-primary-txt hover:italic active:italic'>
+                <h2 className='break-normal text-start font-extra lowercase text-primary-txt hover:italic active:italic'>
                   {post.title}
                 </h2>
               </Link>
-            </li>
+            </PostItem>
           ))}
-        </ul>
-      </div>
+        </PostList>
+      </PostListContainer>
     </Window>
   )
 }
