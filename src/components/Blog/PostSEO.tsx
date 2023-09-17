@@ -2,6 +2,7 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
 import { baseUrl } from '@/config/seo'
+
 import { Post } from '@/types'
 
 interface Props {
@@ -19,9 +20,7 @@ export function PostSEO({ post }: Props) {
         description: post.metaDescription,
         images: [
           {
-            url:
-              post.coverImage ||
-              `${baseUrl}/static/img/writing/${post.slug}.png`,
+            url: post.coverImage || `${baseUrl}/static/img/writing/${post.slug}.png`,
             alt: post.title,
           },
         ],

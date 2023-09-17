@@ -20,7 +20,7 @@ export const convertToProjectList = (tableData: any) => {
       tags: project.tags,
       title: project.title,
       slug: project.id,
-      coverImage: "https://placekitten.com/800/600",
+      coverImage: 'https://placekitten.com/800/600',
     }
   })
 

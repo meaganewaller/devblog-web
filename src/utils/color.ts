@@ -5,10 +5,7 @@ extend([a11yPlugin])
 
 // Colors from css variables: primary
 const bgColor = { dark: '#080f1e', light: '#ffffff' }
-export const getReadableColor = (
-  desiredFgColor?: string | null,
-  isDark?: boolean,
-): string | null => {
+export const getReadableColor = (desiredFgColor?: string | null, isDark?: boolean): string | null => {
   if (!desiredFgColor) return null
   let fgColor = colord(desiredFgColor)
   while (
@@ -21,11 +18,7 @@ export const getReadableColor = (
   return fgColor.toHex()
 }
 
-export const hexToRgb = (
-  hex?: string | null,
-  alpha?: number,
-  numbersOnly?: boolean,
-): string | null => {
+export const hexToRgb = (hex?: string | null, alpha?: number, numbersOnly?: boolean): string | null => {
   if (!hex) return null
   const color = colord(hex).alpha(alpha === 0 ? 0 : alpha || 1)
   const { r, g, b, a } = color.toRgb()

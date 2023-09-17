@@ -1,8 +1,10 @@
 import { useMemo } from 'react'
-import { Post } from '@/types'
+
 import Pagination from '@/components/Layout/Pagination'
+
 import { PostLink } from './PostLink'
-import { PostService } from '@/lib/api'
+
+import { Post } from '@/types'
 
 interface PostsCountProps {
   posts: Post[]
@@ -15,8 +17,8 @@ export const PostsCount = ({ posts, year }: PostsCountProps) => {
   }, [posts, year])
 
   return (
-    <span className="text-sm font-semibold text-accent block">
-      {count} post{count === 1 ? '' : 's' }
+    <span className='block text-sm font-semibold text-accent'>
+      {count} post{count === 1 ? '' : 's'}
     </span>
   )
 }
@@ -36,10 +38,8 @@ export const PostTimelineSeparator = ({ posts, currentPost, previousPost }: Post
 
   if (!Number.isNaN(currentPostYear) && currentPostYear !== previousPostYear) {
     return (
-      <div className="mt-8 md:mt-12 flex justify-between items-baseline border-secondary-txt border-b-4">
-        <span className="text-accent-dark font-bold text-4xl font-venice">
-          {currentPostYear}
-        </span>
+      <div className='mt-8 flex items-baseline justify-between border-b-4 border-secondary-txt md:mt-12'>
+        <span className='font-venice text-4xl font-bold text-accent-dark'>{currentPostYear}</span>
         <PostsCount posts={posts} year={currentPostYear} />
       </div>
     )

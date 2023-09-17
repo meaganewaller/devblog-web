@@ -39,4 +39,3 @@ export const PostItem = styled.li`
     left: -50px;
   }
 `
-

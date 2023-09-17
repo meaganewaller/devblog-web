@@ -1,17 +1,18 @@
 'use client'
 
-import React, { Suspense, useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import React, { Suspense, useEffect, useState } from 'react'
+import tw from 'twin.macro'
 
-import { Heading } from "@/components/core/heading"
+import { CategoryService, PostService } from '@/lib/api'
 
-import { CategoryService, PostService } from "@/lib/api"
-import { convertToPostList, convertToCategoryList } from "@/utils/blogs"
-import { Post, Category } from "@/types"
+import { Heading } from '@/components/core/heading'
 
-import { motion } from "framer-motion"
-import tw from "twin.macro"
+import { convertToCategoryList, convertToPostList } from '@/utils/blogs'
+
+import { Category, Post } from '@/types'
 
 const CategorySlugContainer = tw.div`
 `
@@ -62,13 +63,13 @@ function CategoryPosts({ params }) {
   const [categories, setCategories] = useState([])
   const [category, setCategory] = useState<Category>({
     count: 0,
-    coverImage: "",
-    description: "",
-    href: "",
-    id: "",
-    notionId: "",
-    slug: "",
-    title: "",
+    coverImage: '',
+    description: '',
+    href: '',
+    id: '',
+    notionId: '',
+    slug: '',
+    title: '',
   })
   const [posts, setPosts] = useState([])
 
@@ -87,7 +88,11 @@ function CategoryPosts({ params }) {
     async function fetchPosts() {
       const data = await PostService.getAll(params.slug)
       setPosts(convertToPostList(data).posts)
-      setSampledTags(convertToPostList(data).tags.sort(() => .5 - Math.random()).slice(0, 4))
+      setSampledTags(
+        convertToPostList(data)
+          .tags.sort(() => 0.5 - Math.random())
+          .slice(0, 4),
+      )
     }
 
     async function fetchCategories() {
@@ -100,46 +105,31 @@ function CategoryPosts({ params }) {
     fetchCategories()
   }, [])
 
-
   return (
     <CategorySlugContainer>
       <Suspense fallback={<div>Loading...</div>}>
         <Heading title={category.title} categories={categories} onSearch={onSearch} />
         <CategoryContainer>
           {posts.map((post: Post) => (
-            <PostCard
-              href={`/blog/${post.slug}`}
-              key={post.slug}
-            >
-              <div
-                className="mb-2 mt-0 w-full relative p-5 transition-[0.3s] hover:transition-[0.3s] hover:border-solid hover:border-[var(--color-deep-green)] card border font-extra hover:border hover:shadow-[0.25rem_0.25rem] hover:shadow-[var(--color-teal)]"
-              >
+            <PostCard href={`/blog/${post.slug}`} key={post.slug}>
+              <div className='card relative mb-2 mt-0 w-full border p-5 font-extra transition-[0.3s] hover:border hover:border-solid hover:border-[var(--color-deep-green)] hover:shadow-[0.25rem_0.25rem] hover:shadow-[var(--color-teal)] hover:transition-[0.3s]'>
                 <div
                   data-category={post.category.title}
-                  className="rounded-br-lg rounded-tl-lg text-xs font-extra font-bold absolute text-right z-[2] px-2 py-1 right-0 bottom-0 max-w-2/3"
+                  className='max-w-2/3 absolute bottom-0 right-0 z-[2] rounded-br-lg rounded-tl-lg px-2 py-1 text-right font-extra text-xs font-bold'
                 >
-                  <Link href={`/blog/category/${post.category.slug}`}>
-                    {post.category.title}
-                  </Link>
+                  <Link href={`/blog/category/${post.category.slug}`}>{post.category.title}</Link>
                 </div>
-                <div className="mt-2 md:mt-0">
-                  <div className="xs:hidden sm:hidden w-auto overflow-hidden">
-                    <PostImage
-                      src={post.coverImage}
-                      alt={post.title}
-                      width={600}
-                      height={400}
-                    />
+                <div className='mt-2 md:mt-0'>
+                  <div className='xs:hidden w-auto overflow-hidden sm:hidden'>
+                    <PostImage src={post.coverImage} alt={post.title} width={600} height={400} />
                   </div>
                   <PostTitle
-                    // className="font-venice text-left text-lg tablet:text-2xl tablet:text-center tablet:mx-auto tablet:w-full break-words leading-none"
+                  // className="font-venice text-left text-lg tablet:text-2xl tablet:text-center tablet:mx-auto tablet:w-full break-words leading-none"
                   >
                     {post.title}
                   </PostTitle>
-                  <div className="mt-2 mb-10">
-                    <p className="line-clamp-6 leading-normal mb-5 w-full">
-                      {post.description}
-                    </p>
+                  <div className='mb-10 mt-2'>
+                    <p className='mb-5 line-clamp-6 w-full leading-normal'>{post.description}</p>
                   </div>
                 </div>
                 <div>
@@ -193,9 +183,6 @@ function CategoryPosts({ params }) {
       </Suspense>
     </CategorySlugContainer>
   )
-
-
-
 }
 
 export default CategoryPosts

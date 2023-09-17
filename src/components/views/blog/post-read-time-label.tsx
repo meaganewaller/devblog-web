@@ -22,26 +22,19 @@ export const PostReadTimeLabel = (props: Props) => {
   }
 
   return match(props.est_read)
-    .with(
-      { minutes: P.number, text: P.string, time: P.number, words: P.number },
-      (value) => (
-        <span className='flex items-center'>
-          <TbClockRecord size={props?.iconSize ?? 14} />
-          <span className='mx-1 text-sm'>{estReadTime(value)}</span>
-          <TbQuestionCircle
-            data-tooltip-id={props.tooltipId}
-            size={14}
-            className='cursor-help self-start'
-          />
+    .with({ minutes: P.number, text: P.string, time: P.number, words: P.number }, (value) => (
+      <span className='flex items-center'>
+        <TbClockRecord size={props?.iconSize ?? 14} />
+        <span className='mx-1 text-sm'>{estReadTime(value)}</span>
+        <TbQuestionCircle data-tooltip-id={props.tooltipId} size={14} className='cursor-help self-start' />
 
-          <CustomTooltip place='bottom' id={props.tooltipId} clickable>
-            <p className='text-white text-sm'>
-              This post has <strong>{value.words} words</strong>, reading time
-              is calculated using <strong>225WPM reading speeds</strong>.
-            </p>
-          </CustomTooltip>
-        </span>
-      ),
-    )
+        <CustomTooltip place='bottom' id={props.tooltipId} clickable>
+          <p className='text-white text-sm'>
+            This post has <strong>{value.words} words</strong>, reading time is calculated using{' '}
+            <strong>225WPM reading speeds</strong>.
+          </p>
+        </CustomTooltip>
+      </span>
+    ))
     .otherwise(() => null)
 }

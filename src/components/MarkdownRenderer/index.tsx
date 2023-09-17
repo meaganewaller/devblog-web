@@ -20,10 +20,10 @@ function LinkRenderer({ href, ...rest }: any) {
     if (url.origin === 'https://meaganwaller.com') {
       return <Link href={href} {...rest} />
     }
-    return <a target="_blank" rel="noopener" href={href} {...rest} />
+    return <a target='_blank' rel='noopener' href={href} {...rest} />
   } catch (e) {
     console.error(e)
-    return <a target="_blank" rel="noopener" href={href} {...rest} />
+    return <a target='_blank' rel='noopener' href={href} {...rest} />
   }
 }
 
@@ -35,32 +35,24 @@ function getComponentsForVariant(variant) {
         pre({ node, inline, className, children, ...props }) {
           const language = /language-(\w+)/.exec(className || '')?.[1]
           return !inline && language ? (
-            <CodeBlock
-              text={String(children).replace(/\n$/, '')}
-              language={language}
-              {...props}
-            />
-            ) : (
+            <CodeBlock text={String(children).replace(/\n$/, '')} language={language} {...props} />
+          ) : (
             <>{children}</>
-            )
+          )
         },
         code({ node, inline, className, children, ...props }) {
           const language = /language-(\w+)/.exec(className || '')?.[1]
           return !inline && language ? (
-            <CodeBlock
-              text={String(children).replace(/\n$/, '')}
-              language={language}
-              {...props}
-            />
+            <CodeBlock text={String(children).replace(/\n$/, '')} language={language} {...props} />
           ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            )
+            <code className={className} {...props}>
+              {children}
+            </code>
+          )
         },
       }
     }
-     // Questions, comments, descriptions on bookmarks, etc.
+    // Questions, comments, descriptions on bookmarks, etc.
     case 'comment': {
       return {
         a: LinkRenderer,
@@ -76,11 +68,7 @@ function getComponentsForVariant(variant) {
         code({ node, inline, className, children, ...props }) {
           const language = /language-(\w+)/.exec(className || '')?.[1]
           return !inline && language ? (
-            <CodeBlock
-              text={String(children).replace(/\n$/, '')}
-              language={language}
-              {...props}
-            />
+            <CodeBlock text={String(children).replace(/\n$/, '')} language={language} {...props} />
           ) : (
             <code className={className} {...props}>
               {children}
@@ -111,11 +99,7 @@ export function MarkdownRenderer(props: any) {
     <Markdown
       {...rest}
       remarkPlugins={[remarkGfm, linkifyRegex(/^(?!.*\bRT\b)(?:.+\s)?@\w+/i)]}
-      rehypePlugins={[
-        [rehypeSanitize, schema],
-        rehypeSlug,
-        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-      ]}
+      rehypePlugins={[[rehypeSanitize, schema], rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]]}
       components={components}
     >
       {children}

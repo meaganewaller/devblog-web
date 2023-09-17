@@ -1,14 +1,8 @@
 'use client'
 
-import type { AppProps } from "next/app";
-import {
-  Hydrate,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { AppProps } from 'next/app'
 import { useState } from 'react'
-
 
 export default function QueryProvider({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -20,8 +14,8 @@ export default function QueryProvider({ Component, pageProps }: AppProps) {
             refetchOnWindowFocus: false,
           },
         },
-      })
-  );
+      }),
+  )
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -29,5 +23,5 @@ export default function QueryProvider({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Hydrate>
     </QueryClientProvider>
-  );
+  )
 }

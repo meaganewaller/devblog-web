@@ -3,11 +3,7 @@ export interface SearchState {
   category: string
 }
 
-export type SearchActionTypes =
-  | "SET_SEARCH"
-  | "RESET_SEARCH"
-  | "SET_CATEGORY"
-  | "RESET_CATEGORY"
+export type SearchActionTypes = 'SET_SEARCH' | 'RESET_SEARCH' | 'SET_CATEGORY' | 'RESET_CATEGORY'
 
 export interface Action {
   type: SearchActionTypes

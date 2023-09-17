@@ -1,5 +1,4 @@
-export const baseUrl =
-  process.env.NODE_ENV === 'production' ? 'https://meaganwaller.com' : ''
+export const baseUrl = process.env.NODE_ENV === 'production' ? 'https://meaganwaller.com' : ''
 export const baseEmail = 'meagan@meaganwaller.com'
 
 export const defaultSEO = {
@@ -32,9 +31,7 @@ interface SEOProps {
 }
 
 export function extendSEO(options: SEOProps) {
-  const images = options.image
-    ? [{ url: `${baseUrl}/static/images/${options.image}` }]
-    : defaultSEO.openGraph.images
+  const images = options.image ? [{ url: `${baseUrl}/static/images/${options.image}` }] : defaultSEO.openGraph.images
 
   return {
     ...defaultSEO,

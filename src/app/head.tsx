@@ -3,12 +3,8 @@ import GlobalHead from './globalHead'
 const Head = () => {
   return (
     <>
-      <title>
-      </title>
-      <meta
-        name="description"
-        content=""
-      />
+      <title></title>
+      <meta name='description' content='' />
       <GlobalHead />
     </>
   )

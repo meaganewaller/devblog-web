@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading, jsx-a11y/anchor-has-content */
-import React from 'react'
-import NextLink from 'next/link'
 import clsx from 'clsx'
+import NextLink from 'next/link'
+import React from 'react'
 import { FaSquareUpRight } from 'react-icons/fa'
 
 export type LinkThemeProps = {
@@ -83,10 +83,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, React.PropsWithChildren<
         return (
           <a ref={ref} href={href} className={newClassName} {...props}>
             {props.children}
-            <FaSquareUpRight
-              size={18}
-              className="ml-2 hidden sm:inline-block text-blue-600 dark:text-sky-100"
-            />
+            <FaSquareUpRight size={18} className='text-blue-600 dark:text-sky-100 ml-2 hidden sm:inline-block' />
           </a>
         )
       }

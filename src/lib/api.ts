@@ -21,7 +21,7 @@ const TagService = {
   getAll: async () => {
     const response = await apiClient.get('/tags')
     return response.data
-  }
+  },
 }
 
 const PostService = {
@@ -31,16 +31,14 @@ const PostService = {
     sortBy = sortByDateDesc,
     filterBy = (p: Post) => a,
   }: {
-      count: number
-      offset?: number
-      filterBy?: any
-      sortBy?: any
+    count: number
+    offset?: number
+    filterBy?: any
+    sortBy?: any
   }) => {
     const results = await apiClient.get('/posts')
 
-    const allPosts = results.map((notionPosts: NotionPost[]) =>
-      notionPosts.map((post: NotionPost) => parsePost(post))
-    )
+    const allPosts = results.map((notionPosts: NotionPost[]) => notionPosts.map((post: NotionPost) => parsePost(post)))
 
     const flatPosts = flatten(allPosts).filter(filterBy).sort(sortBy)
     const posts = [...flatPosts.slice(offset, offset + count)]
@@ -48,17 +46,17 @@ const PostService = {
     return {
       postsCount: flatPosts.length,
       posts,
-      totalPages: Math.ceil(flatPosts.length / count)
+      totalPages: Math.ceil(flatPosts.length / count),
     }
   },
 
-  getById: async (id: String) => {
+  getById: async (id: string) => {
     const response = await apiClient.get(`/posts/${id}`)
     return response.data
   },
 
   getRecent: async () => {
-    const response = await apiClient.get(`/posts?recent=true`)
+    const response = await apiClient.get('/posts?recent=true')
     return response.data
   },
 }
@@ -87,4 +85,4 @@ const GuestbookService = {
   },
 }
 
-export { apiClient, GuestbookService, PostService, CategoryService, ProjectService, TagService }
+export { apiClient, CategoryService, GuestbookService, PostService, ProjectService, TagService }

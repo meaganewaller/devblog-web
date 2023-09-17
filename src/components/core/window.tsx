@@ -17,18 +17,7 @@ interface WindowProps {
 
 const DraggableWindow = tw.div`absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c] cursor-move`
 
-export const Window = ({
-  id,
-  active,
-  title,
-  x,
-  y,
-  width,
-  height,
-  zIndex = '1',
-  classList,
-  children,
-}: WindowProps) => {
+export const Window = ({ id, active, title, x, y, width, height, zIndex = '1', classList, children }: WindowProps) => {
   const windowRef = useRef(null)
   const [_activeWindow, setActiveWindow] = useState(active)
 
@@ -37,13 +26,8 @@ export const Window = ({
     const element = document.getElementById(elementId)
     if (element) {
       setActiveWindow(true)
-      const otherWindows = document.querySelectorAll(
-        `[data-another-window]:not(#${elementId})`,
-      )
-      const maxZIndex = Array.from(otherWindows).reduce(
-        (acc, elem: any) => Math.max(elem?.style.zIndex, acc),
-        0,
-      )
+      const otherWindows = document.querySelectorAll(`[data-another-window]:not(#${elementId})`)
+      const maxZIndex = Array.from(otherWindows).reduce((acc, elem: any) => Math.max(elem?.style.zIndex, acc), 0)
       element.style.zIndex = `${maxZIndex + 1}`
     }
   }

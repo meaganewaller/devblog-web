@@ -1,5 +1,5 @@
-import { useMemo, useRef } from 'react'
 import { gsap } from 'gsap'
+import { useMemo, useRef } from 'react'
 
 export const useSelector = () => {
   const ref = useRef(null)

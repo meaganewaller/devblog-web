@@ -1,8 +1,9 @@
 import { Dispatch, useContext } from 'react'
 
-import { Post } from '@/types'
-import { Action, ActionKind } from './store'
 import { PostsDispatchContext, PostsStateContext } from '.'
+import { Action, ActionKind } from './store'
+
+import { Post } from '@/types'
 
 export function usePostsState() {
   return useContext(PostsStateContext)
@@ -18,10 +19,10 @@ export function usePostsActions() {
     },
 
     setPost: (post: Post) => {
-    dispatch({
-    type: ActionKind.SET_POST,
-    payload: post,
-    })
+      dispatch({
+        type: ActionKind.SET_POST,
+        payload: post,
+      })
     },
   })
 

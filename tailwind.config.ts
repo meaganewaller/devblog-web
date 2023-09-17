@@ -7,7 +7,6 @@ import type { PluginAPI } from 'tailwindcss/types/config'
 import hocus from 'tailwindcss-hocus'
 
 import { colors } from './config/tailwind/colors'
-import { fontSizes as fontSize } from './config/tailwind/font-sizes'
 
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
 const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
@@ -36,7 +35,7 @@ module.exports = {
     // borderRadius: { ...spacing, none: '0rem', half: '50%', full: '9999px' },
     colors,
     // fontSize,
-//    screens: breakpoints,
+    //    screens: breakpoints,
     extend: {
       fontSize: {
         md: '1rem',
@@ -97,8 +96,7 @@ module.exports = {
         hearts: "url('/static/images/bg/ea1cde5b.jpg')",
         purpleStars: "url('/static/images/bg/purple-stars.gif')",
         windowTitleBarButton: 'linear-gradient(to bottom right, #9c9c9c, #fff)',
-        windowTitleBarButtonActive:
-          'linear-gradient(to bottom right, #444, #aaa)',
+        windowTitleBarButtonActive: 'linear-gradient(to bottom right, #444, #aaa)',
         windowTitleBar: 'repeating-linear-gradient(#fff, #000 2px)',
       },
       typography: ({ theme }: PluginAPI) => ({

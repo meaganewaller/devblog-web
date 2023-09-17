@@ -1,5 +1,6 @@
-import { site } from '@/config/site'
 import type { Metadata } from 'next'
+
+import { site } from '@/config/site'
 
 type Meta = Metadata & {
   templateTitle?: string

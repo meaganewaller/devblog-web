@@ -6,7 +6,7 @@ export const convertToCategoryList = (tableData: any) => {
       description: category.description,
       slug: category.slug,
       coverImage: category.cover_image,
-      href: `/blog/categories/${category.slug}`
+      href: `/blog/categories/${category.slug}`,
     }
   })
 
@@ -15,11 +15,11 @@ export const convertToCategoryList = (tableData: any) => {
 
 export const convertToTagList = (stringTags: string[]) => {
   const tags = stringTags.map((tag: string) => {
-    const slug = tag.toLowerCase().replace(/ /g, "-")
+    const slug = tag.toLowerCase().replace(/ /g, '-')
     return {
       title: tag,
       slug: slug,
-      href: `/blog/tags/${slug}`
+      href: `/blog/tags/${slug}`,
     }
   })
 
@@ -30,15 +30,15 @@ export const convertPost = (post: any, tags?: string[]) => {
   const tagList = tags || []
   return {
     category: {
-      coverImage: "https://placekitten.com/800/600",
+      coverImage: 'https://placekitten.com/800/600',
       id: post.category.id,
       slug: post.category.slug,
       title: post.category.title,
       notionId: post.category.notion_id,
-      href: `/blog/categories/${post.category.slug}`
+      href: `/blog/categories/${post.category.slug}`,
     },
     content: post.content,
-    coverImage: "https://placekitten.com/800/600",
+    coverImage: 'https://placekitten.com/800/600',
     description: post.description,
     id: post.id,
     href: `/blog/${post.slug}`,
@@ -59,7 +59,7 @@ export const convertPost = (post: any, tags?: string[]) => {
       }
       return { name: tag }
     }),
-    title: post.title
+    title: post.title,
   }
 }
 

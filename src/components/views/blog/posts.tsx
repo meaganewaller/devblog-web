@@ -18,12 +18,7 @@ export const BlogPosts = (props: BlogPostsProps) => {
     <ul className={'flex list-none flex-col gap-16'}>
       {posts.map((post, index) => {
         return (
-          <li
-            key={
-              post.slug ||
-              `${post.title.toLowerCase().split(' ').join('-')}-${index}`
-            }
-          >
+          <li key={post.slug || `${post.title.toLowerCase().split(' ').join('-')}-${index}`}>
             <Card post={post} />
           </li>
         )

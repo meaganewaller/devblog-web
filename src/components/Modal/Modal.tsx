@@ -46,11 +46,7 @@ export const Modal: FC<Props> = ({ isOpen, setIsOpen, children }: Props) => {
         >
           <motion.div className='modal-container' variants={modalVariant}>
             {children}
-            <motion.div
-              whileHover={{ rotate: 45 }}
-              className='close'
-              onClick={() => setIsOpen(false)}
-            >
+            <motion.div whileHover={{ rotate: 45 }} className='close' onClick={() => setIsOpen(false)}>
               <div></div>
               <div></div>
             </motion.div>

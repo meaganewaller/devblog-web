@@ -13,20 +13,11 @@ const DEFAULT_VALUE: GlobalContext = {
 export const GlobalStateContext = createContext<GlobalContext>(DEFAULT_VALUE)
 
 function GlobalStateProvider({ children }: { children: React.ReactNode }) {
-  const [isQuickAccessOpen, setQuickAccessOpen] = useState<boolean>(
-    DEFAULT_VALUE.isQuickAccessOpen
-  )
+  const [isQuickAccessOpen, setQuickAccessOpen] = useState<boolean>(DEFAULT_VALUE.isQuickAccessOpen)
 
-  const value = useMemo(
-    () => ({ isQuickAccessOpen, setQuickAccessOpen }),
-    [isQuickAccessOpen]
-  )
+  const value = useMemo(() => ({ isQuickAccessOpen, setQuickAccessOpen }), [isQuickAccessOpen])
 
-  return (
-    <GlobalStateContext.Provider value={value}>
-      {children}
-    </GlobalStateContext.Provider>
-  )
+  return <GlobalStateContext.Provider value={value}>{children}</GlobalStateContext.Provider>
 }
 
 export default GlobalStateProvider

@@ -20,19 +20,13 @@ type CustomTooltipWithChildren = {
   children?: React.ReactNode
 } & Omit<OmittedBaseProps, 'children'>
 
-export type CustomTooltipProps =
-  | CustomTooltipId
-  | CustomTooltipAnchorSelect
-  | CustomTooltipWithChildren
+export type CustomTooltipProps = CustomTooltipId | CustomTooltipAnchorSelect | CustomTooltipWithChildren
 
 export const CustomTooltip = (props: CustomTooltipProps) => {
   return (
     <Tooltip
       {...props}
-      className={tw(
-        'bg-base-600 dark:bg-base-800 z-[9999999] max-w-xs !opacity-100',
-        props.className,
-      )}
+      className={tw('bg-base-600 dark:bg-base-800 z-[9999999] max-w-xs !opacity-100', props.className)}
     />
   )
 }

@@ -56,12 +56,7 @@ export function Connections() {
     >
       <ConnectionsContainer>
         {links.map((link) => (
-          <Link
-            key={link.name}
-            className='button'
-            href={link.link}
-            target='_blank'
-          >
+          <Link key={link.name} className='button' href={link.link} target='_blank'>
             {link.name}
           </Link>
         ))}

@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import tw from "twin.macro"
+import tw from 'twin.macro'
 
 const List = tw.ul`
  list-flower list-inside text-justify text-accent-dark my-0 mx-[15px] py-0 px-[5px]
@@ -17,16 +17,16 @@ const ItemTitle = tw.strong`
 
 export function QuickInfo() {
   return (
-  <>
+    <>
       <Image
         src='/static/images/avatar/meaganwaller.png'
         width={200}
         height={200}
         alt="Meagan Waller's avatar"
-        className="tablet-sm:float-left w-[200px] h-[200px] rounded-full border-2 border-accent-dark mx-auto tablet-sm:mr-32"
+        className='tablet-sm:float-left tablet-sm:mr-32 mx-auto h-[200px] w-[200px] rounded-full border-2 border-accent-dark'
       />
-      <div className="text-center tablet-sm:text-justify">
-        <h1 className="lg:text-2xl text-center font-venice text-xl capitalize tracking-wide text-accent-dark before:pr-[5px] before:content-[url('/static/images/ui/leftsparkle.gif')] after:pl-[5px] after:content-[url('/static/images/ui/leftsparkle.gif')]">
+      <div className='tablet-sm:text-justify text-center'>
+        <h1 className="text-center font-venice text-xl capitalize tracking-wide text-accent-dark before:pr-[5px] before:content-[url('/static/images/ui/leftsparkle.gif')] after:pl-[5px] after:content-[url('/static/images/ui/leftsparkle.gif')] lg:text-2xl">
           About
         </h1>
       </div>

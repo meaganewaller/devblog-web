@@ -1,6 +1,7 @@
-import { PostsList } from '@/components/Blog/PostsList'
-import BlogCallout from '@/components/Blog/BlogCallout'
 import { PostService } from '@/lib/api'
+
+import { PostsList } from '@/components/Blog/PostsList'
+
 import { convertToPostList } from '@/utils/blogs'
 
 async function getPosts() {
@@ -16,7 +17,7 @@ function parseTotalPages(postCount: number) {
 export default async function BlogPage() {
   const posts = await getPosts()
 
-  return <PostsList posts={posts} url="/blog" page={1} totalPages={parseTotalPages(posts.length)} />
+  return <PostsList posts={posts} url='/blog' page={1} totalPages={parseTotalPages(posts.length)} />
 }
 
 // export default async function BlogPage() {

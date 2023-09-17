@@ -3,9 +3,9 @@ import { useEffect } from 'react'
 export function useWindowEvent<K extends string = keyof WindowEventMap>(
   type: K,
   listener: K extends keyof WindowEventMap
-  ? (this: Window, ev: WindowEventMap[K]) => void
-  : (this: Window, ev: Event) => void,
-  options?: boolean | AddEventListenerOptions
+    ? (this: Window, ev: WindowEventMap[K]) => void
+    : (this: Window, ev: Event) => void,
+  options?: boolean | AddEventListenerOptions,
 ) {
   useEffect(() => {
     window.addEventListener(type, listener, options)

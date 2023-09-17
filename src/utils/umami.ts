@@ -1,7 +1,4 @@
-const trackEvent = (
-  eventName: string,
-  data?: Record<string, string | number | boolean | null>
-) => {
+const trackEvent = (eventName: string, data?: Record<string, string | number | boolean | null>) => {
   // @ts-ignore
   const umami = window.umami
   if (umami) {

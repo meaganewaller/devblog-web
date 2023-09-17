@@ -9,10 +9,7 @@ const GoogleAnalytics = () => {
 
   return (
     <>
-      <Script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-      />
+      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} />
       <Script id='google-analytics'>
         {`
         window.dataLayer = window.dataLayer || [];

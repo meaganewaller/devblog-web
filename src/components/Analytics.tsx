@@ -1,7 +1,9 @@
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
-import analyticsConfig from "@/config/analytics"
-import GoogleAnalytics from "./GoogleAnalytics"
-import UmamiAnalytics from "./UmamiAnalytics"
+
+import analyticsConfig from '@/config/analytics'
+
+import GoogleAnalytics from './GoogleAnalytics'
+import UmamiAnalytics from './UmamiAnalytics'
 
 const isProduction = process.env.NODE_ENV === 'production'
 

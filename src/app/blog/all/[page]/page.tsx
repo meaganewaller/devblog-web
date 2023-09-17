@@ -1,5 +1,5 @@
-import range from 'lodash/range'
 import { PostService } from '@/lib/api'
+
 import Page from '../page'
 
 export default Page

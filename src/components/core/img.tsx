@@ -13,11 +13,7 @@ type ImgProps = SizeProps | WidthHeightProps
 
 export const Img = (props: ImgProps) => {
   const { size = 0, ...otherProps } = props as SizeProps
-  const {
-    width = size,
-    height = size,
-    ...rest
-  } = otherProps as WidthHeightProps
+  const { width = size, height = size, ...rest } = otherProps as WidthHeightProps
   return (
     <Image
       {...rest}

@@ -9,14 +9,7 @@ const UmamiAnalytics = () => {
     return null
   }
 
-  return (
-    <Script
-      async
-      defer
-      data-website-id={UMAMI_ID}
-      src={analyticsConfig.umamiUrl}
-    />
-  )
+  return <Script async defer data-website-id={UMAMI_ID} src={analyticsConfig.umamiUrl} />
 }
 
 export default UmamiAnalytics

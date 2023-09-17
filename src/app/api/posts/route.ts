@@ -11,6 +11,6 @@ export async function GET(request: Request) {
   const results = await res.json()
 
   return NextResponse.json({
-    results
+    results,
   })
 }

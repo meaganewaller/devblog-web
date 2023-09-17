@@ -7,11 +7,7 @@ const baseUrl =
       : 'https://meaganwaller.com'
     : 'https://meaganwaller.com'
 
-export const buildOgImageUrl = (
-  path?: string,
-  title?: string,
-  hero?: string,
-): string => {
+export const buildOgImageUrl = (path?: string, title?: string, hero?: string): string => {
   try {
     const url = new URL(`${baseUrl}/api/og`)
     if (path) url.searchParams.set('path', path)
