@@ -1,0 +1,22 @@
+name: Open PR
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Thank you for submitting a pull request (PR) to my devblog's frontend! It means a lot that you took the time to contribute to my lil corner on the internet.`
+            })
+
+
