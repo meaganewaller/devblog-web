@@ -11,7 +11,6 @@
     "plugins": [{ "name": "next" }],
     "strictNullChecks": true
   },
-  "files": ["@types/twin.d.ts"],
   "exclude": ["node_modules"],
   "extends": "@meaganewaller/tsconfig",
   "types": ["./src/types"],

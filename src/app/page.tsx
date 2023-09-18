@@ -1,12 +1,12 @@
 import { Suspense } from 'react'
 
-import { PostService } from '@/lib/api'
-
 import { Connections } from '@/components/views/home/connections'
 import { Intro } from '@/components/views/home/intro'
 import { RecentPosts } from '@/components/views/home/recent-posts'
 
-import { createMetadata } from "@/utils/create-metadata"
+import { getRecentPosts } from '@/services/posts'
+import { convertToPostList } from '@/utils/blogs'
+import { createMetadata } from '@/utils/create-metadata'
 
 export const metadata = createMetadata({
   title: 'welcome to my digital home',
@@ -61,12 +61,15 @@ export const metadata = createMetadata({
 })
 
 const Page = async () => {
-  const posts = await PostService.getRecent()
+  const postsData = await getRecentPosts()
+  const { posts } = convertToPostList(postsData)
 
   return (
     <>
       <Suspense>
-        <RecentPosts posts={posts.slice(0, 5)} />
+        <RecentPosts
+          posts={posts.slice(0, 5)}
+        />
       </Suspense>
       <Intro />
       <Connections />

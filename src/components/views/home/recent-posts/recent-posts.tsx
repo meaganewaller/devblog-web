@@ -8,27 +8,10 @@ import { Window } from '@/components/core/window'
 
 import { PostItem, PostList, PostListContainer } from './recent-posts.styles'
 
-interface Category {
-  id: string
-  name: string
-  description: string
-  slug: string
-}
+import { PostResponse } from '@/types'
 
 type Props = {
-  posts: Post[]
-}
-
-interface Post {
-  id: string
-  title: string
-  category: Category
-  content: string
-  description: string
-  cover_image: string
-  tags: string[]
-  published_date: string
-  slug: string
+  posts: PostResponse[]
 }
 
 export function RecentPosts({ posts }: Props) {
@@ -47,7 +30,7 @@ export function RecentPosts({ posts }: Props) {
     >
       <PostListContainer>
         <PostList>
-          {posts.map((post: Post) => (
+          {posts.map((post: PostResponse) => (
             <PostItem key={post.slug} className='wavy'>
               <Link
                 href={`/blog/${post.slug}`}

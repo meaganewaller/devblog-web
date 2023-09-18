@@ -1,5 +1,7 @@
-export const convertToGuestbookList = (tableData: any) => {
-  const guestbookEntries = tableData.map((entry: any) => {
+import { GuestbookResponse } from '@/types'
+
+export const convertToGuestbookList = (tableData: GuestbookResponse[]) => {
+  const guestbookEntries = tableData.map((entry: GuestbookResponse) => {
     return {
       id: entry.id,
       name: entry.name,

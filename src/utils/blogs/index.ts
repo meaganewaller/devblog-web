@@ -1,12 +1,14 @@
-export const convertToCategoryList = (tableData: any) => {
-  const categories = tableData.map((category: any) => {
+import { CategoryResponse, PostResponse } from '@/types'
+
+export const convertToCategoryList = (tableData: CategoryResponse[]) => {
+  const categories = tableData.map((category: CategoryResponse) => {
     return {
       id: category.id,
       title: category.title,
       description: category.description,
       slug: category.slug,
       coverImage: category.cover_image,
-      href: `/blog/categories/${category.slug}`
+      href: `/blog/categories/${category.slug}`,
     }
   })
 
@@ -15,34 +17,33 @@ export const convertToCategoryList = (tableData: any) => {
 
 export const convertToTagList = (stringTags: string[]) => {
   const tags = stringTags.map((tag: string) => {
-    const slug = tag.toLowerCase().replace(/ /g, "-")
+    const slug = tag.toLowerCase().replace(/ /g, '-')
     return {
       title: tag,
       slug: slug,
-      href: `/blog/tags/${slug}`
+      href: `/blog/tags/${slug}`,
     }
   })
 
   return tags
 }
 
-export const convertPost = (post: any, tags?: string[]) => {
+export const convertPost = (post: PostResponse, tags?: string[]) => {
   const tagList = tags || []
   return {
     category: {
-      coverImage: "https://placekitten.com/800/600",
+      coverImage: 'https://placekitten.com/800/600',
       id: post.category.id,
       slug: post.category.slug,
       title: post.category.title,
       notionId: post.category.notion_id,
-      href: `/blog/categories/${post.category.slug}`
+      href: `/blog/categories/${post.category.slug}`,
     },
     content: post.content,
-    coverImage: "https://placekitten.com/800/600",
+    coverImage: 'https://placekitten.com/800/600',
     description: post.description,
     id: post.id,
     href: `/blog/${post.slug}`,
-    language: post.language,
     lastEdited: post.last_edited,
     metaDescription: post.meta_description,
     metaKeywords: post.meta_keywords,
@@ -59,13 +60,13 @@ export const convertPost = (post: any, tags?: string[]) => {
       }
       return { name: tag }
     }),
-    title: post.title
+    title: post.title,
   }
 }
 
-export const convertToPostList = (tableData: any) => {
+export const convertToPostList = (tableData: PostResponse[]) => {
   let tags: string[] = []
-  const posts = tableData.map((post: any) => {
+  const posts = tableData.map((post: PostResponse) => {
     return convertPost(post, tags)
   })
 

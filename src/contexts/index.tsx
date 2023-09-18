@@ -1,22 +1,17 @@
-import { createContext, Dispatch, useEffect, useReducer, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { createContext, Dispatch, useEffect, useReducer, useRef } from 'react'
 
 import { Action, actions, initialState, reducer, State } from './store'
 
 export const PostsStateContext = createContext<State>(initialState)
-export const PostsDispatchContext = createContext<Dispatch<Action> | null>(
-  null
-)
+export const PostsDispatchContext = createContext<Dispatch<Action> | null>(null)
 
 interface PostsProviderProps {
   children: React.ReactNode
   value: { fallback?: any; fallbackState?: any }
 }
 
-export const PostsProvider = ({
-  children,
-  value,
-}: PostsProviderProps) => {
+export const PostsProvider = ({ children, value }: PostsProviderProps) => {
   const { fallbackState } = value
   const router = useRouter()
   const [state, dispatch] = useReducer(reducer, {
@@ -36,7 +31,6 @@ export const PostsProvider = ({
         actions(dispatch).setPost(initialState.post)
       }
     }
-
   }, [])
 
   useEffect(() => {
@@ -47,7 +41,7 @@ export const PostsProvider = ({
     if (post.slug) {
       router.push(`/blog/${post.slug}`)
     } else {
-      router.replace("/blog")
+      router.replace('/blog')
     }
   }, [post.slug])
 

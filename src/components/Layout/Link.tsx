@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading, jsx-a11y/anchor-has-content */
-import React from 'react'
-import NextLink from 'next/link'
 import clsx from 'clsx'
+import NextLink from 'next/link'
+import React from 'react'
 import { FaSquareUpRight } from 'react-icons/fa'
 
 export type LinkThemeProps = {
@@ -11,10 +11,14 @@ export type LinkThemeProps = {
 
 type LinkTheme = {
   variant: {
-    [K in keyof { [x: string]: LinkThemeProps } as LinkThemeProps['variant']]: string
+    [K in keyof {
+      [x: string]: LinkThemeProps
+    } as LinkThemeProps['variant']]: string
   }
   size: {
-    [K in keyof { [LinkThemeProps: string]: LinkThemeProps } as LinkThemeProps['size']]: string
+    [K in keyof {
+      [LinkThemeProps: string]: LinkThemeProps
+    } as LinkThemeProps['size']]: string
   }
 }
 
@@ -73,9 +77,27 @@ export type LinkProps = {
   showExternal?: boolean
 }
 
-export const Link = React.forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>(
-  ({ variant = 'default', size = 'md', className = '', showExternal = true, href, ...props }, ref) => {
-    const newClassName = clsx(linkTheme.variant[variant], linkTheme.size[size], variantSizes[variant][size], className)
+export const Link = React.forwardRef<
+  HTMLAnchorElement,
+  React.PropsWithChildren<LinkProps>
+>(
+  (
+    {
+      variant = 'default',
+      size = 'md',
+      className = '',
+      showExternal = true,
+      href,
+      ...props
+    },
+    ref,
+  ) => {
+    const newClassName = clsx(
+      linkTheme.variant[variant],
+      linkTheme.size[size],
+      variantSizes[variant][size],
+      className,
+    )
     const externalLink = href ? href.indexOf('http') === 0 : false
 
     if (externalLink) {
@@ -85,13 +107,15 @@ export const Link = React.forwardRef<HTMLAnchorElement, React.PropsWithChildren<
             {props.children}
             <FaSquareUpRight
               size={18}
-              className="ml-2 hidden sm:inline-block text-blue-600 dark:text-sky-100"
+              className='text-blue-600 dark:text-sky-100 ml-2 hidden sm:inline-block'
             />
           </a>
         )
       }
       return <a ref={ref} href={href} className={newClassName} {...props} />
     }
-    return <NextLink ref={ref} href={href} className={newClassName} {...props} />
+    return (
+      <NextLink ref={ref} href={href} className={newClassName} {...props} />
+    )
   },
 )

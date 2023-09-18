@@ -7,24 +7,9 @@ import type { PluginAPI } from 'tailwindcss/types/config'
 import hocus from 'tailwindcss-hocus'
 
 import { colors } from './config/tailwind/colors'
-import { fontSizes as fontSize } from './config/tailwind/font-sizes'
 
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
 const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
-
-const breakpoints = {
-  // xs: { max: '575px' },
-  // sm: { min: '576px', max: '897px' },
-  // md: { min: '898px', max: '1199px' },
-  // lg: { min: '1159px' },
-  // xl: { min: '1200px' },
-  // '2xl': { min: '1359px' },
-  // mobile: { max: '640px', min: '320px' },
-  // tablet: { max: '1024px', min: '641px' },
-  // laptop: { max: '1280px', min: '1025px' },
-  // desktop: { max: '1920px', min: '1281px' },
-  // fourk: { max: '2560px', min: '1921px' },
-}
 
 module.exports = {
   darkMode: 'class',
@@ -32,11 +17,7 @@ module.exports = {
   mode: 'jit',
   important: true,
   theme: {
-    // spacing: { ...spacing, '0': '0rem' },
-    // borderRadius: { ...spacing, none: '0rem', half: '50%', full: '9999px' },
     colors,
-    // fontSize,
-//    screens: breakpoints,
     extend: {
       fontSize: {
         md: '1rem',

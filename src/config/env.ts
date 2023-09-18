@@ -23,7 +23,8 @@ if (
   )
 }
 
-export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:5100' : siteUrl
+export const BASE_URL =
+  process.env.NODE_ENV === 'development' ? 'http://localhost:5100' : siteUrl
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 export const SITE_OWNER = siteOwner
 export const SITE_NAME = siteName

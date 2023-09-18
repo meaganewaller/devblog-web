@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { HiSparkles } from 'react-icons/hi'
 import tw, { styled } from 'twin.macro'
+import Link from 'next/link'
 
 const StyledHeader = styled.header`
   box-shadow:
@@ -38,8 +39,13 @@ export const DesktopNavItem = tw(motion.li)`
   relative z-10 overflow-visible font-mono
 `
 
+export const LogoContainer = tw(Link)`
+  inline-block h-full
+`
+
+// text-on-accent text-xl hover:text-gradient-yellow h-[32px]
 export const Logo = tw(HiSparkles)`
-  text-on-accent text-xl hover:text-gradient-yellow h-[32px]
+  h-[32px] text-on-accent hover:text-gradient-yellow text-xl
 `
 
 export const SvgBox = tw(motion.div)`

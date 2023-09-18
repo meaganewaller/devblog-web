@@ -1,7 +1,7 @@
 export const FooterDivider = () => (
-  <div className="bg-accent-dark mt-12 md:pt-4 pb-8">
-    <div className="h-16 md:h-24 lg:h-32 overflow-hidden md:-mt-[40px] relative rotate-180">
-      <div className="md:hidden bg-background absolute bottom-0 h-8 md:h-2 w-full" />
+  <div className='mt-12 bg-accent-dark pb-8 md:pt-4'>
+    <div className='relative h-16 rotate-180 overflow-hidden md:-mt-[40px] md:h-24 lg:h-32'>
+      <div className='absolute bottom-0 h-8 w-full bg-background md:hidden md:h-2' />
     </div>
   </div>
 )

@@ -20,7 +20,7 @@ const SecondMarquee = tw(Marquee)`
 
 export function Buttons() {
   return (
-    <div className='relative mt-[2rem] flex overflow-x-hidden motion-reduce:overflow-x-auto motion-reduce:before:hidden motion-reduce:after:hidden before:absolute before:left-0 before:z-10 before:h-full before:w-[15vw] before:bg-gradient-to-r before:from-gradient-purple before:to-transparent after:absolute after:right-0 after:h-full after:w-[15vw] after:bg-gradient-to-r after:from-transparent after:to-gradient-purple'>
+    <div className='relative mt-[2rem] flex overflow-x-hidden before:absolute before:left-0 before:z-10 before:h-full before:w-[15vw] before:bg-gradient-to-r before:from-gradient-purple before:to-transparent after:absolute after:right-0 after:h-full after:w-[15vw] after:bg-gradient-to-r after:from-transparent after:to-gradient-purple motion-reduce:overflow-x-auto motion-reduce:before:hidden motion-reduce:after:hidden'>
       <FirstMarquee>
         <ImageContainer
           src='/static/images/buttons/meaganwaller.gif'

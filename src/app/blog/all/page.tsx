@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { PostsList } from '@/components/Blog/PostsList'
-import BlogCallout from '@/components/Blog/BlogCallout'
+
 import { PostService } from '@/lib/api'
-import { convertToPostList } from '@/utils/blogs'
+
+import BlogCallout from '@/components/Blog/BlogCallout'
+import { PostsList } from '@/components/Blog/PostsList'
 
 export interface PageProps {
   params: {
@@ -21,18 +22,23 @@ export default async function BlogAllPage({ params: { page } }: PageProps) {
 
   return (
     <>
-      <p className="font-venice text-3xl md:text-4xl lg:text-6xl text-accent mb-2 flex flex-wrap items-baseline">
+      <p className='mb-2 flex flex-wrap items-baseline font-venice text-3xl text-accent md:text-4xl lg:text-6xl'>
         <span>
-          <Link href="/blog" className="underline hover:decoration-wavy">
+          <Link href='/blog' className='underline hover:decoration-wavy'>
             Blog
           </Link>
         </span>
-        <span className="text-2xl mx-2" />
+        <span className='mx-2 text-2xl' />
         <span>Everything</span>
       </p>
 
       <BlogCallout />
-      <PostsList posts={posts} page={currentPage} totalPages={totalPages} url="/blog/all" />
+      <PostsList
+        posts={posts}
+        page={currentPage}
+        totalPages={totalPages}
+        url='/blog/all'
+      />
     </>
   )
 }

@@ -1,7 +1,8 @@
 import { Dispatch } from 'react'
 
-import { Post } from '@/types'
 import { Action, ActionKind } from './reducer'
+
+import { Post } from '@/types'
 
 export const actions = (dispatch: Dispatch<Action>) => ({
   setQuery: (query: Record<string, any>) => {

@@ -1,10 +1,12 @@
-import va from "@vercel/analytics"
-import analyticsConfig from "@/config/analytics"
-import umami from "./umami"
+import va from '@vercel/analytics'
+
+import analyticsConfig from '@/config/analytics'
+
+import umami from './umami'
 
 const trackEvent = (
   eventName: string,
-  data?: Record<string, string | number | boolean | null>
+  data?: Record<string, string | number | boolean | null>,
 ) => {
   if (analyticsConfig.umami) {
     umami.trackEvent(eventName, data)

@@ -10,7 +10,7 @@ interface FramerMotionProviderProps {
 
 function FramerMotionProvider({ children }: FramerMotionProviderProps) {
   return (
-    <MotionProvider reducedMotion="user">
+    <MotionProvider reducedMotion='user'>
       <LazyMotion strict features={domAnimation}>
         {children}
       </LazyMotion>

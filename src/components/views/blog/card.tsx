@@ -1,6 +1,6 @@
 'use client'
-import React from 'react'
 import Image from 'next/image'
+import React from 'react'
 
 type Blog = {
   title: string
@@ -15,7 +15,7 @@ type Blog = {
 }
 
 type Props = Blog & {
-  post: Blog,
+  post: Blog
   category: {
     title: string
     slug: string
@@ -24,26 +24,36 @@ type Props = Blog & {
 
 export const BlogCard = ({ post, category }: Props) => {
   return (
-      <button className="mb-2 mt-2 card bg-tertiary-50 border inline-block w-full w-[150px] ml-0 mt-0 relative transition-[0.3s] border-solid border-secondary-600 hover:border hover:shadow-[0.5rem_0.5rem] hover:shadow-primary-200 hover:transition-[0.3s] hover:border-solid hover:border-primary-300" onClick={() => window.location.href = `/blog/${post.slug}`}>
-      <div className="w-auto h-[150px] overflow-hidden">
-        <Image src={post.coverImage} alt={post.title} width={600} height={400} className="max-w-full h-auto rounded-tl-md rounded-tr-md" />
+    <button
+      className='card bg-tertiary-50 border-secondary-600 hover:shadow-primary-200 hover:border-primary-300 relative mb-2 ml-0 mt-0 mt-2 inline-block w-[150px] w-full border border-solid transition-[0.3s] hover:border hover:border-solid hover:shadow-[0.5rem_0.5rem] hover:transition-[0.3s]'
+      onClick={() => (window.location.href = `/blog/${post.slug}`)}
+    >
+      <div className='h-[150px] w-auto overflow-hidden'>
+        <Image
+          src={post.coverImage}
+          alt={post.title}
+          width={600}
+          height={400}
+          className='h-auto max-w-full rounded-tl-md rounded-tr-md'
+        />
       </div>
-      <h3 className="text-neutral-dark font-bold leading-tight tracking-[1px] mb-2.5 p-2 text-lg">
+      <h3 className='text-neutral-dark mb-2.5 p-2 text-lg font-bold leading-tight tracking-[1px]'>
         {post.title}
       </h3>
-      <div className="card-content p-2 mb-10">
-        <p className="text-base text-start leading-normal mb-2.5 text-text break-words">
+      <div className='card-content mb-10 p-2'>
+        <p className='text-text mb-2.5 break-words text-start text-base leading-normal'>
           {post.description}
         </p>
       </div>
-      <div data-category={category} className="text-xs font-bold absolute text-center z-[2] px-[0.7rem] py-[0.4rem] right-0 bottom-0">
+      <div
+        data-category={category}
+        className='absolute bottom-0 right-0 z-[2] px-[0.7rem] py-[0.4rem] text-center text-xs font-bold'
+      >
         {category.title}
       </div>
-      <div className="card-footer">
-        <div className="card-footer-item">
-        </div>
+      <div className='card-footer'>
+        <div className='card-footer-item'></div>
       </div>
     </button>
   )
 }
-

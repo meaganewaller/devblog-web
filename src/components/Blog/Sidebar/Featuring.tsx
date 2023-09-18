@@ -1,16 +1,15 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 const Featuring = () => (
   <div>
-    <p className="font-venice text-4xl text-accent mb-4 underline underline-offset-4 decoration-accent-dark">
+    <p className='mb-4 font-venice text-4xl text-accent underline decoration-accent-dark underline-offset-4'>
       Featuring
     </p>
 
-    <div className="space-y-1">
+    <div className='space-y-1'>
       <Link
-        href="/blog/tags/highlights"
-        className="flex flex-row items-center hover:bg-accent rounded space-x-4 p-2"
+        href='/blog/tags/highlights'
+        className='flex flex-row items-center space-x-4 rounded p-2 hover:bg-accent'
       >
         {/* <Image src="/static/images/ui/highlights.gif" width={24} height={24} alt="Highlights" /> */}
       </Link>

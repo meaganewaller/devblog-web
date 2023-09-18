@@ -1,6 +1,9 @@
-import PostDetail from '@/components/Blog/PostDetail'
 import { Suspense } from 'react'
+
 import { PostService } from '@/lib/api'
+
+import PostDetail from '@/components/Blog/PostDetail'
+
 import { extendSEO } from '@/config/seo'
 
 type PageParam = {

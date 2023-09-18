@@ -15,7 +15,7 @@ export function CodeBlock({
       useInlineStyles={false}
       language={language}
       children={text}
-      style=""
+      style=''
       wrapLongLines
       {...rest}
     />

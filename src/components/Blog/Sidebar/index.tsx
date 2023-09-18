@@ -5,7 +5,7 @@ import Featuring from './Featuring'
 // import Workspaces from './Workspaces'
 
 const Sidebar = () => (
-  <div className="hidden md:block mt-12 md:mt-0 col-span-12 md:col-span-3 xl:col-span-2 space-y-8 max-w-[300px] p-2 md:p-0">
+  <div className='col-span-12 mt-12 hidden max-w-[300px] space-y-8 p-2 md:col-span-3 md:mt-0 md:block md:p-0 xl:col-span-2'>
     <Featuring />
     {/* <Projects /> */}
     {/* <Categories /> */}

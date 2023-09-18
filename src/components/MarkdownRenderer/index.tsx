@@ -20,10 +20,10 @@ function LinkRenderer({ href, ...rest }: any) {
     if (url.origin === 'https://meaganwaller.com') {
       return <Link href={href} {...rest} />
     }
-    return <a target="_blank" rel="noopener" href={href} {...rest} />
+    return <a target='_blank' rel='noopener' href={href} {...rest} />
   } catch (e) {
     console.error(e)
-    return <a target="_blank" rel="noopener" href={href} {...rest} />
+    return <a target='_blank' rel='noopener' href={href} {...rest} />
   }
 }
 
@@ -40,9 +40,9 @@ function getComponentsForVariant(variant) {
               language={language}
               {...props}
             />
-            ) : (
+          ) : (
             <>{children}</>
-            )
+          )
         },
         code({ node, inline, className, children, ...props }) {
           const language = /language-(\w+)/.exec(className || '')?.[1]
@@ -53,14 +53,14 @@ function getComponentsForVariant(variant) {
               {...props}
             />
           ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            )
+            <code className={className} {...props}>
+              {children}
+            </code>
+          )
         },
       }
     }
-     // Questions, comments, descriptions on bookmarks, etc.
+    // Questions, comments, descriptions on bookmarks, etc.
     case 'comment': {
       return {
         a: LinkRenderer,

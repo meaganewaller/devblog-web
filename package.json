@@ -94,6 +94,7 @@
     "swr": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "ts-pattern": "^5.0.5",
+    "ua-parser-js": "^1.0.36",
     "unified": "^11.0.2",
     "unist-util-visit": "^5.0.0",
     "usehooks-ts": "^2.9.1",

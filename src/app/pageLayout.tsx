@@ -14,4 +14,3 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
 }
 
 export default PageLayout
-

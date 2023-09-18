@@ -39,25 +39,19 @@ export function NewsletterForm({
   return (
     <div>
       <form
-        className='rounded-xl border-accent grid min-w-[500px] grid-rows-[1fr_1fr_auto] gap-4 border-2 border-solid p-8 shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)]'
+        className='grid min-w-[500px] grid-rows-[1fr_1fr_auto] gap-4 rounded-xl border-2 border-solid border-accent p-8 shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)]'
         onSubmit={subscribe}
       >
-        <h1>
-          {title}
-        </h1>
-        {subtitle && (
-          <p>
-            {subtitle}
-          </p>
-        )}
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
         <div className='grid grid-cols-[1fr_auto] gap-2'>
           <div className='grid gap-2'>
-            <label className='text-sm font-extra' htmlFor='email-input'>
+            <label className='font-extra text-sm' htmlFor='email-input'>
               Email address
             </label>
             <input
               autoComplete='email'
-              className='font-extra rounded-md border-accent border-2 text-accent focus:bg-background border-solid p-2 shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)] focus:outline-none'
+              className='rounded-md border-2 border-solid border-accent p-2 font-extra text-accent shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)] focus:bg-background focus:outline-none'
               id='email-input'
               name='email'
               placeholder={
@@ -70,21 +64,21 @@ export function NewsletterForm({
             />
           </div>
           <input
-            className='border-accent bg-background text-accent-dark font-extra rounded-md focus:bg-[var(--color-sunshine-yellow)] hover:bg-[var(--color-sunshine-yellow)] cursor-pointer justify-self-end border border-solid p-2 shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)]'
+            className='cursor-pointer justify-self-end rounded-md border border-solid border-accent bg-background p-2 font-extra text-accent-dark shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)] hover:bg-[var(--color-sunshine-yellow)] focus:bg-[var(--color-sunshine-yellow)]'
             type='submit'
             style={{ alignSelf: 'end' }}
             disabled={subscribed}
           />
         </div>
         <p
-          className='text-accent justify-self-end text-sm italic'
+          className='justify-self-end text-sm italic text-accent'
           style={{ alignSelf: 'end' }}
         >
           No spam. We'll never sell your email address.
         </p>
       </form>
       {error && (
-        <div className='text-[var(--color-deep-pink)] pt-2 text-sm'>
+        <div className='pt-2 text-sm text-[var(--color-deep-pink)]'>
           {message}
         </div>
       )}
@@ -92,8 +86,14 @@ export function NewsletterForm({
   )
 }
 
-export function BlogNewsletterForm({ title, subtitle }: { title: string[], subtitle: string }) {
-  <div className='flex items-center justify-center'>
+export function BlogNewsletterForm({
+  title,
+  subtitle,
+}: {
+  title: string[]
+  subtitle: string
+}) {
+  ;<div className='flex items-center justify-center'>
     <div className='bg-background px-14 py-8'>
       <NewsletterForm title={title} subtitle={subtitle} />
     </div>

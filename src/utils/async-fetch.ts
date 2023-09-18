@@ -6,7 +6,10 @@ type ExtendConfig = Config & {
   method?: 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE'
 }
 
-export const asyncFetchJSON = async <T = unknown>(url: string, config?: ExtendConfig) => {
+export const asyncFetchJSON = async <T = unknown>(
+  url: string,
+  config?: ExtendConfig,
+) => {
   try {
     const res = await axios<T>({
       url,

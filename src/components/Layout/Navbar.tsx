@@ -2,56 +2,56 @@
 
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { HiSparkles } from 'react-icons/hi'
 
 //
-// import {
+import {
 //   DesktopNav,
 //   DesktopNavItem,
 //   Header,
-//   Logo,
+  LogoContainer,
+  Logo,
 //   Nav,
 //   NavItem,
 //   NestedDesktopNav,
 //   SvgBox,
-// } from './Navbar.styles'
+} from './Navbar.styles'
 //
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [showNewsletterModal, setShowNewsletterModal] = useState(false)
-  const iconVariants = {
-    opened: {
-      rotate: 135,
-    },
-    closed: {
-      rotate: 0,
-    },
-  }
-
-  const menuVariants = {
-    opened: {
-      top: '32px',
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.05,
-      },
-    },
-    closed: {
-      top: '-100vh',
-    },
-  }
-
-  const linkVariants = {
-    opened: {
-      opacity: 1,
-      y: 50,
-    },
-    closed: {
-      opacity: 0,
-      y: 0,
-    },
-  }
-
+  // const [isOpen, setIsOpen] = useState(false)
+  // const [showNewsletterModal, setShowNewsletterModal] = useState(false)
+  // const iconVariants = {
+  //   opened: {
+  //     rotate: 135,
+  //   },
+  //   closed: {
+  //     rotate: 0,
+  //   },
+  // }
+  //
+  // const menuVariants = {
+  //   opened: {
+  //     top: '32px',
+  //     transition: {
+  //       when: 'beforeChildren',
+  //       staggerChildren: 0.05,
+  //     },
+  //   },
+  //   closed: {
+  //     top: '-100vh',
+  //   },
+  // }
+  //
+  // const linkVariants = {
+  //   opened: {
+  //     opacity: 1,
+  //     y: 50,
+  //   },
+  //   closed: {
+  //     opacity: 0,
+  //     y: 0,
+  //   },
+  // }
+  //
   return (
     <div>
       <nav className='fixed h-[32px] w-full rounded-t-md bg-toolbar'>
@@ -60,12 +60,9 @@ function Navbar() {
             <div className='flex flex-grow items-center justify-between'>
               <div className='flex-shrink-0'>
                 <h1 className='inline-block text-xl'>
-                  <Link
-                    className='inline-block h-full text-on-accent hover:text-gradient-yellow'
-                    href='/'
-                  >
-                    <HiSparkles className='h-[32px]' size={25} />
-                  </Link>
+                  <LogoContainer href='/'>
+                    <Logo size={20} />
+                  </LogoContainer>
                 </h1>
               </div>
               <div className='hidden lg:block'>

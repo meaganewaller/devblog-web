@@ -1,14 +1,15 @@
 'use client'
 
-import Link from 'next/link'
-import React from 'react'
-import { usePathname } from 'next/navigation'
-import { Category } from "@/types"
-import tw from 'twin.macro'
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import React from 'react'
+import tw from 'twin.macro'
+
 import SearchInput from './SearchInput'
 
-import clsx from 'clsx'
+import { Category } from '@/types'
 
 interface PageHeaderProps {
   title: string
@@ -104,7 +105,7 @@ const CategoryNavItemLink = tw(Link)`
 `
 
 export function Heading({ title, categories, onSearch }: PageHeaderProps) {
-  const resource = usePathname().split("/")[1]
+  const resource = usePathname().split('/')[1]
 
   const generateCategoryUrl = (categorySlug: string) => {
     return `${resource}/categories/${categorySlug}`
@@ -113,7 +114,12 @@ export function Heading({ title, categories, onSearch }: PageHeaderProps) {
   return (
     <>
       <HeadingWrapper>
-        <HeadingTitle className={clsx("blog-header", categories ? "" : "w-full text-center")}>
+        <HeadingTitle
+          className={clsx(
+            'blog-header',
+            categories ? '' : 'w-full text-center',
+          )}
+        >
           {title}
         </HeadingTitle>
         {categories && (
@@ -128,10 +134,10 @@ export function Heading({ title, categories, onSearch }: PageHeaderProps) {
           </CategoryNav>
         )}
       </HeadingWrapper>
-      <TagsWrapper className="banner">
+      <TagsWrapper className='banner'>
         <>
           {onSearch !== undefined && (
-            <div className="w-full">
+            <div className='w-full'>
               <SearchInput onSearch={onSearch} />
             </div>
           )}

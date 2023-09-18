@@ -1,11 +1,11 @@
 'use client'
 
-import React, { Suspense, useState, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 import { CategoryService } from '@/lib/api'
-import { convertToCategoryList } from '@/utils/blogs'
 
-import ResourceIndex from "@/layouts/ResourceIndex"
+import ResourceIndex from '@/layouts/ResourceIndex'
+import { convertToCategoryList } from '@/utils/blogs'
 
 function Categories() {
   const [categories, setCategories] = useState([])
@@ -19,7 +19,7 @@ function Categories() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <ResourceIndex
-        headingTitle={`All Categories`}
+        headingTitle={'All Categories'}
         categories={categories}
         resources={categories}
       />

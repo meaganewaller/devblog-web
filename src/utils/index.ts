@@ -1,5 +1,5 @@
 export * from './check-email'
-export * from './check-name'
 export * from './check-message'
+export * from './check-name'
 export * from './date'
 export * from './tw'

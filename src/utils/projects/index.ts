@@ -1,5 +1,7 @@
-export const convertToProjectList = (tableData: any) => {
-  const projects = tableData.map((project: any) => {
+import { ProjectResponse } from '@/types'
+
+export const convertToProjectList = (tableData: ProjectResponse[]) => {
+  const projects = tableData.map((project: ProjectResponse) => {
     return {
       contributors: project.contributors,
       creationDate: project.creation_date,
@@ -20,7 +22,7 @@ export const convertToProjectList = (tableData: any) => {
       tags: project.tags,
       title: project.title,
       slug: project.id,
-      coverImage: "https://placekitten.com/800/600",
+      coverImage: 'https://placekitten.com/800/600',
     }
   })
 

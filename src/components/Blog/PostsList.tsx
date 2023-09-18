@@ -1,8 +1,10 @@
 import { useMemo } from 'react'
-import { Post } from '@/types'
+
 import Pagination from '@/components/Layout/Pagination'
+
 import { PostLink } from './PostLink'
-import { PostService } from '@/lib/api'
+
+import { Post } from '@/types'
 
 interface PostsCountProps {
   posts: Post[]
@@ -11,12 +13,13 @@ interface PostsCountProps {
 
 export const PostsCount = ({ posts, year }: PostsCountProps) => {
   const count = useMemo(() => {
-    return posts.filter((a) => new Date(a.publishedDate).getFullYear() === year).length
+    return posts.filter((a) => new Date(a.publishedDate).getFullYear() === year)
+      .length
   }, [posts, year])
 
   return (
-    <span className="text-sm font-semibold text-accent block">
-      {count} post{count === 1 ? '' : 's' }
+    <span className='block text-sm font-semibold text-accent'>
+      {count} post{count === 1 ? '' : 's'}
     </span>
   )
 }
@@ -27,17 +30,25 @@ interface PostTimelineSeparatorProps {
   previousPost: Post | null
 }
 
-export const PostTimelineSeparator = ({ posts, currentPost, previousPost }: PostTimelineSeparatorProps) => {
+export const PostTimelineSeparator = ({
+  posts,
+  currentPost,
+  previousPost,
+}: PostTimelineSeparatorProps) => {
   const currentPostDate = new Date(currentPost.publishedDate)
   const currentPostYear = currentPostDate.getFullYear()
 
-  const previousPostDate = previousPost ? new Date(previousPost.publishedDate) : null
-  const previousPostYear = previousPostDate ? previousPostDate.getFullYear() : null
+  const previousPostDate = previousPost
+    ? new Date(previousPost.publishedDate)
+    : null
+  const previousPostYear = previousPostDate
+    ? previousPostDate.getFullYear()
+    : null
 
   if (!Number.isNaN(currentPostYear) && currentPostYear !== previousPostYear) {
     return (
-      <div className="mt-8 md:mt-12 flex justify-between items-baseline border-secondary-txt border-b-4">
-        <span className="text-accent-dark font-bold text-4xl font-venice">
+      <div className='mt-8 flex items-baseline justify-between border-b-4 border-secondary-txt md:mt-12'>
+        <span className='font-venice text-4xl font-bold text-accent-dark'>
           {currentPostYear}
         </span>
         <PostsCount posts={posts} year={currentPostYear} />
@@ -56,7 +67,13 @@ export interface PostTimelineProps {
   showSeparator?: boolean
 }
 
-export const PostsList = ({ posts, page = 1, totalPages = 1, url, showSeparator = true }: PostTimelineProps) => {
+export const PostsList = ({
+  posts,
+  page = 1,
+  totalPages = 1,
+  url,
+  showSeparator = true,
+}: PostTimelineProps) => {
   return (
     <div>
       {posts.map((post: Post, index: number) => (
@@ -72,7 +89,9 @@ export const PostsList = ({ posts, page = 1, totalPages = 1, url, showSeparator 
         </div>
       ))}
 
-      {page && totalPages && <Pagination page={page} totalPages={totalPages} url={url} />}
+      {page && totalPages && (
+        <Pagination page={page} totalPages={totalPages} url={url} />
+      )}
     </div>
   )
 }
