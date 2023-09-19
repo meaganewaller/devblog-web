@@ -7,13 +7,49 @@ const StyledHeader = styled.header`
   box-shadow:
     inset 1px 1px 0 var(--index-shadow-light),
     inset -1px -1px 0 var(--index-shadow-dark);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
   backdrop-filter: blur(4px);
+
+  ul ul {
+    top: -1000em;
+  }
+
+  ul ul ul {
+    @apply z-10;
+    border-radius: 0.25em;
+  }
+
+  button:hover,
+  button:focus,
+  a:hover,
+  a:focus,
+  li:hover,
+  li:hover > a,
+  li:focus-within > a {
+    @apply bg-shadow-purple;
+    outline: 0 none;
+  }
+
+  a:hover + ul,
+  a:focus + ul,
+  li:hover > ul,
+  li:focus > ul,
+  ul:focus-within {
+    @apply z-10;
+    top: 100%;
+  }
+
+  ul ul a:hover + ul,
+  ul ul a:focus + ul,
+  ul ul li:hover > ul,
+  ul ul ul:focus-within {
+    left: 100%;
+    top: -0.25em;
+    z-index: 100;
+  }
 `
 
 export const Header = tw(StyledHeader)`
-  fixed z-[3] bg-toolbar flex border-b border-solid border-b-inverse rounded-t-md text-on-accent justify-between lg:justify-start px-6 h-[32px] w-full items-center
+  fixed z-[3] bg-toolbar flex border-b border-solid border-b-inverse rounded-t-md text-on-accent justify-between md:justify-start px-6 h-[32px] w-full items-center
 `
 
 export const Nav = tw(motion.nav)`
@@ -29,14 +65,14 @@ const StyledDesktopNav = styled(motion.ul)`
 `
 
 export const DesktopNav = tw(StyledDesktopNav)`
-  hidden lg:flex flex-row z-10 items-center h-full overflow-visible
+  hidden md:flex flex-row z-10 items-center h-full overflow-visible md:px-3
 `
 export const NestedDesktopNav = tw(DesktopNav)`
-  bg-toolbar bg-opacity-95 flex-col left-0 absolute text-on-accent z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap -top-[1000em]
+  bg-toolbar bg-opacity-95 flex-col left-0 absolute text-on-accent z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap
 `
 
 export const DesktopNavItem = tw(motion.li)`
-  relative z-10 overflow-visible font-mono
+  relative z-10 overflow-visible font-mono text-on-accent cursor-default block text-sm py-1.5 px-2
 `
 
 export const LogoContainer = tw(Link)`
@@ -49,5 +85,5 @@ export const Logo = tw(HiSparkles)`
 `
 
 export const SvgBox = tw(motion.div)`
-  flex items-center justify-center h-full lg:hidden
+  flex items-center justify-center h-full md:hidden
 `
