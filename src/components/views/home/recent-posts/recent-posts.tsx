@@ -23,10 +23,11 @@ export function RecentPosts({ posts }: Props) {
       id='recent-posts-window'
       title='recent-posts.txt'
       x={size.width / 35}
-      y={200}
+      y={100}
       width={`${size.width / 2 < 520 ? size.width / 2 : 520}px`}
       zIndex='3'
       active={true}
+      draggable={size.width > 897}
     >
       <PostListContainer>
         <PostList>

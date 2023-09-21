@@ -18,7 +18,6 @@
     "src",
     "next-env.d.ts",
     "next.config.js",
-    "withTwin.js",
     "**/*.tsx",
     "**/*.ts",
     "**/*.js",

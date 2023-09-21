@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import Link from 'next/link'
 
 import { useWindowSize } from '@/hooks/use-window-size'
@@ -35,15 +37,18 @@ export function Connections() {
       link: 'https://www.dev.to/meaganewaller',
     },
   ]
+
   const size = useWindowSize()
 
   if (!size.width || !size.height) return null
+
   const windowWidth = (width: number) => {
     if (width <= 897) {
       return 300
     }
     return 650
   }
+
   return (
     <Window
       title='lets-connect.txt'
@@ -53,6 +58,7 @@ export function Connections() {
       zIndex='1'
       width={`${windowWidth(size.width)}px`}
       id='connections-window'
+      draggable={size.width > 897}
     >
       <ConnectionsContainer>
         {links.map((link) => (

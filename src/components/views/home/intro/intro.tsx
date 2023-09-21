@@ -21,11 +21,12 @@ export function Intro() {
     <Window
       title='about-meagan.txt'
       x={size.width / 2.45}
-      y={size.height / 12}
+      y={size.height / 100}
       width={`${size.width * 0.55}px`}
       zIndex='2'
       active={true}
       id='intro-window'
+      draggable={size.width > 897}
     >
       <IntroContainer>
         <IntroSparkles>
