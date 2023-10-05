@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { useMemo } from 'react'
-import { FaSquareUpRight, FaStar } from 'react-icons/fa'
+import { LiaExternalLinkAltSolid } from 'react-icons/lia'
+import { FaStar } from 'react-icons/fa'
 
 import { Link } from '@/components/Layout/Link'
 
@@ -19,7 +20,7 @@ export const PostLink = ({ post }: PostLinkProps) => {
   )
   const isHighlighted = useMemo(() => {
     return post.tags?.length && post.tags.length > 0
-      ? post.tags.map((t) => t.slug).indexOf('highlights') !== -1
+      ? post.tags.map((t) => t.name).indexOf('highlights') !== -1
       : false
   }, [post.tags])
 
@@ -40,7 +41,7 @@ export const PostLink = ({ post }: PostLinkProps) => {
               rel='noreferrer'
             >
               <span>{post.title}</span>
-              <FaSquareUpRight size={24} className='ml-2 inline max-w-[24px]' />
+              <LiaExternalLinkAltSolid size={24} className='ml-2 inline max-w-[24px]' />
               {isHighlighted && (
                 <FaStar size={24} className='ml-2 inline max-w-[24px]' />
               )}

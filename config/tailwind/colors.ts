@@ -4,6 +4,7 @@ type TransparencyColor = (typeof transparencyColors)[number]
 
 const normalColors = [
   'transparent',
+  'baby-pink',
   'background',
   'toolbar',
   'divider',

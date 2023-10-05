@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { Modal } from '@/components/Modal'
 import { NewsletterForm } from '../NewsletterForm'
+import ThemeToggle from './ThemeToggle'
 
 import {
   DesktopNav,
@@ -67,7 +68,7 @@ function Navbar() {
         <Link href='/'>
           <Logo size='20' />
         </Link>
-        <DesktopNav variants={menuVariants}>
+        <DesktopNav className='menubar' variants={menuVariants}>
           <DesktopNavItem className='align-middle'>
             Site
             <NestedDesktopNav>
@@ -75,10 +76,7 @@ function Navbar() {
                 <Link href='/start'>Start here</Link>
               </DesktopNavItem>
               <DesktopNavItem>
-                <button
-                  className='m-0 p-0'
-                  onClick={() => setShowNewsletterModal(true)}
-                >
+                <button className="p-0 m-0" onClick={() => setShowNewsletterModal(true)}>
                   Join the Newsletter
                 </button>
               </DesktopNavItem>
@@ -104,11 +102,8 @@ function Navbar() {
           <DesktopNavItem className='align-middle'>
             <Link href='/workspace'>Workspace</Link>
           </DesktopNavItem>
-          <DesktopNavItem className='align-middle'>
-            <Link href='/guestbook'>Guestbook</Link>
-          </DesktopNavItem>
         </DesktopNav>
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
         <SvgBox
           variants={iconVariants}
           animate={isOpen ? 'opened' : 'closed'}
@@ -131,6 +126,7 @@ function Navbar() {
       </Header>
 
       <Nav
+        className="z-[99]"
         initial={false}
         variants={menuVariants}
         animate={isOpen ? 'opened' : 'closed'}
@@ -155,7 +151,9 @@ function Navbar() {
             variants={linkVariants}
             whileHover={{ scale: 1.1 }}
           >
-            <Link href='/newsletter'>Join the Newsletter</Link>
+            <button className="p-0 m-0" onClick={() => setShowNewsletterModal(true)}>
+              Join the Newsletter
+            </button>
           </NavItem>
           <NavItem
             onClick={() => setIsOpen(!isOpen)}
@@ -184,13 +182,6 @@ function Navbar() {
             whileHover={{ scale: 1.1 }}
           >
             <Link href='/workspace'>Workspace</Link>
-          </NavItem>
-          <NavItem
-            onClick={() => setIsOpen(!isOpen)}
-            variants={linkVariants}
-            whileHover={{ scale: 1.1 }}
-          >
-            <Link href='/guestbook'>Guestbook</Link>
           </NavItem>
           <NavItem
             onClick={() => setIsOpen(!isOpen)}

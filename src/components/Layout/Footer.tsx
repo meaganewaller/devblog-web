@@ -30,13 +30,13 @@ const navigation = {
 
 export const Footer = () => {
   return (
-    <footer className='bg-background pt-4' aria-labelledby='footer-heading'>
+    <footer className='pt-4' aria-labelledby='footer-heading'>
       <h2 id='footer-heading' className='sr-only'>
         Footer
       </h2>
 
-      <div className='relative z-10 bg-[#78ab5e]'>
-        <div className='mx-auto max-w-7xl px-6 pb-8 lg:px-8'>
+      <div className='relative z-10'>
+        <div className='mx-auto w-full px-6 pb-8 lg:px-8'>
           <div className='md:flex md:items-center md:justify-between'>
             <div>
               <div className='mb-4'>
@@ -97,7 +97,7 @@ export const Footer = () => {
             </div>
             <div className='mt-4 flex flex-row justify-center space-x-4 text-right text-xl font-semibold md:mt-0 md:flex-col md:justify-end md:space-x-0'>
               <Link
-                href='/about'
+                href='/meagan'
                 className='hover:text-green-900 hover:border-green-900 flex-shrink rounded-lg border-2 border-transparent p-1'
               >
                 About
@@ -139,7 +139,7 @@ export const Footer = () => {
               ))}
             </div>
             <p className='mt-8 text-center text-xs leading-5 md:order-1 md:mt-0 md:text-left'>
-              &copy; 2001-{new Date().getFullYear()} Adam Fortuna
+              &copy; 2004-{new Date().getFullYear()} Meagan Waller
             </p>
           </div>
         </div>

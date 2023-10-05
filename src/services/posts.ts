@@ -10,5 +10,5 @@ export const getPost = async (id: string) => {
 
 export const getRecentPosts = async () => {
   const response = await apiClient.get('/posts?recent=true')
-  return response.data
+  return response.data.posts
 }

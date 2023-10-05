@@ -1,59 +1,22 @@
 import { motion } from 'framer-motion'
 import { HiSparkles } from 'react-icons/hi'
 import tw, { styled } from 'twin.macro'
-import Link from 'next/link'
 
 const StyledHeader = styled.header`
   box-shadow:
     inset 1px 1px 0 var(--index-shadow-light),
     inset -1px -1px 0 var(--index-shadow-dark);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   backdrop-filter: blur(4px);
-
-  ul ul {
-    top: -1000em;
-  }
-
-  ul ul ul {
-    @apply z-10;
-    border-radius: 0.25em;
-  }
-
-  button:hover,
-  button:focus,
-  a:hover,
-  a:focus,
-  li:hover,
-  li:hover > a,
-  li:focus-within > a {
-    @apply bg-shadow-purple;
-    outline: 0 none;
-  }
-
-  a:hover + ul,
-  a:focus + ul,
-  li:hover > ul,
-  li:focus > ul,
-  ul:focus-within {
-    @apply z-10;
-    top: 100%;
-  }
-
-  ul ul a:hover + ul,
-  ul ul a:focus + ul,
-  ul ul li:hover > ul,
-  ul ul ul:focus-within {
-    left: 100%;
-    top: -0.25em;
-    z-index: 100;
-  }
 `
 
 export const Header = tw(StyledHeader)`
-  fixed z-[3] bg-toolbar flex border-b border-solid border-b-inverse rounded-t-md text-on-accent justify-between md:justify-start px-6 h-[32px] w-full items-center
+  z-[100] w-full bg-toolbar flex border-b border-solid border-b-primary-txt justify-between sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
 `
 
 export const Nav = tw(motion.nav)`
-  h-[100vh] overflow-y-auto w-[100vw] bg-accent z-[10] flex items-center justify-evenly fixed top-0 flex-col
+  h-[100vh] overflow-y-auto w-[100vw] bg-accent z-[2] flex items-center justify-evenly fixed top-0 flex-col
 `
 
 export const NavItem = tw(motion.li)`
@@ -65,25 +28,21 @@ const StyledDesktopNav = styled(motion.ul)`
 `
 
 export const DesktopNav = tw(StyledDesktopNav)`
-  hidden md:flex flex-row z-10 items-center h-full overflow-visible md:px-3
+  hidden sm:flex flex-row place-self-start list-none m-0 p-0 pt-[1px] z-10 overflow-visible
 `
+
 export const NestedDesktopNav = tw(DesktopNav)`
-  bg-toolbar bg-opacity-95 flex-col left-0 absolute text-on-accent z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap
+  bg-toolbar bg-opacity-95 flex-col left-0 absolute text-on-accent z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap -top-[1000em]
 `
 
 export const DesktopNavItem = tw(motion.li)`
-  relative z-10 overflow-visible font-mono text-on-accent cursor-default block text-sm py-1.5 px-2
+  relative z-10 overflow-visible font-mono
 `
 
-export const LogoContainer = tw(Link)`
-  inline-block h-full
-`
-
-// text-on-accent text-xl hover:text-gradient-yellow h-[32px]
 export const Logo = tw(HiSparkles)`
-  h-[32px] text-on-accent hover:text-gradient-yellow text-xl
+  text-on-accent text-xl hover:text-gradient-yellow
 `
 
 export const SvgBox = tw(motion.div)`
-  flex items-center justify-center h-full md:hidden
+  sm:hidden
 `

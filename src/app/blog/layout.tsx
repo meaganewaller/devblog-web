@@ -1,8 +1,3 @@
-// 'use client'
-
-// import { motion } from 'framer-motion'
-// import tw, { styled } from 'twin.macro'
-
 import PostSidebar from '@/components/Blog/Sidebar'
 import { Container } from '@/components/Layout/Container'
 
@@ -22,15 +17,3 @@ const BlogLayout = ({ children }: { children: React.ReactNode }) => {
 }
 
 export default BlogLayout
-
-// export default function BlogLayout({ children }: { children: React.ReactNode }) {
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0 }}
-//       animate={{ opacity: 1 }}
-//       exit={{ opacity: 0 }}
-//     >
-//       {children}
-//     </motion.div>
-//   )
-// }

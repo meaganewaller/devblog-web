@@ -39,10 +39,10 @@ export function NewsletterForm({
   return (
     <div>
       <form
-        className='grid min-w-[500px] grid-rows-[1fr_1fr_auto] gap-4 rounded-xl border-2 border-solid border-accent p-8 shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)]'
+        className='grid min-w-[80%] grid-rows-[1fr_1fr_auto] gap-4 rounded-xl border-2 border-solid border-accent p-10 shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)]'
         onSubmit={subscribe}
       >
-        <h1>{title}</h1>
+        <h1 className="text-center">{title}</h1>
         {subtitle && <p>{subtitle}</p>}
         <div className='grid grid-cols-[1fr_auto] gap-2'>
           <div className='grid gap-2'>
@@ -51,7 +51,7 @@ export function NewsletterForm({
             </label>
             <input
               autoComplete='email'
-              className='rounded-md border-2 border-solid border-accent p-2 font-extra text-accent shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)] focus:bg-background focus:outline-none'
+              className='rounded-md border-2 border-solid border-accent p-2 font-extra text-accent shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)] focus:bg-background focus:outline-none'
               id='email-input'
               name='email'
               placeholder={
@@ -64,7 +64,7 @@ export function NewsletterForm({
             />
           </div>
           <input
-            className='cursor-pointer justify-self-end rounded-md border border-solid border-accent bg-background p-2 font-extra text-accent-dark shadow-[0_0_var(--color-sunshine-yellow),0_0_var(--color-sunshine-yellow),2px_2px_var(--color-sunshine-yellow)] hover:bg-[var(--color-sunshine-yellow)] focus:bg-[var(--color-sunshine-yellow)]'
+            className='cursor-pointer justify-self-end rounded-md border border-solid border-accent bg-background p-2 font-extra text-accent-dark shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)] hover:bg-[var(--color-light-peach)] focus:bg-[var(--color-light-peach)]'
             type='submit'
             style={{ alignSelf: 'end' }}
             disabled={subscribed}

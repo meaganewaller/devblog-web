@@ -4,7 +4,7 @@
 }
 
 .modal-container {
-  @apply relative flex max-w-2xl flex-col items-center p-10 shadow-2xl shadow-accent bg-background;
+  @apply relative flex max-w-2xl w-[90%] flex-col items-center p-10 shadow-2xl shadow-accent bg-background;
   border-radius: 25px;
 }
 

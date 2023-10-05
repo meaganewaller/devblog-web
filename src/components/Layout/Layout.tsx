@@ -8,7 +8,7 @@ export default function Layout(props: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   return (
-    <div className='flex min-h-screen flex-col'>
+    <div className='flex min-h-screen flex-col mt-14'>
       <motion.main
         key={pathname}
         initial={{ opacity: 0 }}

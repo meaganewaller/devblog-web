@@ -65,6 +65,8 @@ export interface PostTimelineProps {
   totalPages?: number
   url: string
   showSeparator?: boolean
+  previousPostUrl?: string
+  pagination: string[]
 }
 
 export const PostsList = ({
@@ -72,7 +74,9 @@ export const PostsList = ({
   page = 1,
   totalPages = 1,
   url,
+  previousPostUrl,
   showSeparator = true,
+  pagination
 }: PostTimelineProps) => {
   return (
     <div>
@@ -90,7 +94,7 @@ export const PostsList = ({
       ))}
 
       {page && totalPages && (
-        <Pagination page={page} totalPages={totalPages} url={url} />
+        <Pagination series={pagination} page={page} totalPages={totalPages} url={url} previousPostUrl={previousPostUrl} />
       )}
     </div>
   )

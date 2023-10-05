@@ -21,7 +21,7 @@ export default async function PostPage(props: PageParam) {
 }
 
 export async function generateMetadata({ params }: PageParam) {
-  const post = await PostService.getById(params.slug)
+  const post = await PostService.getBySlug(params.slug)
 
   return extendSEO({
     title: post.title,

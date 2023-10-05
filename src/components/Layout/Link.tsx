@@ -2,7 +2,7 @@
 import clsx from 'clsx'
 import NextLink from 'next/link'
 import React from 'react'
-import { FaSquareUpRight } from 'react-icons/fa'
+import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 
 export type LinkThemeProps = {
   variant: 'default' | 'none' | 'header' | 'info' | 'tag' | 'button'
@@ -105,7 +105,7 @@ export const Link = React.forwardRef<
         return (
           <a ref={ref} href={href} className={newClassName} {...props}>
             {props.children}
-            <FaSquareUpRight
+            <LiaExternalLinkAltSolid
               size={18}
               className='text-blue-600 dark:text-sky-100 ml-2 hidden sm:inline-block'
             />

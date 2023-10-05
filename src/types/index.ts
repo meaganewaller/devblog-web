@@ -1,16 +1,16 @@
 export interface Link {
-  url: string
-  title: string
   target?: string
+  title: string
+  url: string
 }
 
 export interface CategoryResponse {
-  id: string
-  title: string
-  description: string
   cover_image: string
-  slug: string
+  description: string
+  id: string
   notion_id?: string
+  slug: string
+  title: string
 }
 
 export interface PostResponse {
@@ -19,84 +19,84 @@ export interface PostResponse {
   cover_image: string
   description: string
   id: string
-  slug: string
   last_edited: string
   meta_description: string
   meta_keywords: string
   notion_id: string
-  published_date?: string
   published: boolean
+  published_date?: string
+  slug: string
   status: string
   tags: string[]
   title: string
 }
 
 export interface GuestbookResponse {
-  id: string
-  name: string
   email: string
-  published_date: string
+  id: string
   message: string
+  name: string
+  published_date: string
 }
 
 export interface ProjectResponse {
-  title: string
-  description: string
-  repository_url: string
-  homepage_url: string
-  tags: string[]
   contributors: string[]
-  license: string
+  cover_image: string
   creation_date: string
-  last_update: string
-  difficulty_level: string
-  documentation_url: string
   demo_screenshot_urls: string[]
+  description: string
+  difficulty_evel: string
+  difficulty_level: string
+  documentation_rl: string
+  documentation_url: string
   featured: boolean
-  status: string
+  framework: string
+  homepage_url: string
+  id: string
+  language: string
+  last_update: string
+  license: string
   open_issues: number
   pull_requests: number
-  language: string
-  framework: string
-  difficulty_evel: string
-  documentation_rl: string
+  repository_url: string
   slug: string
-  id: string
-  cover_image: string
+  status: string
+  tags: string[]
+  title: string
 }
 
 export interface Project {
-  title: string
-  description: string
-  repositoryUrl: string
-  homepageUrl: string
-  tags: string[]
   contributors: string[]
-  license: string
+  coverImage: string
   creationDate: string
-  lastUpdate: string
   demoScreenshotUrls: string[]
-  featured: boolean
-  status: string
-  openIssues: number
-  pullRequests: number
-  language: string
-  framework: string
+  description: string
   difficultyLevel: string
   documentationUrl: string
+  featured: boolean
+  framework: string
+  homepageUrl: string
+  language: string
+  lastUpdate: string
+  license: string
+  openIssues: number
+  pullRequests: number
+  repositoryUrl: string
   slug: string
-  coverImage: string
+  status: string
+  tags: string[]
+  title: string
 }
 
 export interface Category {
+  count?: number
+  coverImage?: string
+  description?: string
+  href: string
   id: string
+  notionId?: string
   slug: string
   title: string
-  description?: string
-  coverImage: string
-  count?: number
-  notionId: string
-  href: string
 }
 
 export interface Post {
@@ -105,6 +105,7 @@ export interface Post {
   content: string
   coverImage: string
   description: string
+  external?: boolean
   href: string
   id: string
   isPublic: boolean
@@ -127,12 +128,12 @@ export interface Tag {
 }
 
 export interface Resource {
-  slug: string
-  href: string
-  description?: string
-  title: string
-  coverImage?: string
   category?: Category
+  coverImage?: string
+  description?: string
+  href: string
+  slug: string
+  title: string
 }
 
 export interface Webmention {
@@ -141,27 +142,27 @@ export interface Webmention {
 }
 
 interface Avatar {
+  height?: number
   url: string
   width?: number
-  height?: number
 }
 
 export interface Author {
-  url?: string
-  name: string
   avatar: Avatar
+  name: string
+  url?: string
 }
 
 export type CommentType = 'mention' | 'comment' | 'like' | 'repost'
 export interface Comment {
   author: Author
   content: string
-  id: number
   date: string
+  id: number
+  replies: Comment[]
+  root: boolean
   type: CommentType
   webmention: Webmention
-  root: boolean
-  replies: Comment[]
 }
 
 export type Children = {
