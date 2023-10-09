@@ -1,27 +1,22 @@
 import Script from 'next/script'
-import '@/styles/globals.scss'
-
-import Layout from '@/components/Layout'
+import { Providers } from '@/providers'
 import Navbar from '@/components/Layout/Navbar'
 import Toaster from '@/components/Toaster'
-
-import { Providers } from '@/providers'
+import '@/styles/globals.scss'
 import GlobalStyles from '@/styles/GlobalStyles'
 
-type RootLayoutProps = {
+export interface LayoutProps {
   children: React.ReactNode
 }
-const RootLayout = (props: RootLayoutProps) => {
-  const { children } = props
 
+export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html suppressHydrationWarning lang='en-US'>
-      <head />
-      <body className='debug-screens'>
+    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] font-sans`}>
+      <body className="debug-screens flex flex-col">
         <Providers>
           <GlobalStyles />
           <Navbar />
-          <Layout>{children}</Layout>
+          <main className="mt-12">{children}</main>
           <Toaster />
         </Providers>
         <Script
@@ -38,5 +33,3 @@ const RootLayout = (props: RootLayoutProps) => {
     </html>
   )
 }
-
-export default RootLayout

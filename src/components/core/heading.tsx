@@ -33,7 +33,7 @@ const HeadingWrapper = tw(motion.div)`
   rounded-t-lg
   max-w-[96%]
   w-full
-  xs:flex-col
+  flex-col
   sm:flex-col
 `
 
@@ -48,7 +48,7 @@ const HeadingTitle = tw.h1`
 `
 // className={`xs:hidden sm:grid banner h-[35px] max-w-full bg-[var(--color-baby-pink)] mx-auto border-t-2 border-x-2 border-solid border-[var(--color-cotton-candy)] relative grid grid-cols-[70px_1fr_150px] items-center px-[2em] py-0 border-2 before:content-[""] before:absolute before:block before:w-5 before:h-5 before:bg-accent before:-z-1 before:-left-0.5 before:-top-5 after:content-[""] after:absolute afer:block after:w-5 after:h-5 after:bg-accent after:-z-1 after:-right-0.5 after:-top-5`}>
 const TagsWrapper = tw(motion.div)`
-  xs:hidden
+  hidden
   sm:hidden
   grid
   h-[35px]
@@ -75,7 +75,7 @@ const CategoryNav = tw(motion.ul)`
   grid
   grid-cols-[repeat(2,max-content)]
   mt-2
-  xs:hidden
+  hidden
 `
 const CategoryNavItem = tw(motion.li)`
   bg-[var(--color-soft-blue)]

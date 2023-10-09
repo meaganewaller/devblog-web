@@ -7,7 +7,7 @@ const GlobalHead = () => {
       <link
         rel='alternate'
         type='application/rss+xml'
-        href='https://feeds.feedburner.com/adamfortuna'
+        href='https://feeds.feedburner.com/meaganewaller'
       />
       <link href='https://github.com/meaganewaller' rel='me' />
       <link

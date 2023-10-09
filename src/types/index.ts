@@ -1,3 +1,5 @@
+import { IReadTimeResults } from "reading-time"
+
 export interface Link {
   target?: string
   title: string
@@ -16,10 +18,11 @@ export interface CategoryResponse {
 export interface PostResponse {
   category: CategoryResponse
   content: string
+  comment_count: string
   cover_image: string
   description: string
   id: string
-  last_edited: string
+  notion_updated_at: string
   meta_description: string
   meta_keywords: string
   notion_id: string
@@ -86,6 +89,7 @@ export interface Project {
   status: string
   tags: string[]
   title: string
+  external: boolean
 }
 
 export interface Category {
@@ -99,8 +103,16 @@ export interface Category {
   title: string
 }
 
+export interface ReadingTime {
+  text: string
+  minutes: number
+  time: number
+  words: number
+}
+
 export interface Post {
   allowComments?: boolean
+  commentCount: number
   category: Category
   content: string
   coverImage: string
@@ -111,12 +123,12 @@ export interface Post {
   isPublic: boolean
   language?: string
   lastEdited: string
-  metaDescription: string
-  metaKeywords: string[]
+  metaDescription?: string
+  metaKeywords?: string
   notionId: string
   published: boolean
-  publishedDate: string
-  readingTime?: number
+  publishedDate?: string
+  readingTime?: ReadingTime
   slug: string
   status: string
   tags: Tag[]
@@ -167,4 +179,22 @@ export interface Comment {
 
 export type Children = {
   children: React.ReactNode
+}
+
+export type Reactions = {
+  like_count: number
+  love_count: number
+  til_count: number
+  haha_count: number
+  wow_count: number
+  sparkle_count: number
+}
+
+export enum ReactionType {
+  LIKED,
+  LOVED,
+  LEARNED,
+  LAUGHED,
+  WOWED,
+  SPARKLED,
 }

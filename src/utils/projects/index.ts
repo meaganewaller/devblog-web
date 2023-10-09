@@ -19,10 +19,11 @@ export const convertToProjectList = (tableData: ProjectResponse[]) => {
       pullRequests: project.pull_requests,
       repositoryUrl: project.repository_url,
       status: project.status,
-      tags: project.tags,
+      tags: project.tags || [],
       title: project.title,
       slug: project.id,
       coverImage: 'https://placekitten.com/800/600',
+      external: false,
     }
   })
 

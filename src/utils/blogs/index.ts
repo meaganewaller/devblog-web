@@ -1,4 +1,5 @@
-import { CategoryResponse, PostResponse } from '@/types'
+import { CategoryResponse, PostResponse, Category } from '@/types'
+import readingTime from 'reading-time'
 
 export const convertToCategoryList = (tableData: CategoryResponse[]) => {
   const categories = tableData.map((category: CategoryResponse) => {
@@ -36,20 +37,22 @@ export const convertPost = (post: PostResponse, tags?: string[]) => {
       id: post.category.id,
       slug: post.category.slug,
       title: post.category.title,
-    },
+    } as Category,
     content: post.content,
+    commentCount: Number(post.comment_count),
     coverImage: 'https://placekitten.com/800/600',
     description: post.description,
     external: false,
     href: `/blog/${post.slug}`,
     id: post.id,
     isPublic: post.published_date !== null,
-    lastEdited: post.last_edited,
+    lastEdited: post.notion_updated_at,
     metaDescription: post.meta_description,
     metaKeywords: post.meta_keywords,
     notionId: post.notion_id,
     published: post.published,
     publishedDate: post.published_date,
+    readingTime: readingTime(post.content),
     slug: post.slug,
     status: post.status,
     tags: post.tags.map((tag: string) => {

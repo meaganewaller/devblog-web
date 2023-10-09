@@ -39,8 +39,19 @@ const Featuring = () => (
           <span className="text-accent font-semibold group-hover:italic">People are talkin' about these.</span>
         </div>
       </Link>
+
+      <Link
+        href="/blog"
+        className="flex flex-row items-center group hover:bg-baby-pink rounded-md space-x-4 p-2 font-mono"
+      >
+        <Image src="/static/images/ui/notepad.svg" width={40} height={40} alt="Archive"></Image>
+        <div className="flex flex-col">
+          <span className="font-bold text-xl text-accent-dark group-hover:italic">Archive</span>
+          <span className="text-accent font-semibold group-hover:italic">Something for everyone.</span>
+        </div>
+      </Link>
     </div>
-  </div >
+  </div>
 )
 
 export default Featuring

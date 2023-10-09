@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
-import { BiLogoMastodon } from 'react-icons/bi'
 import { MdAlternateEmail } from 'react-icons/md'
 
 const navigation = {
@@ -11,18 +10,13 @@ const navigation = {
       icon: AiFillGithub,
     },
     {
-      name: 'Mastodon',
-      href: 'https://mastodon.social/@meaganewaller',
-      icon: BiLogoMastodon,
-    },
-    {
       name: 'Twitter',
       href: 'https://twitter.com/meaganewaller',
       icon: AiOutlineTwitter,
     },
     {
       name: 'Email',
-      href: 'mailto:3Tg9z@example.com',
+      href: 'mailto:meagan@meaganwaller.com',
       icon: MdAlternateEmail,
     },
   ],
@@ -38,12 +32,12 @@ export const Footer = () => {
       <div className='relative z-10'>
         <div className='mx-auto w-full px-6 pb-8 lg:px-8'>
           <div className='md:flex md:items-center md:justify-between'>
-            <div>
+            <div className="bg-accent p-3 rounded-lg">
               <div className='mb-4'>
-                <h3 className='text-gray-900 text-sm font-semibold leading-6'>
+                <h3 className='text-on-accent text-sm font-semibold leading-6'>
                   Subscribe to new posts
                 </h3>
-                <p className='text-gray-800 text-sm leading-6'>
+                <p className='text-on-accent text-sm leading-6'>
                   Twice a month on average. Seriously, that's it.
                 </p>
               </div>
@@ -73,13 +67,13 @@ export const Footer = () => {
                   id='email'
                   autoComplete='email'
                   required
-                  className='text-gray-900 w-full min-w-0 appearance-none rounded-md border-transparent bg-[#9fca75] px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-base leading-7 placeholder-[#274928] shadow-sm  sm:w-56 sm:text-sm sm:leading-6'
+                  className='focus-visible:outline-on-accent text-accent-dark w-full min-w-0 appearance-none rounded-md border-transparent bg-on-accent px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-base leading-7 placeholder-tertiary-txt shadow-sm  sm:w-56 sm:text-sm sm:leading-6'
                   placeholder='Enter your email'
                 />
                 <div className='mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0'>
                   <button
                     type='submit'
-                    className='text-yellow-800 hover:bg-orange-300 focus-visible:outline-yellow-600 flex w-full items-center justify-center rounded-md bg-[#f3ce84] px-3 py-1.5 text-base font-semibold leading-7 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-sm sm:leading-6'
+                    className='text-on-accent hover:bg-on-accent hover:text-accent focus-visible:outline-on-accent flex w-full items-center justify-center rounded-md bg-accent-dark px-3 py-1.5 text-base font-semibold leading-7 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-sm sm:leading-6'
                   >
                     Subscribe
                   </button>
@@ -87,8 +81,8 @@ export const Footer = () => {
               </form>
 
               <a
-                className='text-yellow-800 hover:bg-orange-300 focus-visible:outline-yellow-600 mt-8 flex w-full items-center justify-center space-x-4 rounded-md bg-[#f3ce84] px-3 py-1.5 text-base font-semibold leading-7 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-sm sm:leading-6'
-                href='https://feeds.feedburner.com/adamfortuna'
+                className='text-on-accent hover:text-accent hover:bg-on-accent focus-visible:outline-on-accent mt-8 flex w-full items-center justify-center space-x-4 rounded-md bg-accent-dark px-3 py-1.5 text-base font-semibold leading-7 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-sm sm:leading-6'
+                href='https://feeds.feedburner.com/meaganwaller'
                 target='_blank'
                 rel='noreferrer'
               >
@@ -98,41 +92,41 @@ export const Footer = () => {
             <div className='mt-4 flex flex-row justify-center space-x-4 text-right text-xl font-semibold md:mt-0 md:flex-col md:justify-end md:space-x-0'>
               <Link
                 href='/meagan'
-                className='hover:text-green-900 hover:border-green-900 flex-shrink rounded-lg border-2 border-transparent p-1'
+                className='hover:text-accent hover:border-accent flex-shrink rounded-lg border-2 border-transparent p-1'
               >
                 About
               </Link>
               <Link
                 href='/projects'
-                className='hover:text-green-900 hover:border-green-900 flex-shrink rounded-lg border-2 border-transparent p-1'
+                className='hover:text-accent hover:border-accent flex-shrink rounded-lg border-2 border-transparent p-1'
               >
                 Projects
               </Link>
               <Link
                 href='/blog'
-                className='hover:text-green-900 hover:border-green-900 flex-shrink rounded-lg border-2 border-transparent p-1'
+                className='hover:text-accent hover:border-accent flex-shrink rounded-lg border-2 border-transparent p-1'
               >
                 Blog
               </Link>
               <Link
                 href='/now'
-                className='hover:text-green-900 hover:border-green-900 flex-shrink rounded-lg border-2 border-transparent p-1'
+                className='hover:text-accent hover:border-accent flex-shrink rounded-lg border-2 border-transparent p-1'
               >
                 Now
               </Link>
             </div>
           </div>
-          <div className='border-gray-900 mt-8 border-t pt-8 md:flex md:items-center md:justify-between'>
+          <div className='border-accent mt-8 border-t pt-8 md:flex md:items-center md:justify-between'>
             <div className='flex justify-center space-x-6 md:order-2 md:justify-end'>
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className='text-green-50 hover:text-green-200'
+                  className='text-accent-dark hover:text-accent'
                 >
                   <span className='sr-only'>{item.name}</span>
                   <item.icon
-                    className='fill-gray-900 hover:fill-green-800  h-6 w-6'
+                    className='fill-accent-dark hover:fill-accent  h-6 w-6'
                     aria-hidden='true'
                   />
                 </a>

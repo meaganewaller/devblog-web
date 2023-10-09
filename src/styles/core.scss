@@ -27,7 +27,7 @@ html,
 body {
   @apply overflow-x-hidden;
   scroll-behavior: smooth;
-  accent-color: var(--color-accent);
+  accent-color: rgba(var(--color-accent));
   border-radius: 0.25rem;
 }
 
@@ -59,7 +59,7 @@ button:focus {
 
 a.focus-visible,
 button:focus-visible {
-  outline: 2px dashed var(--color-secondary-txt);
+  outline: 2px dashed rgba(var(--color-secondary-txt));
   outline-offset: 3px;
 }
 
@@ -94,7 +94,7 @@ body {
 input[type='text'],
 input[type='email'] {
   appearance: none;
-  background: var(--color-background);
+  background: rgba(var(--color-background));
 }
 
 pre,
@@ -106,19 +106,19 @@ samp {
 }
 
 ::selection {
-  background-color: var(--color-selection);
+  background-color: rgba(var(--color-selection));
 }
 
 ::placeholder {
-  color: var(--color-tertiary-txt);
+  color: rgba(var(--color-tertiary-txt));
   opacity: 1;
 }
 :-ms-input-placeholder {
-  color: var(--color-tertiary-txt);
+  color: rgba(var(--color-tertiary-txt));
   opacity: 1;
 }
 ::-ms-input-placeholder {
-  color: var(--color-tertiary-txt);
+  color: rgba(var(--color-tertiary-txt));
   opacity: 1;
 }
 
@@ -159,7 +159,7 @@ samp {
 }
 
 *:focus {
-  outline: 2px dashed var(--color-secondary-txt);
+  outline: 2px dashed rgba(var(--color-secondary-txt));
   outline-offset: 0.25rem;
 }
 
@@ -192,10 +192,10 @@ body article {
     @apply font-extra uppercase tracking-[0.25em];
   }
   .progress {
-    @apply mb-[1em] flex w-full border-2 border-solid border-[color:var(--color-accent)];
+    @apply mb-[1em] flex w-full border-2 border-solid border-accent;
 
     div {
-      @apply bg-[color:var(--color-accent)] px-0 py-[1em] transition-[0.3s] ease-in;
+      @apply bg-accent px-0 py-[1em] transition-[0.3s] ease-in;
     }
   }
 }

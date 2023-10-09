@@ -80,7 +80,10 @@ export const PostsList = ({
 }: PostTimelineProps) => {
   return (
     <div>
-      {posts.map((post: Post, index: number) => (
+      {posts.length === 0 && (
+      <p>no posts found :(</p>
+      )}
+      {posts.length > 0 && posts.map((post: Post, index: number) => (
         <div key={`${post.slug}-${post.title}-${post.publishedDate}`}>
           {showSeparator && (
             <PostTimelineSeparator

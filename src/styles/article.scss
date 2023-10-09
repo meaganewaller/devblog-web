@@ -112,13 +112,13 @@ article.mdx-article {
 [data-rehype-pretty-code-fragment] [data-line-numbers] > .line,
 [data-rehype-pretty-code-fragment] [data-line-numbers] > [data-line] {
   &::before {
+    @apply text-tertiary-txt;
     counter-increment: line;
     content: counter(line);
     display: inline-block;
     width: 1rem;
     margin-right: 1rem;
     text-align: right;
-    color: var(--color-tertiary-txt);
   }
 }
 

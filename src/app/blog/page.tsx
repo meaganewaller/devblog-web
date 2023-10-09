@@ -7,10 +7,6 @@ import { PostsList } from "@/components/Blog/PostsList"
 import { Post } from '@/types'
 import { convertToPostList } from '@/utils/blogs'
 
-function parseTotalPages(postCount: number) {
-  return Math.ceil(postCount / 10)
-}
-
 export default async function BlogPage() {
   const searchParams = useSearchParams()
 

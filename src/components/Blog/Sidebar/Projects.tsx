@@ -8,7 +8,7 @@ const Projects = () => (
     </p>
     <div className="space-y-1">
       <Link
-        href="/projects/devblog"
+        href="/projects/dev-blog"
         className="flex flex-row items-center hover:bg-baby-pink group rounded-md space-x-4 p-2"
       >
         <Image src="/static/images/ui/25.svg" width={40} height={40} alt="Computer" />

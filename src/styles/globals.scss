@@ -30,35 +30,35 @@ html.dark-inverted {
 }
 
 .blog-header {
-  text-shadow:      0 0 0 var(--color-bubblegum),
-                    0 0 0 var(--color-bubblegum),
-                    0 0 0 var(--color-bubblegum),
-                  0 0 1px var(--color-bubblegum),
-                  0 0 1px var(--color-bubblegum),
-                  0 0 1px var(--color-bubblegum),
-               1px 0 20px var(--color-bubblegum),
-               1px 0 20px var(--color-bubblegum),
-               1px 0 20px var(--color-bubblegum),
-               1px 0 10px var(--color-bubblegum),
-               1px 0 10px var(--color-bubblegum),
-               1px 0 50px var(--color-bubblegum),
-               1px 0 50px var(--color-bubblegum)
+  text-shadow:      0 0 0 rgba(var(--color-bubblegum)),
+                    0 0 0 rgba(var(--color-bubblegum)),
+                    0 0 0 rgba(var(--color-bubblegum)),
+                  0 0 1px rgba(var(--color-bubblegum)),
+                  0 0 1px rgba(var(--color-bubblegum)),
+                  0 0 1px rgba(var(--color-bubblegum)),
+               1px 0 20px rgba(var(--color-bubblegum)),
+               1px 0 20px rgba(var(--color-bubblegum)),
+               1px 0 20px rgba(var(--color-bubblegum)),
+               1px 0 10px rgba(var(--color-bubblegum)),
+               1px 0 10px rgba(var(--color-bubblegum)),
+               1px 0 50px rgba(var(--color-bubblegum)),
+               1px 0 50px rgba(var(--color-bubblegum))
 }
 
 .blog-header:hover {
-  text-shadow:     0 0 0 var(--color-robins-egg-blue),
-                   0 0 0 var(--color-robins-egg-blue),
-                   0 0 0 var(--color-robins-egg-blue),
-                 0 0 1px var(--color-robins-egg-blue),
-                 0 0 1px var(--color-robins-egg-blue),
-                 0 0 1px var(--color-robins-egg-blue),
-              1px 0 20px var(--color-robins-egg-blue),
-              1px 0 20px var(--color-robins-egg-blue),
-              1px 0 20px var(--color-robins-egg-blue),
-              1px 0 10px var(--color-robins-egg-blue),
-              1px 0 10px var(--color-robins-egg-blue),
-              1px 0 50px var(--color-robins-egg-blue),
-              1px 0 50px var(--color-robins-egg-blue)
+  text-shadow:     0 0 0 rgba(var(--color-robins-egg-blue)),
+                   0 0 0 rgba(var(--color-robins-egg-blue)),
+                   0 0 0 rgba(var(--color-robins-egg-blue)),
+                 0 0 1px rgba(var(--color-robins-egg-blue)),
+                 0 0 1px rgba(var(--color-robins-egg-blue)),
+                 0 0 1px rgba(var(--color-robins-egg-blue)),
+              1px 0 20px rgba(var(--color-robins-egg-blue)),
+              1px 0 20px rgba(var(--color-robins-egg-blue)),
+              1px 0 20px rgba(var(--color-robins-egg-blue)),
+              1px 0 10px rgba(var(--color-robins-egg-blue)),
+              1px 0 10px rgba(var(--color-robins-egg-blue)),
+              1px 0 50px rgba(var(--color-robins-egg-blue)),
+              1px 0 50px rgba(var(--color-robins-egg-blue))
 }
 
 .banner {
@@ -67,7 +67,7 @@ html.dark-inverted {
 
 .banner::before,
 .banner::after {
-  @apply bg-accent dark:bg-[var(--color-bubblegum)];
+  @apply bg-accent dark:bg-bubblegum;
   content: "";
   position: absolute;
   display: block;
@@ -91,7 +91,7 @@ html.dark-inverted {
 }
 
 .card {
-  @apply row-[span_1] bg-[var(--color-light-lavender)] rounded-md border-solid border-[var(--color-soft-green)];
+  @apply row-[span_1] bg-light-lavender;
 
   &:hover h3 {
     @apply text-primary-txt transition-[0.3s];
@@ -99,43 +99,25 @@ html.dark-inverted {
 }
 
 [data-category="Tutorials & Guides"] {
-  @apply bg-[var(--color-deep-pink)] text-[var(--color-light-peach)] hover:bg-[var(--color-light-peach)] hover:text-[var(--color-deep-pink)];
+  @apply bg-deep-pink text-light-peach hover:bg-light-peach hover:text-deep-pink;
 }
 
 [data-category="Deep Dives"] {
-  @apply bg-[var(--color-deep-green)] text-[var(--color-soft-green)] hover:bg-[var(--color-soft-green)] hover:text-[var(--color-deep-green)];
+  @apply bg-deep-green text-soft-green hover:bg-soft-green hover:text-deep-green;
 }
 
 [data-category="How-to & Tips"] {
-  @apply bg-[var(--color-orchid)] text-[var(--color-royal-purple)] hover:bg-[var(--color-royal-purple)] hover:text-[var(--color-orchid)];
+  @apply bg-orchid text-royal-purple hover:bg-royal-purple hover:text-orchid;
 }
 
 [data-category="Professional Development"] {
-  @apply bg-[var(--color-sunflower-yellow)] text-[var(--color-vanilla)] hover:bg-[var(--color-vanilla)] hover:text-[var(--color-sunflower-yellow)]
+  @apply bg-sunflower-yellow text-vanilla hover:bg-vanilla hover:text-sunflower-yellow
 }
 
 [data-category="News & Updates"] {
-  @apply bg-[var(--color-deep-sky-blue)] text-[var(--color-light-sky-blue)] hover:bg-[var(--color-light-sky-blue)] hover:text-[var(--color-deep-sky-blue)];
+  @apply bg-deep-sky-blue text-light-sky-blue hover:bg-light-sky-blue hover:text-deep-sky-blue;
 }
 
 [data-category="Coding Challenges"] {
-  @apply bg-[var(--color-deep-purple)] text-[var(--color-lilac)] hover:bg-[var(--color-lilac)] hover:text-[var(--color-deep-purple)];
+  @apply bg-deep-purple text-lilac hover:bg-lilac hover:text-deep-purple;
 }
-
-
-//
-// [data-category="JavaScript & Frontend"] {
-//   @apply bg-yellow-200 text-yellow-700 rounded-br-md;
-// }
-//
-// [data-category="Experience"] {
-//   @apply bg-blue-200/80 text-blue-900 rounded-br-md;
-// }
-//
-// [data-category="Code Challenges"] {
-//   @apply bg-orange-200 text-orange-600 rounded-br-md;
-// }
-//
-// [data-category="Reviews"] {
-//   @apply bg-tertiary-300 text-tertiary-800 rounded-br-md;
-// }

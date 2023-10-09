@@ -11,7 +11,7 @@ import { colors } from './config/tailwind/colors'
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
 const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
 
-module.exports = {
+export default {
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   mode: 'jit',

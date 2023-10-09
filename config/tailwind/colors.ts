@@ -1,5 +1,13 @@
 // Must be defined like r g b in CSS
-const transparencyColors = ['inverse', 'accent-dark'] as const
+const transparencyColors = ['inverse', 'accent-dark', 'peachy-pink', 'lavender', 'soft-green', 'chocolate-brown',
+  'pale-pink', 'creamy-white', 'sky-blue', 'sunshine-yellow', 'minty-green', 'bubblegum-purple', 'tropical-orange',
+  'light-peach', 'soft-rose', 'blush', 'deep-pink', 'light-lavender','pastel-purple','orchid', 'royal-purple',
+  'mint-green', 'pale-aqua', 'teal', 'deep-green', 'light-brown', 'caramel', 'rustic-brown', 'espresso', 'baby-pink',
+  'cotton-candy', 'bubblegum', 'raspberry-pink', 'off-white', 'ivory', 'pearl-white', 'vanilla', 'light-sky-blue', 'soft-blue',
+  'robins-egg-blue', 'deep-sky-blue', 'light-yellow', 'lemon-yellow', 'goldenrod', 'light-mint', 'sunflower-yellow', 'fresh-green',
+  'spring-green', 'vibrant-green', 'lilac', 'purple', 'deep-purple', 'electric-purple', 'light-orange', 'peach', 'tangerine',
+  'coral-orange', 'accent', 'accent-dark', 'on-accent'
+] as const
 type TransparencyColor = (typeof transparencyColors)[number]
 
 const normalColors = [

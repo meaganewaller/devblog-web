@@ -1,5 +1,5 @@
 .button {
-  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px] py-[17px] font-[bolder] font-extra text-md text-on-accent no-underline shadow-[0px_6px_0px_rgba(var(--color-accent-dark))] hover:bg-[var(--color-shadow-purple)] hover:no-underline hover:shadow-[0px_6px_0px_var(--color-toolbar)];
+  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px] py-[17px] font-[bolder] font-extra text-md text-on-accent no-underline shadow-[0px_6px_0px_rgba(var(--color-accent-dark))] hover:bg-shadow-purple hover:no-underline hover:shadow-[0px_6px_0px_var(--color-toolbar)];
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;

@@ -1,5 +1,4 @@
-export const baseUrl =
-  process.env.NODE_ENV === 'production' ? 'https://meaganwaller.com' : ''
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 export const baseEmail = 'meagan@meaganwaller.com'
 
 export const defaultSEO = {

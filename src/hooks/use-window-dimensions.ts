@@ -1,15 +1,15 @@
 'use client'
+
 import { useCallback, useEffect, useState } from 'react'
 
-import { useHasMounted } from './use-has-mounted'
-
+import { useMounted } from './use-mounted'
 interface WindowDimensions {
   width: number
   height: number
 }
 
 export const useWindowDimensions = (): WindowDimensions => {
-  const hasMounted = useHasMounted()
+  const hasMounted = useMounted()
   const [dimens, setDimens] = useState<WindowDimensions>({
     width: 0,
     height: 0,
