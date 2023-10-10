@@ -11,7 +11,11 @@ export interface LayoutProps {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] font-sans`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`motion-safe:scroll-smooth 2xl:text-[24px] font-sans`}
+    >
       <body className="debug-screens flex flex-col">
         <Providers>
           <GlobalStyles />
