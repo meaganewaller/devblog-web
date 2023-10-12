@@ -1,12 +1,7 @@
-import { Suspense } from 'react'
-
-import { Connections } from '@/components/views/home/connections'
-import { Intro } from '@/components/views/home/intro'
-import { RecentPosts } from '@/components/views/home/recent-posts'
-
-import { getRecentPosts } from '@/services/posts'
-import { convertToPostList } from '@/utils/blogs'
 import { createMetadata } from '@/utils/create-metadata'
+import RecentPosts from "./_components/RecentPosts"
+import Connections from "./_components/Connections"
+import Intro from "./_components/Intro"
 
 export const metadata = createMetadata({
   title: 'welcome to my digital home',
@@ -61,20 +56,31 @@ export const metadata = createMetadata({
 })
 
 const Page = async () => {
-  const postsData = await getRecentPosts()
-  const { posts } = convertToPostList(postsData)
-
   return (
     <>
-      <Suspense>
-        <RecentPosts
-          posts={posts.slice(0, 5)}
-        />
-      </Suspense>
+      <RecentPosts />
       <Intro />
       <Connections />
     </>
   )
 }
 
+//
+// const Page = async () => {
+//   const postsData = await getRecentPosts()
+//   const { posts } = convertToPostList(postsData)
+//
+//   return (
+//     <>
+//       <Suspense>
+//         <RecentPosts
+//           posts={posts.slice(0, 5)}
+//         />
+//       </Suspense>
+//       <Intro />
+//       <Connections />
+//     </>
+//   )
+// }
+//
 export default Page

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import tw from '@/utils/tw'
+import { tw } from '@/utils/tw'
 
 interface ErrorProps {
   error: Error

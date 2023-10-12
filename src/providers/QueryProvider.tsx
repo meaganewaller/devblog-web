@@ -1,31 +1,33 @@
 'use client'
 
+import React, { ReactNode } from 'react'
+
 import {
-  Hydrate,
   QueryClient,
-  QueryClientProvider,
+  QueryClientProvider as OriginalQueryClientProvider,
 } from '@tanstack/react-query'
-import type { AppProps } from 'next/app'
-import { useState } from 'react'
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental'
 
-export default function QueryProvider({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            refetchOnMount: false,
-            refetchOnWindowFocus: false,
-          },
-        },
-      }),
-  )
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      retryDelay: (attemptIndex: number) => {
+        return Math.min(1000 * 2 ** attemptIndex, 30000)
+      },
+    },
+  },
+})
 
+type QueryClientProviderProps = { children: ReactNode }
+
+export function QueryClientProvider({ children }: QueryClientProviderProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <Component {...pageProps} />
-      </Hydrate>
-    </QueryClientProvider>
+    <OriginalQueryClientProvider client={queryClient}>
+      <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </OriginalQueryClientProvider>
   )
 }

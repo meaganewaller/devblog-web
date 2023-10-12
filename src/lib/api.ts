@@ -31,8 +31,7 @@ export const PostService = {
     if (tag) { urlParams += `&tag=${tag}` }
     if (category) { urlParams += `&category=${category}` }
     if (search) { urlParams += `&query=${search}` }
-    const results = await apiClient.get(`/posts${urlParams}`)
-    return results.data
+    return await apiClient.get(`/posts${urlParams}`)
   },
 }
 export const ProjectService = {

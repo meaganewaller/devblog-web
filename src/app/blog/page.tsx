@@ -1,24 +1,32 @@
-'use client';
-
+'use client'
+import { getPosts } from "@/services/posts"
+import { useQuery } from "@tanstack/react-query"
+import { convertToPostList } from "@/utils/blogs"
 import { useSearchParams } from 'next/navigation'
-import { PostService } from '@/lib/api'
 import { PostsList } from "@/components/Blog/PostsList"
 
-import { Post } from '@/types'
-import { convertToPostList } from '@/utils/blogs'
-
-export default async function BlogPage() {
+export default function BlogPage() {
   const searchParams = useSearchParams()
-
   const page = searchParams.get('page')
   const tag = searchParams.get('tag') || undefined
   const search = searchParams.get('query') || undefined
+  const currentPage = parseInt(page as string, 10) || 1
   const category = searchParams.get('category') || undefined
 
-  const currentPage = parseInt(page as string, 10) || 1
-
-  const { posts, pagy } = await PostService.getAll({ count: 1000, page: currentPage, tag, search, category })
-  const convertedPosts = convertToPostList(posts).posts
+  const {
+    isLoading,
+    isError,
+    error,
+    data,
+    isFetching,
+  } = useQuery({
+    queryKey: ['posts', currentPage],
+    queryFn: async () => {
+      const data = await getPosts({ count: 1000, page: currentPage, tag, category, search })
+      return data.data
+    },
+    keepPreviousData: true
+  })
 
   let postUrl = `/blog?page=${currentPage}`
   let previousPostUrl = `/blog?page=${currentPage - 1}`
@@ -36,16 +44,24 @@ export default async function BlogPage() {
   }
 
   return (
-    <>
+    <div>
       <h1 className="font-venice text-6xl text-accent mb-2">the web log</h1>
-      <PostsList
-        posts={convertedPosts}
-        url={postUrl}
-        pagination={pagy.series}
-        page={currentPage}
-        previousPostUrl={previousPostUrl}
-        totalPages={pagy.pages}
-      />
-    </>
+      {(isLoading || isFetching) ? (
+        <div>Loading...</div>
+      ) : isError ? (
+        <div>Error: {error.message}</div>
+      ) : (
+        <>
+          <PostsList
+            posts={convertToPostList(data.posts).posts}
+            url={postUrl}
+            pagination={data.pagy.series}
+            page={currentPage}
+            previousPostUrl={previousPostUrl}
+            totalPages={data.pagy.pages}
+          />
+        </>
+      )}
+    </div>
   )
 }

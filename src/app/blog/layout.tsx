@@ -3,7 +3,7 @@ import PostSidebar from '@/components/Blog/Sidebar'
 import { Container } from '@/components/Layout/Container'
 import { usePathname } from 'next/navigation'
 
-import PageLayout from '@/app/pageLayout'
+import PageLayout from '../../app/pageLayout'
 
 const BlogLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname()

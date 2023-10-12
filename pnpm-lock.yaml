@@ -47,6 +47,9 @@ dependencies:
   '@stefanprobst/rehype-shiki':
     specifier: ^2.2.1
     version: 2.2.1(shiki@0.14.4)
+  '@tanstack/query-core':
+    specifier: ^4.36.1
+    version: 4.36.1
   '@tanstack/react-query':
     specifier: ^4.35.3
     version: 4.35.3(react-dom@18.2.0)(react@18.2.0)
@@ -125,6 +128,9 @@ dependencies:
   next-mdx-remote:
     specifier: ^4.4.1
     version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
+  next-nprogress-bar:
+    specifier: ^2.1.2
+    version: 2.1.2
   next-plausible:
     specifier: ^3.11.1
     version: 3.11.1(next@13.5.3)(react-dom@18.2.0)(react@18.2.0)
@@ -3254,6 +3260,10 @@ packages:
 
   /@tanstack/query-core@4.35.3:
     resolution: {integrity: sha512-PS+WEjd9wzKTyNjjQymvcOe1yg8f3wYc6mD+vb6CKyZAKvu4sIJwryfqfBULITKCla7P9C4l5e9RXePHvZOZeQ==}
+
+  /@tanstack/query-core@4.36.1:
+    resolution: {integrity: sha512-DJSilV5+ytBP1FbFcEJovv4rnnm/CokuVvrBEtW/Va9DvuJ3HksbXUJEpI0aV1KtuL4ZoO9AVE6PyNLzF7tLeA==}
+    dev: false
 
   /@tanstack/react-query-devtools@4.35.3(@tanstack/react-query@4.35.3)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UvLT7qPzCuCZ3NfjwsOqDUVN84JvSOuW6ukrjZmSqgjPqVxD6ra/HUp1CEOatQY2TRvKCp8y1lTVu+trXM30fg==}
@@ -8576,6 +8586,12 @@ packages:
       - supports-color
     dev: false
 
+  /next-nprogress-bar@2.1.2:
+    resolution: {integrity: sha512-2Df5d7fr6uPx+BX8MkoWCfl+RjG+uWI5mA399e5sEe8mbT3q/GIUvCXLzBgJBIISpKuMmdLAOYEzqpjlsRVOWw==}
+    dependencies:
+      nprogress: 0.2.0
+    dev: false
+
   /next-plausible@3.11.1(next@13.5.3)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Gd+QU+XflVTx65yJ2cNZyrOQLrpz3uKjGLEG4ls+CIVqK3yjsVGCMsEWJcvv1LAeVfHUQtCyp1xyAltLn5Odcg==}
     peerDependencies:
@@ -8754,7 +8770,6 @@ packages:
 
   /nprogress@0.2.0:
     resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
-    dev: true
 
   /nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
