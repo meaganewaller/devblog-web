@@ -40,7 +40,7 @@ export const convertPost = (post: PostResponse, tags?: string[]) => {
     } as Category,
     content: post.content,
     commentCount: Number(post.comment_count),
-    coverImage: 'https://placekitten.com/800/600',
+    coverImage: post.cover_image || 'https://placekitten.com/800/600',
     description: post.description,
     external: false,
     href: `/blog/${post.slug}`,
@@ -63,6 +63,7 @@ export const convertPost = (post: PostResponse, tags?: string[]) => {
       return { name: tag }
     }),
     title: post.title,
+    views: Number(post.views),
   }
 }
 

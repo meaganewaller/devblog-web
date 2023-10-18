@@ -5,8 +5,13 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
 import type { PluginAPI } from 'tailwindcss/types/config'
 import hocus from 'tailwindcss-hocus'
+import svgDataUri from 'mini-svg-data-uri'
 
 import { colors } from './config/tailwind/colors'
+
+const {
+  default: flattenColorPalette,
+} = require('tailwindcss/lib/util/flattenColorPalette')
 
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]
 const monoFontFamily = ['var(--font-mono)', 'IBM Plex Mono', ...fontFamily.mono]
@@ -93,6 +98,10 @@ export default {
                 color: theme('colors.accent-dark/1'),
               },
             },
+            'h2,h3,h4,h5,h6': {
+              position: 'relative',
+              color: theme('colors.accent')
+            }
           },
         },
         quoteless: {
@@ -191,7 +200,7 @@ export default {
     hoverOnlyWhenSupported: true,
   },
   plugins: [
-    plugin(function ({ matchUtilities, theme }) {
+    plugin(function ({ matchUtilities, theme }: PluginAPI) {
       matchUtilities(
         {
           'text-shadow': (value: string) => ({
@@ -199,11 +208,23 @@ export default {
           }),
         },
         { values: theme('textShadow') },
+      ),
+      matchUtilities(
+        {
+          'grid-pattern': (value) => ({
+            backgroundImage: `url("${svgDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="${value}" stroke-dasharray="6 3" transform="scale(1)"><path d="M36 .5H1.5V36"/></svg>`,
+            )}")`,
+          }),
+        },
+        {
+          values: flattenColorPalette(theme('backgroundColor')),
+          type: 'color',
+        },
       )
     }),
     typography,
     hocus,
-    require('tailwindcss-animate'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
     require('tailwindcss-debug-screens'),

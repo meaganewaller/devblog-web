@@ -1,4 +1,5 @@
 'use client'
+
 import { getPosts } from "@/services/posts"
 import { useQuery } from "@tanstack/react-query"
 import { convertToPostList } from "@/utils/blogs"
@@ -20,7 +21,7 @@ export default function BlogPage() {
     data,
     isFetching,
   } = useQuery({
-    queryKey: ['posts', currentPage],
+    queryKey: ['posts', currentPage, tag, category, search],
     queryFn: async () => {
       const data = await getPosts({ count: 1000, page: currentPage, tag, category, search })
       return data.data
@@ -46,22 +47,20 @@ export default function BlogPage() {
   return (
     <div>
       <h1 className="font-venice text-6xl text-accent mb-2">the web log</h1>
-      {(isLoading || isFetching) ? (
-        <div>Loading...</div>
-      ) : isError ? (
-        <div>Error: {error.message}</div>
-      ) : (
-        <>
-          <PostsList
-            posts={convertToPostList(data.posts).posts}
-            url={postUrl}
-            pagination={data.pagy.series}
-            page={currentPage}
-            previousPostUrl={previousPostUrl}
-            totalPages={data.pagy.pages}
-          />
-        </>
-      )}
+      {(isLoading || isFetching) ? (<div>Loading...</div>) :
+        isError ? (<div>Error: {error.message}</div>) : (
+          <>
+            <PostsList
+              posts={convertToPostList(data.posts).posts}
+              url={postUrl}
+              pagination={data.pagy.series}
+              page={currentPage}
+              previousPostUrl={previousPostUrl}
+              totalPages={data.pagy.pages}
+            />
+          </>
+        )
+      }
     </div>
   )
 }

@@ -6,11 +6,11 @@ import type { IReadTimeResults } from 'reading-time'
 
 import { Clock, Eye } from '@/components/icons'
 import PageHeader from '@/components/page-header'
+import BlogViews from "./blog-views"
 import { BackButton, Container } from '@/components/ui'
 import { tw } from '@/utils/tw'
-import { formatDate } from '@/utils/date'
+import { formatDate, formatReadableDate } from '@/utils/date'
 
-import useView from '../_hooks/use-view'
 import StickyTitle from './sticky-title'
 
 interface ContentMetaProps {
@@ -29,7 +29,7 @@ const ContentMeta = ({
   slug,
 }: ContentMetaProps) => {
   const publishedDate = formatDate(timestamp)
-  const { views } = useView({ slug, trackView: true })
+  const readableDate = formatReadableDate(timestamp)
 
   const pageHeaderRef = useRef<HTMLDivElement | null>(null)
   const pathname = usePathname()
@@ -49,7 +49,7 @@ const ContentMeta = ({
           <div>
             Published on
             <time dateTime={publishedDate} className={tw('px-1')}>
-              {publishedDate}
+              {readableDate}
             </time>
           </div>
           <div className={tw('flex items-center gap-4')}>
@@ -59,7 +59,7 @@ const ContentMeta = ({
             </div>
             <div className={tw('flex gap-1 items-center')}>
               <Eye />
-              <span title="Number of view(s)">{views?.total ?? '-'} views</span>
+              <BlogViews slug={slug} />
             </div>
           </div>
         </div>

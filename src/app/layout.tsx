@@ -3,10 +3,19 @@ import { Providers } from '@/providers'
 import Navbar from '@/components/Layout/Navbar'
 import Toaster from '@/components/Toaster'
 import '@/styles/globals.scss'
-import GlobalStyles from '@/styles/GlobalStyles'
+import type { Metadata } from 'next'
+import { metadataBase } from '@/constants/metadata'
 
 export interface LayoutProps {
   children: React.ReactNode
+}
+
+export const metadata: Metadata = {
+  metadataBase,
+  title: {
+    default: "meagan waller",
+    template: "%s | meagan waller",
+  },
 }
 
 export default function RootLayout({ children }: LayoutProps) {
@@ -14,11 +23,10 @@ export default function RootLayout({ children }: LayoutProps) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`motion-safe:scroll-smooth 2xl:text-[24px] font-sans`}
+      className={`2xl:text-[24px] font-sans`}
     >
       <body className="debug-screens flex flex-col">
         <Providers>
-          <GlobalStyles />
           <Navbar />
           <main className="mt-12">{children}</main>
           <Toaster />

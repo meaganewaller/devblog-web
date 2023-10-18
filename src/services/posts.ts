@@ -1,4 +1,18 @@
 import apiClient from '@/lib/apiClient'
+import { useQuery } from "@tanstack/react-query"
+import { convertPost } from '@/utils/blogs'
+
+const getPost = async (slug: string) => {
+  const response = await getPost(slug)
+  return convertPost(response)
+}
+
+export const fetchPost = async (slug: string) => {
+  return { data, isLoading } = useQuery({
+    queryKey: ['detail-post', slug],
+    queryFn: () => getPost(slug),
+  })
+}
 
 export const getPosts = async ({
   count,
@@ -21,9 +35,10 @@ export const getPosts = async ({
   return await apiClient.get(`/posts${urlParams}`)
 }
 
-export const getPost = async (id: string) => {
-  apiClient.get(`/posts/${id}`)
-}
+// export const getPost = async (id: string) => {
+//   const response = await apiClient.get(`/posts/${id}`)
+//   return response.data
+// }
 
 export const getRecentPosts = async () => {
   const response = await apiClient.get('/posts?recent=true')

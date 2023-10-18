@@ -19,8 +19,6 @@ const normalColors = [
   'primary-txt',
   'secondary-txt',
   'tertiary-txt',
-  'accent',
-  'on-accent',
   'scrollbar-bg',
   'scrollbar-thumb',
   'selection',

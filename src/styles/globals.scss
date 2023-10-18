@@ -4,6 +4,7 @@
 @import './custom-reset.scss';
 
 @tailwind components;
+
 @tailwind utilities;
 
 @import './colors.scss';
@@ -15,6 +16,16 @@
 @import './animations.scss';
 @import './modal.scss';
 
+@layer components {
+  .bg-pattern {
+    @apply relative z-0;
+
+    &::before {
+      @apply grid-pattern-toolbar absolute inset-0 z-[-1] content-[''];
+      mask-image: linear-gradient(transparent, rgba(var(--color-toolbar)), transparent);
+    }
+  }
+}
 html.inverted,
 html.light-inverted,
 html.dark-inverted {

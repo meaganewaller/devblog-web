@@ -1,5 +1,6 @@
 import type { ReactionType } from "@/types"
 import type { NextRequest } from "next/server"
+
 import { MAX_REACTIONS_PER_SESSION } from "@/app/(content)/_constants/reactions"
 import { createReaction, getReactions } from "@/app/(content)/_lib/reactions"
 import { getErrorMessage, response } from "@/lib/api"
@@ -17,14 +18,14 @@ export const GET = async (
     const userReactions = await getReactions({ slug, sessionId })
 
     const total =
-    contentReactions.LIKED +
-    contentReactions.LOVED +
-    contentReactions.LEARNED +
-    contentReactions.LAUGHED +
-    contentReactions.WOWED +
-    contentReactions.SPARKLED
+      contentReactions.LIKED +
+        contentReactions.LOVED +
+        contentReactions.LEARNED +
+        contentReactions.LAUGHED +
+        contentReactions.WOWED +
+        contentReactions.SPARKLED
 
-        return response(
+    return response(
       {
         content: {
           reactions: contentReactions,
@@ -49,6 +50,7 @@ export const POST = async (
     const { slug } = params
     const body = await req.json()
     const sessionId = getSessionId(req)
+
     const type = body.type
     const count = body.count ?? 1
 

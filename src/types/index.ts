@@ -32,6 +32,7 @@ export interface PostResponse {
   status: string
   tags: string[]
   title: string
+  views: string
 }
 
 export interface GuestbookResponse {
@@ -133,6 +134,7 @@ export interface Post {
   status: string
   tags: Tag[]
   title: string
+  views: number
 }
 
 export interface Tag {
@@ -190,6 +192,18 @@ export type Reactions = {
   sparkle_count: number
 }
 
+export type Reaction = {
+
+}
+
+export type ReactionResponse = {
+  id: string
+  post_slug: string
+  kind: string
+  session_id: string
+}
+
+
 export enum ReactionType {
   LIKED,
   LOVED,
@@ -197,4 +211,9 @@ export enum ReactionType {
   LAUGHED,
   WOWED,
   SPARKLED,
+}
+
+export interface View {
+  slug: string
+  count: number
 }

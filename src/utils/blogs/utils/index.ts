@@ -1,5 +1,0 @@
-export { getLatestPosts } from './get-latest-posts'
-export { getPost } from './get-post'
-export { getPostTag } from './get-post-tag'
-export { getPosts } from './get-posts'
-export { getPostsByTag } from './get-posts-by-tag'

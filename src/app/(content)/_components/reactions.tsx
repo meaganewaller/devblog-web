@@ -1,24 +1,23 @@
 'use client'
 
-import type { ReactionType } from '@/types'
 import { m, useAnimationControls } from 'framer-motion'
 import { useEffect } from 'react'
 
 import { Counter } from '@/components/ui'
-import { MAX_REACTIONS_PER_SESSION } from '../_constants/reactions'
-import { useReactions } from '../_hooks/use-reactions'
+import { useReactionDetail } from '../_hooks/use-reactions'
 import EmojiReaction from './emoji-reaction'
-import { tw } from '@/utils/tw'
+import tw from '@/utils/tw'
 
 interface ReactionsProps {
   slug: string
 }
 
 const Reactions = ({ slug }: ReactionsProps) => {
-  const { reactions, addReaction, loading } = useReactions(slug)
+  const { data } = useReactionDetail(slug)
   const controls = useAnimationControls()
   useEffect(() => {
-    if (!loading) {
+    console.log("DATA IS:", data)
+    if (data) {
       controls.start({
         y: 0,
         opacity: 1,
@@ -29,25 +28,9 @@ const Reactions = ({ slug }: ReactionsProps) => {
         },
       })
     }
-  }, [controls, loading])
+  }, [controls, data])
 
-  const userReactions = reactions?.user?.reactions
-  const contentReactions = reactions?.content?.reactions
-
-  const {
-    LIKED = 0,
-    LAUGHED = 0,
-    LOVED = 0,
-    LEARNED = 0,
-  } = contentReactions ?? {}
-
-  const getRemainingQuota = (type: ReactionType) => {
-    return MAX_REACTIONS_PER_SESSION - (userReactions?.[type] ?? 0)
-  }
-
-  const reachMaximumQuota = (type: ReactionType) => {
-    return getRemainingQuota(type) <= 0
-  }
+  const contentReactions = data?.map((r) => r.kind)
 
   return (
     <m.div
@@ -66,12 +49,12 @@ const Reactions = ({ slug }: ReactionsProps) => {
             defaultEmoji="/static/images/emojis/like.svg"
             animatedEmoji="/static/images/emojis/like.svg"
             disabledEmoji="/static/images/emojis/like.svg"
-            disabled={reachMaximumQuota('LIKED')}
             onClick={() => {
-              addReaction('LIKED')
             }}
           />
-          <Counter count={LIKED} />
+          {contentReactions && (
+            <Counter count={contentReactions.filter((r) => r.kind === "like").length} />
+          )}
         </div>
 
         <div className={tw('flex flex-col items-center gap-2')}>
@@ -80,12 +63,10 @@ const Reactions = ({ slug }: ReactionsProps) => {
             defaultEmoji="/static/images/emojis/haha.svg"
             animatedEmoji="/static/images/emojis/haha.svg"
             disabledEmoji="/static/images/emojis/haha.svg"
-            disabled={reachMaximumQuota('LAUGHED')}
             onClick={() => {
-              addReaction('LAUGHED')
             }}
           />
-          <Counter count={LAUGHED} />
+          <Counter count={0} />
         </div>
 
         <div className={tw('flex flex-col items-center gap-2')}>
@@ -94,12 +75,10 @@ const Reactions = ({ slug }: ReactionsProps) => {
             defaultEmoji="/static/images/emojis/love.svg"
             animatedEmoji="/static/images/emojis/love.svg"
             disabledEmoji="/static/images/emojis/love.svg"
-            disabled={reachMaximumQuota('LOVED')}
             onClick={() => {
-              addReaction('LOVED')
             }}
           />
-          <Counter count={LOVED} />
+          <Counter count={0} />
         </div>
 
         <div className={tw('flex flex-col items-center gap-2')}>
@@ -108,12 +87,10 @@ const Reactions = ({ slug }: ReactionsProps) => {
             defaultEmoji="/static/images/emojis/learned.svg"
             animatedEmoji="/static/images/emojis/learned.svg"
             disabledEmoji="/static/images/emojis/learned.svg"
-            disabled={reachMaximumQuota('LEARNED')}
             onClick={() => {
-              addReaction('LEARNED')
             }}
           />
-          <Counter count={LEARNED} />
+          <Counter count={0} />
         </div>
       </div>
     </m.div>

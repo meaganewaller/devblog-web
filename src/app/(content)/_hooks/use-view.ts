@@ -1,15 +1,7 @@
 import { useEffect } from 'react'
-import { useRequest } from '@/hooks/use-request'
+// import { useRequest } from '@/hooks/use-request'
 
-const useView = ({
-  slug,
-  trackView,
-}: {
-    slug: string,
-    trackView?: boolean
-  }) => {
-  const { data, loading } = useRequest<{ total: number }>(`/api/views/${slug}`)
-
+export const useView = (slug: string) => {
   const registerView = (slug: string) => {
     fetch(`/api/views/${slug}`, {
       method: 'POST',
@@ -17,12 +9,8 @@ const useView = ({
   }
 
   useEffect(() => {
-    if (trackView) {
-      registerView(slug)
-    }
-  }, [slug, trackView])
-
-  return { views: data, loading }
+    registerView(slug)
+  }, [slug])
 }
 
 export default useView

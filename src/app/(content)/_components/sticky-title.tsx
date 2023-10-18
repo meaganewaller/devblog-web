@@ -4,7 +4,7 @@ import { m } from 'framer-motion'
 import { useLayoutEffect, useState } from 'react'
 
 import { useMediaQuery, useOnScroll } from '@/hooks'
-import { tw } from '@/utils/tw'
+import tw from '@/utils/tw'
 import { min } from '@/lib/screens'
 
 interface StickyTitleProps {
@@ -61,7 +61,7 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           {isScrolled ? (
             <m.div
               className={tw(
-                'fixed top-0 left-0 right-0 bg-accent z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+                'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
               )}
               initial="initial"
               animate="animate"
@@ -78,12 +78,12 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           ) : (
             <m.div
               className={tw(
-                'fixed top-0 left-0 right-0 bg-accent z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+                'fixed top-0 left-0 right-0 bg-background backdrop-blur h-16 z-50 flex justify-center items-center shadow-sm px-4 text-center',
               )}
               initial={{ opacity: 0, y: gap }}
               transition={transition}
             >
-              <h1 className={tw('text-lg font-semibold')}>{title}</h1>
+              <h1 className={tw('text-lg font-semibold font-mono')}>{title}</h1>
             </m.div>
           )}
         </>
@@ -91,5 +91,4 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
     </>
   )
 }
-
 export default StickyTitle

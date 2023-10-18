@@ -1,13 +1,16 @@
-import GlobalHead from './globalHead'
+import { NextSeo } from 'next-seo'
+import NEXT_SEO_DEFAULT from '@/config/next-seo.config'
+import ClientHead from '@/components/Layouts/ClientHead'
 
-const Head = () => {
+export default function Head() {
   return (
     <>
-      <title>hi! welcome to my corner of the internet.</title>
-      <meta name="description" content="welcome to my digital corner of the web." />
-      <GlobalHead />
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+      />
+      <NextSeo {...NEXT_SEO_DEFAULT} />
+      <ClientHead />
     </>
   )
 }
-
-export default Head
