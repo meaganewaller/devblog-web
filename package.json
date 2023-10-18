@@ -174,7 +174,7 @@
     "lint-staged": "^14.0.1",
     "mini-svg-data-uri": "^1.4.4",
     "nprogress": "^0.2.0",
-    "postcss": "8.4.23",
+    "postcss": "8.4.31",
     "postcss-loader": "^7.3.3",
     "prettier": "^3.0.3",
     "prop-types": "^15.8.1",
