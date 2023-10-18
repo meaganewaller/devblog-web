@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import { useRequest } from '@/hooks/use-request'
 
 export const useView = (slug: string) => {
   const registerView = (slug: string) => {

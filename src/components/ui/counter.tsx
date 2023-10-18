@@ -1,7 +1,7 @@
 'use client'
 
 import { m, useAnimationControls } from 'framer-motion'
-import { tw } from '@/utils/tw'
+import tw from '@/utils/tw'
 import { useEffect } from 'react'
 
 interface CounterProps {
@@ -20,18 +20,18 @@ const Counter = ({ count }: CounterProps) => {
     }
 
     if (count !== 0) startMotion()
-  }, [controls, count])
+  }, [count, controls])
 
   return (
     <div
       className={tw(
-        'relative flex items-center gap-1 h-6 overflow-hidden rounded-full py-1 px-2 bg-accent',
+        'relative flex items-center gap-1 h-6 overflow-hidden rounded-full py-1 px-2 bg-accent-dark',
       )}
     >
       {count === 0 ? (
         <span
           className={tw(
-            'flex flex-col font-mono text-sm font-bold text-accent-foreground',
+            'flex flex-col font-mono text-sm font-bold text-on-accent',
           )}
         >
           <span className={tw('flex h-5 items-center')}>0</span>
@@ -39,7 +39,7 @@ const Counter = ({ count }: CounterProps) => {
       ) : (
         <m.span
           className={tw(
-            'flex flex-col font-mono text-sm font-bold text-accent-foreground',
+            'flex flex-col font-mono text-sm font-bold text-on-accent',
           )}
           animate={controls}
         >

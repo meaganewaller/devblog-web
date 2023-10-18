@@ -13,32 +13,32 @@ interface ReactionsProps {
 }
 
 const Reactions = ({ slug }: ReactionsProps) => {
-  const { data } = useReactionDetail(slug)
+  const { isLoading, data } = useReactionDetail(slug)
   const controls = useAnimationControls()
+
   useEffect(() => {
-    console.log("DATA IS:", data)
-    if (data) {
+    if (!isLoading) {
       controls.start({
         y: 0,
         opacity: 1,
         pointerEvents: 'auto',
         transition: {
-          delay: 0.2,
-          duration: 0.15,
+          delay: 0.25,
+          duration: 0.18,
         },
-      })
+      });
     }
-  }, [controls, data])
+  }, [isLoading, controls])
 
   const contentReactions = data?.map((r) => r.kind)
 
   return (
     <m.div
-      className={tw('relative pointer-events-auto flex items-center z-[50]')}
+      className={tw('relative pointer-events-auto flex items-center')}
       initial={{
         y: 16,
         opacity: 0,
-        pointerEvents: 'none',
+        pointerEvents: 'none'
       }}
       animate={controls}
     >
@@ -53,7 +53,7 @@ const Reactions = ({ slug }: ReactionsProps) => {
             }}
           />
           {contentReactions && (
-            <Counter count={contentReactions.filter((r) => r.kind === "like").length} />
+            <Counter count={contentReactions.filter((r) => r === "like").length} />
           )}
         </div>
 

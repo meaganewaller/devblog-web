@@ -14,7 +14,7 @@ export const GET = async (_request: NextRequest, { params }: ViewsProp) => {
   const { data } = await apiClient.get(`/views?viewable_type=Post&viewable_slug=${slug}`)
 
   return NextResponse.json({
-    count: data.views.length
+    count: data.views_count
   })
 }
 
@@ -30,7 +30,11 @@ export const POST = async (request: NextRequest, { params }: ViewsProp) => {
       }
     })
 
-    return NextResponse.json({ slug })
+    const { data } = await apiClient.get(`/views?viewable_type=Post&viewable_slug=${slug}`)
+    return NextResponse.json({
+      count: data.views_count
+    })
+
   } catch (error) {
     return new Response("Could not post to views at this time. Please try later", { status: 500 })
   }
