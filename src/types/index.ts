@@ -1,5 +1,3 @@
-import { IReadTimeResults } from "reading-time"
-
 export interface Link {
   target?: string
   title: string
@@ -181,36 +179,6 @@ export interface Comment {
 
 export type Children = {
   children: React.ReactNode
-}
-
-export type Reactions = {
-  like_count: number
-  love_count: number
-  til_count: number
-  haha_count: number
-  wow_count: number
-  sparkle_count: number
-}
-
-export type Reaction = {
-
-}
-
-export type ReactionResponse = {
-  id: string
-  post_slug: string
-  kind: string
-  session_id: string
-}
-
-
-export enum ReactionType {
-  LIKED,
-  LOVED,
-  LEARNED,
-  LAUGHED,
-  WOWED,
-  SPARKLED,
 }
 
 export interface View {

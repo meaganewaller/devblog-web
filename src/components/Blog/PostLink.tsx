@@ -15,7 +15,7 @@ export interface PostLinkProps {
 
 export const PostLink = ({ post }: PostLinkProps) => {
   const publishedDate = useMemo(
-    () => formatReadableDate(post.publishedDate),
+    () => post.publishedDate ? formatReadableDate(post.publishedDate) : null,
     [post.publishedDate],
   )
   const isHighlighted = useMemo(() => {

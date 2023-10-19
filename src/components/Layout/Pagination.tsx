@@ -1,5 +1,3 @@
-import compact from 'lodash/compact'
-import uniq from 'lodash/uniq'
 import Link from 'next/link'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 

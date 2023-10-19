@@ -1,5 +1,8 @@
 export * from './date'
 export * from './tw'
+export * from './check-name'
+export * from './check-message'
+export * from './check-email'
 
 export const unique = <T, Key extends keyof T>(
   array: Array<T> | T[],

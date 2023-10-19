@@ -1,7 +1,6 @@
 import { useDetailStore } from "@/store/post.store"
 import ContentMeta from '@/app/(content)/_components/content-meta'
 import Tag from '@/app/(content)/_components/tag'
-import Engagement from '@/app/(content)/_components/engagement'
 import { Container } from '@/components/ui'
 import tw from '@/utils/tw'
 import Image from 'next/image'
@@ -33,7 +32,6 @@ export default function PostDetail() {
                   </div>
                 </div>
               )}
-              <Engagement slug={post.slug} />
             </div>
           </Container>
         </>

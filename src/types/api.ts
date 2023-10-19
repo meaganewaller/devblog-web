@@ -2,16 +2,7 @@ export type Views = {
   views: number
 }
 
-export type Reactions = {
-  likes: number
-  loves: number
-  tils: number
-  hahas: number
-  wows: number
-  sparkles: number
-}
-
-export type BlogData = Views & Reactions
+export type BlogData = Views
 
 export type GuestbookEntrys = Array<{
   id: number

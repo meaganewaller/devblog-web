@@ -1,9 +1,10 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
+import apiClient from '@/lib/apiClient'
 
 import { checkEmail, checkMessage, checkName } from '@/utils'
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest) => {
   try {
     const { name, email, subject, message } = await request.json()
 
@@ -21,26 +22,19 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/contact`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
+    await apiClient.post(`/contact`, {
       body: JSON.stringify({
         name,
         email,
         subject,
         message,
       }),
+    }).then(() => {
+      return NextResponse.json({ message: 'Message sent', success: true })
+    }).catch((err) => {
+      return NextResponse.json({ message: err, success: false })
     })
-      .then(() => {
-        return NextResponse.json({ message: 'Message sent', success: true })
-      })
-      .catch((err) => {
-        return NextResponse.json({ message: err, success: false })
-      })
   } catch (error) {
-    return NextResponse.json({ message: error, success: false })
+    return new Response("Could not submit contact form at this time. Please try later", { status: 500 })
   }
 }
