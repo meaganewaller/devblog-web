@@ -4,16 +4,16 @@ import Pagination from '@/components/Layout/Pagination'
 
 import { PostLink } from './PostLink'
 
-import { Post } from '@/types'
+import { PostResponse } from '@/types'
 
 interface PostsCountProps {
-  posts: Post[]
+  posts: PostResponse[]
   year: number
 }
 
 export const PostsCount = ({ posts, year }: PostsCountProps) => {
   const count = useMemo(() => {
-    return posts.filter((a) => new Date(a.publishedDate).getFullYear() === year)
+    return posts.filter((a) => new Date(a.published_date).getFullYear() === year)
       .length
   }, [posts, year])
 
@@ -25,9 +25,9 @@ export const PostsCount = ({ posts, year }: PostsCountProps) => {
 }
 
 interface PostTimelineSeparatorProps {
-  posts: Post[]
-  currentPost: Post
-  previousPost: Post | null
+  posts: PostResponse[]
+  currentPost: PostResponse
+  previousPost: PostResponse | null
 }
 
 export const PostTimelineSeparator = ({
@@ -35,11 +35,11 @@ export const PostTimelineSeparator = ({
   currentPost,
   previousPost,
 }: PostTimelineSeparatorProps) => {
-  const currentPostDate = new Date(currentPost.publishedDate)
+  const currentPostDate = new Date(currentPost.published_date)
   const currentPostYear = currentPostDate.getFullYear()
 
   const previousPostDate = previousPost
-    ? new Date(previousPost.publishedDate)
+    ? new Date(previousPost.published_date)
     : null
   const previousPostYear = previousPostDate
     ? previousPostDate.getFullYear()
@@ -81,10 +81,10 @@ export const PostsList = ({
   return (
     <div>
       {posts.length === 0 && (
-      <p>no posts found :(</p>
+      <p>No Posts Found :(</p>
       )}
-      {posts.length > 0 && posts.map((post: Post, index: number) => (
-        <div key={`${post.slug}-${post.title}-${post.publishedDate}`}>
+      {posts.length > 0 && posts.map((post: PostResponse, index: number) => (
+        <div key={`${post.slug}-${post.title}-${post.published_date}`}>
           {showSeparator && (
             <PostTimelineSeparator
               posts={posts}

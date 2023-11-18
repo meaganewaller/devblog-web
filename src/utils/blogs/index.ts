@@ -72,17 +72,19 @@ export const convertPost = async (post: PostResponse, tags?: string[]) => {
   }
 }
 
-export const convertToPostList = (tableData: PostResponse[]) => {
+export const convertToPostList = async (tableData: PostResponse[]) => {
   let tags: string[] = []
+  let posts: any[] = []
 
-  const posts = tableData.map((post: PostResponse) => {
-    console.log("in convertToPostList", post)
-    convertPost(post, post.tags).then((resp) => {
-      return resp
+  tableData.forEach((post: PostResponse) => {
+    tags = tags.concat(post.tags)
+
+    const converted = convertPost(post).then((post) => {
+      return post.result
     })
-  })
 
-  tags = Array.prototype.concat.apply([], tags)
+    posts.push(converted)
+  })
 
   return { posts, tags }
 }
