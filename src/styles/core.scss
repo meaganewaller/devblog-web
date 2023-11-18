@@ -199,3 +199,8 @@ body article {
     }
   }
 }
+
+.card {
+  @apply rounded-lg leading-snug text-primary-txt text-base p-4 relative shadow-lg mt-8 mx-auto border border-accent;
+  min-height: 100px;
+}

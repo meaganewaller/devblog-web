@@ -1,5 +1,8 @@
-import { CategoryResponse, PostResponse, Category } from '@/types'
 import readingTime from 'reading-time'
+
+import { transformMarkdown } from '../markdown-to-html'
+
+import { Category, CategoryResponse, PostResponse } from '@/types'
 
 export const convertToCategoryList = (tableData: CategoryResponse[]) => {
   const categories = tableData.map((category: CategoryResponse) => {
@@ -29,7 +32,9 @@ export const convertToTagList = (stringTags: string[]) => {
   return tags
 }
 
-export const convertPost = (post: PostResponse, tags?: string[]) => {
+export const convertPost = async (post: PostResponse, tags?: string[]) => {
+  const content = await transformMarkdown(post.content)
+
   const tagList = tags || []
   return {
     category: {
@@ -38,7 +43,7 @@ export const convertPost = (post: PostResponse, tags?: string[]) => {
       slug: post.category.slug,
       title: post.category.title,
     } as Category,
-    content: post.content,
+    content: content.toString(),
     commentCount: Number(post.comment_count),
     coverImage: post.cover_image || 'https://placekitten.com/800/600',
     description: post.description,
@@ -69,8 +74,12 @@ export const convertPost = (post: PostResponse, tags?: string[]) => {
 
 export const convertToPostList = (tableData: PostResponse[]) => {
   let tags: string[] = []
+
   const posts = tableData.map((post: PostResponse) => {
-    return convertPost(post, tags)
+    console.log("in convertToPostList", post)
+    convertPost(post, post.tags).then((resp) => {
+      return resp
+    })
   })
 
   tags = Array.prototype.concat.apply([], tags)
