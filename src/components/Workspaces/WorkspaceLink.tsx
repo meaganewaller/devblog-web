@@ -4,13 +4,13 @@ import { FaStar } from 'react-icons/fa'
 
 import { Link } from '@/components/Layout/Link'
 
-import { Project } from '@/types'
+import { Workspace } from '@/types'
 
-export interface ProjectLinkProps {
-  project: Project
+export interface WorkspaceLinkProps {
+  workspace: Workspace
 }
 
-export const ProjectLink = ({ project }: ProjectLinkProps) => {
+export const WorkspaceLink = ({ workspace }: WorkspaceLinkProps) => {
   return (
     <div
       className={clsx(
@@ -20,13 +20,14 @@ export const ProjectLink = ({ project }: ProjectLinkProps) => {
       <div className='flex flex-col'>
         <div className='flex flex-row items-center space-x-4'>
           <Link
-            href={`/projects/${project.slug}`}
+            href={`/workspaces/${workspace.slug}`}
             className='link--blue flex-grow text-lg font-semibold'
           >
-            <span>{project.title}</span>
+            <span>{workspace.title}</span>
           </Link>
         </div>
       </div>
     </div>
   )
 }
+

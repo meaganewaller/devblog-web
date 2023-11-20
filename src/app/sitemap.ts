@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'dashboard',
     'donate',
     'projects',
-    'workspaces',
+    'uses',
     'newsletter',
     'colophon',
     'contact',

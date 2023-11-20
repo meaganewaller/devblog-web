@@ -1,105 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import tw, { styled } from 'twin.macro'
-
-const StyledSection = styled.div`
-  &:before,
-  &:after {
-    content: '';
-    height: 15px;
-    display: block;
-    width: 100%;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-    background-size: 100%;
-    background-image: -moz-radial-gradient(
-      var(--color-background),
-      var(--color-background) 65%,
-      rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, 0)
-    );
-    background-image: -webkit-radial-gradient(
-      var(--color-background),
-      var(--color-background) 65%,
-      rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, 0)
-    );
-    background-image: radial-gradient(
-      var(--color-background),
-      var(--color-background) 65%,
-      rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, 0)
-    );
-    background-size: 15px 15px;
-    background-size: 15px 15px;
-    background-repeat: repeat-x;
-    background-position: 0 0;
-    position: absolute;
-  }
-
-  &:before {
-    left: 0;
-    top: -7px;
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-
-  &:after {
-    bottom: -7px;
-    left: 0;
-  }
-`
-
-const InnerSection = styled.div`
-  &:before {
-    left: -7px;
-    top: 0;
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-
-  &:after {
-    right: -7px;
-    top: 0;
-  }
-
-  &:before,
-  &:after {
-    position: absolute;
-    content: '';
-    height: 100%;
-    display: block;
-    width: 15px;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-    background-size: 100%;
-    background-image: -moz-radial-gradient(
-      var(--color-background),
-      var(--color-background) 65%,
-      rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, 0)
-    );
-    background-image: -webkit-radial-gradient(
-      var(--color-background),
-      var(--color-background) 65%,
-      rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, 0)
-    );
-    background-image: radial-gradient(
-      var(--color-background),
-      var(--color-background) 65%,
-      rgba(0, 0, 0, 0) 70%,
-      rgba(0, 0, 0, 0)
-    );
-    background-size: 15px 15px;
-    background-repeat: repeat-y;
-  }
-`
-const Section = tw(StyledSection)`
-  w-[95%] max-w-[1300px] p-[50px] mx-auto font-extra my-[4em] bg-background relative
-`
+import PageHeader from "@/components/page-header"
 
 const fields = {
   name: {
@@ -194,13 +96,10 @@ const ChatPage = () => {
   const [pending, setPending] = useState(false)
 
   return (
-    <Section>
-      <InnerSection>
+    <div className="max-w-full mx-auto">
+      <PageHeader title="Get in touch" centered={true} />
         <div className='p-2'>
           <div className='relative mx-auto my-0 w-full'>
-            <h2 className='w-full text-center font-venice text-3xl font-light text-accent-dark'>
-              Send a message
-            </h2>
             <div className='p-[2em] pt-[1.25em]'>
               <p className='text-justify font-extra font-light text-primary-txt'>
                 Hey there! I'm thrilled that you want to get in touch. Whether
@@ -217,7 +116,7 @@ const ChatPage = () => {
               <h3 className='mt-[1.5em]'>Share Your Ideas</h3>
               <p className='text-justify font-extra font-light text-primary-txt'>
                 Got an idea for a blog post topic? Or maybe a suggestion on how
-                I can make your reading experience even better? I'm all ear!
+                I can make your reading experience even better? I'm all ears!
                 Your input helps shape the content I prioritize and create.
               </p>
               <h3 className='mt-[1.5em]'>Let's Connect</h3>
@@ -238,7 +137,7 @@ const ChatPage = () => {
                 behind-the-scenes peeks, and some of my favorite memes. Let's
                 keep the convo going!
               </p>
-              <p className='mb-[2em] text-justify font-extra font-light text-primary-txt'>
+              <p className='my-[2em] text-justify font-extra font-light text-primary-txt'>
                 Fill out the form below, and I'll get back to you as soon as I
                 can. Remember, this is a judgment-free zone, so don't hesitate
                 to reach out.
@@ -284,7 +183,7 @@ const ChatPage = () => {
                 <div className='mb-2 p-4 leading-5'>
                   <button
                     type='submit'
-                    className='relative m-0 inline-flex cursor-pointer select-none items-center justify-center overflow-visible border-2 border-solid border-accent px-8 py-3 text-center font-mono uppercase'
+                    className='relative m-0 inline-flex cursor-pointer select-none items-center justify-center overflow-visible border-2 border-solid border-accent px-8 py-3 text-center font-mono uppercase bg-bubblegum text-primary-txt'
                   >
                     {pending ? <div className='spinner' /> : 'Send'}
                   </button>
@@ -293,8 +192,7 @@ const ChatPage = () => {
             </div>
           </div>
         </div>
-      </InnerSection>
-    </Section>
+      </div>
   )
 }
 

@@ -29,6 +29,7 @@ type NormalColor = (typeof normalColors)[number]
 
 // Used in gradients and shadows
 const rainbowColors = [
+  'transparent',
   'brand',
   'blue',
   'green',

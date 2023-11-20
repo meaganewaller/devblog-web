@@ -7,8 +7,8 @@ export const enum Routes {
   Projects = '/projects',
   Project = '/projects/',
 
-  Workspaces = '/workspaces',
-  Workspace = '/workspaces/',
+  Workspaces = '/uses',
+  Workspace = '/uses/',
 
   Talks = '/talks',
   Talk = '/talks/',

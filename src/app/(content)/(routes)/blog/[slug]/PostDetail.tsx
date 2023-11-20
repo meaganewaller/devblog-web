@@ -5,7 +5,7 @@ import { Container } from '@/components/ui'
 import BlogComments from '@/app/(content)/_components/blog-comments'
 import ContentMeta from '@/app/(content)/_components/content-meta'
 import { PostFooter } from '@/app/(content)/_components/post-footer'
-import Tag from '@/app/(content)/_components/tag'
+import TagLink from '@/app/(content)/_components/tag'
 import { useDetailStore } from '@/store/post.store'
 import tw from '@/utils/tw'
 
@@ -43,7 +43,7 @@ export default function PostDetail() {
               <div className={tw('mt-16 flex items-center gap-1 text-sm')}>
                 Tags:
                 <div className={tw('flex flex-wrap gap-1')}>
-                  {post.tags?.map((tag) => <Tag key={tag.name} tag={tag} />)}
+                  {post.tags?.map((tag) => <span key={tag.name}><TagLink tag={tag} /></span>)}
                 </div>
               </div>
             )}

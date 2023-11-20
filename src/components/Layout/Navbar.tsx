@@ -100,7 +100,7 @@ function Navbar() {
             <Link href='/projects'>Projects</Link>
           </DesktopNavItem>
           <DesktopNavItem className='align-middle'>
-            <Link href='/workspace'>Workspace</Link>
+            <Link href='/uses'>Workspace</Link>
           </DesktopNavItem>
         </DesktopNav>
         <ThemeToggle />
@@ -181,7 +181,7 @@ function Navbar() {
             variants={linkVariants}
             whileHover={{ scale: 1.1 }}
           >
-            <Link href='/workspace'>Workspace</Link>
+            <Link href='/uses'>Workspace</Link>
           </NavItem>
           <NavItem
             onClick={() => setIsOpen(!isOpen)}

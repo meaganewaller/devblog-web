@@ -6,23 +6,6 @@ import { ProjectLink } from './ProjectLink'
 
 import { Project } from '@/types'
 
-interface ProjectsCountProps {
-  projects: Project[]
-}
-
-export const ProjectsCount = ({ projects, year }: ProjectsCountProps) => {
-  const count = useMemo(() => {
-    return projects.filter((a) => new Date(a.publishedDate).getFullYear() === year)
-      .length
-  }, [projects])
-
-  return (
-    <span className='block text-sm font-semibold text-accent'>
-      {count} post{count === 1 ? '' : 's'}
-    </span>
-  )
-}
-
 export interface ProjectTimelineProps {
   projects: Project[]
   page?: number
@@ -47,7 +30,8 @@ export const ProjectsList = ({
       )}
       {projects.length > 0 && projects.map((project: Project, index: number) => (
         <div key={`${project.id}-${project.title}`}>
-          <ProjectLink post={project} />
+          <ProjectLink project={project} />
+          <p>{project.description}</p>
         </div>
       ))}
 

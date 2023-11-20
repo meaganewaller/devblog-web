@@ -3,7 +3,7 @@ import Image from 'next/image'
 import tw from 'twin.macro'
 
 const ImageContainer = tw(Image)`
-  mx-4 hover:scale-150
+ hover:scale-150
 `
 
 const Marquee = tw.div`
@@ -20,7 +20,7 @@ const SecondMarquee = tw(Marquee)`
 
 export function Buttons() {
   return (
-    <div className='relative mt-[2rem] flex overflow-x-hidden before:absolute before:left-0 before:z-10 before:h-full before:w-[15vw] before:bg-gradient-to-r before:from-gradient-purple before:to-transparent after:absolute after:right-0 after:h-full after:w-[15vw] after:bg-gradient-to-r after:from-transparent after:to-gradient-purple motion-reduce:overflow-x-auto motion-reduce:before:hidden motion-reduce:after:hidden'>
+    <div className='relative mt-[2rem] flex overflow-x-hidden before:absolute before:left-0 before:z-10 before:h-full before:w-[15vw] motion-reduce:overflow-x-auto motion-reduce:before:hidden motion-reduce:after:hidden'>
       <FirstMarquee>
         <ImageContainer
           src='/static/images/buttons/meaganwaller.gif'
@@ -28,7 +28,6 @@ export function Buttons() {
           priority={true}
           width='150'
           height='20'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/acab.gif'
@@ -36,7 +35,6 @@ export function Buttons() {
           alt='ACAB'
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/bookmark.gif'
@@ -44,7 +42,6 @@ export function Buttons() {
           alt='Bookmark this Page GIF'
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/bestviewed.gif'
@@ -52,7 +49,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/madewithmac.gif'
@@ -60,7 +56,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/online.gif'
@@ -68,7 +63,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/trustme.gif'
@@ -76,7 +70,6 @@ export function Buttons() {
           priority={true}
           width='129'
           height='38'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/antiNFT.gif'
@@ -84,7 +77,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/oldweb.png'
@@ -92,7 +84,6 @@ export function Buttons() {
           priority={true}
           width='99'
           height='55'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/sucks.gif'
@@ -100,7 +91,6 @@ export function Buttons() {
           priority={true}
           width='76'
           height='31'
-          className='inline-block hover:scale-150'
         />
       </FirstMarquee>
       <SecondMarquee>
@@ -110,7 +100,6 @@ export function Buttons() {
           priority={true}
           width='150'
           height='20'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/acab.gif'
@@ -118,7 +107,6 @@ export function Buttons() {
           alt='ACAB'
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/bookmark.gif'
@@ -126,7 +114,6 @@ export function Buttons() {
           alt='Bookmark this Page GIF'
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/bestviewed.gif'
@@ -134,7 +121,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/madewithmac.gif'
@@ -142,7 +128,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/online.gif'
@@ -150,7 +135,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/trustme.gif'
@@ -158,7 +142,6 @@ export function Buttons() {
           priority={true}
           width='129'
           height='38'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/antiNFT.gif'
@@ -166,7 +149,6 @@ export function Buttons() {
           priority={true}
           width='88'
           height='31'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/oldweb.png'
@@ -174,7 +156,6 @@ export function Buttons() {
           priority={true}
           width='99'
           height='55'
-          className='inline-block hover:scale-150'
         />
         <ImageContainer
           src='/static/images/buttons/sucks.gif'
@@ -182,7 +163,6 @@ export function Buttons() {
           priority={true}
           width='76'
           height='31'
-          className='inline-block hover:scale-150'
         />
       </SecondMarquee>
     </div>

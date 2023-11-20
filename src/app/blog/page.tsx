@@ -57,18 +57,19 @@ export default function BlogPage() {
   }
 
   return (
-  <>
-    {data?.posts && (
-      <PostsList
-        posts={data?.posts}
-        url={postUrl}
-        pagination={data.pagy.series}
-        page={currentPage}
-        previousPostUrl={previousPostUrl}
-        totalPages={data.pagy.pages}
-      />
-      )
-    }
-    </>
+    <div>
+      <h1 className="font-venice text-6xl text-accent mb-2">the web blog</h1>
+      {(isPending || isFetching) ? (<div>Loading...</div>) :
+      (
+        <PostsList
+          posts={data?.posts}
+          url={postUrl}
+          pagination={data.pagy.series}
+          page={currentPage}
+          previousPostUrl={previousPostUrl}
+          totalPages={data.pagy.pages}
+        />
+      )}
+    </div>
   )
 }
