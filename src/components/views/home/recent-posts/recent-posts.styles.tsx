@@ -26,7 +26,7 @@ export const PostItem = styled.li`
     counter-increment: post;
     content: counter(post);
     background: var(--color-accent);
-    color: #fff;
+    color: var(--color-tropical-orange);
     font-weight: 600;
     width: 34px;
     height: 34px;

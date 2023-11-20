@@ -24,7 +24,7 @@ type LinkTheme = {
 
 export const linkTheme: LinkTheme = {
   variant: {
-    default: 'text-blue-600 dark:text-blue-200 underline hover:no-underline',
+    default: 'text-blue-600 dark:text-blue-200 hover:underline',
     none: '',
     header: 'text-blue-600 dark:text-blue-200 underline hover:no-underline',
     info: 'link text-slate-400 text-sm hover:underline',

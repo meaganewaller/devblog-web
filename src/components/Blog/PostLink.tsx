@@ -28,7 +28,7 @@ export const PostLink = ({ post }: PostLinkProps) => {
     <div
       className={clsx(
         'my-2 flex justify-between p-1',
-        isHighlighted ? 'bg-yellow-100 rounded' : '',
+        isHighlighted ? 'bg-light-yellow rounded' : '',
       )}
     >
       <div className='flex flex-col'>
@@ -36,7 +36,7 @@ export const PostLink = ({ post }: PostLinkProps) => {
           {post.external ? (
             <a
               href={post.href}
-              className='link--blue flex-grow text-lg font-semibold'
+              className='text-primary-txt flex-grow text-lg font-semibold'
               target='_blank'
               rel='noreferrer'
             >
@@ -49,7 +49,7 @@ export const PostLink = ({ post }: PostLinkProps) => {
           ) : (
             <Link
               href={`/blog/${post.slug}`}
-              className='link--blue flex-grow text-lg font-semibold'
+              className='decoration-none flex-grow text-lg font-semibold'
             >
               <span>{post.title}</span>
               {isHighlighted && (
@@ -59,10 +59,10 @@ export const PostLink = ({ post }: PostLinkProps) => {
           )}
         </div>
         {isHighlighted && (post.description?.length || 0) > 0 && (
-          <p className='text-gray-600 ml-[48px]'>{post.description}</p>
+          <p className='text-purple ml-[48px]'>{post.description}</p>
         )}
       </div>
-      <p className='text-ablue-500 hidden space-x-2 whitespace-nowrap text-right text-sm md:block'>
+      <p className='text-sky-blue hidden space-x-2 whitespace-nowrap text-right text-sm md:block'>
         <span>{publishedDate}</span>
       </p>
     </div>

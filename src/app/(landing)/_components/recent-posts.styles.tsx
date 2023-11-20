@@ -18,7 +18,7 @@ export const PostItem = styled.li`
 
   &:hover {
     &::before {
-      background: var(--color-tropical-orange);
+      background: rgba(var(--color-tropical-orange));
     }
   }
 
@@ -26,7 +26,7 @@ export const PostItem = styled.li`
     counter-increment: post;
     content: counter(post);
     background: var(--color-accent);
-    color: #fff;
+    color: rgba(var(--color-deep-pink));
     font-weight: 600;
     width: 34px;
     height: 34px;

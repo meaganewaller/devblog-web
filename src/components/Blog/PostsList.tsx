@@ -18,7 +18,7 @@ export const PostsCount = ({ posts, year }: PostsCountProps) => {
   }, [posts, year])
 
   return (
-    <span className='block text-sm font-semibold text-accent'>
+    <span className='block text-xs font-mono bg-raspberry-pink text-on-accent p-2 rounded-full mb-1'>
       {count} post{count === 1 ? '' : 's'}
     </span>
   )
@@ -47,8 +47,8 @@ export const PostTimelineSeparator = ({
 
   if (!Number.isNaN(currentPostYear) && currentPostYear !== previousPostYear) {
     return (
-      <div className='mt-8 flex items-baseline justify-between border-b-4 border-secondary-txt md:mt-12'>
-        <span className='font-venice text-4xl font-bold text-accent-dark'>
+      <div className='mt-8 flex items-baseline justify-between border-b-2 border-deep-pink md:mt-12'>
+        <span className='font-venice text-4xl font-bold text-bubblegum'>
           {currentPostYear}
         </span>
         <PostsCount posts={posts} year={currentPostYear} />
