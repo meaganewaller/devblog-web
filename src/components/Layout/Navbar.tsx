@@ -50,6 +50,7 @@ function Navbar() {
       <Modal isOpen={showNewsletterModal} setIsOpen={setShowNewsletterModal}>
         <div className='mx-auto flex w-full'>
           <NewsletterForm
+            // eslint-disable-next-line
             title={["A newsletter you'll ", <em>actually</em>, ' open.']}
             subtitle='A monthly-ish newsletter with updates from the blog, my life, and things I find around the web.'
           />

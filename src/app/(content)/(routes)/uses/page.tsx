@@ -122,9 +122,8 @@ export default function UsesPage() {
       <PageHeader title='How I Work' centered={true} />
       <div className='my-4 flex flex-wrap justify-center gap-3 px-4 md:my-8 md:px-8'>
         {filters.map((filter) => (
-          <a
+          <button
             key={filter}
-            href='#'
             className={`relative select-none rounded-lg px-2 py-1 text-accent-dark hover:shadow hover:shadow-bubblegum hover:outline hover:outline-bubblegum md:text-lg ${
               selectedFilter === filter
                 ? 'bg-soft-rose/50 shadow shadow-bubblegum outline outline-bubblegum'
@@ -133,7 +132,7 @@ export default function UsesPage() {
             onClick={() => setSelectedFilter(filter)}
           >
             {filter}
-          </a>
+          </button>
         ))}
       </div>
 

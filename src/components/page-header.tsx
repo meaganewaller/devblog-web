@@ -13,6 +13,7 @@ interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   centered?: boolean
 }
 
+// eslint-disable-next-line
 const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
   ({ title, description, centered }: PageHeaderProps, ref) => {
     const animation = {

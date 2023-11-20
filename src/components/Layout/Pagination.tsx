@@ -32,7 +32,10 @@ const Pagination = ({ page, totalPages, url, previousPostUrl, series }: Params) 
       <div className='hidden md:-mt-px md:flex'>
         {series.map((pageNumber) =>
           pageNumber.toString() === 'gap' ? (
-            <span className='inline-flex items-center border-t-2 border-transparent border-transparent px-4 pt-4 text-sm font-medium text-accent-dark'>
+            <span
+              key={pageNumber}
+              className='inline-flex items-center border-t-2 border-transparent border-transparent px-4 pt-4 text-sm font-medium text-accent-dark'
+            >
               ...{' '}
             </span>
           ) : (

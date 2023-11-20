@@ -9,6 +9,7 @@ import hocus from 'tailwindcss-hocus'
 
 import { colors } from './config/tailwind/colors'
 
+// eslint-disable-next-line
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
 
 const sansFontFamily = ['var(--font-sans)', 'DM Sans', ...fontFamily.sans]

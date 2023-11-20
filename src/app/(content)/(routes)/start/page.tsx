@@ -51,20 +51,20 @@ const StartPage = () => {
         <h2 className='my-4 text-2xl font-bold'>Step-by-Step Guides</h2>
         <ul className='ml-6 list-disc'>
           <li>
-            <a href='#'>Guide 1</a>
+            <a href='/'>Guide 1</a>
           </li>
           <li>
-            <a href='#'>Guide 2</a>
+            <a href='/'>Guide 2</a>
           </li>
         </ul>
 
         <h2 className='my-4 text-2xl font-bold'>Recommended Tools/Resources</h2>
         <ul className='ml-6 list-disc'>
           <li>
-            <a href='#'>Tool 1</a>
+            <a href='/'>Tool 1</a>
           </li>
           <li>
-            <a href='#'>Tool 2</a>
+            <a href='/'>Tool 2</a>
           </li>
         </ul>
 
@@ -78,10 +78,10 @@ const StartPage = () => {
         </ul>
 
         <div className='mt-8 text-center'>
-          <a href='#' className='hover:bg-gray-700 rounded bg-accent-dark px-4 py-2 text-on-accent'>
+          <a href='/subscribe' className='hover:bg-gray-700 rounded bg-accent-dark px-4 py-2 text-on-accent'>
             Subscribe
           </a>
-          <a href='#' className='hover:bg-gray-700 ml-4 rounded bg-accent-dark px-4 py-2 text-on-accent'>
+          <a href='/chat' className='hover:bg-gray-700 ml-4 rounded bg-accent-dark px-4 py-2 text-on-accent'>
             Follow on Social Media
           </a>
         </div>

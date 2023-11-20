@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const withTwin = require('./withTwin.js')
 /**
  * @type {import('next').NextConfig}

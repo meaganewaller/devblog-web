@@ -13,6 +13,7 @@ type LinkProps = {
 } & React.ComponentPropsWithoutRef<'a'> &
   NextLinkProps
 
+// eslint-disable-next-line
 const Link = forwardRef<any, LinkProps>(({ href, children, className, showExternalLinkIcon = true, ...rest }, ref) => {
   const isExternal = href && (href.startsWith('https') || href.startsWith('http'))
 

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const path = require('path')
 
 // The folders containing files importing twin.macro

@@ -6,6 +6,7 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   wide?: boolean
 }
 
+// eslint-disable-next-line
 const Container = forwardRef<HTMLDivElement, ContainerProps>(({ wide, children, className, ...props }, ref) => {
   return (
     <div
