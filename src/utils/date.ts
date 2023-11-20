@@ -67,11 +67,7 @@ export const formatToISO = (date: string | Date) => {
  * @returns The function `formatDate` returns a formatted date string based on the provided `date`,
  * `locale`, and `config` parameters.
  */
-export const formatDate = (
-  date: string | Date,
-  locale?: LOCALE,
-  config?: Intl.DateTimeFormatOptions,
-) => {
+export const formatDate = (date: string | Date, locale?: LOCALE, config?: Intl.DateTimeFormatOptions) => {
   const l = getLocale(locale)
   const fmt = new Intl.DateTimeFormat(l, config)
   const dateObject = getActualDate(date)

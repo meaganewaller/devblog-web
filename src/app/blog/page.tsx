@@ -1,10 +1,12 @@
 'use client'
 
-import React from "react"
+import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'next/navigation'
-import { PostsList } from "@/components/Blog/PostsList"
-import { useQuery } from "@tanstack/react-query"
-import apiClient from "@/lib/apiClient"
+import React from 'react'
+
+import apiClient from '@/lib/apiClient'
+
+import { PostsList } from '@/components/Blog/PostsList'
 
 const usePosts = (limit, page, tag, category, search) => {
   return useQuery({
@@ -15,9 +17,15 @@ const usePosts = (limit, page, tag, category, search) => {
 
 const fetchPosts = async (limit = 10, page = 1, tag, category, search) => {
   let urlParams = `?page=${page}&count=${limit}`
-  if (tag) { urlParams += `&tag=${tag}` }
-  if (category) { urlParams += `&category=${category}` }
-  if (search) { urlParams += `&query=${search}` }
+  if (tag) {
+    urlParams += `&tag=${tag}`
+  }
+  if (category) {
+    urlParams += `&category=${category}`
+  }
+  if (search) {
+    urlParams += `&query=${search}`
+  }
 
   const response = await apiClient.get(`/posts${urlParams}`)
   return response.data
@@ -31,14 +39,10 @@ export default function BlogPage() {
   const currentPage = parseInt(page as string, 10) || 1
   const category = searchParams.get('category') || undefined
 
-  const {
-    data,
-    isPending,
-    isFetching
-  } = usePosts(10, currentPage, tag, category, search)
+  const { data, isPending, isFetching } = usePosts(10, currentPage, tag, category, search)
 
   let postUrl = `/blog?page=${currentPage}`
-  let previousPostUrl = `/blog?page=${currentPage - 1}`
+  const previousPostUrl = `/blog?page=${currentPage - 1}`
 
   if (tag) {
     postUrl += `&tag=${tag}`
@@ -58,9 +62,10 @@ export default function BlogPage() {
 
   return (
     <div>
-      <h1 className="font-venice text-6xl text-accent mb-2">the web blog</h1>
-      {(isPending || isFetching) ? (<div>Loading...</div>) :
-      (
+      <h1 className='mb-2 font-venice text-6xl text-accent'>the web blog</h1>
+      {isPending || isFetching ? (
+        <div>Loading...</div>
+      ) : (
         <PostsList
           posts={data?.posts}
           url={postUrl}

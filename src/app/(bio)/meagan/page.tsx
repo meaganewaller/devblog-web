@@ -1,12 +1,13 @@
 'use client'
 
 import React from 'react'
+
 import PageHeader from '@/components/page-header'
 import { Bio, Buttons, QuickInfo } from '@/components/views/meagan'
 
 export default function MeaganPage() {
   return (
-    <div className="w-[95%] max-w-[1300px] p-[50px] mx-auto font-extra my-[4em] relative">
+    <div className='relative mx-auto my-[4em] w-[95%] max-w-[1300px] p-[50px] font-extra'>
       <PageHeader title="Hi! I'm Meagan" centered={true} />
       <QuickInfo />
       <Buttons />

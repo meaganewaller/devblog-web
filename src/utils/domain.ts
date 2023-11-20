@@ -1,7 +1,4 @@
-export const getUrlDomain = (
-  url?: string | null,
-  short?: boolean,
-): string | null => {
+export const getUrlDomain = (url?: string | null, short?: boolean): string | null => {
   if (!url) return null
   try {
     const urlObj = new URL(url)

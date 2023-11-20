@@ -1,8 +1,9 @@
 'use client'
 
-import ViewsCounter from "./views-counter"
-import { useEffect } from "react"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useEffect } from 'react'
+
+import ViewsCounter from './views-counter'
 
 interface BlogViewProps {
   slug: string
@@ -10,14 +11,14 @@ interface BlogViewProps {
 
 const BlogViews = ({ slug }: BlogViewProps) => {
   const queryClient = useQueryClient()
-  const queryKey = ["views", slug]
+  const queryKey = ['views', slug]
   const mutation = useMutation({
     mutationFn: () =>
-      fetch(`/api/views/${slug}`, { method: "POST" }).then(async (res) => {
+      fetch(`/api/views/${slug}`, { method: 'POST' }).then(async (res) => {
         const data = await res.json()
 
         if (!res.ok) {
-          throw new Error("Error incrementing views")
+          throw new Error('Error incrementing views')
         }
 
         return data
@@ -38,9 +39,9 @@ const BlogViews = ({ slug }: BlogViewProps) => {
   }, [])
 
   return (
-    <p className="text-accent">
+    <p className='text-accent'>
       <ViewsCounter slug={slug} />
-      {` views`}
+      {' views'}
     </p>
   )
 }

@@ -1,6 +1,4 @@
 import clsx from 'clsx'
-import { useMemo } from 'react'
-import { FaStar } from 'react-icons/fa'
 
 import { Link } from '@/components/Layout/Link'
 
@@ -12,17 +10,10 @@ export interface WorkspaceLinkProps {
 
 export const WorkspaceLink = ({ workspace }: WorkspaceLinkProps) => {
   return (
-    <div
-      className={clsx(
-        'my-2 flex justify-between p-1',
-      )}
-    >
+    <div className={clsx('my-2 flex justify-between p-1')}>
       <div className='flex flex-col'>
         <div className='flex flex-row items-center space-x-4'>
-          <Link
-            href={`/workspaces/${workspace.slug}`}
-            className='link--blue flex-grow text-lg font-semibold'
-          >
+          <Link href={`/workspaces/${workspace.slug}`} className='link--blue flex-grow text-lg font-semibold'>
             <span>{workspace.title}</span>
           </Link>
         </div>
@@ -30,4 +21,3 @@ export const WorkspaceLink = ({ workspace }: WorkspaceLinkProps) => {
     </div>
   )
 }
-

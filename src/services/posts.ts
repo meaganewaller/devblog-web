@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
+
 import apiClient from '@/lib/apiClient'
-import { useQuery } from "@tanstack/react-query"
+
 import { convertPost } from '@/utils/blogs'
 
 const getPost = async (slug: string) => {
@@ -8,10 +10,10 @@ const getPost = async (slug: string) => {
 }
 
 export const fetchPost = async (slug: string) => {
-  return { data, isLoading } = useQuery({
+  return ({ data, isLoading } = useQuery({
     queryKey: ['detail-post', slug],
     queryFn: () => getPost(slug),
-  })
+  }))
 }
 
 export const getPosts = async ({
@@ -21,17 +23,23 @@ export const getPosts = async ({
   category,
   search,
 }: {
-    count: number,
-    page: number,
-    tag?: string
-    category?: string
-    offset?: number
-    search?: string
-  }) => {
+  count: number
+  page: number
+  tag?: string
+  category?: string
+  offset?: number
+  search?: string
+}) => {
   let urlParams = `?page=${page}&count=${count}`
-  if (tag) { urlParams += `&tag=${tag}` }
-  if (category) { urlParams += `&category=${category}` }
-  if (search) { urlParams += `&query=${search}` }
+  if (tag) {
+    urlParams += `&tag=${tag}`
+  }
+  if (category) {
+    urlParams += `&category=${category}`
+  }
+  if (search) {
+    urlParams += `&query=${search}`
+  }
   return await apiClient.get(`/posts${urlParams}`)
 }
 

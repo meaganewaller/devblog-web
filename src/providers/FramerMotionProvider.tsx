@@ -1,8 +1,4 @@
-import {
-  domAnimation,
-  LazyMotion,
-  MotionConfig as MotionProvider,
-} from 'framer-motion'
+import { domAnimation, LazyMotion, MotionConfig as MotionProvider } from 'framer-motion'
 
 interface FramerMotionProviderProps {
   children: JSX.Element

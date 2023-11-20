@@ -1,9 +1,11 @@
 'use client'
-import React from 'react'
-import { useSearchParams } from 'next/navigation'
-import { ProjectsList } from "@/components/Projects/ProjectsList"
 import { useQuery } from '@tanstack/react-query'
+import { useSearchParams } from 'next/navigation'
+import React from 'react'
+
 import apiClient from '@/lib/apiClient'
+
+import { ProjectsList } from '@/components/Projects/ProjectsList'
 
 const useProjects = (limit, page, tag, category, search) => {
   return useQuery({
@@ -14,14 +16,19 @@ const useProjects = (limit, page, tag, category, search) => {
 
 const fetchProjects = async (limit = 10, page = 1, tag, category, search) => {
   let urlParams = `?page=${page}&count=${limit}`
-  if (tag) { urlParams += `&tag=${tag}` }
-  if (category) { urlParams += `&category=${category}` }
-  if (search) { urlParams += `&query=${search}` }
+  if (tag) {
+    urlParams += `&tag=${tag}`
+  }
+  if (category) {
+    urlParams += `&category=${category}`
+  }
+  if (search) {
+    urlParams += `&query=${search}`
+  }
 
   const response = await apiClient.get(`/projects${urlParams}`)
   return response.data
 }
-
 
 export default function ProjectsPage() {
   const searchParams = useSearchParams()
@@ -31,14 +38,10 @@ export default function ProjectsPage() {
   const currentPage = parseInt(page as string, 10) || 1
   const category = searchParams.get('category') || undefined
 
-  const {
-    data,
-    isPending,
-    isFetching
-  } = useProjects(10, currentPage, tag, category, search)
+  const { data, isPending, isFetching } = useProjects(10, currentPage, tag, category, search)
 
   let projectUrl = `/projects?page=${currentPage}`
-  let previousProjectUrl = `/projects?page=${currentPage - 1}`
+  const previousProjectUrl = `/projects?page=${currentPage - 1}`
 
   if (tag) {
     projectUrl += `&tag=${tag}`
@@ -58,9 +61,10 @@ export default function ProjectsPage() {
 
   return (
     <div>
-      <h1 className="font-venice text-6xl text-accent mb-2">the projects</h1>
-      {(isPending || isFetching) ? (<div>Loading...</div>) :
-      (
+      <h1 className='mb-2 font-venice text-6xl text-accent'>the projects</h1>
+      {isPending || isFetching ? (
+        <div>Loading...</div>
+      ) : (
         <ProjectsList
           projects={data?.projects}
           page={currentPage}

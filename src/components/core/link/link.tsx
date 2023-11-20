@@ -3,8 +3,7 @@ import type { ComponentProps } from 'react'
 
 import { StyledLink } from './link.styles'
 
-const isLocalLink = (href?: string) =>
-  href && (href.startsWith('/') || href.startsWith('#'))
+const isLocalLink = (href?: string) => href && (href.startsWith('/') || href.startsWith('#'))
 
 interface LinkProps extends ComponentProps<typeof NextLink> {
   title: string
@@ -13,12 +12,7 @@ interface LinkProps extends ComponentProps<typeof NextLink> {
 
 export const Link = (props: LinkProps) => {
   const { href, ...otherProps } = props
-  const {
-    openInNewTab = !isLocalLink(
-      typeof href !== 'string' ? href.toString() : href,
-    ),
-    ...rest
-  } = otherProps
+  const { openInNewTab = !isLocalLink(typeof href !== 'string' ? href.toString() : href), ...rest } = otherProps
 
   return (
     <StyledLink

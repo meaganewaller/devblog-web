@@ -3,9 +3,10 @@
 import { m } from 'framer-motion'
 import { useLayoutEffect, useState } from 'react'
 
-import { useMediaQuery, useOnScroll } from '@/hooks'
-import tw from '@/utils/tw'
 import { min } from '@/lib/screens'
+import { useMediaQuery, useOnScroll } from '@/hooks'
+
+import tw from '@/utils/tw'
 
 interface StickyTitleProps {
   title: string
@@ -61,29 +62,26 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
           {isScrolled ? (
             <m.div
               className={tw(
-                'fixed top-0 left-0 right-0 bg-background z-50 backdrop-blur h-16 flex justify-center items-center shadow-sm px-4 text-center',
+                'fixed left-0 right-0 top-0 z-50 flex h-16 items-center justify-center bg-background px-4 text-center shadow-sm backdrop-blur',
               )}
-              initial="initial"
-              animate="animate"
+              initial='initial'
+              animate='animate'
               variants={variants}
               transition={transition}
             >
-              <h1
-                className={tw('text-lg font-semibold font-venice cursor-pointer')}
-                onClick={scrollToTop}
-              >
+              <h1 className={tw('cursor-pointer font-venice text-lg font-semibold')} onClick={scrollToTop}>
                 {title}
               </h1>
             </m.div>
           ) : (
             <m.div
               className={tw(
-                'fixed top-0 left-0 right-0 bg-background backdrop-blur h-16 z-50 flex justify-center items-center shadow-sm px-4 text-center',
+                'fixed left-0 right-0 top-0 z-50 flex h-16 items-center justify-center bg-background px-4 text-center shadow-sm backdrop-blur',
               )}
               initial={{ opacity: 0, y: gap }}
               transition={transition}
             >
-              <h1 className={tw('text-lg font-semibold font-mono')}>{title}</h1>
+              <h1 className={tw('font-mono text-lg font-semibold')}>{title}</h1>
             </m.div>
           )}
         </>

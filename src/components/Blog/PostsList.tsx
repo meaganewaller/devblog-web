@@ -13,12 +13,11 @@ interface PostsCountProps {
 
 export const PostsCount = ({ posts, year }: PostsCountProps) => {
   const count = useMemo(() => {
-    return posts.filter((a) => new Date(a.published_date).getFullYear() === year)
-      .length
+    return posts.filter((a) => new Date(a.published_date).getFullYear() === year).length
   }, [posts, year])
 
   return (
-    <span className='block text-xs font-mono bg-raspberry-pink text-on-accent p-2 rounded-full mb-1'>
+    <span className='mb-1 block rounded-full bg-raspberry-pink p-2 font-mono text-xs text-on-accent'>
       {count} post{count === 1 ? '' : 's'}
     </span>
   )
@@ -30,27 +29,17 @@ interface PostTimelineSeparatorProps {
   previousPost: PostResponse | null
 }
 
-export const PostTimelineSeparator = ({
-  posts,
-  currentPost,
-  previousPost,
-}: PostTimelineSeparatorProps) => {
+export const PostTimelineSeparator = ({ posts, currentPost, previousPost }: PostTimelineSeparatorProps) => {
   const currentPostDate = new Date(currentPost.published_date)
   const currentPostYear = currentPostDate.getFullYear()
 
-  const previousPostDate = previousPost
-    ? new Date(previousPost.published_date)
-    : null
-  const previousPostYear = previousPostDate
-    ? previousPostDate.getFullYear()
-    : null
+  const previousPostDate = previousPost ? new Date(previousPost.published_date) : null
+  const previousPostYear = previousPostDate ? previousPostDate.getFullYear() : null
 
   if (!Number.isNaN(currentPostYear) && currentPostYear !== previousPostYear) {
     return (
       <div className='mt-8 flex items-baseline justify-between border-b-2 border-deep-pink md:mt-12'>
-        <span className='font-venice text-4xl font-bold text-bubblegum'>
-          {currentPostYear}
-        </span>
+        <span className='font-venice text-4xl font-bold text-bubblegum'>{currentPostYear}</span>
         <PostsCount posts={posts} year={currentPostYear} />
       </div>
     )
@@ -76,28 +65,33 @@ export const PostsList = ({
   url,
   previousPostUrl,
   showSeparator = true,
-  pagination
+  pagination,
 }: PostTimelineProps) => {
   return (
     <div>
-      {posts.length === 0 && (
-      <p>No Posts Found :(</p>
-      )}
-      {posts.length > 0 && posts.map((post: PostResponse, index: number) => (
-        <div key={`${post.slug}-${post.title}-${post.published_date}`}>
-          {showSeparator && (
-            <PostTimelineSeparator
-              posts={posts}
-              currentPost={post}
-              previousPost={index > 0 ? posts[index - 1] : null}
-            />
-          )}
-          <PostLink post={post} />
-        </div>
-      ))}
+      {posts.length === 0 && <p>No Posts Found :(</p>}
+      {posts.length > 0 &&
+        posts.map((post: PostResponse, index: number) => (
+          <div key={`${post.slug}-${post.title}-${post.published_date}`}>
+            {showSeparator && (
+              <PostTimelineSeparator
+                posts={posts}
+                currentPost={post}
+                previousPost={index > 0 ? posts[index - 1] : null}
+              />
+            )}
+            <PostLink post={post} />
+          </div>
+        ))}
 
       {page && totalPages && (
-        <Pagination series={pagination} page={page} totalPages={totalPages} url={url} previousPostUrl={previousPostUrl} />
+        <Pagination
+          series={pagination}
+          page={page}
+          totalPages={totalPages}
+          url={url}
+          previousPostUrl={previousPostUrl}
+        />
       )}
     </div>
   )

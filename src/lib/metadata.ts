@@ -36,19 +36,16 @@ export const defaultMetadata = {
   applicationName: "meagan waller's software development blog",
   title: 'senior software developer',
   titleTemplate: '%s | meagan waller',
-  description:
-    'something here',
+  description: 'something here',
   author: {
     name: 'Meagan Waller',
     url: 'https://meaganwaller.com',
     email: 'meagan@meaganwaller.com',
     github: 'https://github.com/meaganewaller',
     linkedin: 'https://www.linkedin.com/in/meaganewaller',
-    avatar:
-      'image_here',
+    avatar: 'image_here',
   },
-  keywords: [
-  ],
+  keywords: [],
   robots: {
     index: true,
     follow: true,
@@ -68,16 +65,10 @@ const mapKeywords = (keywords?: null | string | Array<string>): string => {
   return keywords
 }
 
-export const buildOgImageUrl = (
-  title: string,
-  description: string,
-  image?: string,
-): string => {
+export const buildOgImageUrl = (title: string, description: string, image?: string): string => {
   const baseUrl = getBaseUrl()
 
-  return `${baseUrl}/api/og?title=${encodeURIComponent(
-    title,
-  )}&description=${encodeURIComponent(description)}${
+  return `${baseUrl}/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}${
     image ? `&image=${image}` : ''
   }`
 }

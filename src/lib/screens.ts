@@ -15,16 +15,11 @@ const breakpoints = fullConfig?.theme?.screens || {
 
 type BreakpointKey = keyof ScreensConfig
 
-const getBreakpointValue = <K extends string>(bp: K) =>
-  breakpoints[bp as BreakpointKey]
+const getBreakpointValue = <K extends string>(bp: K) => breakpoints[bp as BreakpointKey]
 
-export const min = <K extends string>(bp: K): string =>
-  `@media only screen and (min-width: ${getBreakpointValue(bp)})`
+export const min = <K extends string>(bp: K): string => `@media only screen and (min-width: ${getBreakpointValue(bp)})`
 
-export const max = <K extends string>(bp: K): string =>
-  `@media only screen and (max-width: ${getBreakpointValue(bp)})`
+export const max = <K extends string>(bp: K): string => `@media only screen and (max-width: ${getBreakpointValue(bp)})`
 
 export const between = <K extends string>(bpMin: K, bpMax: K): string =>
-  `@media only screen and (min-width: ${getBreakpointValue(
-    bpMin,
-  )}) and (max-width: ${getBreakpointValue(bpMax)})`
+  `@media only screen and (min-width: ${getBreakpointValue(bpMin)}) and (max-width: ${getBreakpointValue(bpMax)})`

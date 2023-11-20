@@ -43,7 +43,11 @@ export default function PostDetail() {
               <div className={tw('mt-16 flex items-center gap-1 text-sm')}>
                 Tags:
                 <div className={tw('flex flex-wrap gap-1')}>
-                  {post.tags?.map((tag) => <span key={tag.name}><TagLink tag={tag} /></span>)}
+                  {post.tags?.map((tag) => (
+                    <span key={tag.name}>
+                      <TagLink tag={tag} />
+                    </span>
+                  ))}
                 </div>
               </div>
             )}

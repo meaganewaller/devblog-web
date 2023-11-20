@@ -1,3 +1,5 @@
+import { defaultMetadata } from '@/lib/metadata'
+
 import {
   AtSign,
   BarChart,
@@ -11,7 +13,6 @@ import {
   Pencil,
   RSS,
 } from '@/components/icons'
-import { defaultMetadata } from '@/lib/metadata'
 
 interface NavLink {
   path: string

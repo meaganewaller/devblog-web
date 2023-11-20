@@ -29,13 +29,7 @@ export function Buttons() {
           width='150'
           height='20'
         />
-        <ImageContainer
-          src='/static/images/buttons/acab.gif'
-          priority={true}
-          alt='ACAB'
-          width='88'
-          height='31'
-        />
+        <ImageContainer src='/static/images/buttons/acab.gif' priority={true} alt='ACAB' width='88' height='31' />
         <ImageContainer
           src='/static/images/buttons/bookmark.gif'
           priority={true}
@@ -101,13 +95,7 @@ export function Buttons() {
           width='150'
           height='20'
         />
-        <ImageContainer
-          src='/static/images/buttons/acab.gif'
-          priority={true}
-          alt='ACAB'
-          width='88'
-          height='31'
-        />
+        <ImageContainer src='/static/images/buttons/acab.gif' priority={true} alt='ACAB' width='88' height='31' />
         <ImageContainer
           src='/static/images/buttons/bookmark.gif'
           priority={true}

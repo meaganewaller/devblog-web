@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+
 import tw from '@/utils/tw'
 
 interface ErrorProps {
@@ -10,7 +11,7 @@ interface ErrorProps {
 
 const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    console.error("Error:", error)
+    console.error('Error:', error)
   }, [error])
 
   return (

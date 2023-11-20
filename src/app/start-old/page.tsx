@@ -128,96 +128,76 @@ export default function StartPage() {
           Welcome to Meagan's Digital Hideout
         </h1>
         <SectionParagraph>
-          Well, well, well, looks like you've stumbled into the digital rabbit
-          hole I call home. I'm Meagan, your digital co-conspirator. Buckle up,
-          because you're in for a mildly entertaining ride through the realms of
+          Well, well, well, looks like you've stumbled into the digital rabbit hole I call home. I'm Meagan, your
+          digital co-conspirator. Buckle up, because you're in for a mildly entertaining ride through the realms of
           coding and all things pixelated.
         </SectionParagraph>
 
         <SectionTitle>"Techsplainer" 101</SectionTitle>
         <SectionParagraph>
-          Brace yourself for a riveting crash course in tech babble. I've
-          generously compiled a cheat sheet for those cryptic terms that keep
-          coming up in your coding journey. Think of it as your secret decoder
-          ring for tech talk. Take a peek{' '}
-          <LinkButton href='#'>over here.</LinkButton>
+          Brace yourself for a riveting crash course in tech babble. I've generously compiled a cheat sheet for those
+          cryptic terms that keep coming up in your coding journey. Think of it as your secret decoder ring for tech
+          talk. Take a peek <LinkButton href='#'>over here.</LinkButton>
         </SectionParagraph>
 
         <SectionTitle>Meet the Dev Guru (Not Really)</SectionTitle>
         <SectionParagraph>
-          Curious who's orchestrating this virtual parade? That'd be yours
-          truly, Meagan. Wondering why I decided to take on the noble role of a
-          digital sage? Wonder no more--
+          Curious who's orchestrating this virtual parade? That'd be yours truly, Meagan. Wondering why I decided to
+          take on the noble role of a digital sage? Wonder no more--
           <LinkButton href='/meagan'>check out my tale.</LinkButton>
         </SectionParagraph>
 
         <SectionTitle>Home Sweet (Digital) Home</SectionTitle>
         <SectionParagraph>
-          Welcome to the place where bugs and bytes mingle. This cozy corner is
-          your portal to:
+          Welcome to the place where bugs and bytes mingle. This cozy corner is your portal to:
         </SectionParagraph>
         <SectionList>
           <li>Discover coding tricks that might raise an eyebrow or two</li>
+          <li>Join discussions that are practically a virtual bonfire (no marshmallows required)</li>
           <li>
-            Join discussions that are practically a virtual bonfire (no
-            marshmallows required)
-          </li>
-          <li>
-            Connect with fellow pixel enthusiasts (you know, the kind who
-            occassionally see error messages in their dreams)
+            Connect with fellow pixel enthusiasts (you know, the kind who occassionally see error messages in their
+            dreams)
           </li>
         </SectionList>
 
         <SectionTitle>Served on a Silver Platter</SectionTitle>
         <SectionParagraph>
-          Feeling peckish for some code bytes? Here's a taste of what's on the
-          menu:
+          Feeling peckish for some code bytes? Here's a taste of what's on the menu:
           <SectionList>
             <li>
-              <LinkButton href='#'>
-                Decoding APIs: Not as Fun as Decoding Emojis
-              </LinkButton>
+              <LinkButton href='#'>Decoding APIs: Not as Fun as Decoding Emojis</LinkButton>
             </li>
             <li>
-              <LinkButton href='#'>
-                JavaScript: Where the Magic Happens (No, Seriously)
-              </LinkButton>
+              <LinkButton href='#'>JavaScript: Where the Magic Happens (No, Seriously)</LinkButton>
             </li>
             <li>
-              <LinkButton href='#'>
-                Detecting and Fixing Bugs: A Guide to Digital Pest Control
-              </LinkButton>
+              <LinkButton href='#'>Detecting and Fixing Bugs: A Guide to Digital Pest Control</LinkButton>
             </li>
           </SectionList>
         </SectionParagraph>
 
         <SectionTitle>The Not-So-Secret Society</SectionTitle>
         <SectionParagraph>
-          Join our merry band of digital misfits! For a regular dose of
-          tomfoolery, hit that follow button on{' '}
+          Join our merry band of digital misfits! For a regular dose of tomfoolery, hit that follow button on{' '}
           <LinkButton href='https://twitter.com/meaganewaller' target='_blank'>
             Twitter
           </LinkButton>{' '}
-          and <LinkButton href='#'>Instagram</LinkButton>. Memes, musing, and
-          the occassional code snippet--what more could you ask for?
+          and <LinkButton href='#'>Instagram</LinkButton>. Memes, musing, and the occassional code snippet--what more
+          could you ask for?
         </SectionParagraph>
 
         <SectionTitle>Secure Your Digital Decoder Ring</SectionTitle>
         <SectionParagraph>
-          Wanna be in the know? Sign up for the{' '}
-          <LinkButton href='/newsletter'>The Insider Crew</LinkButton> and
-          receive mind-boggling insights, unfiltered thoughts, and other digital
-          confetti in your inbox. It's like having a backstage pass to a concert
-          you're not sure you even want to attend.
+          Wanna be in the know? Sign up for the <LinkButton href='/newsletter'>The Insider Crew</LinkButton> and receive
+          mind-boggling insights, unfiltered thoughts, and other digital confetti in your inbox. It's like having a
+          backstage pass to a concert you're not sure you even want to attend.
         </SectionParagraph>
 
         <SectionTitle>The Digital Adventure Awaits</SectionTitle>
         <SectionParagraph>
-          Whether you're laughing or crying at your code (probably both, tbh),
-          you've found yourself in the right place--a realm where bits, pixels,
-          and code reign supreme. So, strap in, dear coder, and let's navigate
-          the digital constellations together. Get ready to kick back, relax,
-          and embrace the chaos!
+          Whether you're laughing or crying at your code (probably both, tbh), you've found yourself in the right
+          place--a realm where bits, pixels, and code reign supreme. So, strap in, dear coder, and let's navigate the
+          digital constellations together. Get ready to kick back, relax, and embrace the chaos!
         </SectionParagraph>
       </InnerSection>
     </Section>

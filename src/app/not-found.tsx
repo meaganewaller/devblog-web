@@ -34,15 +34,10 @@ function NotFound() {
             alt='Sad computer'
           />
           <div className='text-center'>
-            <h1 className='mt-5 font-venice text-5xl text-primary-txt'>
-              error 404
-            </h1>
+            <h1 className='mt-5 font-venice text-5xl text-primary-txt'>error 404</h1>
             <p className='w-full font-extra text-md leading-relaxed text-primary-txt'>
               page not found. <br />
-              <Link
-                className='text-accent hover:underline hover:decoration-wavy'
-                href='/'
-              >
+              <Link className='text-accent hover:underline hover:decoration-wavy' href='/'>
                 go back home
               </Link>
             </p>

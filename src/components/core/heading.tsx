@@ -114,21 +114,12 @@ export function Heading({ title, categories, onSearch }: PageHeaderProps) {
   return (
     <>
       <HeadingWrapper>
-        <HeadingTitle
-          className={clsx(
-            'blog-header',
-            categories ? '' : 'w-full text-center',
-          )}
-        >
-          {title}
-        </HeadingTitle>
+        <HeadingTitle className={clsx('blog-header', categories ? '' : 'w-full text-center')}>{title}</HeadingTitle>
         {categories && (
           <CategoryNav>
             {categories.map((category: Category) => (
               <CategoryNavItem key={category.slug}>
-                <CategoryNavItemLink href={generateCategoryUrl(category.slug)}>
-                  {category.title}
-                </CategoryNavItemLink>
+                <CategoryNavItemLink href={generateCategoryUrl(category.slug)}>{category.title}</CategoryNavItemLink>
               </CategoryNavItem>
             ))}
           </CategoryNav>

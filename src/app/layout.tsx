@@ -1,10 +1,12 @@
+import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Providers } from '@/providers'
+import '@/styles/globals.scss'
+
 import Navbar from '@/components/Layout/Navbar'
 import Toaster from '@/components/Toaster'
-import '@/styles/globals.scss'
-import type { Metadata } from 'next'
+
 import { metadataBase } from '@/constants/metadata'
+import { Providers } from '@/providers'
 
 export interface LayoutProps {
   children: React.ReactNode
@@ -13,22 +15,18 @@ export interface LayoutProps {
 export const metadata: Metadata = {
   metadataBase,
   title: {
-    default: "meagan waller",
-    template: "%s | meagan waller",
+    default: 'meagan waller',
+    template: '%s | meagan waller',
   },
 }
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`2xl:text-[24px] font-sans`}
-    >
-      <body className="debug-screens flex flex-col">
+    <html lang='en' suppressHydrationWarning className={'font-sans 2xl:text-[24px]'}>
+      <body className='debug-screens flex flex-col'>
         <Providers>
           <Navbar />
-          <main className="mt-12">{children}</main>
+          <main className='mt-12'>{children}</main>
           <Toaster />
         </Providers>
         <Script

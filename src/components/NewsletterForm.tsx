@@ -1,10 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react'
 
-export function NewsletterForm({
-  title = ['Subscribe to the Newsletter'],
-  subtitle = '',
-}) {
+export function NewsletterForm({ title = ['Subscribe to the Newsletter'], subtitle = '' }) {
   const inputEl = useRef<HTMLInputElement>(null)
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
@@ -24,9 +21,7 @@ export function NewsletterForm({
     const { error } = await res.json()
     if (error) {
       setError(true)
-      setMessage(
-        'Your e-mail address is invalid or you are already subscribed!',
-      )
+      setMessage('Your e-mail address is invalid or you are already subscribed!')
       return
     }
 
@@ -42,7 +37,7 @@ export function NewsletterForm({
         className='grid min-w-[80%] grid-rows-[1fr_1fr_auto] gap-4 rounded-xl border-2 border-solid border-accent p-10 shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)]'
         onSubmit={subscribe}
       >
-        <h1 className="text-center">{title}</h1>
+        <h1 className='text-center'>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
         <div className='grid grid-cols-[1fr_auto] gap-2'>
           <div className='grid gap-2'>
@@ -54,9 +49,7 @@ export function NewsletterForm({
               className='rounded-md border-2 border-solid border-accent p-2 font-extra text-accent shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)] focus:bg-background focus:outline-none'
               id='email-input'
               name='email'
-              placeholder={
-                subscribed ? "You're subscribed !  🎉" : 'Enter your email'
-              }
+              placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
               ref={inputEl}
               required
               type='email'
@@ -70,29 +63,16 @@ export function NewsletterForm({
             disabled={subscribed}
           />
         </div>
-        <p
-          className='justify-self-end text-sm italic text-accent'
-          style={{ alignSelf: 'end' }}
-        >
+        <p className='justify-self-end text-sm italic text-accent' style={{ alignSelf: 'end' }}>
           No spam. We'll never sell your email address.
         </p>
       </form>
-      {error && (
-        <div className='pt-2 text-sm text-[var(--color-deep-pink)]'>
-          {message}
-        </div>
-      )}
+      {error && <div className='pt-2 text-sm text-[var(--color-deep-pink)]'>{message}</div>}
     </div>
   )
 }
 
-export function BlogNewsletterForm({
-  title,
-  subtitle,
-}: {
-  title: string[]
-  subtitle: string
-}) {
+export function BlogNewsletterForm({ title, subtitle }: { title: string[]; subtitle: string }) {
   ;<div className='flex items-center justify-center'>
     <div className='bg-background px-14 py-8'>
       <NewsletterForm title={title} subtitle={subtitle} />

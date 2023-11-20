@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import Draggable from 'react-draggable'
-import tw, { styled, theme } from 'twin.macro'
+import tw, { styled } from 'twin.macro'
 
 interface WindowProps {
   id: string
@@ -27,12 +27,8 @@ interface DraggableWindowProps {
 
 const DraggableWindow = styled.div<DraggableWindowProps>(({ $draggable, $width, $height, $zIndex, $top, $left }) => [
   tw`cursor-move mt-12 relative flex flex-col px-1 border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c]`,
-  $draggable === false && [
-    tw`!w-full !top-0 !left-0`,
-  ],
-  $draggable && [
-    tw`absolute`,
-  ]
+  $draggable === false && [tw`!w-full !top-0 !left-0`],
+  $draggable && [tw`absolute`],
 ])
 
 const WindowHeader = tw.div`
@@ -75,13 +71,8 @@ export const Window = ({
     const element = document.getElementById(elementId)
     if (element) {
       setActiveWindow(true)
-      const otherWindows = document.querySelectorAll(
-        `[data-another-window]:not(#${elementId})`,
-      )
-      const maxZIndex = Array.from(otherWindows).reduce(
-        (acc, elem: any) => Math.max(elem?.style.zIndex, acc),
-        0,
-      )
+      const otherWindows = document.querySelectorAll(`[data-another-window]:not(#${elementId})`)
+      const maxZIndex = Array.from(otherWindows).reduce((acc, elem: any) => Math.max(elem?.style.zIndex, acc), 0)
       element.style.zIndex = `${maxZIndex + 1}`
     }
   }
@@ -105,18 +96,11 @@ export const Window = ({
         }}
       >
         {/* Header */}
-        <WindowHeader
-          left={x}
-          top={y}
-          width={width}
-          height={height}
-          className="handle">
+        <WindowHeader left={x} top={y} width={width} height={height} className='handle'>
           {/* Window buttons */}
           <WindowButton />
           {/* Window title */}
-          <WindowTitle>
-            {title}
-          </WindowTitle>
+          <WindowTitle>{title}</WindowTitle>
           {/* Resize buttons */}
           <WindowButton className="after:absolute after:left-0 after:top-0 after:h-[5px] after:w-[5px] after:border-solid after:content-[''] active:bg-windowTitleBarButtonActive active:shadow-[1px_1px_0_#fff_-1px_-1px_0_#9c9c9c]" />
           <WindowButton className="after:border-top after:border-bottom relative ml-[5px] after:absolute after:left-0 after:right-0 after:top-[3px] after:h-[1px] after:border-solid after:border-accent after:content-[''] active:bg-windowTitleBarButtonActive active:shadow-[1px_1px_0_#fff_-1px_-1px_0_#9c9c9c]" />

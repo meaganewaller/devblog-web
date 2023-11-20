@@ -1,5 +1,3 @@
-import { useMemo } from 'react'
-
 import Pagination from '@/components/Layout/Pagination'
 
 import { WorkspaceLink } from './WorkspaceLink'
@@ -21,24 +19,28 @@ export const WorkspacesList = ({
   totalPages = 1,
   url,
   previousWorkspaceUrl,
-  pagination
+  pagination,
 }: WorkspaceTimelineProps) => {
   return (
     <div>
-      {workspace.length === 0 && (
-        <p>no workspaces found :(</p>
-      )}
-      {workspaces.length > 0 && workspaces.map((workspace: Workspace, index: number) => (
-        <div key={`${workspace.id}-${workspace.title}`}>
-          <WorkspaceLink workspace={workspace} />
-          <p>{workspace.description}</p>
-        </div>
-      ))}
+      {workspace.length === 0 && <p>no workspaces found :(</p>}
+      {workspaces.length > 0 &&
+        workspaces.map((workspace: Workspace, index: number) => (
+          <div key={`${workspace.id}-${workspace.title}`}>
+            <WorkspaceLink workspace={workspace} />
+            <p>{workspace.description}</p>
+          </div>
+        ))}
 
       {page && totalPages && (
-        <Pagination series={pagination} page={page} totalPages={totalPages} url={url} previousWorkspaceUrl={previousWorkspaceUrl} />
+        <Pagination
+          series={pagination}
+          page={page}
+          totalPages={totalPages}
+          url={url}
+          previousWorkspaceUrl={previousWorkspaceUrl}
+        />
       )}
     </div>
   )
 }
-

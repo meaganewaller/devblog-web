@@ -33,10 +33,7 @@ export function RecentPosts({ posts }: Props) {
         <PostList>
           {posts.map((post: PostResponse) => (
             <PostItem key={post.slug} className='wavy'>
-              <Link
-                href={`/blog/${post.slug}`}
-                className='no-underline outline-none hover:no-underline'
-              >
+              <Link href={`/blog/${post.slug}`} className='no-underline outline-none hover:no-underline'>
                 <h2 className='break-normal text-start font-extra lowercase text-primary-txt hover:italic active:italic'>
                   {post.title}
                 </h2>

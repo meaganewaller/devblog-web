@@ -1,8 +1,10 @@
 'use client'
+import { useEffect } from 'react'
+
+import { useDetailStore } from '@/store/post.store'
+
+import PostDetail from './PostDetail'
 import { useFetchPostDetail } from '../../../_hooks/useFetchPostDetail'
-import { useDetailStore } from "@/store/post.store"
-import PostDetail from "./PostDetail"
-import { useEffect } from "react"
 
 interface PostDetailProps {
   params: {
@@ -18,9 +20,5 @@ export default function PostDetailPage({ params }: PostDetailProps) {
     setPost(data)
   }, [setPost, data])
 
-  return (
-    <div className="my-4 text-center">
-      {isLoading ? <p>Client side fetching..</p> : <PostDetail />}
-    </div>
-  )
+  return <div className='my-4 text-center'>{isLoading ? <p>Client side fetching..</p> : <PostDetail />}</div>
 }

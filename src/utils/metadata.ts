@@ -4,8 +4,7 @@ import { buildOgImageUrl } from './og'
 
 type MetaImageStyle = 'summary_large_image' | 'summary'
 
-const defaultLogoImage =
-  'https://meaganwaller.com/static/images/logo/logo-512.png'
+const defaultLogoImage = 'https://meaganwaller.com/static/images/logo/logo-512.png'
 
 export const getStaticMetadata = (data: {
   title: string
@@ -17,13 +16,9 @@ export const getStaticMetadata = (data: {
 }): Metadata => {
   const { title, description, keywords, exactUrl, image, metaImageStyle } = data
 
-  const actualDefaultImage =
-    metaImageStyle === 'summary' ? defaultLogoImage : buildOgImageUrl()
+  const actualDefaultImage = metaImageStyle === 'summary' ? defaultLogoImage : buildOgImageUrl()
   const actualImage = image || actualDefaultImage
-  const actualMetaImageStyle =
-    actualImage === defaultLogoImage
-      ? 'summary'
-      : metaImageStyle || 'summary_large_image'
+  const actualMetaImageStyle = actualImage === defaultLogoImage ? 'summary' : metaImageStyle || 'summary_large_image'
 
   return {
     title,

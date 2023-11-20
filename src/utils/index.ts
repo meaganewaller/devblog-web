@@ -1,13 +1,10 @@
+export * from './check-email'
+export * from './check-message'
+export * from './check-name'
 export * from './date'
 export * from './tw'
-export * from './check-name'
-export * from './check-message'
-export * from './check-email'
 
-export const unique = <T, Key extends keyof T>(
-  array: Array<T> | T[],
-  property?: Key,
-): Array<T> => {
+export const unique = <T, Key extends keyof T>(array: Array<T> | T[], property?: Key): Array<T> => {
   if (!property) return Array.from(new Set([...array]))
 
   const set = new Set()
@@ -18,12 +15,9 @@ export const unique = <T, Key extends keyof T>(
 
 export const kebabCase = (str?: string) =>
   str
-    ?.match(
-      /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g,
-    )
+    ?.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     ?.map((x) => x.toLowerCase())
     .join('-')
-
 
 export const getDomainFromUrl = (url?: string | null): string | null => {
   if (!url) return null

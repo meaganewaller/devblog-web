@@ -15,10 +15,7 @@ type Site = {
 }
 
 export const site: Site = {
-  url:
-    process.env.NODE_ENV === 'production'
-      ? 'https://meaganwaller.com'
-      : 'http://localhost:5100',
+  url: process.env.NODE_ENV === 'production' ? 'https://meaganwaller.com' : 'http://localhost:5100',
   logo: 'https://meaganwaller/images/avatar.png',
   title: 'Meagan Waller',
   name: 'Meagan Waller',

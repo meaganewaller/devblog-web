@@ -1,6 +1,7 @@
 'use client'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+
 import { View } from '@/types'
 
 interface ViewsFetcherProps {
@@ -9,12 +10,12 @@ interface ViewsFetcherProps {
 
 const ViewsFetcher = ({ slug }: ViewsFetcherProps) => {
   const { data } = useQuery({
-    queryKey: ["views", slug],
+    queryKey: ['views', slug],
     queryFn: async () => {
       const { data } = await axios.get(`/api/views/${slug}`)
       return {
         slug,
-        count: data.count
+        count: data.count,
       } as View
     },
     placeholderData: {
@@ -27,4 +28,3 @@ const ViewsFetcher = ({ slug }: ViewsFetcherProps) => {
 }
 
 export default ViewsFetcher
-

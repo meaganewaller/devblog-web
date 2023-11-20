@@ -16,10 +16,7 @@ const SearchInput: FC<SearchInputProps> = ({ onSearch }) => {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className='grid grid-cols-[300px_1fr] items-center gap-x-[5px]'
-    >
+    <form onSubmit={handleSubmit} className='grid grid-cols-[300px_1fr] items-center gap-x-[5px]'>
       <input
         className='h-[23px] rounded-lg border border-solid border-accent bg-background px-2 py-[3px] placeholder:text-secondary-txt dark:placeholder:text-on-accent'
         placeholder='search...'

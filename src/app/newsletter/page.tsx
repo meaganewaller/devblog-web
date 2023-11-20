@@ -128,9 +128,8 @@ export default function NewsletterPage() {
           Welcome to Meagan's Digital Hideout
         </h1>
         <SectionParagraph>
-          Well, well, well, looks like you've stumbled into the digital rabbit
-          hole I call home. I'm Meagan, your digital co-conspirator. Buckle up,
-          because you're in for a mildly entertaining ride through the realms of
+          Well, well, well, looks like you've stumbled into the digital rabbit hole I call home. I'm Meagan, your
+          digital co-conspirator. Buckle up, because you're in for a mildly entertaining ride through the realms of
           coding and all things pixelated.
         </SectionParagraph>
       </InnerSection>

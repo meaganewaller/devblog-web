@@ -4,8 +4,7 @@ import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect'
 
 const getMatch = (query: string): MediaQueryList => window.matchMedia(query)
 
-const parseQueryString = (query: string): string =>
-  query.replaceAll('@media only screen and', '').trim()
+const parseQueryString = (query: string): string => query.replaceAll('@media only screen and', '').trim()
 
 export const useMediaQuery = (query: string, defaultState = false) => {
   const parseAndMatch = (s: string) => getMatch(parseQueryString(s))

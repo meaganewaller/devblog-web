@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation'
 
 import { tw } from '@/utils/tw'
 
-import { ArrowLeftCircle } from '../icons'
 import Link from './link'
+import { ArrowLeftCircle } from '../icons'
 
 interface BackButtonProps {
   href?: string
@@ -20,12 +20,7 @@ const BackButton = ({ href }: BackButtonProps) => {
   return (
     <div className={tw('w-fit')}>
       {href ? (
-        <Link
-          href={href}
-          passHref
-          showExternalLinkIcon={false}
-          className={tw(className)}
-        >
+        <Link href={href} passHref showExternalLinkIcon={false} className={tw(className)}>
           <ArrowLeftCircle />
           <span>Back</span>
         </Link>

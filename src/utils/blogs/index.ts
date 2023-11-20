@@ -74,7 +74,7 @@ export const convertPost = async (post: PostResponse, tags?: string[]) => {
 
 export const convertToPostList = async (tableData: PostResponse[]) => {
   let tags: string[] = []
-  let posts: any[] = []
+  const posts: any[] = []
 
   tableData.forEach((post: PostResponse) => {
     tags = tags.concat(post.tags)

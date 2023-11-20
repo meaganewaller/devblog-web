@@ -1,8 +1,7 @@
 'use client'
 
-import React from 'react'
-
 import Link from 'next/link'
+import React from 'react'
 
 import { useWindowSize } from '@/hooks/use-window-size'
 
@@ -62,12 +61,7 @@ export function Connections() {
     >
       <ConnectionsContainer>
         {links.map((link) => (
-          <Link
-            key={link.name}
-            className='button'
-            href={link.link}
-            target='_blank'
-          >
+          <Link key={link.name} className='button' href={link.link} target='_blank'>
             {link.name}
           </Link>
         ))}

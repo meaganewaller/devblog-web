@@ -77,27 +77,9 @@ export type LinkProps = {
   showExternal?: boolean
 }
 
-export const Link = React.forwardRef<
-  HTMLAnchorElement,
-  React.PropsWithChildren<LinkProps>
->(
-  (
-    {
-      variant = 'default',
-      size = 'md',
-      className = '',
-      showExternal = true,
-      href,
-      ...props
-    },
-    ref,
-  ) => {
-    const newClassName = clsx(
-      linkTheme.variant[variant],
-      linkTheme.size[size],
-      variantSizes[variant][size],
-      className,
-    )
+export const Link = React.forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>(
+  ({ variant = 'default', size = 'md', className = '', showExternal = true, href, ...props }, ref) => {
+    const newClassName = clsx(linkTheme.variant[variant], linkTheme.size[size], variantSizes[variant][size], className)
     const externalLink = href ? href.indexOf('http') === 0 : false
 
     if (externalLink) {
@@ -114,8 +96,6 @@ export const Link = React.forwardRef<
       }
       return <a ref={ref} href={href} className={newClassName} {...props} />
     }
-    return (
-      <NextLink ref={ref} href={href} className={newClassName} {...props} />
-    )
+    return <NextLink ref={ref} href={href} className={newClassName} {...props} />
   },
 )
