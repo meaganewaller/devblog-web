@@ -2,7 +2,7 @@ import readingTime from 'reading-time'
 
 import { transformMarkdown } from '../markdown-to-html'
 
-import { Category, CategoryResponse, PostResponse } from '@/types'
+import { Category, CategoryResponse, Post, PostResponse } from '@/types'
 
 export const convertToCategoryList = (tableData: CategoryResponse[]) => {
   const categories = tableData.map((category: CategoryResponse) => {
@@ -43,7 +43,7 @@ export const convertPost = async (post: PostResponse, tags?: string[]) => {
       slug: post.category.slug,
       title: post.category.title,
     } as Category,
-    content: content.toString(),
+    content: content,
     commentCount: Number(post.comment_count),
     coverImage: post.cover_image || 'https://placekitten.com/800/600',
     description: post.description,
@@ -57,7 +57,7 @@ export const convertPost = async (post: PostResponse, tags?: string[]) => {
     notionId: post.notion_id,
     published: post.published,
     publishedDate: post.published_date,
-    readingTime: readingTime(post.content),
+    readingTime: readingTime(content),
     slug: post.slug,
     status: post.status,
     tags: post.tags.map((tag: string) => {

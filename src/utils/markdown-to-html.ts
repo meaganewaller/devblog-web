@@ -1,23 +1,23 @@
-import rehypeFormat from 'rehype-format'
-import rehypeRaw from 'rehype-raw'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import { unified } from 'unified'
+import rehypeFormat from 'rehype-format'
+import rehypeStringify from 'rehype-stringify'
+import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
+import rehypePrism from 'rehype-prism-plus'
 
-const processor = unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkRehype, {
-    allowDangerousHtml: true,
-  })
-  .use(rehypeRaw)
-  .use(rehypeFormat)
-  .use(rehypeStringify)
+export async function transformMarkdown(content: string) {
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeFormat)
+    .use(rehypeStringify)
+    .use(rehypeSlug)
+    .use(rehypePrism)
+    .process(content)
 
-export async function transformMarkdown(markdown: string) {
-  const result = await processor.process(markdown)
 
-  return result.toString()
+  return processedContent.toString()
 }

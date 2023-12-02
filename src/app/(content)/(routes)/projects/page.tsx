@@ -2,6 +2,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
+import { convertProjectList } from "@/utils/projects"
 
 import apiClient from '@/lib/apiClient'
 
@@ -59,6 +60,12 @@ export default function ProjectsPage() {
     return <p>Loading...</p>
   }
 
+  let projects = []
+
+  convertProjectList(data?.projects).then((resp) => {
+    projects = resp.projects
+  })
+
   return (
     <div>
       <h1 className='mb-2 font-venice text-6xl text-accent'>the projects</h1>
@@ -66,7 +73,7 @@ export default function ProjectsPage() {
         <div>Loading...</div>
       ) : (
         <ProjectsList
-          projects={data?.projects}
+          projects={projects}
           page={currentPage}
           totalPages={data.pagy.pages}
           url={projectUrl}

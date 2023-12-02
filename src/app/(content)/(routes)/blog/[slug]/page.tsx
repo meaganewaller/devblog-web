@@ -20,5 +20,5 @@ export default function PostDetailPage({ params }: PostDetailProps) {
     setPost(data)
   }, [setPost, data])
 
-  return <div className='my-4 text-center'>{isLoading ? <p>Client side fetching..</p> : <PostDetail />}</div>
+  return <>{isLoading ? <p>Client side fetching..</p> : <PostDetail />}</>
 }

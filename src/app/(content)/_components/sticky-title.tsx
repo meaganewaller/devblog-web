@@ -69,8 +69,8 @@ const StickyTitle = ({ title, elementRef, gap = -64 }: StickyTitleProps) => {
               variants={variants}
               transition={transition}
             >
-              <h1 className={tw('cursor-pointer font-venice text-lg font-semibold')} onClick={scrollToTop}>
-                {title}
+              <h1 className={tw('cursor-pointer font-venice text-lg font-semibold')}>
+                <button onClick={scrollToTop}>{title}</button>
               </h1>
             </m.div>
           ) : (

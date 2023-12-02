@@ -77,6 +77,7 @@ export default {
       },
       backgroundImage: {
         clouds: "url('/static/images/bg/2f38b876.gif')",
+        cork: "url('/static/images/bg/cork.jpg')",
         nightsky: "url('/static/images/bg/nightsky.gif')",
         butterflies: "url('/static/images/bg/8f823bfe.png')",
         hearts: "url('/static/images/bg/ea1cde5b.jpg')",

@@ -42,6 +42,7 @@ export interface GuestbookResponse {
 }
 
 export interface ProjectResponse {
+  content: string
   contributors: string[]
   cover_image: string
   creation_date: string
@@ -61,13 +62,20 @@ export interface ProjectResponse {
   open_issues: number
   pull_requests: number
   repository_url: string
+  repository_links: Repository[]
   slug: string
   status: string
   tags: string[]
   title: string
 }
 
+export interface Repository {
+  name: string
+  website: string
+}
+
 export interface Project {
+  content: string
   contributors: string[]
   coverImage: string
   creationDate: string
@@ -83,12 +91,13 @@ export interface Project {
   license: string
   openIssues: number
   pullRequests: number
+  repositories: Repository[]
   repositoryUrl: string
   slug: string
   status: string
-  tags: string[]
+  tags: Tag[]
   title: string
-  external: boolean
+  external?: boolean
 }
 
 export interface Category {
@@ -128,6 +137,7 @@ export interface Post {
   published: boolean
   publishedDate?: string
   readingTime?: ReadingTime
+  repositories: string[]
   slug: string
   status: string
   tags: Tag[]

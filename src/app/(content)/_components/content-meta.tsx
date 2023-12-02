@@ -11,20 +11,22 @@ import { BackButton, Container } from '@/components/ui'
 import { formatDate, formatReadableDate } from '@/utils/date'
 import { tw } from '@/utils/tw'
 
-import BlogViews from './blog-views'
 import StickyTitle from './sticky-title'
 
 interface ContentMetaProps {
   title: string
   description?: string
-  timestamp: string
-  readingTime: IReadTimeResults | null
+  timestamp?: string
+  readingTime?: IReadTimeResults | null
   slug: string
 }
 
 const ContentMeta = ({ title, description, timestamp, readingTime, slug }: ContentMetaProps) => {
-  const publishedDate = formatDate(timestamp)
-  const readableDate = formatReadableDate(timestamp)
+  if (timestamp) {
+    timestamp = new Date(timestamp).toISOString()
+  }
+  const publishedDate = timestamp ? formatDate(timestamp) : ''
+  const readableDate =  timestamp ? formatReadableDate(timestamp) : ''
 
   const pageHeaderRef = useRef<HTMLDivElement | null>(null)
   const pathname = usePathname()
@@ -39,22 +41,25 @@ const ContentMeta = ({ title, description, timestamp, readingTime, slug }: Conte
         <div
           className={tw('text-muted-foreground flex flex-col justify-between gap-2 text-sm font-medium sm:flex-row')}
         >
-          <div>
-            Published on
-            <time dateTime={publishedDate} className={tw('px-1')}>
-              {readableDate}
-            </time>
-          </div>
-          <div className={tw('flex items-center gap-4')}>
-            <div className={tw('flex items-center gap-1')}>
-              <Clock />
-              <span title='Estimated read time'>{readingTime?.text}</span>
+          {publishedDate && readableDate && (
+            <div>
+              Published on
+              <time dateTime={publishedDate} className={tw('px-1')}>
+                {readableDate}
+              </time>
             </div>
-            <div className={tw('flex items-center gap-1')}>
-              <Eye />
-              <BlogViews slug={slug} />
+          )}
+          {readingTime && (
+            <div className={tw('flex items-center gap-4')}>
+              <div className={tw('flex items-center gap-1')}>
+                <Clock />
+                <span title='Estimated read time'>{readingTime?.text}</span>
+              </div>
+              <div className={tw('flex items-center gap-1')}>
+                <Eye />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </Container>
     </>
