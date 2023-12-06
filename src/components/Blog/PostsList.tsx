@@ -4,7 +4,7 @@ import Pagination from '@/components/Layout/Pagination'
 
 import { PostLink } from './PostLink'
 
-import { PostResponse } from '@/types'
+import { PostResponse, Post } from '@/types'
 
 interface PostsCountProps {
   posts: PostResponse[]

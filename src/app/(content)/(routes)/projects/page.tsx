@@ -1,31 +1,29 @@
 'use client'
+
 import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
-import { convertProjectList } from "@/utils/projects"
 
 import apiClient from '@/lib/apiClient'
 
 import { ProjectsList } from '@/components/Projects/ProjectsList'
 
-const useProjects = (limit, page, tag, category, search) => {
+interface ProjectProps {
+  limit: number
+  page: number
+}
+
+function useProjects(params: ProjectProps) {
+  const { limit, page } = params
   return useQuery({
-    queryKey: ['projects', limit, page, tag, category, search],
-    queryFn: () => fetchProjects(limit, page, tag, category, search),
+    queryKey: ['projects', limit, page],
+    queryFn: () => fetchProjects({ limit, page }),
   })
 }
 
-const fetchProjects = async (limit = 10, page = 1, tag, category, search) => {
-  let urlParams = `?page=${page}&count=${limit}`
-  if (tag) {
-    urlParams += `&tag=${tag}`
-  }
-  if (category) {
-    urlParams += `&category=${category}`
-  }
-  if (search) {
-    urlParams += `&query=${search}`
-  }
+const fetchProjects = async (params: ProjectProps) => {
+  const { limit, page } = params
+  const urlParams = `?page=${page}&count=${limit}`
 
   const response = await apiClient.get(`/projects${urlParams}`)
   return response.data
@@ -34,51 +32,29 @@ const fetchProjects = async (limit = 10, page = 1, tag, category, search) => {
 export default function ProjectsPage() {
   const searchParams = useSearchParams()
   const page = searchParams.get('page')
-  const tag = searchParams.get('tag') || undefined
-  const search = searchParams.get('query') || undefined
   const currentPage = parseInt(page as string, 10) || 1
-  const category = searchParams.get('category') || undefined
 
-  const { data, isPending, isFetching } = useProjects(10, currentPage, tag, category, search)
+  const { data, isFetching } = useProjects({ limit: 3, page: currentPage })
 
-  let projectUrl = `/projects?page=${currentPage}`
+  const projectUrl = `/projects?page=${currentPage}`
   const previousProjectUrl = `/projects?page=${currentPage - 1}`
 
-  if (tag) {
-    projectUrl += `&tag=${tag}`
-  }
-
-  if (search) {
-    projectUrl += `&query=${search}`
-  }
-
-  if (category) {
-    projectUrl += `&category=${category}`
-  }
-
-  if (isPending) {
-    return <p>Loading...</p>
-  }
-
-  let projects = []
-
-  convertProjectList(data?.projects).then((resp) => {
-    projects = resp.projects
-  })
+  if (isFetching) return <p>Loading...</p>
+  if (!data) return <p>Something went wrong</p>
 
   return (
     <div>
       <h1 className='mb-2 font-venice text-6xl text-accent'>the projects</h1>
-      {isPending || isFetching ? (
+      {isFetching ? (
         <div>Loading...</div>
       ) : (
         <ProjectsList
-          projects={projects}
           page={currentPage}
+          pagination={data.pagy.series}
+          previousProjectUrl={previousProjectUrl}
+          projects={data?.projects}
           totalPages={data.pagy.pages}
           url={projectUrl}
-          previousProjectUrl={previousProjectUrl}
-          pagination={data.pagy.series}
         />
       )}
     </div>

@@ -1,8 +1,7 @@
 import { Project, ProjectResponse } from '@/types'
 import { transformMarkdown } from '../markdown-to-html'
 
-export const convertProject = async (project: ProjectResponse, tags?: string[]) => {
-  const tagList = tags || []
+export const convertProject = async (project: ProjectResponse) => {
   const content = await transformMarkdown(project.content)
 
   return {
