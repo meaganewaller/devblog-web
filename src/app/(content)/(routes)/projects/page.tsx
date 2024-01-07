@@ -34,7 +34,7 @@ export default function ProjectsPage() {
   const page = searchParams.get('page')
   const currentPage = parseInt(page as string, 10) || 1
 
-  const { data, isFetching } = useProjects({ limit: 3, page: currentPage })
+  const { data, isFetching } = useProjects({ limit: 8, page: currentPage })
 
   const projectUrl = `/projects?page=${currentPage}`
   const previousProjectUrl = `/projects?page=${currentPage - 1}`
