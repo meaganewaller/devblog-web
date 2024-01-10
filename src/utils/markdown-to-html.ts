@@ -18,6 +18,5 @@ export async function transformMarkdown(content: string) {
     .use(rehypePrism)
     .process(content)
 
-
   return processedContent.toString()
 }

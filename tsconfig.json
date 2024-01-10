@@ -1,8 +1,19 @@
 {
   "compilerOptions": {
     "incremental": true,
+    "target": "es6",
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
@@ -13,13 +24,15 @@
   },
   "exclude": ["node_modules"],
   "extends": "@meaganewaller/tsconfig",
-  "types": ["./src/types"],
+  "types": ["./src/types", "vitest/globals"],
   "include": [
     "src",
     "next-env.d.ts",
     "next.config.js",
     "**/*.tsx",
     "**/*.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
     "**/*.js",
     "**/*.cjs",
     ".next/types/**/*.ts"

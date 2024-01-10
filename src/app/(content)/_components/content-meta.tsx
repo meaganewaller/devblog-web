@@ -8,7 +8,7 @@ import { Clock, Eye } from '@/components/icons'
 import PageHeader from '@/components/page-header'
 import { BackButton, Container } from '@/components/ui'
 
-import { formatDate, formatReadableDate } from '@/utils/date'
+import { formatDate, formatDistance } from '@/utils/date'
 import { tw } from '@/utils/tw'
 
 import StickyTitle from './sticky-title'
@@ -18,15 +18,14 @@ interface ContentMetaProps {
   description?: string
   timestamp?: string
   readingTime?: IReadTimeResults | null
-  slug: string
 }
 
-const ContentMeta = ({ title, description, timestamp, readingTime, slug }: ContentMetaProps) => {
+const ContentMeta = ({ title, description, timestamp, readingTime }: ContentMetaProps) => {
   if (timestamp) {
     timestamp = new Date(timestamp).toISOString()
   }
   const publishedDate = timestamp ? formatDate(timestamp) : ''
-  const readableDate =  timestamp ? formatReadableDate(timestamp) : ''
+  const readableDate = timestamp ? formatDistance(timestamp) : ''
 
   const pageHeaderRef = useRef<HTMLDivElement | null>(null)
   const pathname = usePathname()
@@ -43,10 +42,11 @@ const ContentMeta = ({ title, description, timestamp, readingTime, slug }: Conte
         >
           {publishedDate && readableDate && (
             <div>
-              Published on
+              Published
               <time dateTime={publishedDate} className={tw('px-1')}>
                 {readableDate}
               </time>
+              ago
             </div>
           )}
           {readingTime && (

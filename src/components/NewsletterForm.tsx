@@ -1,81 +1,102 @@
 'use client'
-import React, { useRef, useState } from 'react'
 
-export function NewsletterForm({ title = ['Subscribe to the Newsletter'], subtitle = '' }) {
-  const inputEl = useRef<HTMLInputElement>(null)
-  const [error, setError] = useState(false)
-  const [message, setMessage] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
+import { FormEventHandler, useCallback, useRef, useState } from 'react'
 
-  const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const res = await fetch('/api/convertkit', {
-      body: JSON.stringify({ email: inputEl.current.value }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-
-    const { error } = await res.json()
-    if (error) {
-      setError(true)
-      setMessage('Your e-mail address is invalid or you are already subscribed!')
-      return
-    }
-
-    inputEl.current.value = ''
-    setError(false)
-    setSubscribed(true)
-    setMessage('Successful! 🎉 You are now subscribed.')
-  }
-
-  return (
-    <div>
-      <form
-        className='grid min-w-[80%] grid-rows-[1fr_1fr_auto] gap-4 rounded-xl border-2 border-solid border-accent p-10 shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)]'
-        onSubmit={subscribe}
-      >
-        <h1 className='text-center'>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
-        <div className='grid grid-cols-[1fr_auto] gap-2'>
-          <div className='grid gap-2'>
-            <label className='font-extra text-sm' htmlFor='email-input'>
-              Email address
-            </label>
-            <input
-              autoComplete='email'
-              className='rounded-md border-2 border-solid border-accent p-2 font-extra text-accent shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)] focus:bg-background focus:outline-none'
-              id='email-input'
-              name='email'
-              placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
-              ref={inputEl}
-              required
-              type='email'
-              disabled={subscribed}
-            />
-          </div>
-          <input
-            className='cursor-pointer justify-self-end rounded-md border border-solid border-accent bg-background p-2 font-extra text-accent-dark shadow-[0_0_var(--color-deep-pink),0_0_var(--color-deep-pink),2px_2px_var(--color-deep-pink)] hover:bg-[var(--color-light-peach)] focus:bg-[var(--color-light-peach)]'
-            type='submit'
-            style={{ alignSelf: 'end' }}
-            disabled={subscribed}
-          />
-        </div>
-        <p className='justify-self-end text-sm italic text-accent' style={{ alignSelf: 'end' }}>
-          No spam. We'll never sell your email address.
-        </p>
-      </form>
-      {error && <div className='pt-2 text-sm text-[var(--color-deep-pink)]'>{message}</div>}
-    </div>
-  )
+type FormState = 'initial' | 'loading' | 'success' | 'error'
+type Form = {
+  state: FormState
+  message?: string
 }
 
-export function BlogNewsletterForm({ title, subtitle }: { title: string[]; subtitle: string }) {
-  ;<div className='flex items-center justify-center'>
-    <div className='bg-background px-14 py-8'>
-      <NewsletterForm title={title} subtitle={subtitle} />
-    </div>
-  </div>
+export default function NewsletterForm({ title = ['Subscribe to the Newsletter'], subtitle = '' }) {
+  const [form, setForm] = useState<Form>({ state: 'initial' })
+  const emailInputEl = useRef<HTMLInputElement>(null)
+
+  const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(async (event) => {
+    event.preventDefault()
+    setForm({ state: 'loading' })
+
+    const target = event.target as HTMLFormElement
+    const data = new FormData(target)
+    const email = data.get('email')
+
+    const body = JSON.stringify({
+      email,
+    })
+
+    const headers = new Headers({
+      'Content-Type': 'application/json; charset=utf-8',
+    })
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers,
+        body,
+      })
+      const { error } = await response.json()
+
+      if (error) {
+        setForm({
+          state: 'error',
+          message: error?.message ?? 'Something went wrong. Please try again.',
+        })
+        return
+      }
+
+      // if (process.env.NODE_ENV === 'production') {
+      //   window.plausible('Newsletter Subscription', { props: { email } })
+      // }
+
+      setForm({
+        state: 'success',
+        message: 'Success! 🎉 You are now subscribed.',
+      })
+
+      if (emailInputEl.current) {
+        emailInputEl.current.value = ''
+      }
+    } catch (error) {
+      setForm({
+        state: 'error',
+        message: 'Something went wrong. Please try again.',
+      })
+    }
+  }, [])
+
+  return (
+    <section className='flex items-center justify-center'>
+      <p className='my-4 text-3xl font-normal tracking-tight text-primary md:text-5xl lg:text-6xl'>
+        {title}
+      </p>
+
+      <p className='my-1 max-w-4xl text-lg text-gray-800'>
+        {subtitle}
+      </p>
+
+      <form className='relative my-4 grid max-w-xl grid-cols-1 gap-4 md:grid-cols-3' onSubmit={onSubmit}>
+        <input
+          ref={emailInputEl}
+          type='email'
+          name='email'
+          aria-label='email'
+          placeholder='Your email address'
+          autoComplete='email'
+          required
+          className='px-4 py-2 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-primary'
+          disabled={form.state === 'loading'}
+        />
+        <input
+          type='submit'
+          value='Subscribe'
+          className='px-4 py-2 text-white bg-primary rounded-md shadow-sm cursor-pointer hover:bg-primary-dark focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-primary'
+          disabled={
+            form.state === 'loading' || form.state === 'success' || form.state === 'error' || emailInputEl.current?.value.length === 0
+          }
+        />
+      </form>
+    </section>
+  )
 }

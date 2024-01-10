@@ -5,7 +5,7 @@ import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 
 import { Link } from '@/components/Layout/Link'
 
-import { formatReadableDate } from '@/utils/date'
+import { formatDate } from '@/utils/date'
 
 import { Post } from '@/types'
 
@@ -15,7 +15,7 @@ export interface PostLinkProps {
 
 export const PostLink = ({ post }: PostLinkProps) => {
   const publishedDate = useMemo(
-    () => (post.publishedDate ? formatReadableDate(post.publishedDate) : null),
+    () => (post.publishedDate ? formatDate(post.publishedDate) : null),
     [post.publishedDate],
   )
   const isHighlighted = useMemo(() => {

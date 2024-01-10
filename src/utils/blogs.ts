@@ -1,7 +1,5 @@
 import readingTime from 'reading-time'
-
-import { transformMarkdown } from '../markdown-to-html'
-
+import { transformMarkdown } from './markdown-to-html'
 import { Category, CategoryResponse, Post, PostResponse } from '@/types'
 
 export const convertToCategoryList = (tableData: CategoryResponse[]) => {
@@ -21,30 +19,31 @@ export const convertToCategoryList = (tableData: CategoryResponse[]) => {
 
 export const convertToTagList = (stringTags: string[]) => {
   const tags = stringTags.map((tag: string) => {
-    const slug = tag.toLowerCase().replace(/ /g, '-')
+    const queryParamTag = tag.replace(/ /g, '%20')
     return {
-      title: tag,
-      slug: slug,
-      href: `/blog/tags/${slug}`,
+      name: tag,
+      href: `/blog?tag=${queryParamTag}`,
     }
   })
 
   return tags
 }
 
-export const convertPost = async (post: PostResponse, tags?: string[]) => {
+export const convertPost = async (post: PostResponse) => {
   const content = await transformMarkdown(post.content)
 
-  const tagList = tags || []
+  const category = {
+    href: `/blog/categories/${post.category.slug}`,
+    id: post.category.id,
+    slug: post.category.slug,
+    title: post.category.title,
+  } as Category
+
+  const tagList = post.tags || []
   return {
-    category: {
-      href: `/blog/categories/${post.category.slug}`,
-      id: post.category.id,
-      slug: post.category.slug,
-      title: post.category.title,
-    } as Category,
-    content: content,
+    category,
     commentCount: Number(post.comment_count),
+    content,
     coverImage: post.cover_image || 'https://placekitten.com/800/600',
     description: post.description,
     external: false,
@@ -53,38 +52,24 @@ export const convertPost = async (post: PostResponse, tags?: string[]) => {
     isPublic: post.published_date !== null,
     lastEdited: post.notion_updated_at,
     metaDescription: post.meta_description,
-    metaKeywords: post.meta_keywords,
     notionId: post.notion_id,
     published: post.published,
     publishedDate: post.published_date,
     readingTime: readingTime(content),
+    repositories: [],
     slug: post.slug,
-    status: post.status,
-    tags: post.tags.map((tag: string) => {
-      if (!tagList.includes(tag)) {
-        const newList = [...tagList, tag]
-        tags = newList
-      }
-      return { name: tag }
-    }),
+    tags: convertToTagList(tagList),
     title: post.title,
     views: Number(post.views),
-  }
+  } as Post
 }
 
-export const convertToPostList = async (tableData: PostResponse[]) => {
-  let tags: string[] = []
-  const posts: Post[] = []
+export const convertPostList = async (posts: PostResponse[]) => {
+  const postList = await Promise.all(
+    posts.map(async (post: PostResponse) => {
+      return await convertPost(post)
+    }),
+  )
 
-  tableData.forEach((post: PostResponse) => {
-    tags = tags.concat(post.tags)
-
-    const converted = convertPost(post).then((post) => {
-      return post.result
-    })
-
-    posts.push(converted)
-  })
-
-  return { posts, tags }
+  return postList
 }

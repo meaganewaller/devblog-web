@@ -3,7 +3,6 @@ import Script from 'next/script'
 import '@/styles/globals.scss'
 
 import Navbar from '@/components/Layout/Navbar'
-import Toaster from '@/components/Toaster'
 
 import { metadataBase } from '@/constants/metadata'
 import { Providers } from '@/providers'
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: LayoutProps) {
         <Providers>
           <Navbar />
           <main className='mt-12'>{children}</main>
-          <Toaster />
         </Providers>
         <Script
           id='xlog-umami-analytics'

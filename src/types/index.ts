@@ -27,7 +27,6 @@ export interface PostResponse {
   published: boolean
   published_date?: string
   slug: string
-  status: string
   tags: string[]
   title: string
   views: string
@@ -43,28 +42,14 @@ export interface GuestbookResponse {
 
 export interface ProjectResponse {
   content: string
-  contributors: string[]
   cover_image: string
   creation_date: string
-  demo_screenshot_urls: string[]
   description: string
-  difficulty_evel: string
-  difficulty_level: string
-  documentation_rl: string
-  documentation_url: string
   featured: boolean
-  framework: string
-  homepage_url: string
+  homepage_url: string | undefined | null
   id: string
-  language: string
   last_update: string
-  license: string
-  open_issues: number
-  pull_requests: number
-  repository_url: string
-  repository_links: Repository[]
   slug: string
-  status: string
   tags: string[]
   title: string
 }
@@ -76,25 +61,13 @@ export interface Repository {
 
 export interface Project {
   content: string
-  contributors: string[]
-  coverImage: string
+  coverImage: string | undefined | null
   creationDate: string
-  demoScreenshotUrls: string[]
   description: string
-  difficultyLevel: string
-  documentationUrl: string
   featured: boolean
-  framework: string
-  homepageUrl: string
-  language: string
+  homepageUrl: string | undefined | null
   lastUpdate: string
-  license: string
-  openIssues: number
-  pullRequests: number
-  repositories: Repository[]
-  repositoryUrl: string
   slug: string
-  status: string
   tags: Tag[]
   title: string
   external?: boolean
@@ -120,8 +93,8 @@ export interface ReadingTime {
 
 export interface Post {
   allowComments?: boolean
-  commentCount: number
   category: Category
+  commentCount: number
   content: string
   coverImage: string
   description: string
@@ -129,18 +102,15 @@ export interface Post {
   href: string
   id: string
   isPublic: boolean
-  language?: string
   lastEdited: string
   metaDescription?: string
-  metaKeywords?: string
   notionId: string
   published: boolean
   publishedDate?: string
   readingTime?: ReadingTime
-  repositories: string[]
+  repositories?: string[]
   slug: string
-  status: string
-  tags: Tag[]
+  tags?: Tag[]
   title: string
   views: number
 }

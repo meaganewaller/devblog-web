@@ -7,7 +7,7 @@ import { Modal } from '@/components/Modal'
 
 import { DesktopNav, DesktopNavItem, Header, Logo, Nav, NavItem, NestedDesktopNav, SvgBox } from './Navbar.styles'
 import ThemeToggle from './ThemeToggle'
-import { NewsletterForm } from '../NewsletterForm'
+// import { NewsletterForm } from '../NewsletterForm'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -47,15 +47,15 @@ function Navbar() {
 
   return (
     <>
-      <Modal isOpen={showNewsletterModal} setIsOpen={setShowNewsletterModal}>
-        <div className='mx-auto flex w-full'>
-          <NewsletterForm
-            // eslint-disable-next-line
-            title={["A newsletter you'll ", <em>actually</em>, ' open.']}
-            subtitle='A monthly-ish newsletter with updates from the blog, my life, and things I find around the web.'
-          />
-        </div>
-      </Modal>
+      {/* <Modal isOpen={showNewsletterModal} setIsOpen={setShowNewsletterModal}> */}
+      {/*   <div className='mx-auto flex w-full'> */}
+      {/*     <NewsletterForm */}
+      {/*       // eslint-disable-next-line */}
+      {/*       title={["A newsletter you'll ", <em>actually</em>, ' open.']} */}
+      {/*       subtitle='A monthly-ish newsletter with updates from the blog, my life, and things I find around the web.' */}
+      {/*     /> */}
+      {/*   </div> */}
+      {/* </Modal> */}
 
       <Header>
         <Link href='/'>
@@ -63,40 +63,26 @@ function Navbar() {
         </Link>
         <DesktopNav className='menubar' variants={menuVariants}>
           <DesktopNavItem className='align-middle'>
-            Site
-            <NestedDesktopNav>
-              <DesktopNavItem>
-                <Link href='/start'>Start here</Link>
-              </DesktopNavItem>
-              <DesktopNavItem>
-                <button className='m-0 p-0' onClick={() => setShowNewsletterModal(true)}>
-                  Join the Newsletter
-                </button>
-              </DesktopNavItem>
-            </NestedDesktopNav>
-          </DesktopNavItem>
-          <DesktopNavItem className='align-middle'>
-            Meagan
-            <NestedDesktopNav>
-              <DesktopNavItem>
-                <Link href='/meagan'>About</Link>
-              </DesktopNavItem>
-              <DesktopNavItem>
-                <Link href='/chat'>Say Hi</Link>
-              </DesktopNavItem>
-            </NestedDesktopNav>
+            <Link href='/meagan'>About</Link>
           </DesktopNavItem>
           <DesktopNavItem className='align-middle'>
             <Link href='/blog'>Blog</Link>
           </DesktopNavItem>
           <DesktopNavItem className='align-middle'>
-            <Link href='/projects'>Projects</Link>
-          </DesktopNavItem>
-          <DesktopNavItem className='align-middle'>
             <Link href='/uses'>Workspace</Link>
           </DesktopNavItem>
+          <DesktopNavItem className='align-middle'>
+            <Link href='/now'>Now</Link>
+          </DesktopNavItem>
+          <DesktopNavItem className='align-middle'>
+            <Link href='/chat'>Say Hi</Link>
+          </DesktopNavItem>
+          <DesktopNavItem className='align-middle'>
+            <button className='px-2 rounded-lg text-primary-txt bg-goldenrod' onClick={() => setShowNewsletterModal(true)}>
+              Join the Newsletter
+            </button>
+          </DesktopNavItem>
         </DesktopNav>
-        <ThemeToggle />
         <SvgBox
           variants={iconVariants}
           animate={isOpen ? 'opened' : 'closed'}
@@ -118,32 +104,31 @@ function Navbar() {
             <Link href='/'>Home</Link>
           </NavItem>
           <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
-            <Link href='/start'>Start here</Link>
-          </NavItem>
-          <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
-            <button className='m-0 p-0' onClick={() => setShowNewsletterModal(true)}>
-              Join the Newsletter
-            </button>
-          </NavItem>
-          <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
-            <Link href='/meagan'>Meagan</Link>
+            <Link href='/meagan'>About</Link>
           </NavItem>
           <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
             <Link href='/blog'>Blog</Link>
           </NavItem>
           <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
-            <Link href='/projects'>Projects</Link>
-          </NavItem>
-          <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
             <Link href='/uses'>Workspace</Link>
           </NavItem>
           <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
+            <Link href='/now'>Now</Link>
+          </NavItem>
+          <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
             <Link href='/chat'>Say Hi</Link>
+          </NavItem>
+          <NavItem onClick={() => setIsOpen(!isOpen)} variants={linkVariants} whileHover={{ scale: 1.1 }}>
+            <button className='px-2 rounded-lg text-primary-txt bg-goldenrod' onClick={() => setShowNewsletterModal(true)}>
+              Join the Newsletter
+            </button>
           </NavItem>
         </ul>
       </Nav>
     </>
   )
+  console.log('file: Navbar.tsx~line: 81~button', button)
+  console.log('file: Navbar.tsx~line: 81~button', button)
 }
 
 export default Navbar
