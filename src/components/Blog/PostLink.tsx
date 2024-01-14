@@ -29,7 +29,7 @@ export const PostLink = ({ post }: PostLinkProps) => {
           {post.external ? (
             <a
               href={post.href}
-              className='flex-grow text-lg font-semibold text-primary-txt'
+              className='flex-grow text-lg font-semibold text-deep-sky-blue'
               target='_blank'
               rel='noreferrer'
             >

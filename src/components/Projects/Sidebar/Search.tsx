@@ -20,7 +20,7 @@ const Search = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className='flex items-center rounded-lg bg-[var(--color-shadow-yellow)] p-1 shadow-lg'>
+        <div className='flex items-center rounded-lg bg-peachy-pink p-1 shadow-lg'>
           <input
             type='text'
             className='text-primary w-full border-none bg-[var(--color-transparent)] font-mono ring-0 placeholder:italic placeholder:text-[var(--color-gradient-orange)] focus:border-none focus:ring-0'

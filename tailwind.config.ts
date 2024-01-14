@@ -76,12 +76,28 @@ export default {
         marquee2: 'marquee2 30s linear infinite',
       },
       backgroundImage: {
-        clouds: "url('/static/images/bg/2f38b876.gif')",
-        cork: "url('/static/images/bg/cork.jpg')",
+        bigPurpleCheck: "url('/static/images/bg/bigpurplecheck.png')",
+        pinkPlaid: "url('/static/images/bg/pinkplaid.gif')",
+        pinkScallopGrid: "url('/static/images/bg/pink-scallop-grid.jpg')",
+        pinkButterflies: "url('/static/images/bg/pinkButterflies.png')",
+        pinkHearts: "url('/static/images/bg/pinkHearts.gif')",
+        floralLight: "url('/static/images/bg/floral-light.gif')",
+        roses: "url('/static/images/bg/roses.gif')",
+        blueStars: "url('/static/images/bg/blue-stars.gif')",
+        stars: "url('/static/images/bg/celesestrellas.gif')",
+        purplePuzzle: "url('/static/images/bg/purple-puzzle.gif')",
+        purpleCheck: "url('/static/images/bg/purplecheck.gif')",
+        clouds: "url('/static/images/bg/dayclouds.gif')",
+        unicorns: "url('/static/images/bg/unicorn.jpeg')",
         nightsky: "url('/static/images/bg/nightsky.gif')",
         butterflies: "url('/static/images/bg/8f823bfe.png')",
-        hearts: "url('/static/images/bg/ea1cde5b.jpg')",
+        hearts: "url('/static/images/bg/hearts.jpg')",
+        bows: "url('/static/images/bg/pinkbows.gif')",
+        pinkCheck: "url('/static/images/bg/pinkcheck.gif')",
+        pinkCherry: "url('/static/images/bg/pinkcherry.png')",
+        pinkFlowers: "url('/static/images/bg/pinkflowers.gif')",
         purpleStars: "url('/static/images/bg/purple-stars.gif')",
+        smallPurpleCheck: "url('/static/images/bg/smallpurplecheck.gif')",
         windowTitleBarButton: 'linear-gradient(to bottom right, #9c9c9c, #fff)',
         windowTitleBarButtonActive: 'linear-gradient(to bottom right, #444, #aaa)',
         windowTitleBar: 'repeating-linear-gradient(#fff, #000 2px)',
@@ -89,7 +105,7 @@ export default {
       typography: ({ theme }: PluginAPI) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.secondary-txt'),
+            color: theme('colors.espresso'),
             a: {
               color: theme('colors.accent'),
               textDecoration: 'wavy',
@@ -117,6 +133,7 @@ export default {
         serif: monoFontFamily,
         extra: ['basiic', ...fontFamily.sans],
         retro: ['VT323', ...fontFamily.mono],
+        videogame: ['Press Start 2P', ...fontFamily.mono],
         venice: ['Venice Classic', ...fontFamily.mono],
       },
       fontWeight: {

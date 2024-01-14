@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang='en' suppressHydrationWarning className={'font-sans 2xl:text-[24px]'}>
-      <body className='debug-screens flex flex-col'>
+      <body className='debug-screens flex flex-col bg-clouds dark:bg-nightsky'>
         <Providers>
           <Navbar />
           <main className='mt-12'>{children}</main>

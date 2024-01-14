@@ -4,6 +4,7 @@ body {
 }
 
 @media (min-width: 425px) {
+
   html,
   body {
     line-height: 1.75;
@@ -17,6 +18,7 @@ h4,
 h5,
 h6 {
   @apply inline-block font-mono font-bold text-primary-txt;
+
   p {
     font-weight: inherit;
   }

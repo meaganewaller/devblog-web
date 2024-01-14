@@ -21,7 +21,9 @@
   }
 }
 
-* { @apply transition-[background-color] duration-300 ease-in-out; }
+* {
+  @apply transition-[background-color] duration-300 ease-in-out;
+}
 
 html,
 body {
@@ -36,11 +38,11 @@ html {
 }
 
 body {
-  @apply p-0 my-0 mx-auto w-full h-full font-sans text-md font-normal tracking-wide align-baseline break-words border-0 transform-none text-primary-txt bg-clouds dark:bg-nightsky;
+  @apply p-0 my-0 mx-auto w-full h-full font-sans text-md font-normal tracking-wide align-baseline break-words border-0 transform-none text-primary-txt;
 }
 
 a {
-  @apply cursor-pointer decoration-wavy;
+  @apply text-espresso cursor-pointer decoration-wavy;
 
   &:focus {
     transition: 0.2s ease-in-out;
@@ -113,10 +115,12 @@ samp {
   color: rgba(var(--color-tertiary-txt));
   opacity: 1;
 }
+
 :-ms-input-placeholder {
   color: rgba(var(--color-tertiary-txt));
   opacity: 1;
 }
+
 ::-ms-input-placeholder {
   color: rgba(var(--color-tertiary-txt));
   opacity: 1;
@@ -130,15 +134,13 @@ samp {
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar-track {
-  background-image: -webkit-linear-gradient(
-    top,
-    #ffb5cd 2%,
-    #ffcca8 17%,
-    #fff6b7 35%,
-    #daffb7 55%,
-    #aadeff 76%,
-    #cebafc 97%
-  );
+  background-image: -webkit-linear-gradient(top,
+      #ffb5cd 2%,
+      #ffcca8 17%,
+      #fff6b7 35%,
+      #daffb7 55%,
+      #aadeff 76%,
+      #cebafc 97%);
   border-radius: 0px;
   width: 0px;
   border: 1px dotted #8f38ff;
@@ -149,11 +151,13 @@ samp {
   height: 12px;
   background: #d6ecf3;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #d6ecf3;
   border: 1px dotted #8f38ff;
   border-radius: 0px;
 }
+
 ::-webkit-scrollbar-button {
   @apply hidden;
 }
@@ -191,6 +195,7 @@ body article {
   span {
     @apply font-extra uppercase tracking-[0.25em];
   }
+
   .progress {
     @apply mb-[1em] flex w-full border-2 border-solid border-accent;
 

@@ -14,9 +14,9 @@ export default function Intro() {
   return (
     <Window
       title='about-meagan.txt'
-      x={size.width / 2.45}
-      y={size.height / 100}
-      width={`${size.width * 0.55}px`}
+      x={size.width / 3}
+      y={size.height / 10}
+      width={`${size.width * 0.65}px`}
       zIndex='2'
       active={true}
       id='intro-window'

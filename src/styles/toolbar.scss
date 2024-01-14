@@ -1,71 +1,77 @@
-.menubar ul ul {
-  top: -1000em;
+header {
+  .btn {
+    @apply bg-sunshine-yellow px-2 py-1 rounded-full shadow-goldenrod shadow-lg shadow-inner border-2 border-solid border-creamy-white hover:bg-lilac hover:border-purple hover:shadow-lg hover:shadow-inner hover:shadow-lavender;
+  }
 }
 
-.menubar ul ul ul {
-  @apply z-10;
-  border-radius: 0.25em;
-}
-
-.menubar li {
-  @apply z-10 text-shadow-purple;
-  color: inherit;
-  cursor: default;
-  display: block;
-  font-size: 14px;
-  padding: 0.25em 0.75em;
-  text-decoration: none;
-}
-
-.menubar [disabled],
-.menubar [tabindex='-1'] {
-  cursor: not-allowed;
-  opacity: 0.4;
-}
-
-.menubar [data-key] {
-  display: flex;
-}
-
-.menubar [data-key]::after {
-  content: attr(data-key);
-  display: inline-block;
-  font-size: inherit;
-  margin-left: auto;
-  padding-left: 1em;
-}
-
-.menubar button:hover,
-.menubar button:focus,
-.menubar a:hover,
-.menubar a:focus,
-.menubar li:hover,
-.menubar li:hover > a,
-.menubar li:focus-within > a {
-  @apply bg-shadow-purple;
-  outline: 0 none;
-}
-
-.menubar [tabindex='-1']:hover {
-  @apply z-10;
-  background: transparent;
-  color: inherit;
-}
-
-.menubar a:hover + ul,
-.menubar a:focus + ul,
-.menubar li:hover > ul,
-.menubar li:focus > ul,
-.menubar ul:focus-within {
-  @apply z-10;
-  top: 100%;
-}
-
-.menubar ul ul a:hover + ul,
-.menubar ul ul a:focus + ul,
-.menubar ul ul li:hover > ul,
-.menubar ul ul ul:focus-within {
-  left: 100%;
-  top: -0.25em;
-  z-index: 100;
-}
+// .menubar ul ul {
+//   top: -1000em;
+// }
+//
+// .menubar ul ul ul {
+//   @apply z-10;
+//   border-radius: 0.25em;
+// }
+//
+// .menubar li {
+//   @apply z-10 text-shadow-purple;
+//   color: inherit;
+//   cursor: default;
+//   display: block;
+//   font-size: 14px;
+//   padding: 0.25em 0.75em;
+//   text-decoration: none;
+// }
+//
+// .menubar [disabled],
+// .menubar [tabindex='-1'] {
+//   cursor: not-allowed;
+//   opacity: 0.4;
+// }
+//
+// .menubar [data-key] {
+//   display: flex;
+// }
+//
+// .menubar [data-key]::after {
+//   content: attr(data-key);
+//   display: inline-block;
+//   font-size: inherit;
+//   margin-left: auto;
+//   padding-left: 1em;
+// }
+//
+// .menubar button:hover,
+// .menubar button:focus,
+// .menubar a:hover,
+// .menubar a:focus,
+// .menubar li:hover,
+// .menubar li:hover > a,
+// .menubar li:focus-within > a {
+//   @apply bg-shadow-purple;
+//   outline: 0 none;
+// }
+//
+// .menubar [tabindex='-1']:hover {
+//   @apply z-10;
+//   background: transparent;
+//   color: inherit;
+// }
+//
+// .menubar a:hover + ul,
+// .menubar a:focus + ul,
+// .menubar li:hover > ul,
+// .menubar li:focus > ul,
+// .menubar ul:focus-within {
+//   @apply z-10;
+//   top: 100%;
+// }
+//
+// .menubar ul ul a:hover + ul,
+// .menubar ul ul a:focus + ul,
+// .menubar ul ul li:hover > ul,
+// .menubar ul ul ul:focus-within {
+//   left: 100%;
+//   top: -0.25em;
+//   z-index: 100;
+// }

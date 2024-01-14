@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import '@/styles/prism-shades-of-purple.css'
 
 import { Container } from '@/components/ui'
 
@@ -8,7 +9,6 @@ import { PostFooter } from '@/app/(content)/_components/post-footer'
 import TagLink from '@/app/(content)/_components/tag'
 import { useDetailStore } from '@/store/post.store'
 import tw from '@/utils/tw'
-import '@/styles/prism-shades-of-purple.css'
 
 export default function PostDetail() {
   const { post } = useDetailStore()

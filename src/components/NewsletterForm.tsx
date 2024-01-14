@@ -67,16 +67,12 @@ export default function NewsletterForm({ title = ['Subscribe to the Newsletter']
   }, [])
 
   return (
-    <section className='flex items-center justify-center'>
-      <p className='my-4 text-3xl font-normal tracking-tight text-primary md:text-5xl lg:text-6xl'>
-        {title}
-      </p>
+    <section className='flex flex-col items-center justify-center'>
+      <p className='text-primary my-4 text-3xl font-normal tracking-tight md:text-5xl lg:text-6xl'>{title}</p>
 
-      <p className='my-1 max-w-4xl text-lg text-gray-800'>
-        {subtitle}
-      </p>
+      <p className='text-gray-800 my-1 max-w-4xl text-lg'>{subtitle}</p>
 
-      <form className='relative my-4 grid max-w-xl grid-cols-1 gap-4 md:grid-cols-3' onSubmit={onSubmit}>
+      <form className='relative my-4 grid max-w-3xl grid-cols-1 gap-4 md:grid-cols-2' onSubmit={onSubmit}>
         <input
           ref={emailInputEl}
           type='email'
@@ -85,15 +81,18 @@ export default function NewsletterForm({ title = ['Subscribe to the Newsletter']
           placeholder='Your email address'
           autoComplete='email'
           required
-          className='px-4 py-2 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-primary'
+          className='appearance-none rounded-none border-x-0 border-b-2 border-t-0 border-b-accent bg-background px-4 py-2 text-electric-purple placeholder-electric-purple/50 shadow-sm focus:border-b-0 focus:outline-none focus:ring-1 focus:ring-accent focus:ring-offset-2'
           disabled={form.state === 'loading'}
         />
         <input
           type='submit'
           value='Subscribe'
-          className='px-4 py-2 text-white bg-primary rounded-md shadow-sm cursor-pointer hover:bg-primary-dark focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-primary'
+          className='bg-primary hover:bg-primary-dark focus:ring-primary cursor-pointer rounded-md px-4 py-2 text-accent shadow-sm focus:outline-none focus:ring-1 focus:ring-offset-2'
           disabled={
-            form.state === 'loading' || form.state === 'success' || form.state === 'error' || emailInputEl.current?.value.length === 0
+            form.state === 'loading' ||
+            form.state === 'success' ||
+            form.state === 'error' ||
+            emailInputEl.current?.value.length === 0
           }
         />
       </form>

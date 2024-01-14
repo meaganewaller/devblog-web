@@ -1,7 +1,8 @@
 'use client'
 import { useTheme } from 'next-themes'
 import React from 'react'
-import { HiMoon, HiSun } from 'react-icons/hi'
+import { HiSun } from 'react-icons/hi'
+import { PiMoonStarsFill } from 'react-icons/pi'
 
 const ThemeToggle = () => {
   const { systemTheme, theme, setTheme } = useTheme()
@@ -11,9 +12,9 @@ const ThemeToggle = () => {
     <div className='flex justify-end'>
       <button
         onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
-        className='justify-center rounded-full bg-accent p-1 text-on-accent'
+        className='rounded-full text-deep-sky-blue hover:text-deep-purple'
       >
-        {currentTheme === 'dark' ? <HiSun size={15} /> : <HiMoon size={15} />}
+        {currentTheme === 'dark' ? <HiSun size={25} /> : <PiMoonStarsFill size={25} />}
       </button>
     </div>
   )

@@ -28,8 +28,7 @@
   transform: scaleX(0);
   transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
   transform-origin: right;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
-    0px 50%/80px 80px repeat-x;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E") 0px 50%/80px 80px repeat-x;
 }
 
 .wavy a {
@@ -46,12 +45,12 @@
   outline: none;
   transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-origin: left;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
-    0px 50%/80px 80px repeat-x;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23ECA650; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E") 0px 50%/80px 80px repeat-x;
   -webkit-animation: waving 3s linear infinite;
   animation: waving 3s linear infinite;
   transform: scaleX(1);
 }
+
 @-webkit-keyframes waving {
   to {
     background-position:
@@ -59,6 +58,7 @@
       160px 50%;
   }
 }
+
 @keyframes waving {
   to {
     background-position:
@@ -81,6 +81,7 @@
   height: 20px;
   width: 20px;
 }
+
 .loading-spinner:before {
   @apply shadow-purple;
   animation: ball1 1s infinite;
@@ -88,6 +89,7 @@
   box-shadow: 30px 0 0;
   margin-bottom: 10px;
 }
+
 .loading-spinner:after {
   @apply bg-accent shadow-accent-dark;
   animation: ball2 1s infinite;
@@ -99,10 +101,12 @@
     -webkit-transform: rotate(0deg) scale(0.8);
     -moz-transform: rotate(0deg) scale(0.8);
   }
+
   50% {
     -webkit-transform: rotate(360deg) scale(1.2);
     -moz-transform: rotate(360deg) scale(1.2);
   }
+
   100% {
     -webkit-transform: rotate(720deg) scale(0.8);
     -moz-transform: rotate(720deg) scale(0.8);
@@ -113,12 +117,14 @@
   0% {
     box-shadow: 30px 0 0 var(--color-gradient-blue);
   }
+
   50% {
     box-shadow: 0 0 0 var(--color-gradient-blue);
     margin-bottom: 0;
-    -webkit-transform: translate(15px,15px);
+    -webkit-transform: translate(15px, 15px);
     -moz-transform: translate(15px, 15px);
   }
+
   100% {
     box-shadow: 30px 0 0 var(--color-gradient-blue);
     margin-bottom: 10px;
@@ -129,15 +135,16 @@
   0% {
     box-shadow: 30px 0 0 var(--color-gradient-orange);
   }
+
   50% {
     box-shadow: 0 0 0 var(--color-gradient-orange);
     margin-top: -20px;
-    -webkit-transform: translate(15px,15px);
+    -webkit-transform: translate(15px, 15px);
     -moz-transform: translate(15px, 15px);
   }
+
   100% {
     box-shadow: 30px 0 0 var(--color-gradient-orange);
     margin-top: 0;
   }
 }
-

@@ -29,8 +29,8 @@ export default function RecentPosts() {
     <Window
       id='recent-posts-window'
       title='recent-posts.txt'
-      x={size.width / 35}
-      y={100}
+      x={Number(size.width / 2 < 520 ? size.width / 0.5 : size.width / 13)}
+      y={Number(size.width / 2 < 520 ? size.height / 2 : size.height / 6)}
       width={`${size.width / 2 < 520 ? size.width / 2 : 520}px`}
       zIndex='3'
       active={true}

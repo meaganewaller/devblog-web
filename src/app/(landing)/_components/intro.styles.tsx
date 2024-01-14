@@ -19,5 +19,5 @@ export const IntroParagraph = tw.p`
 `
 
 export const IntroReadMore = tw(Link)`
-  font-venice text-lg text-accent hover:text-accent-dark hover:underline decoration-wavy
+  font-venice text-lg text-accent hover:text-accent-dark hover:underline decoration-wavy decoration-lilac
 `

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { tw } from '@/utils/tw'
 import { LiaClipboard, LiaClipboardCheckSolid } from 'react-icons/lia'
 
-const buttonClasses = 'flex items-center text-xs font-medium text-white rounded'
+const buttonClasses = 'flex items-center text-xs font-medium text-accent rounded'
 
 export function CopyButton({ text, className }) {
   const [isCopied, setIsCopied] = useState(false)

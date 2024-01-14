@@ -26,9 +26,11 @@
     }
   }
 }
+
 html.inverted,
 html.light-inverted,
 html.dark-inverted {
+
   &,
   & * {
     @apply pointer-events-none select-none invert-[1.5] saturate-[30];
@@ -41,35 +43,35 @@ html.dark-inverted {
 }
 
 .blog-header {
-  text-shadow:      0 0 0 rgba(var(--color-bubblegum)),
-                    0 0 0 rgba(var(--color-bubblegum)),
-                    0 0 0 rgba(var(--color-bubblegum)),
-                  0 0 1px rgba(var(--color-bubblegum)),
-                  0 0 1px rgba(var(--color-bubblegum)),
-                  0 0 1px rgba(var(--color-bubblegum)),
-               1px 0 20px rgba(var(--color-bubblegum)),
-               1px 0 20px rgba(var(--color-bubblegum)),
-               1px 0 20px rgba(var(--color-bubblegum)),
-               1px 0 10px rgba(var(--color-bubblegum)),
-               1px 0 10px rgba(var(--color-bubblegum)),
-               1px 0 50px rgba(var(--color-bubblegum)),
-               1px 0 50px rgba(var(--color-bubblegum))
+  text-shadow: 0 0 0 rgba(var(--color-bubblegum)),
+    0 0 0 rgba(var(--color-bubblegum)),
+    0 0 0 rgba(var(--color-bubblegum)),
+    0 0 1px rgba(var(--color-bubblegum)),
+    0 0 1px rgba(var(--color-bubblegum)),
+    0 0 1px rgba(var(--color-bubblegum)),
+    1px 0 20px rgba(var(--color-bubblegum)),
+    1px 0 20px rgba(var(--color-bubblegum)),
+    1px 0 20px rgba(var(--color-bubblegum)),
+    1px 0 10px rgba(var(--color-bubblegum)),
+    1px 0 10px rgba(var(--color-bubblegum)),
+    1px 0 50px rgba(var(--color-bubblegum)),
+    1px 0 50px rgba(var(--color-bubblegum))
 }
 
 .blog-header:hover {
-  text-shadow:     0 0 0 rgba(var(--color-robins-egg-blue)),
-                   0 0 0 rgba(var(--color-robins-egg-blue)),
-                   0 0 0 rgba(var(--color-robins-egg-blue)),
-                 0 0 1px rgba(var(--color-robins-egg-blue)),
-                 0 0 1px rgba(var(--color-robins-egg-blue)),
-                 0 0 1px rgba(var(--color-robins-egg-blue)),
-              1px 0 20px rgba(var(--color-robins-egg-blue)),
-              1px 0 20px rgba(var(--color-robins-egg-blue)),
-              1px 0 20px rgba(var(--color-robins-egg-blue)),
-              1px 0 10px rgba(var(--color-robins-egg-blue)),
-              1px 0 10px rgba(var(--color-robins-egg-blue)),
-              1px 0 50px rgba(var(--color-robins-egg-blue)),
-              1px 0 50px rgba(var(--color-robins-egg-blue))
+  text-shadow: 0 0 0 rgba(var(--color-robins-egg-blue)),
+    0 0 0 rgba(var(--color-robins-egg-blue)),
+    0 0 0 rgba(var(--color-robins-egg-blue)),
+    0 0 1px rgba(var(--color-robins-egg-blue)),
+    0 0 1px rgba(var(--color-robins-egg-blue)),
+    0 0 1px rgba(var(--color-robins-egg-blue)),
+    1px 0 20px rgba(var(--color-robins-egg-blue)),
+    1px 0 20px rgba(var(--color-robins-egg-blue)),
+    1px 0 20px rgba(var(--color-robins-egg-blue)),
+    1px 0 10px rgba(var(--color-robins-egg-blue)),
+    1px 0 10px rgba(var(--color-robins-egg-blue)),
+    1px 0 50px rgba(var(--color-robins-egg-blue)),
+    1px 0 50px rgba(var(--color-robins-egg-blue))
 }
 
 .banner {
@@ -92,6 +94,7 @@ html.dark-inverted {
   left: -2px;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
 }
+
 .banner::after {
   clip-path: polygon(0 0, 100% 100%, 0 100%);
   right: -2px;

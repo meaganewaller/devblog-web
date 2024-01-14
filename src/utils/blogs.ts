@@ -1,5 +1,7 @@
 import readingTime from 'reading-time'
+
 import { transformMarkdown } from './markdown-to-html'
+
 import { Category, CategoryResponse, Post, PostResponse } from '@/types'
 
 export const convertToCategoryList = (tableData: CategoryResponse[]) => {
@@ -19,7 +21,7 @@ export const convertToCategoryList = (tableData: CategoryResponse[]) => {
 
 export const convertToTagList = (stringTags: string[]) => {
   const tags = stringTags.map((tag: string) => {
-    const queryParamTag = tag.replace(/ /g, '%20')
+    const queryParamTag = tag.toLowerCase()
     return {
       name: tag,
       href: `/blog?tag=${queryParamTag}`,

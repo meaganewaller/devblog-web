@@ -8,14 +8,14 @@ import apiClient from '@/lib/apiClient'
 
 import { PostsList } from '@/components/Blog/PostsList'
 
-const usePosts = (limit, page, tag, category, search) => {
+const usePosts = (limit: number, page: number, tag?: string, category?: string, search?: string) => {
   return useQuery({
     queryKey: ['posts', limit, page, tag, category, search],
     queryFn: () => fetchPosts(limit, page, tag, category, search),
   })
 }
 
-const fetchPosts = async (limit = 10, page = 1, tag, category, search) => {
+const fetchPosts = async (limit = 10, page = 1, tag?: string, category?: string, search?: string) => {
   let urlParams = `?page=${page}&count=${limit}`
   if (tag) {
     urlParams += `&tag=${tag}`
@@ -39,7 +39,7 @@ export default function BlogPage() {
   const currentPage = parseInt(page as string, 10) || 1
   const category = searchParams.get('category') || undefined
 
-  const { data, isPending, isFetching } = usePosts(10, currentPage, tag, category, search)
+  const { data, isFetching } = usePosts(10, currentPage, tag, category, search)
 
   let postUrl = `/blog?page=${currentPage}`
   const previousPostUrl = `/blog?page=${currentPage - 1}`
@@ -56,14 +56,10 @@ export default function BlogPage() {
     postUrl += `&category=${category}`
   }
 
-  if (isPending) {
-    return <p>Loading...</p>
-  }
-
   return (
     <div>
-      <h1 className='mb-2 font-venice text-6xl text-accent'>the web blog</h1>
-      {isPending || isFetching ? (
+      <h1 className='mb-2 font-venice text-6xl text-robins-egg-blue'>the web blog</h1>
+      {isFetching ? (
         <div>Loading...</div>
       ) : (
         <PostsList

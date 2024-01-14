@@ -52,9 +52,9 @@ export default function Connections() {
     <Window
       title='lets-connect.txt'
       active={false}
-      x={size.width / 10}
+      x={size.width / 2}
       y={size.height / 1.65}
-      zIndex='1'
+      zIndex='3'
       width={`${windowWidth(size.width)}px`}
       id='connections-window'
       draggable={size.width > 897}

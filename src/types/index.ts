@@ -4,6 +4,12 @@ export interface Link {
   url: string
 }
 
+export type NavigationItem = {
+  href: string
+  icon?: React.ComponentType
+  name: string
+}
+
 export interface CategoryResponse {
   cover_image: string
   description: string

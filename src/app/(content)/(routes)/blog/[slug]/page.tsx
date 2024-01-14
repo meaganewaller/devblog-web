@@ -20,5 +20,5 @@ export default function PostDetailPage({ params }: PostDetailProps) {
     setPost(data)
   }, [setPost, data])
 
-  return <>{isLoading ? <p>Client side fetching..</p> : <PostDetail />}</>
+  return <div className='mx-auto max-w-4xl'>{isLoading ? <p>Client side fetching..</p> : <PostDetail />}</div>
 }

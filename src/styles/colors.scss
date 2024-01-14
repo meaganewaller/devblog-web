@@ -97,103 +97,158 @@
   --index-shadow-dark: #9c9c9c;
 }
 
-html.dark,
-html.dark-inverted {
-  /* Main Colors */
-  // --color-peachy-pink: #FF6B81; /* Adjusted for dark mode */
-  // --color-lavender: #A6A6D5; /* Adjusted for dark mode */
-  // --color-soft-green: #4A8B77; /* Adjusted for dark mode */
-  // --color-chocolate-brown: #543F29; /* Adjusted for dark mode */
-  // --color-pale-pink: #F096B4; /* Adjusted for dark mode */
-  // --color-creamy-white: #E5E5CC; /* Adjusted for dark mode */
-  // --color-sky-blue: #7AAEDC; /* Adjusted for dark mode */
-  // --color-sunshine-yellow: #FFD777; /* Adjusted for dark mode */
-  // --color-minty-green: #9BE7A4; /* Adjusted for dark mode */
-  // --color-bubblegum-purple: #A8A8FF; /* Adjusted for dark mode */
-  // --color-tropical-orange: #FFA74D; /* Adjusted for dark mode */
-  //
-  // /* Shades */
-  // --color-light-peach: #FFA2B1; /* Adjusted for dark mode */
-  // --color-soft-rose: #FF7281; /* Adjusted for dark mode */
-  // --color-blush: #FF596C; /* Adjusted for dark mode */
-  // --color-deep-pink: #FF3546; /* Adjusted for dark mode */
-  // --color-light-lavender: #DADADA; /* Adjusted for dark mode */
-  // --color-pastel-purple: #B4B4FF; /* Adjusted for dark mode */
-  // --color-orchid: #8787FF; /* Adjusted for dark mode */
-  // --color-royal-purple: #5959FF; /* Adjusted for dark mode */
-  // --color-mint-green: #6FAA91; /* Adjusted for dark mode */
-  // --color-pale-aqua: #5CA38B; /* Adjusted for dark mode */
-  // --color-teal: #38896B; /* Adjusted for dark mode */
-  // --color-deep-green: #236256; /* Adjusted for dark mode */
-  // --color-light-brown: #705028; /* Adjusted for dark mode */
-  // --color-caramel: #8C5C3A; /* Adjusted for dark mode */
-  // --color-rustic-brown: #6A3615; /* Adjusted for dark mode */
-  // --color-espresso: #2D1807; /* Adjusted for dark mode */
-  // --color-baby-pink: #FFBACF; /* Adjusted for dark mode */
-  // --color-cotton-candy: #FF8EAB; /* Adjusted for dark mode */
-  // --color-bubblegum: #FF7084; /* Adjusted for dark mode */
-  // --color-raspberry-pink: #FF485F; /* Adjusted for dark mode */
-  // --color-off-white: #ECE2C3; /* Adjusted for dark mode */
-  // --color-ivory: #FFFFEE; /* Adjusted for dark mode */
-  // --color-pearl-white: #ECE9DC; /* Adjusted for dark mode */
-  // --color-vanilla: #E8E1B2; /* Adjusted for dark mode */
-  // --color-light-sky-blue: #7AAEDC; /* Adjusted for dark mode */
-  // --color-soft-blue: #5DABE4; /* Adjusted for dark mode */
-  // --color-robins-egg-blue: #4297D8; /* Adjusted for dark mode */
-  // --color-deep-sky-blue: #0E78B8; /* Adjusted for dark mode */
-  // --color-light-yellow: #FFD777; /* Adjusted for dark mode */
-  // --color-lemon-yellow: #FFE84A; /* Adjusted for dark mode */
-  // --color-goldenrod: #FFD018; /* Adjusted for dark mode */
-  // --color-sunflower-yellow: #FFBB00; /* Adjusted for dark mode */
-  // --color-light-mint: #9BE7A4; /* Adjusted for dark mode */
-  // --color-fresh-green: #6BCA83; /* Adjusted for dark mode */
-  // --color-spring-green: #44A954; /* Adjusted for dark mode */
-  // --color-vibrant-green: #238835; /* Adjusted for dark mode */
-  // --color-lilac: #A8A8FF; /* Adjusted for dark mode */
-  // --color-purple: #7D7DFF; /* Adjusted for dark mode */
-  // --color-deep-purple: #50218B; /* Adjusted for dark mode */
-  // --color-electric-purple: #3A006B; /* Adjusted for dark mode */
-  // --color-light-orange: #FFA74D; /* Adjusted for dark mode */
-  // --color-peach: #FF8B3F; /* Adjusted for dark mode */
-  // --color-tangerine: #FF6A1C; /* Adjusted for dark mode */
-  // --color-coral-orange: #FF4A02; /* Adjusted for dark mode */
-  //
-  //
-  // --color-inverse: 235 240 251;
-  // --color-background: var(--color-lavender);
-  // --color-toolbar: var(--color-royal-purple);
-  // --color-divider: rgba(var(--color-inverse) / 0.12);
-  // // --color-background: #7B325B;
-  // // --color-card: #AF4782;
-  // // --color-toolbar: var(--color-royal-purple);
-  //
-  // --color-primary-txt: #fff;
-  // --color-secondary-txt: rgba(var(--color-inverse) / 0.85);
-  // --color-tertiary-txt: rgba(var(--color-inverse) / 0.65);
-  //
-  // --color-accent: #88a4e6;
-  // --color-accent-dark: 175 194 239;
-  // --color-on-accent: rgba(9 17 34 / 0.925);
-  //
-  // --color-scrollbar-bg: var(--color-accent);
-  // --color-scrollbar-thumb: #0c121e;
-  // --color-selection: rgba(136 164 230 / 0.25);
-  // --color-illustrations-shadow: #d8d1f6;
-  // --color-img-drop-shadow: rgba(var(--color-inverse) / 0.28);
-  //
-  // --color-shadow-brand: #9cb3eb;
-  // --color-shadow-blue: #81c1e9;
-  // --color-shadow-green: #79d9a6;
-  // --color-shadow-yellow: #fad483;
-  // --color-shadow-orange: #fcb483;
-  // --color-shadow-red: #f3899c;
-  // --color-shadow-purple: #b898e3;
-  //
-  // --color-gradient-brand: var(--color-shadow-brand);
-  // --color-gradient-blue: var(--color-shadow-blue);
-  // --color-gradient-green: var(--color-shadow-green);
-  // --color-gradient-yellow: var(--color-shadow-yellow);
-  // --color-gradient-orange: var(--color-shadow-orange);
-  // --color-gradient-red: var(--color-shadow-red);
-  // --color-gradient-purple: var(--color-shadow-purple);
-}
+// html.dark,
+// html.dark-inverted {
+//   /* Main Colors */
+//   --color-peachy-pink: #FF6B81;
+//   /* Adjusted for dark mode */
+//   --color-lavender: #A6A6D5;
+//   /* Adjusted for dark mode */
+//   --color-soft-green: #4A8B77;
+//   /* Adjusted for dark mode */
+//   --color-chocolate-brown: #543F29;
+//   /* Adjusted for dark mode */
+//   --color-pale-pink: #F096B4;
+//   /* Adjusted for dark mode */
+//   --color-creamy-white: #E5E5CC;
+//   /* Adjusted for dark mode */
+//   --color-sky-blue: #7AAEDC;
+//   /* Adjusted for dark mode */
+//   --color-sunshine-yellow: #FFD777;
+//   /* Adjusted for dark mode */
+//   --color-minty-green: #9BE7A4;
+//   /* Adjusted for dark mode */
+//   --color-bubblegum-purple: #A8A8FF;
+//   /* Adjusted for dark mode */
+//   --color-tropical-orange: #FFA74D;
+//   /* Adjusted for dark mode */
+
+//   /* Shades */
+//   --color-light-peach: #FFA2B1;
+//   /* Adjusted for dark mode */
+//   --color-soft-rose: #FF7281;
+//   /* Adjusted for dark mode */
+//   --color-blush: #FF596C;
+//   /* Adjusted for dark mode */
+//   --color-deep-pink: #FF3546;
+//   /* Adjusted for dark mode */
+//   --color-light-lavender: #DADADA;
+//   /* Adjusted for dark mode */
+//   --color-pastel-purple: #B4B4FF;
+//   /* Adjusted for dark mode */
+//   --color-orchid: #8787FF;
+//   /* Adjusted for dark mode */
+//   --color-royal-purple: #5959FF;
+//   /* Adjusted for dark mode */
+//   --color-mint-green: #6FAA91;
+//   /* Adjusted for dark mode */
+//   --color-pale-aqua: #5CA38B;
+//   /* Adjusted for dark mode */
+//   --color-teal: #38896B;
+//   /* Adjusted for dark mode */
+//   --color-deep-green: #236256;
+//   /* Adjusted for dark mode */
+//   --color-light-brown: #705028;
+//   /* Adjusted for dark mode */
+//   --color-caramel: #8C5C3A;
+//   /* Adjusted for dark mode */
+//   --color-rustic-brown: #6A3615;
+//   /* Adjusted for dark mode */
+//   --color-espresso: #2D1807;
+//   /* Adjusted for dark mode */
+//   --color-baby-pink: #FFBACF;
+//   /* Adjusted for dark mode */
+//   --color-cotton-candy: #FF8EAB;
+//   /* Adjusted for dark mode */
+//   --color-bubblegum: #FF7084;
+//   /* Adjusted for dark mode */
+//   --color-raspberry-pink: #FF485F;
+//   /* Adjusted for dark mode */
+//   --color-off-white: #ECE2C3;
+//   /* Adjusted for dark mode */
+//   --color-ivory: #FFFFEE;
+//   /* Adjusted for dark mode */
+//   --color-pearl-white: #ECE9DC;
+//   /* Adjusted for dark mode */
+//   --color-vanilla: #E8E1B2;
+//   /* Adjusted for dark mode */
+//   --color-light-sky-blue: #7AAEDC;
+//   /* Adjusted for dark mode */
+//   --color-soft-blue: #5DABE4;
+//   /* Adjusted for dark mode */
+//   --color-robins-egg-blue: #4297D8;
+//   /* Adjusted for dark mode */
+//   --color-deep-sky-blue: #0E78B8;
+//   /* Adjusted for dark mode */
+//   --color-light-yellow: #FFD777;
+//   /* Adjusted for dark mode */
+//   --color-lemon-yellow: #FFE84A;
+//   /* Adjusted for dark mode */
+//   --color-goldenrod: #FFD018;
+//   /* Adjusted for dark mode */
+//   --color-sunflower-yellow: #FFBB00;
+//   /* Adjusted for dark mode */
+//   --color-light-mint: #9BE7A4;
+//   /* Adjusted for dark mode */
+//   --color-fresh-green: #6BCA83;
+//   /* Adjusted for dark mode */
+//   --color-spring-green: #44A954;
+//   /* Adjusted for dark mode */
+//   --color-vibrant-green: #238835;
+//   /* Adjusted for dark mode */
+//   --color-lilac: #A8A8FF;
+//   /* Adjusted for dark mode */
+//   --color-purple: #7D7DFF;
+//   /* Adjusted for dark mode */
+//   --color-deep-purple: #50218B;
+//   /* Adjusted for dark mode */
+//   --color-electric-purple: #3A006B;
+//   /* Adjusted for dark mode */
+//   --color-light-orange: #FFA74D;
+//   /* Adjusted for dark mode */
+//   --color-peach: #FF8B3F;
+//   /* Adjusted for dark mode */
+//   --color-tangerine: #FF6A1C;
+//   /* Adjusted for dark mode */
+//   --color-coral-orange: #FF4A02;
+//   /* Adjusted for dark mode */
+
+
+//   --color-inverse: 235 240 251;
+//   --color-background: var(--color-lavender);
+//   --color-toolbar: var(--color-royal-purple);
+//   --color-divider: rgba(var(--color-inverse) / 0.12);
+//   // --color-background: #7B325B;
+//   // --color-card: #AF4782;
+//   // --color-toolbar: var(--color-royal-purple);
+
+//   --color-primary-txt: #fff;
+//   --color-secondary-txt: rgba(var(--color-inverse) / 0.85);
+//   --color-tertiary-txt: rgba(var(--color-inverse) / 0.65);
+
+//   --color-accent: #88a4e6;
+//   --color-accent-dark: 175 194 239;
+//   --color-on-accent: rgba(9 17 34 / 0.925);
+
+//   --color-scrollbar-bg: var(--color-accent);
+//   --color-scrollbar-thumb: #0c121e;
+//   --color-selection: rgba(136 164 230 / 0.25);
+//   --color-illustrations-shadow: #d8d1f6;
+//   --color-img-drop-shadow: rgba(var(--color-inverse) / 0.28);
+
+//   --color-shadow-brand: #9cb3eb;
+//   --color-shadow-blue: #81c1e9;
+//   --color-shadow-green: #79d9a6;
+//   --color-shadow-yellow: #fad483;
+//   --color-shadow-orange: #fcb483;
+//   --color-shadow-red: #f3899c;
+//   --color-shadow-purple: #b898e3;
+
+//   --color-gradient-brand: var(--color-shadow-brand);
+//   --color-gradient-blue: var(--color-shadow-blue);
+//   --color-gradient-green: var(--color-shadow-green);
+//   --color-gradient-yellow: var(--color-shadow-yellow);
+//   --color-gradient-orange: var(--color-shadow-orange);
+//   --color-gradient-red: var(--color-shadow-red);
+//   --color-gradient-purple: var(--color-shadow-purple);
+// }

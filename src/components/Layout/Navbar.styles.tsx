@@ -12,15 +12,15 @@ const StyledHeader = styled.header`
 `
 
 export const Header = tw(StyledHeader)`
-  z-[100] w-full bg-toolbar flex border-b border-solid border-b-primary-txt justify-between sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-on-accent font-mono
+  z-[100] w-full bg-accent flex border-b border-solid border-b-primary-txt justify-between sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-primary-txt font-mono
 `
 
 export const Nav = tw(motion.nav)`
-  h-[100vh] overflow-y-auto w-[100vw] bg-accent z-[2] flex items-center justify-evenly fixed top-0 flex-col
+  h-[100vh] overflow-y-auto w-[100vw] bg-sunflower-yellow z-[2] flex items-center justify-evenly fixed top-0 flex-col
 `
 
 export const NavItem = tw(motion.li)`
-  text-on-accent mb-[1.25em] text-xl font-mono
+  text-primary-txt mb-[1.25em] text-xl font-mono
 `
 
 const StyledDesktopNav = styled(motion.ul)`
@@ -32,7 +32,7 @@ export const DesktopNav = tw(StyledDesktopNav)`
 `
 
 export const NestedDesktopNav = tw(DesktopNav)`
-  bg-toolbar bg-opacity-95 flex-col left-0 absolute text-on-accent z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap -top-[1000em]
+  bg-sunflower-yellow bg-opacity-95 flex-col left-0 absolute text-primary-txt z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap -top-[1000em]
 `
 
 export const DesktopNavItem = tw(motion.li)`
@@ -40,7 +40,7 @@ export const DesktopNavItem = tw(motion.li)`
 `
 
 export const Logo = tw(HiSparkles)`
-  text-on-accent text-xl hover:text-gradient-yellow
+  text-primary-txt text-xl hover:text-gradient-yellow
 `
 
 export const SvgBox = tw(motion.div)`

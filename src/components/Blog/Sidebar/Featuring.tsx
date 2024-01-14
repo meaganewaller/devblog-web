@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const FeaturingMini = () => (
   <div className='mt-8 sm:hidden'>
     <p>
-      Currently showing <span className='text-xl font-bold text-accent'>Highlights</span>
+      Currently showing <span className='text-xl font-bold text-sky-blue'>Highlights</span>
       <div></div>
     </p>
     <p></p>
@@ -13,7 +13,7 @@ export const FeaturingMini = () => (
 
 const Featuring = () => (
   <div>
-    <p className='mb-4 font-venice text-4xl text-accent underline decoration-accent-dark underline-offset-4'>
+    <p className='mb-4 font-venice text-4xl text-deep-sky-blue underline decoration-robins-egg-blue underline-offset-4'>
       Featuring
     </p>
 
@@ -24,8 +24,8 @@ const Featuring = () => (
       >
         <Image src='/static/images/ui/29.svg' width={40} height={40} alt='Highlights' />
         <div className='flex flex-col'>
-          <span className='text-xl font-bold text-accent-dark group-hover:italic'>Gems</span>
-          <span className='font-semibold text-accent group-hover:italic'>The crème de la crème of the content.</span>
+          <span className='text-xl font-bold text-deep-sky-blue group-hover:italic'>Gems</span>
+          <span className='font-semibold text-espresso group-hover:italic'>The crème de la crème of the content.</span>
         </div>
       </Link>
 
@@ -35,8 +35,8 @@ const Featuring = () => (
       >
         <Image src='/static/images/ui/fire.svg' width={40} height={40} alt='Hot'></Image>
         <div className='flex flex-col'>
-          <span className='text-xl font-bold text-accent-dark group-hover:italic'>Hot</span>
-          <span className='font-semibold text-accent group-hover:italic'>People are talkin' about these.</span>
+          <span className='text-xl font-bold text-deep-sky-blue group-hover:italic'>Hot</span>
+          <span className='font-semibold text-espresso group-hover:italic'>People are talkin' about these.</span>
         </div>
       </Link>
 
@@ -46,8 +46,8 @@ const Featuring = () => (
       >
         <Image src='/static/images/ui/notepad.svg' width={40} height={40} alt='Archive'></Image>
         <div className='flex flex-col'>
-          <span className='text-xl font-bold text-accent-dark group-hover:italic'>Archive</span>
-          <span className='font-semibold text-accent group-hover:italic'>Something for everyone.</span>
+          <span className='text-xl font-bold text-deep-sky-blue group-hover:italic'>Archive</span>
+          <span className='font-semibold text-espresso group-hover:italic'>Something for everyone.</span>
         </div>
       </Link>
     </div>

@@ -89,12 +89,6 @@ export const Footer = () => {
                 About
               </Link>
               <Link
-                href='/projects'
-                className='flex-shrink rounded-lg border-2 border-transparent p-1 hover:border-accent hover:text-accent'
-              >
-                Projects
-              </Link>
-              <Link
                 href='/blog'
                 className='flex-shrink rounded-lg border-2 border-transparent p-1 hover:border-accent hover:text-accent'
               >
@@ -105,6 +99,12 @@ export const Footer = () => {
                 className='flex-shrink rounded-lg border-2 border-transparent p-1 hover:border-accent hover:text-accent'
               >
                 Now
+              </Link>
+              <Link
+                href='/chat'
+                className='flex-shrink rounded-lg border-2 border-transparent p-1 hover:border-accent hover:text-accent'
+              >
+                Say Hi
               </Link>
             </div>
           </div>

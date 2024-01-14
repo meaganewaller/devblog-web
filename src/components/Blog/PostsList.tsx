@@ -4,7 +4,7 @@ import Pagination from '@/components/Layout/Pagination'
 
 import { PostLink } from './PostLink'
 
-import { PostResponse, Post } from '@/types'
+import { Post, PostResponse } from '@/types'
 
 interface PostsCountProps {
   posts: PostResponse[]
@@ -17,7 +17,7 @@ export const PostsCount = ({ posts, year }: PostsCountProps) => {
   }, [posts, year])
 
   return (
-    <span className='mb-1 block rounded-full bg-raspberry-pink p-2 font-mono text-xs text-on-accent'>
+    <span className='mb-1 block rounded-full bg-deep-sky-blue p-2 font-mono text-xs text-ivory'>
       {count} post{count === 1 ? '' : 's'}
     </span>
   )
@@ -38,8 +38,8 @@ export const PostTimelineSeparator = ({ posts, currentPost, previousPost }: Post
 
   if (!Number.isNaN(currentPostYear) && currentPostYear !== previousPostYear) {
     return (
-      <div className='mt-8 flex items-baseline justify-between border-b-2 border-deep-pink md:mt-12'>
-        <span className='font-venice text-4xl font-bold text-bubblegum'>{currentPostYear}</span>
+      <div className='mt-8 flex items-baseline justify-between border-b-2 border-deep-sky-blue md:mt-12'>
+        <span className='font-venice text-4xl font-bold text-robins-egg-blue'>{currentPostYear}</span>
         <PostsCount posts={posts} year={currentPostYear} />
       </div>
     )

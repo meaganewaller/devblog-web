@@ -1,24 +1,22 @@
 .button {
-  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px]
-  py-[17px] font-[bolder] font-extra text-md text-on-accent no-underline
-  shadow-[0px_6px_0px] shadow-accent-dark hover:bg-shadow-purple
-  hover:no-underline hover:shadow-[0px_6px_0px] hover:shadow-toolbar;
-  text-transform: uppercase;
+  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px] py-[17px] text-md text-on-accent no-underline font-venice shadow-[0px_6px_0px] shadow-accent-dark hover:bg-shadow-purple hover:no-underline hover:shadow-[0px_6px_0px] hover:shadow-toolbar;
   margin-left: auto;
   margin-right: auto;
   border-radius: 24px;
   padding-left: 5px;
   padding-right: 5px;
-  font-family: 'Press Start 2P', cursive;
   outline: none;
+
   &::after {
     content: '';
     position: absolute;
     left: 0;
     z-index: -1;
   }
+
   &:active {
     top: 10px;
+
     &::after {
       top: 2px;
     }
