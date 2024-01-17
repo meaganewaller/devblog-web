@@ -18,7 +18,7 @@ async function fetchRecentPosts() {
 }
 
 export default function RecentPosts() {
-  const { data, isLoading, isFetching, error } = useQuery({
+  const { data, isLoading, isFetching } = useQuery({
     queryKey: ['recentPosts'],
     queryFn: fetchRecentPosts,
   })
@@ -29,15 +29,17 @@ export default function RecentPosts() {
     <Window
       id='recent-posts-window'
       title='recent-posts.txt'
-      x={Number(size.width / 2 < 520 ? size.width / 0.5 : size.width / 13)}
-      y={Number(size.width / 2 < 520 ? size.height / 2 : size.height / 6)}
-      width={`${size.width / 2 < 520 ? size.width / 2 : 520}px`}
-      zIndex='3'
+      x={Number(size.width / 2 < 520 ? size.width / 5 : size.width / 13)}
+      y={Number(size.height / 4)}
+      width={`${size.width / 2 < 520 ? size.width / 2 : 420}px`}
+      zIndex='7'
       active={true}
-      draggable={size.width > 897}
+      draggable={size.width > 767}
     >
       <PostListContainer>
         <PostList>
+          {isLoading && <div>Loading...</div>}
+          {isFetching && <div>Fetching...</div>}
           {data?.map((post: Post) => (
             <PostItem key={post.slug} className='wavy'>
               <Link href={`/blog/${post.slug}`} className='no-underline outline-none hover:no-underline'>

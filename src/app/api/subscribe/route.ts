@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 const API_KEY = process.env.CONVERTKIT_API_KEY
-const BASE_URL = `https://api.convertkit.com/v3`
+const BASE_URL = 'https://api.convertkit.com/v3'
 const CONVERTKIT_FORM_ID = process.env.CONVERTKIT_FORM_ID
 
 function subscribeToForm(params: { email: string }) {
@@ -29,7 +29,7 @@ function subscribeToForm(params: { email: string }) {
 
 export async function POST(req: Request) {
   const request = await req.json()
-  if (!request?.name || !request?.email) {
+  if (!request?.email) {
     return NextResponse.json(
       { error: { message: 'Missing email' } },
       {

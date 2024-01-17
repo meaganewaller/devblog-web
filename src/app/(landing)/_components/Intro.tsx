@@ -11,16 +11,41 @@ import { IntroContainer, IntroParagraph, IntroReadMore, IntroSparkle, IntroSpark
 export default function Intro() {
   const size = useWindowSize()
   if (!size.width) return null
+
+  const windowWidth = (width: number) => {
+    if (width <= 768) {
+      return `${width - 200}px`
+    }
+
+    return `${width / 1.9}px`
+  }
+
+  const xPos = () => {
+    if (size.width <= 768) {
+      return size.width / 4
+    }
+
+    return size.width / 3
+  }
+
+  const yPos = () => {
+    if (size.width <= 768) {
+      return size.height / 4
+    }
+
+    return size.height / 5
+  }
+
   return (
     <Window
       title='about-meagan.txt'
-      x={size.width / 3}
-      y={size.height / 10}
-      width={`${size.width * 0.65}px`}
-      zIndex='2'
-      active={true}
+      x={xPos()}
+      y={yPos()}
+      width={windowWidth(size.width)}
+      zIndex='6'
+      active={false}
       id='intro-window'
-      draggable={size.width > 897}
+      draggable={size.width > 767}
     >
       <IntroContainer>
         <IntroSparkles>

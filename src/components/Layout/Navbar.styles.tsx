@@ -1,46 +1,17 @@
 import { motion } from 'framer-motion'
-import { HiSparkles } from 'react-icons/hi'
-import tw, { styled } from 'twin.macro'
-
-const StyledHeader = styled.header`
-  box-shadow:
-    inset 1px 1px 0 var(--index-shadow-light),
-    inset -1px -1px 0 var(--index-shadow-dark);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  backdrop-filter: blur(4px);
-`
-
-export const Header = tw(StyledHeader)`
-  z-[100] w-full bg-accent flex border-b border-solid border-b-primary-txt justify-between sm:justify-start rounded-t-[10px] items-center h-[32px] fixed px-[1.5rem] text-primary-txt font-mono
-`
+import Link from 'next/link'
+import tw from 'twin.macro'
 
 export const Nav = tw(motion.nav)`
-  h-[100vh] overflow-y-auto w-[100vw] bg-sunflower-yellow z-[2] flex items-center justify-evenly fixed top-0 flex-col
+  h-[100vh] overflow-y-auto w-[100vw] bg-sky-blue z-[2] flex items-center justify-evenly fixed top-0 flex-col
 `
 
 export const NavItem = tw(motion.li)`
-  text-primary-txt mb-[1.25em] text-xl font-mono
+  text-deep-sky-blue mb-[1.25em] text-xl font-mono
 `
 
-const StyledDesktopNav = styled(motion.ul)`
-  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.35));
-`
-
-export const DesktopNav = tw(StyledDesktopNav)`
-  hidden sm:flex flex-row place-self-start list-none m-0 p-0 pt-[1px] z-10 overflow-visible
-`
-
-export const NestedDesktopNav = tw(DesktopNav)`
-  bg-sunflower-yellow bg-opacity-95 flex-col left-0 absolute text-primary-txt z-10 rounded-b-[.25em] py-[0.25em] whitespace-nowrap -top-[1000em]
-`
-
-export const DesktopNavItem = tw(motion.li)`
-  relative z-10 overflow-visible font-mono
-`
-
-export const Logo = tw(HiSparkles)`
-  text-primary-txt text-xl hover:text-gradient-yellow
+export const NavLink = tw(Link)`
+  text-deep-sky-blue hover:text-purple
 `
 
 export const SvgBox = tw(motion.div)`

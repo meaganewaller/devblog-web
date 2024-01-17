@@ -1,4 +1,4 @@
-import { Footer } from '@/components/Layout/Footer'
+import { Footer } from '@/components/Layout/Footer/index'
 import { FooterDivider } from '@/components/Layout/FooterDivider'
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {

@@ -68,11 +68,11 @@ export default function NewsletterForm({ title = ['Subscribe to the Newsletter']
 
   return (
     <section className='flex flex-col items-center justify-center'>
-      <p className='text-primary my-4 text-3xl font-normal tracking-tight md:text-5xl lg:text-6xl'>{title}</p>
+      <p className='my-4 text-xl font-normal tracking-tight text-accent md:text-3xl lg:text-4xl'>{title}</p>
 
-      <p className='text-gray-800 my-1 max-w-4xl text-lg'>{subtitle}</p>
+      <p className='my-1 max-w-4xl text-md text-espresso md:text-lg lg:text-2xl'>{subtitle}</p>
 
-      <form className='relative my-4 grid max-w-3xl grid-cols-1 gap-4 md:grid-cols-2' onSubmit={onSubmit}>
+      <form className='relative flex w-full' onSubmit={onSubmit}>
         <input
           ref={emailInputEl}
           type='email'
@@ -81,13 +81,13 @@ export default function NewsletterForm({ title = ['Subscribe to the Newsletter']
           placeholder='Your email address'
           autoComplete='email'
           required
-          className='appearance-none rounded-none border-x-0 border-b-2 border-t-0 border-b-accent bg-background px-4 py-2 text-electric-purple placeholder-electric-purple/50 shadow-sm focus:border-b-0 focus:outline-none focus:ring-1 focus:ring-accent focus:ring-offset-2'
+          className='mr-2 flex-1 appearance-none rounded-none border-x-0 border-b-2 border-t-0 border-b-accent bg-background px-4 py-2 text-electric-purple placeholder-electric-purple/50 focus:border-b-0 focus:outline-none focus:ring-1 focus:ring-accent focus:ring-offset-2'
           disabled={form.state === 'loading'}
         />
         <input
           type='submit'
           value='Subscribe'
-          className='bg-primary hover:bg-primary-dark focus:ring-primary cursor-pointer rounded-md px-4 py-2 text-accent shadow-sm focus:outline-none focus:ring-1 focus:ring-offset-2'
+          className='cursor-pointer rounded-md bg-accent px-4 py-2 text-on-accent shadow-sm hover:bg-accent-dark focus:outline-none focus:ring-1 focus:ring-accent focus:ring-offset-2'
           disabled={
             form.state === 'loading' ||
             form.state === 'success' ||

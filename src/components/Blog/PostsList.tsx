@@ -17,7 +17,7 @@ export const PostsCount = ({ posts, year }: PostsCountProps) => {
   }, [posts, year])
 
   return (
-    <span className='mb-1 block rounded-full bg-deep-sky-blue p-2 font-mono text-xs text-ivory'>
+    <span className='mb-1 block rounded-full bg-deep-sky-blue p-2 font-mono text-xs text-vanilla'>
       {count} post{count === 1 ? '' : 's'}
     </span>
   )

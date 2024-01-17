@@ -22,12 +22,12 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
     }
 
     return (
-      <div className={tw('bg-pattern py-12', 'md:py-16', 'lg:py-20')} ref={ref}>
-        <Container className={tw('pointer-events-none select-none overflow-hidden', centered && 'text-center')}>
+      <div className={tw('bg-pattern py-8', 'md:py-10', 'lg:py-12')} ref={ref}>
+        <Container className={tw('overflow-hidden', centered && 'text-center')}>
           <motion.div initial={animation.hide} animate={animation.show} transition={{ delay: 0.1 }}>
             <h1
               className={tw(
-                'text-4xl font-extrabold leading-tight',
+                'font-venice text-4xl font-extrabold leading-tight',
                 'md:text-5xl md:leading-tight',
                 'lg:text-6xl lg:leading-tight',
               )}
@@ -36,8 +36,13 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
             </h1>
           </motion.div>
           {description && (
-            <motion.div initial={animation.hide} animate={animation.show} transition={{ delay: 0.2 }}>
-              <p className={tw('mt-4 text-lg')}>{description}</p>
+            <motion.div
+              initial={animation.hide}
+              animate={animation.show}
+              transition={{ delay: 0.2 }}
+              className={tw('w-[90%] pb-3', centered && 'text-center')}
+            >
+              <div dangerouslySetInnerHTML={{ __html: description }} />
             </motion.div>
           )}
         </Container>

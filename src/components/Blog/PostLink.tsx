@@ -38,7 +38,10 @@ export const PostLink = ({ post }: PostLinkProps) => {
               {isHighlighted && <FaStar size={24} className='ml-2 inline max-w-[24px]' />}
             </a>
           ) : (
-            <Link href={`/blog/${post.slug}`} className='decoration-none flex-grow text-lg font-semibold'>
+            <Link
+              href={`/blog/${post.slug}`}
+              className='decoration-none flex-grow text-lg font-semibold text-espresso hover:text-purple'
+            >
               <span>{post.title}</span>
               {isHighlighted && <FaStar size={18} className='ml-2 inline max-w-[18px]' />}
             </Link>

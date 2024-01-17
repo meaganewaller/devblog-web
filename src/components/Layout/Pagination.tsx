@@ -17,12 +17,12 @@ const Pagination = ({ page, totalPages, url, previousPostUrl, series }: Params) 
   }
 
   return (
-    <nav className='mt-8 flex items-center justify-between border-t border-accent px-4 sm:px-0'>
+    <nav className='mt-8 flex items-center justify-between border-t border-deep-sky-blue px-4 font-mono font-extrabold sm:px-0'>
       <div className='-mt-px flex w-0 flex-1'>
         {page > 1 && (
           <Link
             href={previousPostUrl}
-            className='inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-accent-dark hover:border-accent hover:text-accent'
+            className='inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-bold text-purple hover:border-purple hover:text-purple'
           >
             <FaChevronLeft size={24} className='mr-1 h-3 w-3 max-w-[24px]' />
             Previous
@@ -34,7 +34,7 @@ const Pagination = ({ page, totalPages, url, previousPostUrl, series }: Params) 
           pageNumber.toString() === 'gap' ? (
             <span
               key={pageNumber}
-              className='inline-flex items-center border-t-2 border-transparent border-transparent px-4 pt-4 text-sm font-medium text-accent-dark'
+              className='inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-bold text-deep-sky-blue'
             >
               ...{' '}
             </span>
@@ -43,10 +43,10 @@ const Pagination = ({ page, totalPages, url, previousPostUrl, series }: Params) 
               key={`pagination-${pageNumber}`}
               href={url.replace(/page=\d+/g, `page=${pageNumber}`)}
               className={tw(
-                'inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-accent-dark hover:border-accent-dark hover:text-accent',
+                'inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-bold text-deep-sky-blue hover:border-deep-sky-blue hover:text-purple',
                 pageNumber.toString() === page.toString()
-                  ? 'border-accent text-accent'
-                  : 'border-transparent text-accent-dark hover:border-accent hover:text-accent',
+                  ? 'border-purple text-purple'
+                  : 'border-transparent text-deep-sky-blue hover:border-purple hover:text-purple',
               )}
             >
               {pageNumber}
@@ -58,7 +58,7 @@ const Pagination = ({ page, totalPages, url, previousPostUrl, series }: Params) 
         {totalPages > page && (
           <Link
             href={`${url.replaceAll(`page=${page}`, `page=${page + 1}`)}`}
-            className='inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-accent-dark hover:border-accent hover:text-accent'
+            className='inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-bold text-deep-sky-blue hover:border-purple hover:text-purple'
           >
             Next
             <FaChevronRight size={24} className='ml-1 h-3 w-3 max-w-[24px]' />

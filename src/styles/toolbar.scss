@@ -1,6 +1,6 @@
 header {
   .btn {
-    @apply bg-sunshine-yellow px-2 py-1 rounded-full shadow-goldenrod shadow-lg shadow-inner border-2 border-solid border-creamy-white hover:bg-lilac hover:border-purple hover:shadow-lg hover:shadow-inner hover:shadow-lavender;
+    @apply bg-sunshine-yellow md:px-3 md:py-2 md:text-lg font-extra rounded-lg lg:rounded-full shadow-goldenrod shadow-lg shadow-inner border-2 border-solid border-creamy-white hover:bg-lilac hover:border-purple hover:shadow-lg hover:shadow-inner hover:shadow-lavender text-md px-1 py-0;
   }
 }
 

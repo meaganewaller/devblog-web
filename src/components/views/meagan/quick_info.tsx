@@ -5,15 +5,15 @@ import Link from 'next/link'
 import tw from 'twin.macro'
 
 const List = tw.ul`
- list-flower bg-accent-300 list-inside text-justify text-secondary-800 my-0 mx-[15px] py-3 px-[5px]
+ list-flower bg-lilac list-inside text-espresso my-0 md:mx-[15px] py-3 px-[5px] w-full
 `
 
 const Item = tw.li`
-  relative pl-[20px] leading-[1.5em] p-[2px] text-md
+  relative pl-[20px] leading-[1.5em] text-md md:w-2/3
 `
 
 const ItemTitle = tw.strong`
-  text-secondary-700 w-[90px] inline-block
+  text-secondary-txt md:w-1/3 inline-block mr-[10px] md:mr-0
 `
 
 export function QuickInfo() {
@@ -24,10 +24,10 @@ export function QuickInfo() {
         width={200}
         height={200}
         alt="Meagan Waller's avatar"
-        className='tablet-sm:float-left tablet-sm:mr-32 border-deep-green mx-auto h-[200px] w-[200px] rounded-full border-2'
+        className='tablet-sm:float-left tablet-sm:mr-32 mx-auto h-[200px] w-[200px] rounded-full border-4 border-lilac'
       />
       <div className='tablet-sm:text-justify text-center'>
-        <h1 className="text-deep-green text-center font-venice text-xl capitalize tracking-wide before:pr-[5px] before:content-[url('/static/images/ui/leftsparkle.gif')] after:pl-[5px] after:content-[url('/static/images/ui/leftsparkle.gif')] lg:text-2xl">
+        <h1 className="text-center font-venice text-2xl capitalize tracking-wide text-raspberry-pink before:pr-[5px] before:content-[url('/static/images/ui/leftsparkle.gif')] after:pl-[5px] after:content-[url('/static/images/ui/leftsparkle.gif')] lg:text-3xl">
           About
         </h1>
       </div>
@@ -45,7 +45,7 @@ export function QuickInfo() {
           senior dev consultant @{' '}
           <Link
             href='https://testdouble.com'
-            className='bg-deep-green text-off-white hover:bg-vibrant-green hover:text-off-white p-1'
+            className='bg-purple p-1 text-off-white hover:bg-lavender hover:text-purple'
             target='_blank'
           >
             test double

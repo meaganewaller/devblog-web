@@ -3,6 +3,10 @@ body {
   @apply font-sans text-md font-normal text-secondary-txt leading-normal leading-relaxed;
 }
 
+a {
+  @apply text-accent no-underline hover:underline hover:decoration-wavy hover:decoration-accent-dark hover:text-accent-dark;
+}
+
 @media (min-width: 425px) {
 
   html,

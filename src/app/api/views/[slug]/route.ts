@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import apiClient from '@/lib/apiClient'
-import { getSessionId } from '@/lib/server'
 
 interface ViewsProp {
   params: {
@@ -19,23 +18,26 @@ export const GET = async (_request: NextRequest, { params }: ViewsProp) => {
   })
 }
 
-export const POST = async (request: NextRequest, { params }: ViewsProp) => {
-  try {
-    const slug = params.slug
-    const sessionId = getSessionId(request)
-    await apiClient.post('/views', {
-      view: {
-        viewable_type: 'Post',
-        viewable_slug: slug,
-        session_id: sessionId,
-      },
-    })
+export const POST = async (request: Request) => {
+  const request = await req.json()
 
-    const { data } = await apiClient.get(`/views?viewable_type=Post&viewable_slug=${slug}`)
-    return NextResponse.json({
-      count: data.views_count,
-    })
-  } catch (error) {
-    return new Response('Could not post to views at this time. Please try later', { status: 500 })
+  if (!request?.name || !request?.email || !request?.subject || !request?.message) {
+    return NextResponse.json(
+      { error: { message: 'Missing email, name, subject or message' } },
+      {
+        status: 400,
+      },
+    )
   }
+
+  await apiClient.post('/contact', {
+    body: JSON.stringify({
+      contact: {
+        name: request.name,
+        email: request.email,
+        subject: request.subject,
+        message: request.message,
+      },
+    }),
+  })
 }

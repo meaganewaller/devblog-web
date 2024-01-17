@@ -42,22 +42,22 @@ export default function Connections() {
   if (!size.width || !size.height) return null
 
   const windowWidth = (width: number) => {
-    if (width <= 897) {
+    if (width <= 768) {
       return 300
     }
-    return 650
+    return 600
   }
 
   return (
     <Window
       title='lets-connect.txt'
       active={false}
-      x={size.width / 2}
-      y={size.height / 1.65}
-      zIndex='3'
+      x={Number(size.width / 2 < 520 ? size.width / 7 : size.width / 1.75) + 100}
+      y={Number(size.height / 1.5)}
+      zIndex='8'
       width={`${windowWidth(size.width)}px`}
       id='connections-window'
-      draggable={size.width > 897}
+      draggable={size.width > 767}
     >
       <ConnectionsContainer>
         {links.map((link) => (

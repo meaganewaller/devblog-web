@@ -1,180 +1,292 @@
 'use client'
-import React, { useState } from 'react'
+
+import { useState } from 'react'
+import { HiCheckCircle, HiExclamationCircle, HiX } from 'react-icons/hi'
+import tw, { styled } from 'twin.macro'
 
 import PageHeader from '@/components/page-header'
 
-const fields = {
-  name: {
-    key: 'name-field',
-    type: 'text',
-    valType: 'string',
-    label: 'Your name',
-    placeholder: 'Your name e.g. Darlene Alderson',
-    minLength: 2,
-    maxLength: 128,
-  },
-  email: {
-    key: 'email-field',
-    type: 'email',
-    valType: 'string',
-    label: 'Your email:',
-    placeholder: 'Your email e.g. dolores.haze@virtualrealty.com',
-    minLength: 5,
-    maxLength: 256,
-  },
-  subject: {
-    key: 'subject-field',
-    type: 'text',
-    valType: 'string',
-    label: 'Message subject:',
-    placeholder: 'Message subject e.g. General Inquiry',
-    minLength: 2,
-    maxLength: 64,
-  },
-  message: {
-    key: 'message-field',
-    type: 'textarea',
-    valType: 'string',
-    label: 'Message:',
-    placeholder: 'Your message',
-    minLength: 1,
-    maxLength: 256,
-  },
-}
-
-const fieldKeys = Object.keys(fields)
-
-const handleSubmit = async (e, pending, setPending, setMessage) => {
-  e.preventDefault()
-  if (pending) return
-
-  const data = {}
-  const els = []
-  let incomplete = false
-
-  for (const key of fieldKeys) {
-    const el = document.querySelector(`form #${key}`)
-    els.push(el)
-    data[key] = (el.value || '').trim()
-    incomplete |= data[key].length === 0
+const StyledSection = styled.div`
+  &:before,
+  &:after {
+    content: '';
+    height: 15px;
+    display: block;
+    width: 100%;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -moz-radial-gradient(
+      var(--color-background),
+      var(--color-background) 65%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0)
+    );
+    background-image: -webkit-radial-gradient(
+      var(--color-background),
+      var(--color-background) 65%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0)
+    );
+    background-image: radial-gradient(
+      var(--color-background),
+      var(--color-background) 65%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0)
+    );
+    background-size: 15px 15px;
+    background-size: 15px 15px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    position: absolute;
   }
 
-  if (incomplete) {
-    return
+  &:before {
+    left: 0;
+    top: -7px;
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
-  setPending(true)
-  setMessage(null)
 
-  // els.forEach((el) => {
-  //   // el.value = ""
-  // })
+  &:after {
+    bottom: -7px;
+    left: 0;
+  }
+`
 
-  try {
-    const res = await fetch('/api/contact', {
+const InnerSection = styled.div`
+  &:before {
+    left: -7px;
+    top: 0;
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  &:after {
+    right: -7px;
+    top: 0;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    display: block;
+    width: 15px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -moz-radial-gradient(
+      var(--color-background),
+      var(--color-background) 65%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0)
+    );
+    background-image: -webkit-radial-gradient(
+      var(--color-background),
+      var(--color-background) 65%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0)
+    );
+    background-image: radial-gradient(
+      var(--color-background),
+      var(--color-background) 65%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0)
+    );
+    background-size: 15px 15px;
+    background-repeat: repeat-y;
+  }
+`
+
+const Section = tw(StyledSection)`
+ w-[95%] max-w-[1300px] p-[50px] mx-auto font-extra mt-2 mb-10 bg-background relative
+`
+
+export default function Contact() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const data = {
+      name,
+      email,
+      subject,
+      message,
+    }
+
+    fetch('/api/contact', {
       method: 'POST',
-      body: JSON.stringify(data),
       headers: {
+        Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.status === 200) {
+        setSuccess(true)
+        setError(false)
+        setName('')
+        setEmail('')
+        setSubject('')
+        setMessage('')
+      } else {
+        setError(true)
+      }
     })
-
-    if (!res.ok) {
-      const { message } = await res.json()
-      setMessage(message)
-    } else {
-      setMessage('Message sent!')
-    }
-  } catch (error) {
-    console.error('Error:', error.message, error)
-    setMessage('Error occured sending message.')
   }
-  setPending(false)
-}
-
-const ChatPage = () => {
-  const [message, setMessage] = useState(null)
-  const [pending, setPending] = useState(false)
 
   return (
-    <div className='mx-auto max-w-full'>
-      <PageHeader title='Get in touch' centered={true} />
-      <div className='p-2'>
-        <div className='relative mx-auto my-0 w-full'>
-          <div className='p-[2em] pt-[1.25em]'>
-            <p className='text-justify font-extra font-light text-primary-txt'>
-              Hey there! I'm thrilled that you want to get in touch. Whether you have questions, ideas, or just want to
-              say hi, I'd love to hear from you.
-            </p>
-            <h3 className='mt-[1.5em]'>Have a Question?</h3>
-            <p className='text-justify font-extra font-light text-primary-txt'>
-              If you're curious about anything--from my journey in the tech world to the latest blog post--feel free to
-              ask. No question is too big or small, and I'll do my best to (eventually) provide an insightful answer.
-            </p>
-            <h3 className='mt-[1.5em]'>Share Your Ideas</h3>
-            <p className='text-justify font-extra font-light text-primary-txt'>
-              Got an idea for a blog post topic? Or maybe a suggestion on how I can make your reading experience even
-              better? I'm all ears! Your input helps shape the content I prioritize and create.
-            </p>
-            <h3 className='mt-[1.5em]'>Let's Connect</h3>
-            <p className='text-justify font-extra font-light text-primary-txt'>
-              I'm not just a software developer; I'm also a puzzle lover, reality TV aficionado, and more. Share your
-              interests and hobbies, and let's find common ground.
-            </p>
-            <h3 className='mt-[1.5em]'>Get Involved</h3>
-            <p className='text-justify font-extra font-light text-primary-txt'>
-              Want to collaborate, guest post, or share your own journey? I'm always excited to connect with fellow
-              bloggers, tech enthusiasts, and curious minds.
-            </p>
-            <h3 className='mt-[1.5em]'>Stay Social</h3>
-            <p className='text-justify font-extra font-light text-primary-txt'>
-              Connect on social media for the latest updates, behind-the-scenes peeks, and some of my favorite memes.
-              Let's keep the convo going!
-            </p>
-            <p className='my-[2em] text-justify font-extra font-light text-primary-txt'>
-              Fill out the form below, and I'll get back to you as soon as I can. Remember, this is a judgment-free
-              zone, so don't hesitate to reach out.
-            </p>
-            <hr className='mb-[1.5em] border-solid border-accent' />
-            <form
-              className='w-full break-words leading-5 text-primary-txt'
-              onSubmit={(e) => handleSubmit(e, pending, setPending, setMessage)}
+    <Section>
+      <InnerSection>
+        <PageHeader title="let's keep the convo going" centered={true} />
+        <div>
+          <p className='mx-auto mb-10 w-5/6 text-justify'>
+            Hey there! Got questions, ideas, or just wanna chat? Whether you're curious about tech, have blog
+            suggestions, or share common interests, I'm all ears. Connect on social for updates, drop your deets below,
+            and let's keep the convo rollin'! 🚀
+          </p>
+          {success && (
+            <div
+              className='mb-4 flex items-center border-l-4 border-vibrant-green bg-light-mint p-4 text-sm text-vibrant-green'
+              role='alert'
             >
-              {fieldKeys.map((key) => {
-                const field = fields[key]
-                return (
-                  <fieldset className='break-words p-4 leading-5 text-primary-txt' key={key}>
-                    <div className='overflow-auto break-words' key={key}>
-                      <label className='block w-full cursor-pointer font-mono text-sm uppercase' htmlFor={key}>
-                        {field.label}
-                      </label>
-                      {React.createElement(field.type === 'textarea' ? 'textarea' : 'input', {
-                        id: key,
-                        type: field.type,
-                        className:
-                          'overflow-visible py-3 px-2 m-0 w-full font-mono text-md bg-background rounded-none border border-solid appearance-none cursor-text border-accent focus:appearance-none',
-                        minLength: field.minLength,
-                        maxLength: field.maxLength,
-                        placeholder: field.placeholder,
-                      })}
-                    </div>
-                  </fieldset>
-                )
-              })}
-              {message && <p>{message}</p>}
-              <div className='mb-2 p-4 leading-5'>
-                <button
-                  type='submit'
-                  className='relative m-0 inline-flex cursor-pointer select-none items-center justify-center overflow-visible border-2 border-solid border-accent bg-bubblegum px-8 py-3 text-center font-mono uppercase text-primary-txt'
-                >
-                  {pending ? <div className='spinner' /> : 'Send'}
-                </button>
+              <HiCheckCircle className='mr-2 h-5 w-5 text-vibrant-green' aria-hidden='true' />
+              <span className='sr-only'>Success</span>
+              <div>
+                <span className='font-medium'>Success!</span> Your message has been sent, I will get back to you soon!
               </div>
-            </form>
-          </div>
+              <HiX
+                className='ml-auto h-5 w-5 text-vibrant-green hover:cursor-pointer hover:text-vibrant-green/50'
+                aria-hidden='true'
+                onClick={() => setSuccess(false)}
+              />
+            </div>
+          )}
+          {error && (
+            <div
+              className='mb-4 flex items-center border-l-4 border-raspberry-pink bg-soft-rose/40 p-4 text-sm text-raspberry-pink'
+              role='alert'
+            >
+              <HiExclamationCircle className='mr-2 h-5 w-5 text-raspberry-pink' aria-hidden='true' />
+              <span className='sr-only'>Error</span>
+              <div>
+                <span className='font-medium'>Error!</span> Your message could not be sent, please try again later.
+              </div>
+              <HiX
+                className='ml-auto h-5 w-5 text-raspberry-pink hover:cursor-pointer hover:text-raspberry-pink/50'
+                aria-hidden='true'
+                onClick={() => setError(false)}
+              />
+            </div>
+          )}
         </div>
-      </div>
-    </div>
+
+        <div>
+          <form>
+            <div className='mb-4'>
+              <div className='flex justify-between'>
+                <label htmlFor='email' className='block text-sm font-medium'>
+                  Name
+                </label>
+              </div>
+              <div className='mt-1'>
+                <input
+                  type='text'
+                  name='name'
+                  id='name'
+                  onChange={(e) => {
+                    setName(e.target.value)
+                  }}
+                  className='block w-full rounded-md border-blush bg-background text-espresso sm:text-sm'
+                  placeholder='Darlene Alderson'
+                  aria-describedby='name-optional'
+                />
+              </div>
+            </div>
+            <div className='mb-4'>
+              <div className='flex justify-between'>
+                <label htmlFor='email' className='block text-sm font-medium'>
+                  Email
+                </label>
+              </div>
+              <div className='mt-1'>
+                <input
+                  type='email'
+                  name='email'
+                  id='email'
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                  }}
+                  className='block w-full rounded-md border-blush bg-background text-espresso sm:text-sm'
+                  placeholder='dolores.haze@virtualrealty.com'
+                  aria-describedby='email-optional'
+                />
+              </div>
+            </div>
+            <div className='mb-4'>
+              <div className='flex justify-between'>
+                <label htmlFor='subject' className='block text-sm font-medium'>
+                  Subject
+                </label>
+              </div>
+              <div className='mt-1'>
+                <select
+                  id='subject'
+                  name='subject'
+                  className='block w-full rounded-md border-blush bg-background text-espresso sm:text-sm'
+                >
+                  <option></option>
+                  <option>General Inquiry</option>
+                  <option>Tech-related Question</option>
+                  <option>Blog Post Ideas</option>
+                  <option>Collaboration Opportunity</option>
+                  <option>Guest Post Submission</option>
+                  <option>Social Media Connection</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div className='mb-4'>
+              <label htmlFor='comment' className='block text-sm font-medium'>
+                What would you like to talk about?
+              </label>
+              <div className='mt-1'>
+                <textarea
+                  rows={4}
+                  name='comment'
+                  id='comment'
+                  onChange={(e) => {
+                    setMessage(e.target.value)
+                  }}
+                  className='block w-full rounded-md border-blush bg-background text-espresso sm:text-sm'
+                  placeholder='Lets talk, it could be about anything'
+                  defaultValue={''}
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                type='submit'
+                onClick={(e) => {
+                  handleSubmit(e)
+                }}
+                className='justify-center rounded-md border border-transparent bg-blush bg-raspberry-pink px-4 py-2 text-sm font-medium text-vanilla shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2'
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </InnerSection>
+    </Section>
   )
 }
-
-export default ChatPage
