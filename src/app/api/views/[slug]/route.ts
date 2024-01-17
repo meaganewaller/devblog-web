@@ -18,7 +18,7 @@ export const GET = async (_request: NextRequest, { params }: ViewsProp) => {
   })
 }
 
-export const POST = async (request: Request) => {
+export const POST = async (req: Request) => {
   const request = await req.json()
 
   if (!request?.name || !request?.email || !request?.subject || !request?.message) {
