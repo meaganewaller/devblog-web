@@ -18,7 +18,7 @@ export const Providers = ({ children }: { children: React.ReactNode }): JSX.Elem
       title={'Meagan Waller'}
       description={'Meagan Waller is a software engineer and web developer based in northeast Florida'}
     />
-    <NextThemeProvider attribute='class' defaultTheme={'system'} enableSystem>
+    <NextThemeProvider attribute='class' defaultTheme={'light'} enableSystem>
       <PlausibleProvider domain='meaganwaller.com'>
         <GlobalStateProvider>{children}</GlobalStateProvider>
         <ToastContainer />

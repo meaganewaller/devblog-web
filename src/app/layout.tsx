@@ -4,7 +4,7 @@ import '@/styles/globals.scss'
 
 import Navbar from '@/components/Layout/Navbar'
 
-import { metadataBase } from '@/constants/metadata'
+import { DEFAULT_META } from '@/constants/metadata'
 import { Providers } from '@/providers'
 
 export interface LayoutProps {
@@ -12,17 +12,19 @@ export interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  metadataBase,
-  title: {
-    default: 'meagan waller',
-    template: '%s | meagan waller',
+  ...DEFAULT_META,
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
   },
 }
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang='en' suppressHydrationWarning className={'font-sans 2xl:text-[24px]'}>
-      <body className='debug-screens flex flex-col bg-clouds dark:bg-nightsky'>
+      <body className='debug-screens flex flex-col bg-clouds'>
         <Providers>
           <Navbar />
           <main className='mt-12'>{children}</main>
