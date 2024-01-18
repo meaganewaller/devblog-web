@@ -2,7 +2,7 @@ const analyticsConfig = {
   vercel: false,
   google: false,
   umami: false,
-  umamiUrl: "https://umami.meaganwaller.com/script.js",
-};
+  umamiUrl: 'https://umami.meaganwaller.com/script.js',
+}
 
-export default analyticsConfig;
+export default analyticsConfig

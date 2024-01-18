@@ -1,5 +1,5 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 /**
  * This is a TypeScript function that takes an array of class names and returns a merged class name
@@ -10,7 +10,7 @@ import { twMerge } from "tailwind-merge";
  * is commonly used
  */
 export const tw = (...classes: ClassValue[]): string => {
-  return twMerge(clsx(classes));
-};
+  return twMerge(clsx(classes))
+}
 
-export default tw;
+export default tw

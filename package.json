@@ -27,7 +27,7 @@
     "email": "meagan@meaganwaller.com",
     "url": "https://meaganwaller.com"
   },
-  "prettier": "prettier",
+  "prettier": "@meaganewaller/prettier-config",
   "dependencies": {
     "@apollo/client": "^3.8.8",
     "@fontsource/dm-sans": "^5.0.18",
@@ -142,6 +142,15 @@
     "extends": [
       "next/core-web-vitals",
       "@meaganewaller/eslint-config"
+    ],
+    "ignorePatterns": [
+      "node_modules/",
+      ".next/",
+      "out/",
+      "public/",
+      "**/__tests__/**/*",
+      "**/__mocks__/**/*",
+      "**/*.d.ts"
     ],
     "parserOptions": {
       "project": "./tsconfig.json",

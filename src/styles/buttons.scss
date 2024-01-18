@@ -1,5 +1,5 @@
 .button {
-  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px] py-[17px] text-md text-on-accent no-underline font-venice shadow-[0px_6px_0px] shadow-accent-dark hover:bg-shadow-purple hover:no-underline hover:shadow-[0px_6px_0px] hover:shadow-toolbar;
+  @apply relative mt-[15%] inline-block cursor-pointer bg-accent px-[20px] py-[17px] font-venice text-md text-on-accent no-underline shadow-[0px_6px_0px] shadow-accent-dark hover:bg-shadow-purple hover:no-underline hover:shadow-[0px_6px_0px] hover:shadow-toolbar;
   margin-left: auto;
   margin-right: auto;
   border-radius: 24px;
@@ -8,7 +8,7 @@
   outline: none;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     z-index: -1;

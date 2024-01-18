@@ -1,10 +1,10 @@
-import { Suspense } from "react";
+import { Suspense } from 'react'
 
-import LoadingSpinner from "@/app/loading";
+import LoadingSpinner from '@/app/loading'
 
-import ViewsFetcher from "./views-fetcher";
+import ViewsFetcher from './views-fetcher'
 interface ViewsCounterProps {
-  slug: string;
+  slug: string
 }
 
 const ViewsCounter = ({ slug }: ViewsCounterProps) => {
@@ -18,7 +18,7 @@ const ViewsCounter = ({ slug }: ViewsCounterProps) => {
     >
       <ViewsFetcher slug={slug} />
     </Suspense>
-  );
-};
+  )
+}
 
-export default ViewsCounter;
+export default ViewsCounter

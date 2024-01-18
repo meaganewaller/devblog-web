@@ -1,10 +1,10 @@
 html,
 body {
-  @apply font-sans text-md font-normal text-secondary-txt leading-normal leading-relaxed;
+  @apply font-sans text-md font-normal leading-normal leading-relaxed text-secondary-txt;
 }
 
 a {
-  @apply text-accent no-underline hover:underline hover:decoration-wavy hover:decoration-accent-dark hover:text-accent-dark;
+  @apply text-accent no-underline hover:text-accent-dark hover:underline hover:decoration-accent-dark hover:decoration-wavy;
 }
 
 @media (min-width: 425px) {

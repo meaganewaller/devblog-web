@@ -42,11 +42,11 @@ html {
 }
 
 body {
-  @apply p-0 my-0 mx-auto w-full h-full font-sans text-md font-normal tracking-wide align-baseline break-words border-0 transform-none text-primary-txt;
+  @apply mx-auto my-0 h-full w-full transform-none break-words border-0 p-0 align-baseline font-sans text-md font-normal tracking-wide text-primary-txt;
 }
 
 .prose .anchor {
-  @apply absolute invisible no-underline;
+  @apply invisible absolute no-underline;
 
   margin-left: -1em;
   padding-right: 0.5em;
@@ -60,12 +60,12 @@ body {
 }
 
 .prose a {
-  @apply transition-all decoration-purple underline-offset-2 decoration-[0.1em];
+  @apply decoration-purple decoration-[0.1em] underline-offset-2 transition-all;
 }
 
 .prose .anchor:after {
   @apply text-tertiary-txt;
-  content: "#";
+  content: '#';
 }
 
 .prose *:hover > .anchor {
@@ -86,7 +86,7 @@ body {
 }
 
 a {
-  @apply text-espresso cursor-pointer decoration-wavy;
+  @apply cursor-pointer text-espresso decoration-wavy;
 
   &:focus {
     transition: 0.2s ease-in-out;
@@ -137,8 +137,8 @@ body {
   margin: 0 auto;
 }
 
-input[type="text"],
-input[type="email"] {
+input[type='text'],
+input[type='email'] {
   appearance: none;
 }
 
@@ -214,7 +214,7 @@ samp {
 
 /* Fix image border in Safari for lazy loading images. See https://nextjs.org/docs/api-reference/next/future/image#known-browser-bugs */
 @media not all and (min-resolution: 0.001dpcm) {
-  img[loading="lazy"] {
+  img[loading='lazy'] {
     clip-path: inset(0.5px);
   }
 }
@@ -251,6 +251,6 @@ body article {
 }
 
 .card {
-  @apply rounded-lg leading-snug text-primary-txt text-base p-4 relative shadow-lg mt-8 mx-auto border border-accent;
+  @apply relative mx-auto mt-8 rounded-lg border border-accent p-4 text-base leading-snug text-primary-txt shadow-lg;
   min-height: 100px;
 }

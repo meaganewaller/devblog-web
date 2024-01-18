@@ -1,10 +1,10 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { FC } from "react";
+import { AnimatePresence, motion } from 'framer-motion'
+import { FC } from 'react'
 
 interface Props {
-  isOpen: boolean;
-  setIsOpen: (state: boolean) => void;
-  children: React.ReactNode;
+  isOpen: boolean
+  setIsOpen: (state: boolean) => void
+  children: React.ReactNode
 }
 
 const backdropVariant = {
@@ -18,39 +18,35 @@ const backdropVariant = {
       delayChildren: 0.2,
     },
   },
-};
+}
 
 const modalVariant = {
   hidden: {
-    y: "-100vh",
+    y: '-100vh',
   },
   visible: {
     y: 0,
     transition: {
-      type: "spring",
+      type: 'spring',
       stiffness: 70,
     },
   },
-};
+}
 
 export const Modal: FC<Props> = ({ isOpen, setIsOpen, children }: Props) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="modal-backdrop"
+          className='modal-backdrop'
           variants={backdropVariant}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
+          initial='hidden'
+          animate='visible'
+          exit='hidden'
         >
-          <motion.div className="modal-container" variants={modalVariant}>
+          <motion.div className='modal-container' variants={modalVariant}>
             {children}
-            <motion.div
-              whileHover={{ rotate: 45 }}
-              className="close"
-              onClick={() => setIsOpen(false)}
-            >
+            <motion.div whileHover={{ rotate: 45 }} className='close' onClick={() => setIsOpen(false)}>
               <div></div>
               <div></div>
             </motion.div>
@@ -58,5 +54,5 @@ export const Modal: FC<Props> = ({ isOpen, setIsOpen, children }: Props) => {
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}

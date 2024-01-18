@@ -1,5 +1,5 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from 'react'
 
-import { isClient } from "@/utils";
+import { isClient } from '@/utils'
 
-export const useIsomorphicLayoutEffect = isClient ? useLayoutEffect : useEffect;
+export const useIsomorphicLayoutEffect = isClient ? useLayoutEffect : useEffect

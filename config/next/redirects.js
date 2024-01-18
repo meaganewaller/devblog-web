@@ -3,7 +3,7 @@ const buildRedirect = (source, destination, permanent = true) => {
     source,
     destination,
     permanent,
-  };
-};
+  }
+}
 
-module.exports = [];
+module.exports = []

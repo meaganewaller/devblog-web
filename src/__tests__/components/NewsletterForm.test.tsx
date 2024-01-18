@@ -1,24 +1,22 @@
-import { render, screen } from "@testing-library/react";
-import { expect, test } from "vitest";
+import { render, screen } from '@testing-library/react'
+import { expect, test } from 'vitest'
 
-import NewsletterForm from "../../components/NewsletterForm";
+import NewsletterForm from '../../components/NewsletterForm'
 
-test("renders NewsletterForm with default props", () => {
-  render(<NewsletterForm />);
+test('renders NewsletterForm with default props', () => {
+  render(<NewsletterForm />)
 
-  expect(screen.getByText("Subscribe to the Newsletter")).toBeInTheDocument();
-  expect(screen.getByLabelText("email")).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "Subscribe" })).toBeInTheDocument();
-});
+  expect(screen.getByText('Subscribe to the Newsletter')).toBeInTheDocument()
+  expect(screen.getByLabelText('email')).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Subscribe' })).toBeInTheDocument()
+})
 
-test("renders NewsletterForm with custom props", () => {
-  render(
-    <NewsletterForm title={["Custom title"]} subtitle="Custom subtitle" />,
-  );
+test('renders NewsletterForm with custom props', () => {
+  render(<NewsletterForm title={['Custom title']} subtitle='Custom subtitle' />)
 
-  expect(screen.getByText("Custom title")).toBeInTheDocument();
-  expect(screen.getByText("Custom subtitle")).toBeInTheDocument();
-});
+  expect(screen.getByText('Custom title')).toBeInTheDocument()
+  expect(screen.getByText('Custom subtitle')).toBeInTheDocument()
+})
 
 //test('subscribes to the newsletter', async () => {
 //  const user = userEvent.setup()

@@ -1,8 +1,8 @@
-import readingTime from "reading-time";
+import readingTime from 'reading-time'
 
-import { transformMarkdown } from "./markdown-to-html";
+import { transformMarkdown } from './markdown-to-html'
 
-import { Category, CategoryResponse, Post, PostResponse } from "@/types";
+import { Category, CategoryResponse, Post, PostResponse } from '@/types'
 
 export const convertToCategoryList = (tableData: CategoryResponse[]) => {
   const categories = tableData.map((category: CategoryResponse) => {
@@ -13,40 +13,40 @@ export const convertToCategoryList = (tableData: CategoryResponse[]) => {
       slug: category.slug,
       coverImage: category.cover_image,
       href: `/blog/categories/${category.slug}`,
-    };
-  });
+    }
+  })
 
-  return { categories };
-};
+  return { categories }
+}
 
 export const convertToTagList = (stringTags: string[]) => {
   const tags = stringTags.map((tag: string) => {
-    const queryParamTag = tag.toLowerCase();
+    const queryParamTag = tag.toLowerCase()
     return {
       name: tag,
       href: `/blog?tag=${queryParamTag}`,
-    };
-  });
+    }
+  })
 
-  return tags;
-};
+  return tags
+}
 
 export const convertPost = async (post: PostResponse) => {
-  const content = await transformMarkdown(post.content);
+  const content = await transformMarkdown(post.content)
 
   const category = {
     href: `/blog/categories/${post.category.slug}`,
     id: post.category.id,
     slug: post.category.slug,
     title: post.category.title,
-  } as Category;
+  } as Category
 
-  const tagList = post.tags || [];
+  const tagList = post.tags || []
   return {
     category,
     commentCount: Number(post.comment_count),
     content,
-    coverImage: post.cover_image || "https://placekitten.com/800/600",
+    coverImage: post.cover_image || 'https://placekitten.com/800/600',
     description: post.description,
     external: false,
     href: `/blog/${post.slug}`,
@@ -63,15 +63,15 @@ export const convertPost = async (post: PostResponse) => {
     tags: convertToTagList(tagList),
     title: post.title,
     views: Number(post.views),
-  } as Post;
-};
+  } as Post
+}
 
 export const convertPostList = async (posts: PostResponse[]) => {
   const postList = await Promise.all(
     posts.map(async (post: PostResponse) => {
-      return await convertPost(post);
+      return await convertPost(post)
     }),
-  );
+  )
 
-  return postList;
-};
+  return postList
+}

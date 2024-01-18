@@ -1,30 +1,30 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+'use client'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 
-import { View } from "@/types";
+import { View } from '@/types'
 
 interface ViewsFetcherProps {
-  slug: string;
+  slug: string
 }
 
 const ViewsFetcher = ({ slug }: ViewsFetcherProps) => {
   const { data } = useQuery({
-    queryKey: ["views", slug],
+    queryKey: ['views', slug],
     queryFn: async () => {
-      const { data } = await axios.get(`/api/views/${slug}`);
+      const { data } = await axios.get(`/api/views/${slug}`)
       return {
         slug,
         count: data.count,
-      } as View;
+      } as View
     },
     placeholderData: {
       slug,
       count: 0,
     },
     suspense: true,
-  });
-  return <>{data?.count}</>;
-};
+  })
+  return <>{data?.count}</>
+}
 
-export default ViewsFetcher;
+export default ViewsFetcher

@@ -1,5 +1,5 @@
-import { Footer } from "@/components/Layout/Footer/index";
-import { FooterDivider } from "@/components/Layout/FooterDivider";
+import { Footer } from '@/components/Layout/Footer/index'
+import { FooterDivider } from '@/components/Layout/FooterDivider'
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,7 +8,7 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
       <FooterDivider />
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default PageLayout;
+export default PageLayout

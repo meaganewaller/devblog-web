@@ -27,12 +27,6 @@
   },
   "extends": "@meaganewaller/tsconfig",
   "include": ["next-env.d.ts", "**/*.tsx", "**/*.ts", ".next/types/**/*.ts"],
-  "exclude": [
-    "node_modules",
-    "**/*.test.tsx",
-    "**/*.test.ts",
-    "src/components/core/window.tsx",
-    "**/mocks/*"
-  ],
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.test.ts", "src/components/core/window.tsx", "**/mocks/*"],
   "types": ["./src/types"]
 }

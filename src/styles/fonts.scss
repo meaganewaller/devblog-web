@@ -1,28 +1,28 @@
 :root {
-  --font-mono: "IBM Plex Mono";
-  --font-sans: "DM Sans";
+  --font-mono: 'IBM Plex Mono';
+  --font-sans: 'DM Sans';
 }
-@import "@fontsource/ibm-plex-mono";
-@import "@fontsource/dm-sans";
-@import "@fontsource/prata";
+@import '@fontsource/ibm-plex-mono';
+@import '@fontsource/dm-sans';
+@import '@fontsource/prata';
 
 @font-face {
-  font-family: "Press Start 2P", system-ui;
-  src: url("/static/fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-family: 'Press Start 2P', system-ui;
+  src: url('/static/fonts/PressStart2P-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Venice Classic";
-  src: url("/static/fonts/VeniceClassic.ttf") format("truetype");
+  font-family: 'Venice Classic';
+  src: url('/static/fonts/VeniceClassic.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "basiic";
-  src: url("/static/fonts/basiic.ttf") format("truetype");
+  font-family: 'basiic';
+  src: url('/static/fonts/basiic.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }

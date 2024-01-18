@@ -10,7 +10,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: "Auto-Assign Issue"
+      - name: 'Auto-Assign Issue'
         uses: pozil/auto-assign-issue@v1
         with:
           assignees: meaganewaller

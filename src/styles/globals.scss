@@ -1,32 +1,28 @@
-@import "./fonts.scss";
-@import "tailwindcss/base";
-@import "./reset.scss";
-@import "./custom-reset.scss";
+@import './fonts.scss';
+@import 'tailwindcss/base';
+@import './reset.scss';
+@import './custom-reset.scss';
 
 @tailwind components;
 
 @tailwind utilities;
 
-@import "./colors.scss";
-@import "./core.scss";
-@import "./buttons.scss";
-@import "./typography.scss";
-@import "./article.scss";
-@import "./toolbar.scss";
-@import "./animations.scss";
-@import "./modal.scss";
+@import './colors.scss';
+@import './core.scss';
+@import './buttons.scss';
+@import './typography.scss';
+@import './article.scss';
+@import './toolbar.scss';
+@import './animations.scss';
+@import './modal.scss';
 
 @layer components {
   .bg-pattern {
     @apply relative z-0;
 
     &::before {
-      @apply grid-pattern-toolbar absolute inset-0 z-[-1] content-[''];
-      mask-image: linear-gradient(
-        transparent,
-        rgba(var(--color-toolbar)),
-        transparent
-      );
+      @apply absolute inset-0 z-[-1] content-[''] grid-pattern-toolbar;
+      mask-image: linear-gradient(transparent, rgba(var(--color-toolbar)), transparent);
     }
   }
 }
@@ -40,7 +36,7 @@ html.dark-inverted {
 
     &::before {
       z-index: 9999;
-      content: "–";
+      content: '–';
     }
   }
 }
@@ -86,7 +82,7 @@ html.dark-inverted {
 .banner::before,
 .banner::after {
   @apply bg-accent dark:bg-bubblegum;
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   top: -20px;
@@ -117,26 +113,26 @@ html.dark-inverted {
   }
 }
 
-[data-category="Tutorials & Guides"] {
+[data-category='Tutorials & Guides'] {
   @apply bg-deep-pink text-light-peach hover:bg-light-peach hover:text-deep-pink;
 }
 
-[data-category="Deep Dives"] {
+[data-category='Deep Dives'] {
   @apply bg-deep-green text-soft-green hover:bg-soft-green hover:text-deep-green;
 }
 
-[data-category="How-to & Tips"] {
+[data-category='How-to & Tips'] {
   @apply bg-orchid text-royal-purple hover:bg-royal-purple hover:text-orchid;
 }
 
-[data-category="Professional Development"] {
+[data-category='Professional Development'] {
   @apply bg-sunflower-yellow text-vanilla hover:bg-vanilla hover:text-sunflower-yellow;
 }
 
-[data-category="News & Updates"] {
+[data-category='News & Updates'] {
   @apply bg-deep-sky-blue text-light-sky-blue hover:bg-light-sky-blue hover:text-deep-sky-blue;
 }
 
-[data-category="Coding Challenges"] {
+[data-category='Coding Challenges'] {
   @apply bg-deep-purple text-lilac hover:bg-lilac hover:text-deep-purple;
 }
