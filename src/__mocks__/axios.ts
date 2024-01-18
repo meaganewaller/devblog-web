@@ -1,6 +1,6 @@
-import { vi } from 'vitest'
+import { vi } from "vitest";
 
 export default {
   get: vi.fn(),
   post: vi.fn(),
-}
+};

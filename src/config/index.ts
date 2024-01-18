@@ -1,3 +1,3 @@
-import getConfig from 'next/config'
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
-export { publicRuntimeConfig, serverRuntimeConfig }
+import getConfig from "next/config";
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
+export { publicRuntimeConfig, serverRuntimeConfig };

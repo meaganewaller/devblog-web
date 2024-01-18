@@ -1,15 +1,15 @@
-import tw, { styled } from 'twin.macro'
+import tw, { styled } from "twin.macro";
 
 export const PostListContainer = tw.div`
   flex max-w-3xl w-[90%] flex-col h-full items-center content-center justify-center mx-auto p-4
-`
+`;
 
 export const PostList = styled.ol`
   margin: 0 auto;
   list-style: none;
   counter-reset: post;
   width: 90%;
-`
+`;
 
 export const PostItem = styled.li`
   padding: 1em 0;
@@ -38,4 +38,4 @@ export const PostItem = styled.li`
     top: 20px;
     left: -50px;
   }
-`
+`;

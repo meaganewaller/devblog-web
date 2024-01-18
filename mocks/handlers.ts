@@ -1,10 +1,10 @@
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse } from "msw";
 
 export const handlers = [
-  http.post('/api/convertkit', () => {
+  http.post("/api/convertkit", () => {
     return HttpResponse.json({
-      status: 'success',
-      message: 'Successfully subscribed!',
-    })
+      status: "success",
+      message: "Successfully subscribed!",
+    });
   }),
-]
+];

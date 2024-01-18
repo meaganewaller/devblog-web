@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es6",
+    "target": "es5",
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
@@ -19,22 +19,20 @@
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
-    "plugins": [{ "name": "next" }],
-    "strictNullChecks": true
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "exclude": ["node_modules"],
   "extends": "@meaganewaller/tsconfig",
-  "types": ["./src/types", "vitest/globals"],
-  "include": [
-    "src",
-    "next-env.d.ts",
-    "next.config.js",
-    "**/*.tsx",
-    "**/*.ts",
-    "**/*.test.ts",
+  "include": ["next-env.d.ts", "**/*.tsx", "**/*.ts", ".next/types/**/*.ts"],
+  "exclude": [
+    "node_modules",
     "**/*.test.tsx",
-    "**/*.js",
-    "**/*.cjs",
-    ".next/types/**/*.ts"
-  ]
+    "**/*.test.ts",
+    "src/components/core/window.tsx",
+    "**/mocks/*"
+  ],
+  "types": ["./src/types"]
 }

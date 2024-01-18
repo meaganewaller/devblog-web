@@ -1,31 +1,32 @@
-import { vi, describe, it, expect } from 'vitest'
-import * as date from '../../utils/date'
+import { describe, expect, it, vi } from "vitest";
 
-describe('getDateISO', () => {
-  it('returns ISO date', () => {
-    vi.useFakeTimers().setSystemTime(new Date('05-02-2021').getTime())
+import * as date from "../../utils/date";
 
-    expect(date.getDateISO()).toBe('2021-05-02T04:00:00.000Z')
-  })
-})
+describe("getDateISO", () => {
+  it("returns ISO date", () => {
+    vi.useFakeTimers().setSystemTime(new Date("05-02-2021").getTime());
 
-describe('formatDateToISO', () => {
-  it('returns ISO date', () => {
-    const testDate = new Date('05-02-2021')
-    expect(date.formatDateToISO(testDate)).toBe('2021-05-02T04:00:00.000Z')
-  })
-})
+    expect(date.getDateISO()).toBe("2021-05-02T04:00:00.000Z");
+  });
+});
 
-describe('formatDate', () => {
-  it('returns formatted date', () => {
-    expect(date.formatDate('03-02-2021')).toBe('Tuesday, March 02, 2021')
-  })
-})
+describe("formatDateToISO", () => {
+  it("returns ISO date", () => {
+    const testDate = new Date("05-02-2021");
+    expect(date.formatDateToISO(testDate)).toBe("2021-05-02T04:00:00.000Z");
+  });
+});
 
-describe('formatDistance', () => {
-  it('returns formatted distance', () => {
-    vi.useFakeTimers().setSystemTime(new Date('05-02-2021').getTime())
+describe("formatDate", () => {
+  it("returns formatted date", () => {
+    expect(date.formatDate("03-02-2021")).toBe("Tuesday, March 02, 2021");
+  });
+});
 
-    expect(date.formatDistance('03-02-2021')).toBe('2 months')
-  })
-})
+describe("formatDistance", () => {
+  it("returns formatted distance", () => {
+    vi.useFakeTimers().setSystemTime(new Date("05-02-2021").getTime());
+
+    expect(date.formatDistance("03-02-2021")).toBe("2 months");
+  });
+});

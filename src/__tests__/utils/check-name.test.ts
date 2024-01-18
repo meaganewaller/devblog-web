@@ -1,12 +1,13 @@
-import { describe, it, expect } from 'vitest'
-import { checkName } from '../../utils/check-name'
+import { describe, expect, it } from "vitest";
 
-describe('checkName', () => {
-  it('returns true when name is valid', () => {
-    expect(checkName('John Doe')).toBe(true)
-  })
+import { checkName } from "../../utils/check-name";
 
-  it('returns false when name is empty', () => {
-    expect(checkName('')).toBe(false)
-  })
-})
+describe("checkName", () => {
+  it("returns true when name is valid", () => {
+    expect(checkName("John Doe")).toBe(true);
+  });
+
+  it("returns false when name is empty", () => {
+    expect(checkName("")).toBe(false);
+  });
+});

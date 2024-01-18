@@ -1,6 +1,6 @@
-import Connections from './_components/Connections'
-import Intro from './_components/Intro'
-import RecentPosts from './_components/RecentPosts'
+import Connections from "./_components/Connections";
+import Intro from "./_components/Intro";
+import RecentPosts from "./_components/RecentPosts";
 
 const Page = async () => {
   return (
@@ -9,7 +9,7 @@ const Page = async () => {
       <Intro />
       <Connections />
     </>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

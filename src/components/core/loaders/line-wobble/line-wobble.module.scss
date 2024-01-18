@@ -11,7 +11,7 @@
 }
 
 .container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@
 }
 
 .container::after {
-  content: '';
+  content: "";
   height: 100%;
   width: 100%;
   border-radius: calc(var(--uib-line-weight) / 2);

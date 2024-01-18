@@ -68,7 +68,7 @@ body {
   content: "#";
 }
 
-.prose *:hover>.anchor {
+.prose *:hover > .anchor {
   @apply visible;
 }
 
@@ -79,7 +79,7 @@ body {
   max-width: 100% !important;
 }
 
-.prose> :first-child {
+.prose > :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
@@ -137,8 +137,8 @@ body {
   margin: 0 auto;
 }
 
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
   appearance: none;
 }
 
@@ -177,13 +177,15 @@ samp {
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar-track {
-  background-image: -webkit-linear-gradient(top,
-      #ffb5cd 2%,
-      #ffcca8 17%,
-      #fff6b7 35%,
-      #daffb7 55%,
-      #aadeff 76%,
-      #cebafc 97%);
+  background-image: -webkit-linear-gradient(
+    top,
+    #ffb5cd 2%,
+    #ffcca8 17%,
+    #fff6b7 35%,
+    #daffb7 55%,
+    #aadeff 76%,
+    #cebafc 97%
+  );
   border-radius: 0px;
   width: 0px;
   border: 1px dotted #8f38ff;
@@ -212,7 +214,7 @@ samp {
 
 /* Fix image border in Safari for lazy loading images. See https://nextjs.org/docs/api-reference/next/future/image#known-browser-bugs */
 @media not all and (min-resolution: 0.001dpcm) {
-  img[loading='lazy'] {
+  img[loading="lazy"] {
     clip-path: inset(0.5px);
   }
 }

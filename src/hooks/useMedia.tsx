@@ -1,20 +1,20 @@
-'use client'
-import { useLayoutEffect, useState } from 'react'
+"use client";
+import { useLayoutEffect, useState } from "react";
 
 export const useMedia = () => {
-  const [isMobile, setMobile] = useState(false)
+  const [isMobile, setMobile] = useState(false);
 
   const onResize = () => {
-    const isMobile = window.innerWidth < 768
-    setMobile(isMobile)
-  }
+    const isMobile = window.innerWidth < 768;
+    setMobile(isMobile);
+  };
 
   useLayoutEffect(() => {
-    window.addEventListener('resize', onResize)
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener('resize', onResize)
-    }
-  }, [])
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
-  return { isMobile }
-}
+  return { isMobile };
+};

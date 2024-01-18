@@ -1,29 +1,29 @@
 // From https://github.com/donavon/use-interval/blob/master/src/index.tsx
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
-type Delay = number | null
+type Delay = number | null;
 // eslint-disable-next-line
-type TimerHandler = (...args: any[]) => void
+type TimerHandler = (...args: any[]) => void;
 
 const useInterval = (callback: TimerHandler, delay: Delay) => {
-  const savedCallbackRef = useRef<TimerHandler>()
+  const savedCallbackRef = useRef<TimerHandler>();
 
   useEffect(() => {
-    savedCallbackRef.current = callback
-  }, [callback])
+    savedCallbackRef.current = callback;
+  }, [callback]);
 
   useEffect(() => {
     // eslint-disable-next-line
-    const handler = (...args: any[]) => savedCallbackRef.current!(...args)
+    const handler = (...args: any[]) => savedCallbackRef.current!(...args);
 
     if (delay !== null) {
-      const intervalId = setInterval(handler, delay)
-      return () => clearInterval(intervalId)
+      const intervalId = setInterval(handler, delay);
+      return () => clearInterval(intervalId);
     } else {
-      return
+      return;
     }
-  }, [delay])
-}
+  }, [delay]);
+};
 
-export default useInterval
+export default useInterval;

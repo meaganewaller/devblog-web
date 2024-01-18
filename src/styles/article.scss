@@ -5,50 +5,48 @@
   @apply my-0;
 }
 
-.mdx-article ul:not([aria-label='Social links']),
-.mdx-article ol:not([aria-label='Social links']) {
+.mdx-article ul:not([aria-label="Social links"]),
+.mdx-article ol:not([aria-label="Social links"]) {
   @apply relative flex list-none flex-col;
   @apply -mt-2 ml-4 gap-6 pl-24;
   counter-reset: start 1;
 
-  &>li {
+  & > li {
     @apply m-0 pl-0;
 
     &::before {
-      content: counter(list-item, decimal) '.';
+      content: counter(list-item, decimal) ".";
       position: absolute;
       font-weight: inherit;
       @apply left-0 -ml-4 text-tertiary-txt;
     }
 
-    &>ol {
+    & > ol {
       @apply m-0;
     }
 
-    &>ol>li::before,
-    &>ul>li::before {
+    & > ol > li::before,
+    & > ul > li::before {
       content: counter(list-item, disc);
       @apply m-0;
     }
   }
 }
 
-.mdx-article ul:not([aria-label='Social links'])>li::before {
+.mdx-article ul:not([aria-label="Social links"]) > li::before {
   content: counter(list-item, disc);
 }
 
 article.mdx-article {
-
   & h1,
   & h2,
   & h3,
   & h4,
   & h5,
   & h6 {
-
     &:hover,
     &:focus {
-      &>a.anchor {
+      & > a.anchor {
         @apply visible;
       }
     }
@@ -66,7 +64,7 @@ article.mdx-article {
     &::after {
       @apply text-tertiary-txt no-underline;
       text-align: end;
-      content: '#';
+      content: "#";
     }
   }
 
@@ -79,12 +77,12 @@ article.mdx-article {
     & li {
       @apply flex items-center gap-6;
 
-      & input[type='checkbox'] {
+      & input[type="checkbox"] {
         @apply h-16 w-16 text-accent;
       }
 
       &::before {
-        content: '';
+        content: "";
         @apply hidden;
       }
     }
@@ -96,7 +94,7 @@ article.mdx-article {
   }
 
   /* Social Links component */
-  ul[aria-label='Social links'] {
+  ul[aria-label="Social links"] {
     @apply flex list-none items-center text-secondary-txt;
   }
 }
@@ -121,8 +119,8 @@ article.mdx-article {
   @apply rounded-sm bg-accent-dark/[0.056] px-8 py-4 dark:bg-accent-dark/[0.096];
 }
 
-[data-rehype-pretty-code-fragment] [data-line-numbers]>.line,
-[data-rehype-pretty-code-fragment] [data-line-numbers]>[data-line] {
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line,
+[data-rehype-pretty-code-fragment] [data-line-numbers] > [data-line] {
   &::before {
     @apply text-tertiary-txt;
     counter-increment: line;
@@ -134,8 +132,10 @@ article.mdx-article {
   }
 }
 
-[data-rehype-pretty-code-fragment] [data-line-numbers-max-digits='2']>.line,
-[data-rehype-pretty-code-fragment] [data-line-numbers-max-digits='2']>[data-line] {
+[data-rehype-pretty-code-fragment] [data-line-numbers-max-digits="2"] > .line,
+[data-rehype-pretty-code-fragment]
+  [data-line-numbers-max-digits="2"]
+  > [data-line] {
   @apply pl-6;
 
   &::before {
@@ -143,8 +143,10 @@ article.mdx-article {
   }
 }
 
-[data-rehype-pretty-code-fragment] [data-line-numbers-max-digits='3']>.line,
-[data-rehype-pretty-code-fragment] [data-line-numbers-max-digits='3']>[data-line] {
+[data-rehype-pretty-code-fragment] [data-line-numbers-max-digits="3"] > .line,
+[data-rehype-pretty-code-fragment]
+  [data-line-numbers-max-digits="3"]
+  > [data-line] {
   @apply pl-8;
 
   &::before {
@@ -153,19 +155,17 @@ article.mdx-article {
 }
 
 html.light [data-rehype-pretty-code-fragment] {
-
-  [data-theme='dark'],
-  pre[data-theme='dark'],
-  code[data-theme='dark'] {
+  [data-theme="dark"],
+  pre[data-theme="dark"],
+  code[data-theme="dark"] {
     @apply pointer-events-none invisible hidden select-none;
   }
 }
 
 html.dark [data-rehype-pretty-code-fragment] {
-
-  [data-theme='light'],
-  pre[data-theme='light'],
-  code[data-theme='light'] {
+  [data-theme="light"],
+  pre[data-theme="light"],
+  code[data-theme="light"] {
     @apply pointer-events-none invisible hidden select-none;
   }
 }

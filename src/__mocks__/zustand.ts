@@ -1,9 +1,9 @@
-import actualCreate from 'zustand'
-import { vi } from 'vitest'
+import { vi } from "vitest";
+import actualCreate from "zustand";
 
 const create = vi.fn((createState) => {
-  const store = actualCreate(createState)
-  return store
-})
+  const store = actualCreate(createState);
+  return store;
+});
 
-export default create
+export default create;

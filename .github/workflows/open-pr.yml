@@ -18,5 +18,3 @@ jobs:
               repo: context.repo.repo,
               body: `Thank you for submitting a pull request (PR) to my devblog's frontend! It means a lot that you took the time to contribute to my lil corner on the internet.`
             })
-
-

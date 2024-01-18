@@ -1,20 +1,20 @@
-@import './fonts.scss';
-@import 'tailwindcss/base';
-@import './reset.scss';
-@import './custom-reset.scss';
+@import "./fonts.scss";
+@import "tailwindcss/base";
+@import "./reset.scss";
+@import "./custom-reset.scss";
 
 @tailwind components;
 
 @tailwind utilities;
 
-@import './colors.scss';
-@import './core.scss';
-@import './buttons.scss';
-@import './typography.scss';
-@import './article.scss';
-@import './toolbar.scss';
-@import './animations.scss';
-@import './modal.scss';
+@import "./colors.scss";
+@import "./core.scss";
+@import "./buttons.scss";
+@import "./typography.scss";
+@import "./article.scss";
+@import "./toolbar.scss";
+@import "./animations.scss";
+@import "./modal.scss";
 
 @layer components {
   .bg-pattern {
@@ -22,7 +22,11 @@
 
     &::before {
       @apply grid-pattern-toolbar absolute inset-0 z-[-1] content-[''];
-      mask-image: linear-gradient(transparent, rgba(var(--color-toolbar)), transparent);
+      mask-image: linear-gradient(
+        transparent,
+        rgba(var(--color-toolbar)),
+        transparent
+      );
     }
   }
 }
@@ -30,20 +34,20 @@
 html.inverted,
 html.light-inverted,
 html.dark-inverted {
-
   &,
   & * {
     @apply pointer-events-none select-none invert-[1.5] saturate-[30];
 
     &::before {
       z-index: 9999;
-      content: '–';
+      content: "–";
     }
   }
 }
 
 .blog-header {
-  text-shadow: 0 0 0 rgba(var(--color-bubblegum)),
+  text-shadow:
+    0 0 0 rgba(var(--color-bubblegum)),
     0 0 0 rgba(var(--color-bubblegum)),
     0 0 0 rgba(var(--color-bubblegum)),
     0 0 1px rgba(var(--color-bubblegum)),
@@ -55,11 +59,12 @@ html.dark-inverted {
     1px 0 10px rgba(var(--color-bubblegum)),
     1px 0 10px rgba(var(--color-bubblegum)),
     1px 0 50px rgba(var(--color-bubblegum)),
-    1px 0 50px rgba(var(--color-bubblegum))
+    1px 0 50px rgba(var(--color-bubblegum));
 }
 
 .blog-header:hover {
-  text-shadow: 0 0 0 rgba(var(--color-robins-egg-blue)),
+  text-shadow:
+    0 0 0 rgba(var(--color-robins-egg-blue)),
     0 0 0 rgba(var(--color-robins-egg-blue)),
     0 0 0 rgba(var(--color-robins-egg-blue)),
     0 0 1px rgba(var(--color-robins-egg-blue)),
@@ -71,7 +76,7 @@ html.dark-inverted {
     1px 0 10px rgba(var(--color-robins-egg-blue)),
     1px 0 10px rgba(var(--color-robins-egg-blue)),
     1px 0 50px rgba(var(--color-robins-egg-blue)),
-    1px 0 50px rgba(var(--color-robins-egg-blue))
+    1px 0 50px rgba(var(--color-robins-egg-blue));
 }
 
 .banner {
@@ -125,7 +130,7 @@ html.dark-inverted {
 }
 
 [data-category="Professional Development"] {
-  @apply bg-sunflower-yellow text-vanilla hover:bg-vanilla hover:text-sunflower-yellow
+  @apply bg-sunflower-yellow text-vanilla hover:bg-vanilla hover:text-sunflower-yellow;
 }
 
 [data-category="News & Updates"] {

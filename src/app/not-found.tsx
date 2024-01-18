@@ -1,43 +1,49 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { Metadata } from 'next/types'
+import Image from "next/image";
+import Link from "next/link";
+import { Metadata } from "next/types";
 
-import { useWindowSize } from '@/hooks/use-window-size'
+import { useWindowSize } from "@/hooks/use-window-size";
 
-import { Window } from '@/components/core/window'
+import { Window } from "@/components/core/window";
 
-export const metadata: Metadata = { title: '404 - Page not found' }
+export const metadata: Metadata = { title: "404 - Page not found" };
 
 function NotFound() {
-  const size = useWindowSize()
-  if (!size.width || !size.height) return null
+  const size = useWindowSize();
+  if (!size.width || !size.height) return null;
   return (
     <>
       <Window
-        title='not-found.txt'
+        draggable={false}
+        title="not-found.txt"
         active={true}
         x={size.width / 2.45}
         y={size.height / 12}
-        zIndex='2'
+        zIndex="2"
         width={`${size.width * 0.55}px`}
-        height='500px'
-        id='not-found-window'
+        height="500px"
+        id="not-found-window"
       >
-        <div className='mt-5 w-full text-center'>
+        <div className="mt-5 w-full text-center">
           <Image
-            className='m-auto block w-[250px]'
-            src={'/static/images/ui/sadcomputer.svg'}
+            className="m-auto block w-[250px]"
+            src={"/static/images/ui/sadcomputer.svg"}
             width={500}
             height={500}
-            alt='Sad computer'
+            alt="Sad computer"
           />
-          <div className='text-center'>
-            <h1 className='mt-5 font-venice text-5xl text-primary-txt'>error 404</h1>
-            <p className='w-full font-extra text-md leading-relaxed text-primary-txt'>
+          <div className="text-center">
+            <h1 className="mt-5 font-venice text-5xl text-primary-txt">
+              error 404
+            </h1>
+            <p className="w-full font-extra text-md leading-relaxed text-primary-txt">
               page not found. <br />
-              <Link className='text-accent hover:underline hover:decoration-wavy' href='/'>
+              <Link
+                className="text-accent hover:underline hover:decoration-wavy"
+                href="/"
+              >
                 go back home
               </Link>
             </p>
@@ -45,7 +51,7 @@ function NotFound() {
         </div>
       </Window>
     </>
-  )
+  );
 }
 
-export default NotFound
+export default NotFound;
