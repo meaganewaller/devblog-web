@@ -1,5 +1,5 @@
-import { format, formatDistanceToNow } from 'date-fns/esm'
-import enUS from 'date-fns/esm/locale/en-US'
+import { format, formatDistanceToNow } from 'date-fns'
+import { enUS } from 'date-fns/locale'
 import { match, P } from 'ts-pattern'
 
 export const getDateISO = () => new Date().toISOString()
